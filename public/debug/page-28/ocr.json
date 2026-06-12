@@ -1,0 +1,305 @@
+{
+  "page": 28,
+  "blocks": [
+    {
+      "matchNumber": 55,
+      "blockTop": 241,
+      "teams": {
+        "home": {
+          "code": "CUW",
+          "ocr": "Curagao",
+          "name": "Curagao"
+        },
+        "away": {
+          "code": "CIV",
+          "ocr": "Cote d'Ivoire",
+          "name": "Cote d'Ivoire"
+        }
+      },
+      "colors": {
+        "CUW": {
+          "player": {
+            "shirt": {
+              "raw": "blue Goalkeeper",
+              "color": "blue",
+              "rect": {
+                "left": 73,
+                "top": 436,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "blue / yellow",
+              "color": "blue / yellow",
+              "rect": {
+                "left": 162,
+                "top": 436,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "blue / yellow",
+              "color": "blue / yellow",
+              "rect": {
+                "left": 256,
+                "top": 436,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "light grey / black",
+              "color": "light grey / black",
+              "rect": {
+                "left": 73,
+                "top": 611,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "AIREY light grey / black",
+              "color": "light grey / black",
+              "rect": {
+                "left": 162,
+                "top": 611,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "light grey / black",
+              "color": "light grey / black",
+              "rect": {
+                "left": 256,
+                "top": 611,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "CIV": {
+          "player": {
+            "shirt": {
+              "raw": "EE orange / green",
+              "color": "orange / green",
+              "rect": {
+                "left": 646,
+                "top": 436,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "orange / green",
+              "color": "orange / green",
+              "rect": {
+                "left": 746,
+                "top": 436,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "orange",
+              "color": "orange",
+              "rect": {
+                "left": 846,
+                "top": 436,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "CR yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 646,
+                "top": 611,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "EN yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 746,
+                "top": 611,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 846,
+                "top": 611,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "matchNumber": 56,
+      "blockTop": 788,
+      "teams": {
+        "home": {
+          "code": "ECU",
+          "ocr": "Ecuador",
+          "name": "Ecuador"
+        },
+        "away": {
+          "code": "GER",
+          "ocr": "Germany",
+          "name": "Germany"
+        }
+      },
+      "colors": {
+        "ECU": {
+          "player": {
+            "shirt": {
+              "raw": "yellow / navy blue",
+              "color": "yellow / blue",
+              "rect": {
+                "left": 73,
+                "top": 983,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "navy blue",
+              "color": "blue",
+              "rect": {
+                "left": 162,
+                "top": 983,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "navy blue / red",
+              "color": "blue / red",
+              "rect": {
+                "left": 256,
+                "top": 983,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "L light grey / navy blue",
+              "color": "light grey / blue",
+              "rect": {
+                "left": 73,
+                "top": 1158,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "-r light grey / navy blue",
+              "color": "light grey / blue",
+              "rect": {
+                "left": 162,
+                "top": 1158,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- light grey / navy blue",
+              "color": "light grey / blue",
+              "rect": {
+                "left": 256,
+                "top": 1158,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "GER": {
+          "player": {
+            "shirt": {
+              "raw": "navy blue / turquoise",
+              "color": "blue / turquoise",
+              "rect": {
+                "left": 646,
+                "top": 983,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "EE we he turquoise/ tt navy blue",
+              "color": "turquoise / blue",
+              "rect": {
+                "left": 746,
+                "top": 983,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "turquoise / navy blue",
+              "color": "turquoise / blue",
+              "rect": {
+                "left": 846,
+                "top": 983,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "v - orange / blue",
+              "color": "orange / blue",
+              "rect": {
+                "left": 646,
+                "top": 1158,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "Sy WW a 2 orange / blue or",
+              "color": "orange / blue",
+              "rect": {
+                "left": 746,
+                "top": 1158,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- orange / blue",
+              "color": "orange / blue",
+              "rect": {
+                "left": 846,
+                "top": 1158,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --popover: #ffffff;
+  --muted-foreground: #525252;
+  --senegal-green: #00853f;
+  --gold: #d4af37;
+}
+
+.dark {
+  --background: #050505;
+  --foreground: #f5f5f5;
+  --card: #111111;
+  --popover: #141414;
+  --muted-foreground: #a3a3a3;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-popover: var(--popover);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-senegal-green: var(--senegal-green);
+  --color-gold: var(--gold);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-gradient {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 133, 63, 0.25), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.12), transparent);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
 }

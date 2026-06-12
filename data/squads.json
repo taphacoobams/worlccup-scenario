@@ -1,0 +1,1924 @@
+{
+  "teams": [
+    {
+      "code": "ALG",
+      "coach": "Vladimir Petkovic",
+      "players": {
+        "GK": [
+          "Mastil",
+          "Benbot",
+          "Zidane"
+        ],
+        "DF": [
+          "Mandi",
+          "Abada",
+          "Tougai",
+          "Belaid",
+          "Hadjam",
+          "Ait-Nouri",
+          "Belghali",
+          "Bensebaini",
+          "Chergui"
+        ],
+        "MF": [
+          "Zerrouki",
+          "Aouar",
+          "Chaibi",
+          "Boudaoui",
+          "Bentaleb",
+          "Maza",
+          "Titraoui"
+        ],
+        "FW": [
+          "Mahrez",
+          "Gouiri",
+          "Hadj",
+          "Benbouali",
+          "Amoura",
+          "Boulbina",
+          "Ghedjemis"
+        ]
+      }
+    },
+    {
+      "code": "ARG",
+      "coach": "Lionel Scaloni",
+      "players": {
+        "GK": [
+          "Musso",
+          "Rulli",
+          "Martinez"
+        ],
+        "DF": [
+          "Balerdi",
+          "Tagliafico",
+          "Montiel",
+          "Martinez",
+          "Romero",
+          "Otamendi",
+          "Medina",
+          "Molina"
+        ],
+        "MF": [
+          "Paredes",
+          "De",
+          "Barco",
+          "Lo",
+          "Palacios",
+          "Gonzalez",
+          "Mac",
+          "Fernandez"
+        ],
+        "FW": [
+          "Alvarez",
+          "Messi",
+          "Almada",
+          "Simeone",
+          "Paz",
+          "Lopez",
+          "Martinez"
+        ]
+      }
+    },
+    {
+      "code": "AUS",
+      "coach": "Tony Popovic",
+      "players": {
+        "GK": [
+          "Ryan",
+          "Izzo",
+          "Beach"
+        ],
+        "DF": [
+          "Degenek",
+          "Circati",
+          "Italiano",
+          "Bos",
+          "Geria",
+          "Trewin",
+          "Behich",
+          "Souttar",
+          "Burgess",
+          "Herrington"
+        ],
+        "MF": [
+          "Metcalfe",
+          "Oneill",
+          "Devlin",
+          "Irvine",
+          "Okon-Engstler"
+        ],
+        "FW": [
+          "Leckie",
+          "Toure",
+          "Hrustic",
+          "Mabil",
+          "Irankunda",
+          "Volpato",
+          "Velupillay",
+          "Yengi"
+        ]
+      }
+    },
+    {
+      "code": "AUT",
+      "coach": "Ralf Rangnick",
+      "players": {
+        "GK": [
+          "Schlager",
+          "Wiegele",
+          "Pentz"
+        ],
+        "DF": [
+          "Affengruber",
+          "Danso",
+          "Posch",
+          "Alaba",
+          "Lienhart",
+          "Mwene",
+          "Friedl",
+          "Svoboda"
+        ],
+        "MF": [
+          "Schlager",
+          "Seiwald",
+          "Sabitzer",
+          "Grillitsch",
+          "Chukwuemeka",
+          "Schmid",
+          "Baumgartner",
+          "Laimer",
+          "Prass",
+          "Wanner",
+          "Schoepf"
+        ],
+        "FW": [
+          "Arnautovic",
+          "Gregoritsch",
+          "Kalajdzic",
+          "Wimmer"
+        ]
+      }
+    },
+    {
+      "code": "BEL",
+      "coach": "Rudi Garcia",
+      "players": {
+        "GK": [
+          "Courtois",
+          "Lammens",
+          "Penders"
+        ],
+        "DF": [
+          "Debast",
+          "Theate",
+          "Mechele",
+          "De",
+          "Meunier",
+          "De",
+          "Seys",
+          "Castagne",
+          "Ngoy"
+        ],
+        "MF": [
+          "Witsel",
+          "De",
+          "Tielemans",
+          "Moreira",
+          "Vanaken",
+          "Saelemaekers",
+          "Raskin",
+          "Onana"
+        ],
+        "FW": [
+          "Lukaku",
+          "Trossard",
+          "Doku",
+          "Lukebakio",
+          "De",
+          "Fernandez-Pardo"
+        ]
+      }
+    },
+    {
+      "code": "BIH",
+      "coach": "Sergej Barbarez",
+      "players": {
+        "GK": [
+          "Vasilj",
+          "Jurkas",
+          "Zlomislic"
+        ],
+        "DF": [
+          "Mujakic",
+          "Hadzikadunic",
+          "Muharemovic",
+          "Kolasinac",
+          "Dedic",
+          "Katic",
+          "Radeljic",
+          "Celik"
+        ],
+        "MF": [
+          "Tahirovic",
+          "Gigovic",
+          "Basic",
+          "Sunjic",
+          "Memic",
+          "Hadziahmetovic",
+          "Burnic",
+          "Mahmic"
+        ],
+        "FW": [
+          "Bazdar",
+          "Demirovic",
+          "Dzeko",
+          "Alajbegovic",
+          "Bajraktarevic",
+          "Tabakovic",
+          "Lukic"
+        ]
+      }
+    },
+    {
+      "code": "BRA",
+      "coach": "Carlo Ancelotti",
+      "players": {
+        "GK": [
+          "Alisson",
+          "Weverton",
+          "Ederson"
+        ],
+        "DF": [
+          "Gabriel",
+          "Marquinhos",
+          "Alex",
+          "Danilo",
+          "Bremer",
+          "Leo",
+          "Douglas",
+          "Roger"
+        ],
+        "MF": [
+          "Ederson",
+          "Casemiro",
+          "Bruno",
+          "Fabinho",
+          "Danilo",
+          "Lucas"
+        ],
+        "FW": [
+          "Vinicius",
+          "Matheus",
+          "Neymar",
+          "Raphinha",
+          "Endrick",
+          "Luiz",
+          "Gabriel",
+          "Igor",
+          "Rayan"
+        ]
+      }
+    },
+    {
+      "code": "CPV",
+      "coach": "Pedro Bubista",
+      "players": {
+        "GK": [
+          "Vozinha",
+          "Marcio",
+          "Cj Dos Santos"
+        ],
+        "DF": [
+          "Stopira",
+          "Diney Borges",
+          "Pico Lopes",
+          "Logan",
+          "Sidny",
+          "Steven",
+          "Wagner",
+          "Kelvin"
+        ],
+        "MF": [
+          "Kevin",
+          "Jovane",
+          "Joao",
+          "Jamiro",
+          "Garry",
+          "Deroy",
+          "Laros",
+          "Yannick Semedo",
+          "Willy",
+          "Telmo",
+          "Nuno",
+          "Helio"
+        ],
+        "FW": [
+          "Gilson",
+          "Dailon",
+          "Ryan"
+        ]
+      }
+    },
+    {
+      "code": "CAN",
+      "coach": "Jesse Marsch",
+      "players": {
+        "GK": [
+          "St.",
+          "Crepeau",
+          "Goodman"
+        ],
+        "DF": [
+          "Johnston",
+          "Jones",
+          "De",
+          "Waterman",
+          "Cornelius",
+          "Bombito",
+          "Davies",
+          "Laryea",
+          "Sigur"
+        ],
+        "MF": [
+          "Choiniere",
+          "Eustaquio",
+          "Kone",
+          "Millar",
+          "Shaffelburg",
+          "Osorio",
+          "Saliba",
+          "Flores"
+        ],
+        "FW": [
+          "Larin",
+          "David",
+          "Oluwaseyi",
+          "Buchanan",
+          "Ahmed",
+          "David"
+        ]
+      }
+    },
+    {
+      "code": "COL",
+      "coach": "Nestor Lorenzo",
+      "players": {
+        "GK": [
+          "Ospina",
+          "Vargas",
+          "Montero"
+        ],
+        "DF": [
+          "Munoz",
+          "Lucumi",
+          "Arias",
+          "Mina",
+          "Puerta",
+          "Mojica",
+          "Ditta",
+          "Machado",
+          "Sanchez"
+        ],
+        "MF": [
+          "Castano",
+          "Rios",
+          "Carrascal",
+          "Rodriguez",
+          "Arias",
+          "Portilla",
+          "Lerma",
+          "Quintero"
+        ],
+        "FW": [
+          "Diaz",
+          "Cordoba",
+          "Hernandez",
+          "Campaz",
+          "Suarez",
+          "Gomez"
+        ]
+      }
+    },
+    {
+      "code": "COD",
+      "coach": "Sebastien Desabre",
+      "players": {
+        "GK": [
+          "Mpasi",
+          "Fayulu",
+          "Epolo"
+        ],
+        "DF": [
+          "Wan-Bissaka",
+          "Kapuadi",
+          "Tuanzebe",
+          "Batubinsika",
+          "Kayembe",
+          "Mbemba",
+          "Kalulu",
+          "Masuaku"
+        ],
+        "MF": [
+          "Mukau",
+          "Mbuku",
+          "Moutoussamy",
+          "Bongonda",
+          "Sadiki",
+          "Tshibola",
+          "Pickel",
+          "Kayembe"
+        ],
+        "FW": [
+          "Cipenga",
+          "Kakuta",
+          "Elia",
+          "Bakambu",
+          "Mayele",
+          "Wissa",
+          "Banza"
+        ]
+      }
+    },
+    {
+      "code": "CIV",
+      "coach": "Emerse Fae",
+      "players": {
+        "GK": [
+          "Fofana",
+          "Kone",
+          "Lafont"
+        ],
+        "DF": [
+          "Diomande",
+          "Konan",
+          "Singo",
+          "Kossounou",
+          "Operi",
+          "Doue",
+          "Agbadou",
+          "Ndicka"
+        ],
+        "MF": [
+          "Seri",
+          "Fofana",
+          "Kessie",
+          "Sangare",
+          "Guiagon",
+          "Oulai"
+        ],
+        "FW": [
+          "Bonny",
+          "Adingra",
+          "Diomande",
+          "Wahi",
+          "Diakite",
+          "Diallo",
+          "Pepe",
+          "Guessand",
+          "Toure"
+        ]
+      }
+    },
+    {
+      "code": "CRO",
+      "coach": "Zlatko Dalic",
+      "players": {
+        "GK": [
+          "Livakovic",
+          "Pandur",
+          "Kotarski"
+        ],
+        "DF": [
+          "Stanisic",
+          "Pongracic",
+          "Gvardiol",
+          "Caleta-Car",
+          "Sutalo",
+          "Jakic",
+          "Vuskovic",
+          "Erlic"
+        ],
+        "MF": [
+          "Moro",
+          "Kovacic",
+          "Modric",
+          "Vlasic",
+          "Pasalic",
+          "Baturina",
+          "Sucic",
+          "Fruk",
+          "Sucic"
+        ],
+        "FW": [
+          "Kramaric",
+          "Budimir",
+          "Perisic",
+          "Matanovic",
+          "Pasalic",
+          "Musa"
+        ]
+      }
+    },
+    {
+      "code": "CUW",
+      "coach": "Dick Advocaat",
+      "players": {
+        "GK": [
+          "Room",
+          "Bodak",
+          "Doornbusch"
+        ],
+        "DF": [
+          "Sambo",
+          "Gaari",
+          "Van",
+          "Floranus",
+          "Obispo",
+          "Brenet",
+          "Bazoer",
+          "Fonville"
+        ],
+        "MF": [
+          "Roemeratoe",
+          "Bacuna",
+          "Comenencia",
+          "Bacuna",
+          "Martha",
+          "Chong",
+          "Felida"
+        ],
+        "FW": [
+          "Locadia",
+          "Antonisse",
+          "Hansen",
+          "Noslin",
+          "Gorre",
+          "Margaritha",
+          "Kuwas",
+          "Kastaneer"
+        ]
+      }
+    },
+    {
+      "code": "CZE",
+      "coach": "Miroslav Koubek",
+      "players": {
+        "GK": [
+          "Kovar",
+          "Stanek",
+          "Hornicek"
+        ],
+        "DF": [
+          "Zima",
+          "Holes",
+          "Hranac",
+          "Coufal",
+          "Chaloupek",
+          "Krejci",
+          "Jurasek",
+          "Zeleny",
+          "Doudera"
+        ],
+        "MF": [
+          "Darida",
+          "Cerv",
+          "Provod",
+          "Sadilek",
+          "Soucek",
+          "Sojka",
+          "Sochurek"
+        ],
+        "FW": [
+          "Hlozek",
+          "Schick",
+          "Kuchta",
+          "Chytil",
+          "Sulc",
+          "Chory",
+          "Visinsky"
+        ]
+      }
+    },
+    {
+      "code": "ECU",
+      "coach": "Sebastian Beccacece",
+      "players": {
+        "GK": [
+          "Galindez",
+          "Ramirez",
+          "Valle"
+        ],
+        "DF": [
+          "Torres",
+          "Hincapie",
+          "Ordonez",
+          "Pacho",
+          "Estupinan",
+          "Preciado",
+          "Porozo",
+          "Medina"
+        ],
+        "MF": [
+          "Alcivar",
+          "Valencia",
+          "Paez",
+          "Minda",
+          "Vite",
+          "Castillo",
+          "Franco",
+          "Caicedo"
+        ],
+        "FW": [
+          "Yeboah",
+          "Rodriguez",
+          "Valencia",
+          "Caicedo",
+          "Plata",
+          "Angulo",
+          "Arevalo"
+        ]
+      }
+    },
+    {
+      "code": "EGY",
+      "coach": "Hassan Hossam",
+      "players": {
+        "GK": [
+          "Mohamed",
+          "Mahdy",
+          "Mostafa",
+          "Mohamed"
+        ],
+        "DF": [
+          "Yasser",
+          "Mohamed",
+          "Hossam",
+          "Ramy",
+          "Mohamed",
+          "Ahmed",
+          "Karim",
+          "Tarek"
+        ],
+        "MF": [
+          "Emam",
+          "Mostafa",
+          "Hamdy",
+          "Mohanad",
+          "Nabil",
+          "Marawan",
+          "Mahmoud"
+        ],
+        "FW": [
+          "Trezeguet",
+          "Hamza",
+          "Mohamed",
+          "Haissem",
+          "Ibrahim",
+          "Omar",
+          "Zizo"
+        ]
+      }
+    },
+    {
+      "code": "ENG",
+      "coach": "Thomas Tuchel",
+      "players": {
+        "GK": [
+          "Pickford",
+          "Henderson",
+          "Trafford"
+        ],
+        "DF": [
+          "Konsa",
+          "Oreilly",
+          "Stones",
+          "Guehi",
+          "Livramento",
+          "Burn",
+          "James",
+          "Spence",
+          "Quansah"
+        ],
+        "MF": [
+          "Rice",
+          "Anderson",
+          "Bellingham",
+          "Henderson",
+          "Mainoo",
+          "Rogers",
+          "Eze"
+        ],
+        "FW": [
+          "Saka",
+          "Kane",
+          "Rashford",
+          "Gordon",
+          "Watkins",
+          "Madueke",
+          "Toney"
+        ]
+      }
+    },
+    {
+      "code": "FRA",
+      "coach": "Didier Deschamps",
+      "players": {
+        "GK": [
+          "Samba",
+          "Maignan",
+          "Risser"
+        ],
+        "DF": [
+          "Gusto",
+          "Digne",
+          "Upamecano",
+          "Kounde",
+          "Konate",
+          "Saliba",
+          "Hernandez",
+          "Hernandez",
+          "Lacroix"
+        ],
+        "MF": [
+          "Kone",
+          "Tchouameni",
+          "Kante",
+          "Rabiot",
+          "Zaire-Emery",
+          "Cherki",
+          "Akliouche"
+        ],
+        "FW": [
+          "Dembele",
+          "Thuram",
+          "Mbappe",
+          "Olise",
+          "Barcola",
+          "Doue",
+          "Mateta"
+        ]
+      }
+    },
+    {
+      "code": "GER",
+      "coach": "Julian Nagelsmann",
+      "players": {
+        "GK": [
+          "Neuer",
+          "Baumann",
+          "Nuebel"
+        ],
+        "DF": [
+          "Ruediger",
+          "Anton",
+          "Tah",
+          "Kimmich",
+          "Schlotterbeck",
+          "Brown",
+          "Raum",
+          "Thiaw"
+        ],
+        "MF": [
+          "Pavlovic",
+          "Goretzka",
+          "Leweling",
+          "Musiala",
+          "Gross",
+          "Stiller",
+          "Wirtz",
+          "Sane",
+          "Amiri",
+          "Nmecha",
+          "Ouedraogo"
+        ],
+        "FW": [
+          "Havertz",
+          "Woltemade",
+          "Beier",
+          "Undav"
+        ]
+      }
+    },
+    {
+      "code": "GHA",
+      "coach": "Queiroz Carlos",
+      "players": {
+        "GK": [
+          "Zigi",
+          "Anang",
+          "Asare"
+        ],
+        "DF": [
+          "Seidu",
+          "Adjetey",
+          "Mumin",
+          "Mensah",
+          "Rahman",
+          "Opoku",
+          "Oppong",
+          "Luckassen",
+          "Senaya"
+        ],
+        "MF": [
+          "Yirenkyi",
+          "Partey",
+          "Sibo",
+          "Semenyo",
+          "Owusu",
+          "Boakye"
+        ],
+        "FW": [
+          "Fatawu",
+          "Ayew",
+          "Thomas-Asante",
+          "Baah",
+          "Williams",
+          "Sulemana",
+          "Nuamah",
+          "Adu"
+        ]
+      }
+    },
+    {
+      "code": "HAI",
+      "coach": "Sebastien Migne",
+      "players": {
+        "GK": [
+          "Placide",
+          "Pierre",
+          "Duverger"
+        ],
+        "DF": [
+          "Arcus",
+          "Thermoncy",
+          "Ade",
+          "Delcroix",
+          "Experience",
+          "Lacroix",
+          "Duverne",
+          "Paugain"
+        ],
+        "MF": [
+          "Sainte",
+          "Bellegarde",
+          "Pierre",
+          "Jean",
+          "Simon",
+          "Pierre"
+        ],
+        "FW": [
+          "Etienne",
+          "Nazon",
+          "Deedson",
+          "Providence",
+          "Joseph",
+          "Isidor",
+          "Fortune",
+          "Pierrot",
+          "Casimir"
+        ]
+      }
+    },
+    {
+      "code": "IRN",
+      "coach": "Amir Ghalehnoy",
+      "players": {
+        "GK": [
+          "Beiranvand",
+          "Niazmand",
+          "Hosseini"
+        ],
+        "DF": [
+          "Hardani",
+          "Hajisafi",
+          "Khalilzadeh",
+          "Mohammadi",
+          "Kanani",
+          "Yousefi",
+          "Nemati",
+          "Rezaeian",
+          "Iri"
+        ],
+        "MF": [
+          "Ezatolahi",
+          "Jahanbakhsh",
+          "Mohebbi",
+          "Ghoddos",
+          "Cheshmi",
+          "Torabi",
+          "Ghorbani",
+          "Razaghinia"
+        ],
+        "FW": [
+          "Taremi",
+          "Ghayedi",
+          "Alipour",
+          "Hosseinzadeh",
+          "Moghanloo",
+          "Dargahi"
+        ]
+      }
+    },
+    {
+      "code": "IRQ",
+      "coach": "Graham Arnold",
+      "players": {
+        "GK": [
+          "Fahad",
+          "Jalal",
+          "Ahmed"
+        ],
+        "DF": [
+          "Rebin",
+          "Hussein",
+          "Zaid",
+          "Akam",
+          "Munaf",
+          "Ahmed",
+          "Merchas",
+          "Mustafa",
+          "Frans"
+        ],
+        "MF": [
+          "Youssef",
+          "Ibrahim",
+          "Zidane",
+          "Amir",
+          "Kevin",
+          "Aimar",
+          "Zaid"
+        ],
+        "FW": [
+          "Ali",
+          "Mohanad",
+          "Ahmed",
+          "Ali",
+          "Ali",
+          "Aymen",
+          "Marko"
+        ]
+      }
+    },
+    {
+      "code": "JPN",
+      "coach": "Hajime Moriyasu",
+      "players": {
+        "GK": [
+          "Suzuki",
+          "Osako",
+          "Hayakawa"
+        ],
+        "DF": [
+          "Sugawara",
+          "Taniguchi",
+          "Itakura",
+          "Nagatomo",
+          "Watanabe",
+          "Seko",
+          "Ito",
+          "Tomiyasu",
+          "Suzuki"
+        ],
+        "MF": [
+          "Endo",
+          "Tanaka",
+          "Kubo",
+          "Doan",
+          "Maeda",
+          "Nakamura",
+          "Ito",
+          "Kamada",
+          "Suzuki",
+          "Sano"
+        ],
+        "FW": [
+          "Goto",
+          "Ueda",
+          "Ogawa",
+          "Shiogai"
+        ]
+      }
+    },
+    {
+      "code": "JOR",
+      "coach": "Jamal Sellami",
+      "players": {
+        "GK": [
+          "Yazeed",
+          "Nour Baniateyah",
+          "Abdallah"
+        ],
+        "DF": [
+          "Mohammad",
+          "Abdallah",
+          "Husam",
+          "Yazan",
+          "Mohammad",
+          "Saleem",
+          "Saed",
+          "Ehsan",
+          "Anas"
+        ],
+        "MF": [
+          "Amer",
+          "Noor",
+          "Rajaei",
+          "Ibrahim",
+          "Mohammad",
+          "Mohannad",
+          "Nizar",
+          "Mohammad"
+        ],
+        "FW": [
+          "Mohammad",
+          "Ali",
+          "Mousa",
+          "Odeh",
+          "Mahmoud",
+          "Ali"
+        ]
+      }
+    },
+    {
+      "code": "KOR",
+      "coach": "Myungbo Hong",
+      "players": {
+        "GK": [
+          "Kim",
+          "Song",
+          "Jo"
+        ],
+        "DF": [
+          "Lee",
+          "Kim",
+          "Kim",
+          "Lee",
+          "Cho",
+          "Kim",
+          "Park",
+          "Seol",
+          "Castrop"
+        ],
+        "MF": [
+          "Lee",
+          "Hwang",
+          "Paik",
+          "Lee",
+          "Hwang",
+          "Bae",
+          "Lee",
+          "Yang",
+          "Kim",
+          "Eom",
+          "Lee"
+        ],
+        "FW": [
+          "Son",
+          "Cho",
+          "Oh"
+        ]
+      }
+    },
+    {
+      "code": "MEX",
+      "coach": "Javier Aguirre",
+      "players": {
+        "GK": [
+          "Rangel",
+          "Acevedo",
+          "Ochoa"
+        ],
+        "DF": [
+          "Sanchez",
+          "Montes",
+          "Alvarez",
+          "Vasquez",
+          "Reyes",
+          "Chavez",
+          "Gallardo"
+        ],
+        "MF": [
+          "Lira",
+          "Romo",
+          "Fidalgo",
+          "Pineda",
+          "Vargas",
+          "Mora",
+          "Chavez",
+          "Gutierrez"
+        ],
+        "FW": [
+          "Jimenez",
+          "Vega",
+          "Gimenez",
+          "Gonzalez",
+          "Quinones",
+          "Huerta",
+          "Martinez",
+          "Alvarado"
+        ]
+      }
+    },
+    {
+      "code": "MAR",
+      "coach": "Mohamed Ouahbi",
+      "players": {
+        "GK": [
+          "Bounou",
+          "El",
+          "Tagnaouti"
+        ],
+        "DF": [
+          "Hakimi",
+          "Mazraoui",
+          "Aguerd",
+          "El",
+          "Diop",
+          "Riad",
+          "Belammari",
+          "Halhal",
+          "Salah"
+        ],
+        "MF": [
+          "Amrabat",
+          "Bouaddi",
+          "Talbi",
+          "Ounahi",
+          "Saibari",
+          "El",
+          "Yassine",
+          "El",
+          "El"
+        ],
+        "FW": [
+          "Rahimi",
+          "Diaz",
+          "Ezzalzouli",
+          "El",
+          "Amaimouni"
+        ]
+      }
+    },
+    {
+      "code": "NED",
+      "coach": "Ronald Koeman",
+      "players": {
+        "GK": [
+          "Verbruggen",
+          "Roefs",
+          "Flekken"
+        ],
+        "DF": [
+          "Geertruida",
+          "Van",
+          "Ake",
+          "Van",
+          "Wieffer",
+          "Van",
+          "Dumfries",
+          "Hato"
+        ],
+        "MF": [
+          "De",
+          "Kluivert",
+          "Gravenberch",
+          "Reijnders",
+          "Til",
+          "Koopmeiners",
+          "De",
+          "Timber"
+        ],
+        "FW": [
+          "Weghorst",
+          "Depay",
+          "Gakpo",
+          "Lang",
+          "Malen",
+          "Brobbey",
+          "Summerville"
+        ]
+      }
+    },
+    {
+      "code": "NZL",
+      "coach": "Darren Bazeley",
+      "players": {
+        "GK": [
+          "Crocombe",
+          "Paulsen",
+          "Woud"
+        ],
+        "DF": [
+          "Payne",
+          "De",
+          "Bindon",
+          "Boxall",
+          "Cacace",
+          "Pijnaker",
+          "Surman",
+          "Elliot",
+          "Smith"
+        ],
+        "MF": [
+          "Bell",
+          "Garbett",
+          "Stamenic",
+          "Singh",
+          "Just",
+          "Rufer",
+          "Old",
+          "Mccowatt",
+          "Thomas",
+          "Bayliss"
+        ],
+        "FW": [
+          "Wood",
+          "Barbarouses",
+          "Waine",
+          "Randall"
+        ]
+      }
+    },
+    {
+      "code": "NOR",
+      "coach": "Stale Solbakken",
+      "players": {
+        "GK": [
+          "Nyland",
+          "Tangvik",
+          "Selvik"
+        ],
+        "DF": [
+          "Ajer",
+          "Ostigard",
+          "Moller Wolfe",
+          "Bjorkan",
+          "Holmgren",
+          "Heggem",
+          "Langas",
+          "Falchener"
+        ],
+        "MF": [
+          "Thorsby",
+          "Berg",
+          "Berge",
+          "Odegaard",
+          "Aursnes",
+          "Thorstvedt",
+          "Aasgaard",
+          "Schjelderup",
+          "Bobb",
+          "Hauge"
+        ],
+        "FW": [
+          "Sorloth",
+          "Haaland",
+          "Strand",
+          "Nusa",
+          "Ryerson"
+        ]
+      }
+    },
+    {
+      "code": "PAN",
+      "coach": "Thomas Christiansen",
+      "players": {
+        "GK": [
+          "Mejia",
+          "Samudio",
+          "Mosquera"
+        ],
+        "DF": [
+          "Blackman",
+          "Cordoba",
+          "Escobar",
+          "Farina",
+          "Ramos",
+          "Harvey",
+          "Davis",
+          "Andrade",
+          "Murillo",
+          "Miller",
+          "Gutierrez"
+        ],
+        "MF": [
+          "Martinez",
+          "Rodriguez",
+          "Carrasquilla",
+          "Diaz",
+          "Barcenas",
+          "Quintero",
+          "Godoy",
+          "Yanis"
+        ],
+        "FW": [
+          "Rodriguez",
+          "Fajardo",
+          "Waterman",
+          "Londono"
+        ]
+      }
+    },
+    {
+      "code": "PAR",
+      "coach": "Gustavo Alfaro",
+      "players": {
+        "GK": [
+          "Fernandez",
+          "Gill",
+          "Olveira"
+        ],
+        "DF": [
+          "Velazquez",
+          "Alderete",
+          "Caceres",
+          "Balbuena",
+          "Alonso",
+          "Canale",
+          "Gomez",
+          "Maidana"
+        ],
+        "MF": [
+          "Sosa",
+          "Gomez",
+          "Almiron",
+          "Mauricio",
+          "Cubas",
+          "Bobadilla",
+          "Ojeda",
+          "Galarza",
+          "Caballero"
+        ],
+        "FW": [
+          "Sanabria",
+          "Romero",
+          "Arce",
+          "Enciso",
+          "Avalos",
+          "Pitta"
+        ]
+      }
+    },
+    {
+      "code": "POR",
+      "coach": "Roberto Martinez",
+      "players": {
+        "GK": [
+          "Diogo",
+          "Jose",
+          "Rui"
+        ],
+        "DF": [
+          "Nelson",
+          "Ruben",
+          "Tomas",
+          "Diogo",
+          "Renato",
+          "Goncalo",
+          "Joao",
+          "Samu",
+          "Nuno"
+        ],
+        "MF": [
+          "Matheus",
+          "Bruno",
+          "Bernardo",
+          "Joao",
+          "Ruben",
+          "Vitinha"
+        ],
+        "FW": [
+          "Cristiano",
+          "Goncalo",
+          "Joao",
+          "Francisco",
+          "Rafael",
+          "Pedro",
+          "Goncalo",
+          "Francisco"
+        ]
+      }
+    },
+    {
+      "code": "QAT",
+      "coach": "Julen Lopetegui",
+      "players": {
+        "GK": [
+          "Mahmoud",
+          "Salah",
+          "Meshaal"
+        ],
+        "DF": [
+          "Pedro",
+          "Lucas",
+          "Issa Laye",
+          "Jassem",
+          "Ayoub",
+          "Homam",
+          "Boualem",
+          "Sultan",
+          "Alhashmi"
+        ],
+        "MF": [
+          "Abdulaziz Hatem",
+          "Karim",
+          "Ahmed",
+          "Ahmed",
+          "Assim"
+        ],
+        "FW": [
+          "Ahmed",
+          "Edmilson",
+          "Mohammed",
+          "Hassan Alhaydos",
+          "Akram",
+          "Yusuf",
+          "Almoez",
+          "Tahsin",
+          "Mohamed"
+        ]
+      }
+    },
+    {
+      "code": "KSA",
+      "coach": "Georgios Donis",
+      "players": {
+        "GK": [
+          "Nawaf",
+          "Mohammed",
+          "Ahmed"
+        ],
+        "DF": [
+          "Ali",
+          "Ali",
+          "Abdulelah",
+          "Hassan",
+          "Saud",
+          "Nawaf",
+          "Hassan",
+          "Moteb",
+          "Jehad",
+          "Mohammed"
+        ],
+        "MF": [
+          "Nasser",
+          "Musab",
+          "Abdullah",
+          "Ziyad",
+          "Ala",
+          "Mohamed"
+        ],
+        "FW": [
+          "Aiman",
+          "Feras",
+          "Salem",
+          "Saleh",
+          "Khalid",
+          "Abdullah",
+          "Sultan"
+        ]
+      }
+    },
+    {
+      "code": "SCO",
+      "coach": "Steve Clarke",
+      "players": {
+        "GK": [
+          "Gunn",
+          "Kelly",
+          "Gordon"
+        ],
+        "DF": [
+          "Hickey",
+          "Robertson",
+          "Hanley",
+          "Tierney",
+          "Hendry",
+          "Souttar",
+          "Hyam",
+          "Patterson",
+          "Ralston",
+          "Mckenna"
+        ],
+        "MF": [
+          "Mctominay",
+          "Mcginn",
+          "Fletcher",
+          "Christie",
+          "Ferguson",
+          "Mclean"
+        ],
+        "FW": [
+          "Dykes",
+          "Adams",
+          "Stewart",
+          "Gannon-Doak",
+          "Hirst",
+          "Shankland",
+          "Curtis"
+        ]
+      }
+    },
+    {
+      "code": "SEN",
+      "coach": "Pape Thiaw",
+      "players": {
+        "GK": [
+          "Diouf",
+          "Mendy",
+          "Diaw"
+        ],
+        "DF": [
+          "Sarr",
+          "Koulibaly",
+          "Seck",
+          "Jakobs",
+          "Diatta",
+          "Niakhate",
+          "Mendy",
+          "Diouf"
+        ],
+        "MF": [
+          "Gueye",
+          "Ciss",
+          "Camara",
+          "Sarr",
+          "Diarra",
+          "Ndiaye",
+          "Gueye"
+        ],
+        "FW": [
+          "Diao",
+          "Dieng",
+          "Mane",
+          "Jackson",
+          "Ndiaye",
+          "Ndiaye",
+          "Sarr",
+          "Mbaye"
+        ]
+      }
+    },
+    {
+      "code": "RSA",
+      "coach": "Hugo Broos",
+      "players": {
+        "GK": [
+          "Williams",
+          "Chaine",
+          "Goss"
+        ],
+        "DF": [
+          "Matuludi",
+          "Ndamane",
+          "Modiba",
+          "Mbokazi",
+          "Kabini",
+          "Sibisi",
+          "Mudau",
+          "Okon",
+          "Makhanya",
+          "Cross"
+        ],
+        "MF": [
+          "Mokoena",
+          "Mbatha",
+          "Zwane",
+          "Sithole",
+          "Adams"
+        ],
+        "FW": [
+          "Appollis",
+          "Moremi",
+          "Foster",
+          "Mofokeng",
+          "Maseko",
+          "Rayners",
+          "Makgopa",
+          "Sebelebele"
+        ]
+      }
+    },
+    {
+      "code": "ESP",
+      "coach": "La De",
+      "players": {
+        "GK": [
+          "Raya",
+          "Garcia",
+          "Simon"
+        ],
+        "DF": [
+          "Pubill",
+          "Grimaldo",
+          "Garcia",
+          "Llorente",
+          "Porro",
+          "Laporte",
+          "Cubarsi",
+          "Cucurella"
+        ],
+        "MF": [
+          "Merino",
+          "Ruiz",
+          "Gavi",
+          "Baena",
+          "Rodri",
+          "Zubimendi",
+          "Pedri"
+        ],
+        "FW": [
+          "Torres",
+          "Olmo",
+          "Pino",
+          "Williams",
+          "Yamal",
+          "Oyarzabal",
+          "Munoz",
+          "Iglesias"
+        ]
+      }
+    },
+    {
+      "code": "SWE",
+      "coach": "Graham Potter",
+      "players": {
+        "GK": [
+          "Widell",
+          "Johansson",
+          "Nordfeldt"
+        ],
+        "DF": [
+          "Lagerbielke",
+          "Lindelof",
+          "Hien",
+          "Gudmundsson",
+          "Johansson",
+          "Svensson",
+          "Ekdal",
+          "Starfelt",
+          "Smith",
+          "Bernhardsson",
+          "Stroud"
+        ],
+        "MF": [
+          "Bergvall",
+          "Nygren",
+          "Sema",
+          "Karlstrom",
+          "Ayari",
+          "Svanberg",
+          "Zeneli"
+        ],
+        "FW": [
+          "Isak",
+          "Elanga",
+          "Gyokeres",
+          "Nilsson",
+          "Ali"
+        ]
+      }
+    },
+    {
+      "code": "SUI",
+      "coach": "Murat Yakin",
+      "players": {
+        "GK": [
+          "Kobel",
+          "Mvogo",
+          "Keller"
+        ],
+        "DF": [
+          "Muheim",
+          "Widmer",
+          "Elvedi",
+          "Akanji",
+          "Rodriguez",
+          "Coemert",
+          "Amenda",
+          "Jaquez"
+        ],
+        "MF": [
+          "Zakaria",
+          "Freuler",
+          "Manzambi",
+          "Xhaka",
+          "Jashari",
+          "Sow",
+          "Aebischer",
+          "Rieder"
+        ],
+        "FW": [
+          "Embolo",
+          "Ndoye",
+          "Fassnacht",
+          "Vargas",
+          "Okafor",
+          "Amdouni",
+          "Itten"
+        ]
+      }
+    },
+    {
+      "code": "TUN",
+      "coach": "Sabri Lamouchi",
+      "players": {
+        "GK": [
+          "Chamakh",
+          "Dahmen",
+          "Ben"
+        ],
+        "DF": [
+          "Abdi",
+          "Talbi",
+          "Rekik",
+          "Arous",
+          "Bronn",
+          "Ben",
+          "Valery",
+          "Ben",
+          "Neffati",
+          "Chikhaoui"
+        ],
+        "MF": [
+          "Mejbri",
+          "Gharbi",
+          "Khedira",
+          "Ayari",
+          "Hadj Mahmoud",
+          "Skhiri",
+          "Slimane",
+          "Tounekti"
+        ],
+        "FW": [
+          "Achouri",
+          "Saad",
+          "Mastouri",
+          "Elloumi",
+          "Chaouat"
+        ]
+      }
+    },
+    {
+      "code": "TUR",
+      "coach": "Vincenzo Montella",
+      "players": {
+        "GK": [
+          "Gunok",
+          "Bayindir",
+          "Cakir"
+        ],
+        "DF": [
+          "Celik",
+          "Demiral",
+          "Soyuncu",
+          "Elmali",
+          "Bardakci",
+          "Kabak",
+          "Muldur",
+          "Kadioglu",
+          "Akaydin"
+        ],
+        "MF": [
+          "Ozcan",
+          "Kokcu",
+          "Calhanoglu",
+          "Yuksek",
+          "Ayhan"
+        ],
+        "FW": [
+          "Akturkoglu",
+          "Guler",
+          "Gul",
+          "Yildiz",
+          "Kahveci",
+          "Akgun",
+          "Yilmaz",
+          "Aydin",
+          "Uzun"
+        ]
+      }
+    },
+    {
+      "code": "URU",
+      "coach": "Marcelo Bielsa",
+      "players": {
+        "GK": [
+          "Rochet",
+          "Mele",
+          "Muslera"
+        ],
+        "DF": [
+          "Gimenez",
+          "Caceres",
+          "Araujo",
+          "Varela",
+          "Olivera",
+          "Vina",
+          "Bueno"
+        ],
+        "MF": [
+          "Ugarte",
+          "Bentancur",
+          "De",
+          "Valverde",
+          "De",
+          "Canobbio",
+          "Martinez",
+          "Araujo",
+          "Piquerez",
+          "Sanabria",
+          "Zalazar"
+        ],
+        "FW": [
+          "Nunez",
+          "Pellistri",
+          "Rodriguez",
+          "Aguirre",
+          "Vinas"
+        ]
+      }
+    },
+    {
+      "code": "USA",
+      "coach": "Mauricio Pochettino",
+      "players": {
+        "GK": [
+          "Turner",
+          "Freese",
+          "Brady"
+        ],
+        "DF": [
+          "Dest",
+          "Richards",
+          "Robinson",
+          "Trusty",
+          "Robinson",
+          "Ream",
+          "Freeman",
+          "Arfsten",
+          "Mckenzie",
+          "Scally"
+        ],
+        "MF": [
+          "Adams",
+          "Reyna",
+          "Mckennie",
+          "Berhalter",
+          "Roldan",
+          "Tillman"
+        ],
+        "FW": [
+          "Pepi",
+          "Pulisic",
+          "Aaronson",
+          "Wright",
+          "Balogun",
+          "Weah",
+          "Zendejas"
+        ]
+      }
+    },
+    {
+      "code": "UZB",
+      "coach": "Fabio Cannavaro",
+      "players": {
+        "GK": [
+          "Yusupov",
+          "Nematov",
+          "Ergashev"
+        ],
+        "DF": [
+          "Khusanov",
+          "Alijonov",
+          "Sayfiev",
+          "Ashurmatov",
+          "Nasrullaev",
+          "Eshmurodov",
+          "Abdullaev",
+          "Karimov",
+          "Ulmasaliyev",
+          "Urozov"
+        ],
+        "MF": [
+          "Mozgovoy",
+          "Shukurov",
+          "Iskanderov",
+          "Xamrobekov",
+          "Masharipov",
+          "Urunov",
+          "Khamdamov",
+          "Ganiev",
+          "Fayzullaev",
+          "Esanov"
+        ],
+        "FW": [
+          "Shomurodov",
+          "Amonov",
+          "Sergeev"
+        ]
+      }
+    }
+  ]
+}

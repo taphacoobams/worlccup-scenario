@@ -1,0 +1,305 @@
+{
+  "page": 6,
+  "blocks": [
+    {
+      "matchNumber": 11,
+      "blockTop": 236,
+      "teams": {
+        "home": {
+          "code": "NED",
+          "ocr": "Netherlands",
+          "name": "Netherlands"
+        },
+        "away": {
+          "code": "JPN",
+          "ocr": "Japan",
+          "name": "Japan"
+        }
+      },
+      "colors": {
+        "NED": {
+          "player": {
+            "shirt": {
+              "raw": "orange",
+              "color": "orange",
+              "rect": {
+                "left": 73,
+                "top": 431,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "orange",
+              "color": "orange",
+              "rect": {
+                "left": 162,
+                "top": 431,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "orange / black",
+              "color": "orange / black",
+              "rect": {
+                "left": 256,
+                "top": 431,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "CT - green",
+              "color": "green",
+              "rect": {
+                "left": 73,
+                "top": 606,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "bd green",
+              "color": "green",
+              "rect": {
+                "left": 162,
+                "top": 606,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- green",
+              "color": "green",
+              "rect": {
+                "left": 256,
+                "top": 606,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "JPN": {
+          "player": {
+            "shirt": {
+              "raw": "navy blue / white",
+              "color": "blue / white",
+              "rect": {
+                "left": 646,
+                "top": 431,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "white / navy 1 blue",
+              "color": "white / blue",
+              "rect": {
+                "left": 746,
+                "top": 431,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "navy blue",
+              "color": "blue",
+              "rect": {
+                "left": 846,
+                "top": 431,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "yellow / black",
+              "color": "yellow / black",
+              "rect": {
+                "left": 646,
+                "top": 606,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "sg. vv yellow / black",
+              "color": "yellow / black",
+              "rect": {
+                "left": 746,
+                "top": 606,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "-b yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 846,
+                "top": 606,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "matchNumber": 12,
+      "blockTop": 792,
+      "teams": {
+        "home": {
+          "code": "SWE",
+          "ocr": "Sweden",
+          "name": "Sweden"
+        },
+        "away": {
+          "code": "TUN",
+          "ocr": "Tunisia",
+          "name": "Tunisia"
+        }
+      },
+      "colors": {
+        "SWE": {
+          "player": {
+            "shirt": {
+              "raw": "yellow / blue Goalkeeper",
+              "color": "yellow / blue",
+              "rect": {
+                "left": 73,
+                "top": 987,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "blue / white",
+              "color": "blue / white",
+              "rect": {
+                "left": 162,
+                "top": 987,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "yellow / blue",
+              "color": "yellow / blue",
+              "rect": {
+                "left": 256,
+                "top": 987,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "green / black",
+              "color": "green / black",
+              "rect": {
+                "left": 73,
+                "top": 1162,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": ". green / black",
+              "color": "green / black",
+              "rect": {
+                "left": 162,
+                "top": 1162,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- green",
+              "color": "green",
+              "rect": {
+                "left": 256,
+                "top": 1162,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "TUN": {
+          "player": {
+            "shirt": {
+              "raw": "red Goalkeeper",
+              "color": "red",
+              "rect": {
+                "left": 646,
+                "top": 987,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "red",
+              "color": "red",
+              "rect": {
+                "left": 746,
+                "top": 987,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "red",
+              "color": "red",
+              "rect": {
+                "left": 846,
+                "top": 987,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "turquoise",
+              "color": "turquoise",
+              "rect": {
+                "left": 646,
+                "top": 1162,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "- turquoise",
+              "color": "turquoise",
+              "rect": {
+                "left": 746,
+                "top": 1162,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- turquoise",
+              "color": "turquoise",
+              "rect": {
+                "left": 846,
+                "top": 1162,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

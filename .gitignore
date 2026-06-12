@@ -21,6 +21,8 @@
 /build
 
 # misc
+.windsurf/
+eng.traineddata
 .DS_Store
 *.pem
 
@@ -32,6 +34,13 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+
+# prisma sqlite
+/prisma/dev.db
+/prisma/dev.db-journal
+/dev.db
+/dev.db-journal
+*.db-journal
 
 # vercel
 .vercel

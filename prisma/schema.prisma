@@ -1,0 +1,242 @@
+// Données tournoi — PostgreSQL + Prisma
+// legacyId conserve les identifiants numériques des JSON pour migration progressive.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Team {
+  id          String   @id @default(cuid())
+  legacyId    Int      @unique @map("legacy_id")
+
+  code        String   @unique
+  fifaCode    String?  @map("fifa_code")
+  slug        String   @unique
+
+  name        String
+  country     String   @default("")
+  group       String   @map("group_letter")
+
+  fifaRanking Int?     @map("fifa_ranking")
+  coach       String?
+  bio           String?
+  strengths     String?
+  weaknesses    String?
+  playerPick    String?  @map("player_pick")
+  contentCredit String?  @map("content_credit")
+
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  players       Player[]
+  standings     GroupStanding[]
+  homeFixtures  Fixture[]    @relation("HomeTeam")
+  awayFixtures  Fixture[]    @relation("AwayTeam")
+  matchEvents   MatchEvent[]
+
+  @@map("teams")
+}
+
+model Player {
+  id           String    @id @default(cuid())
+  legacyId     Int       @unique @map("legacy_id")
+
+  teamId       String    @map("team_id")
+  team         Team      @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  number       Int?
+  position     String?
+  positionCode String?   @map("position_code")
+  name         String
+  dateOfBirth  DateTime? @map("date_of_birth")
+  club         String?
+  heightCm     Int?      @map("height_cm")
+  age          Int?
+  nationality  String?
+  bio          String?
+  bioEn        String?   @map("bio_en")
+  bioCredit    String?   @map("bio_credit")
+  specialTag   String?   @map("special_tag")
+  image        String?
+  imageCredit  String?   @map("image_credit")
+
+  caps         Int?
+  goals        Int?
+
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  scorerEntry  Scorer?
+  assistEntry  Assist?
+  cardEntry    Card?
+  matchEvents  MatchEvent[]
+
+  @@index([teamId])
+  @@map("players")
+}
+
+model Venue {
+  id       String    @id @default(cuid())
+  name     String
+  city     String
+  country  String    @default("")
+  capacity Int?
+
+  fixtures Fixture[]
+
+  @@unique([name, city])
+  @@map("venues")
+}
+
+model Fixture {
+  id            String   @id @default(cuid())
+  legacyId      Int      @unique @map("legacy_id")
+
+  matchNumber   Int?     @map("match_number")
+  stage         String
+  group         String?  @map("group_letter")
+  round         String?
+  date          DateTime
+  timezone      String   @default("UTC")
+
+  venueId       String?  @map("venue_id")
+  venue         Venue?   @relation(fields: [venueId], references: [id])
+
+  homeTeamId    String?  @map("home_team_id")
+  awayTeamId    String?  @map("away_team_id")
+  homeTeam      Team?    @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeam      Team?    @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  homeSlotLabel String?  @map("home_slot_label")
+  awaySlotLabel String?  @map("away_slot_label")
+
+  homeScore     Int?     @map("home_score")
+  awayScore     Int?     @map("away_score")
+  status        String   @default("NS")
+
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  events        MatchEvent[]
+
+  @@index([date])
+  @@index([group])
+  @@map("fixtures")
+}
+
+model MatchEvent {
+  id          String   @id @default(cuid())
+  fixtureId   String   @map("fixture_id")
+  fixture     Fixture  @relation(fields: [fixtureId], references: [id], onDelete: Cascade)
+
+  teamId      String?  @map("team_id")
+  team        Team?    @relation(fields: [teamId], references: [id])
+  playerId    String?  @map("player_id")
+  player      Player?  @relation(fields: [playerId], references: [id], onDelete: SetNull)
+  playerName  String?  @map("player_name")
+  assistName  String?  @map("assist_name")
+
+  minute      Int?
+  extraMinute Int?     @map("extra_minute")
+  type        String
+  description String?
+  linkedGoalId String? @map("linked_goal_id")
+
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([fixtureId])
+  @@map("match_events")
+}
+
+model GroupStanding {
+  id           String   @id @default(cuid())
+  teamId       String   @map("team_id")
+  team         Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  group        String   @map("group_letter")
+  played       Int      @default(0)
+  won          Int      @default(0)
+  drawn        Int      @default(0)
+  lost         Int      @default(0)
+  goalsFor     Int      @default(0) @map("goals_for")
+  goalsAgainst Int      @default(0) @map("goals_against")
+  goalDiff     Int      @default(0) @map("goal_diff")
+  points       Int      @default(0)
+  position     Int
+
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@unique([group, teamId])
+  @@index([group])
+  @@map("group_standings")
+}
+
+model Scorer {
+  id        String   @id @default(cuid())
+  playerId  String   @unique @map("player_id")
+  player    Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  goals     Int      @default(0)
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("scorers")
+}
+
+model Assist {
+  id        String   @id @default(cuid())
+  playerId  String   @unique @map("player_id")
+  player    Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  assists   Int      @default(0)
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("assists")
+}
+
+model Card {
+  id          String   @id @default(cuid())
+  playerId    String   @unique @map("player_id")
+  player      Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  yellowCards Int      @default(0) @map("yellow_cards")
+  redCards    Int      @default(0) @map("red_cards")
+  suspended   Boolean  @default(false)
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("cards")
+}
+
+model TournamentMeta {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("tournament_meta")
+}
+
+/** 495 combinaisons officielles FIFA — meilleurs 8 troisièmes → créneaux 1A/1B/…/1L */
+model FifaThirdPlaceScenario {
+  id              String   @id @default(cuid())
+  fifaNumber      Int      @unique @map("fifa_number")
+  lexIndex        Int      @unique @map("lex_index")
+  qualifiedGroups String[] @map("qualified_groups")
+  mapping         String[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("fifa_third_place_scenarios")
+}
+
+/** Journal des actions Manager */
+model ManagerActivity {
+  id        String   @id @default(cuid())
+  action    String
+  detail    String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([createdAt(sort: Desc)])
+  @@map("manager_activities")
+}

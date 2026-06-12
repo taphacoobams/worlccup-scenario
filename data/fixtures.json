@@ -1,0 +1,2082 @@
+[
+  {
+    "id": 1,
+    "date": "2026-06-11T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Stade Azteca",
+      "city": "Mexico"
+    },
+    "round": "1re journée",
+    "group": "A",
+    "homeTeamId": 1,
+    "awayTeamId": 2,
+    "homeTeamName": "Mexique",
+    "awayTeamName": "Afrique du Sud",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 2,
+    "date": "2026-06-12T02:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Estadio Akron",
+      "city": "Guadalajara"
+    },
+    "round": "1re journée",
+    "group": "A",
+    "homeTeamId": 3,
+    "awayTeamId": 4,
+    "homeTeamName": "Corée du Sud",
+    "awayTeamName": "Tchéquie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 3,
+    "date": "2026-06-12T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BMO Field",
+      "city": "Toronto"
+    },
+    "round": "1re journée",
+    "group": "B",
+    "homeTeamId": 5,
+    "awayTeamId": 6,
+    "homeTeamName": "Canada",
+    "awayTeamName": "Bosnie-Herzégovine",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 4,
+    "date": "2026-06-13T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "SoFi Stadium",
+      "city": "Los Angeles"
+    },
+    "round": "1re journée",
+    "group": "D",
+    "homeTeamId": 13,
+    "awayTeamId": 14,
+    "homeTeamName": "États-Unis",
+    "awayTeamName": "Paraguay",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 5,
+    "date": "2026-06-14T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Gillette Stadium",
+      "city": "Boston"
+    },
+    "round": "1re journée",
+    "group": "C",
+    "homeTeamId": 11,
+    "awayTeamId": 12,
+    "homeTeamName": "Haïti",
+    "awayTeamName": "Écosse",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 6,
+    "date": "2026-06-14T04:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BC Place",
+      "city": "Vancouver"
+    },
+    "round": "1re journée",
+    "group": "D",
+    "homeTeamId": 15,
+    "awayTeamId": 16,
+    "homeTeamName": "Australie",
+    "awayTeamName": "Turquie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 7,
+    "date": "2026-06-13T22:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "MetLife Stadium",
+      "city": "New York"
+    },
+    "round": "1re journée",
+    "group": "C",
+    "homeTeamId": 9,
+    "awayTeamId": 10,
+    "homeTeamName": "Brésil",
+    "awayTeamName": "Maroc",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 8,
+    "date": "2026-06-13T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Levi's Stadium",
+      "city": "Santa Clara"
+    },
+    "round": "1re journée",
+    "group": "B",
+    "homeTeamId": 7,
+    "awayTeamId": 8,
+    "homeTeamName": "Qatar",
+    "awayTeamName": "Suisse",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 9,
+    "date": "2026-06-14T23:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lincoln Financial Field",
+      "city": "Philadelphie"
+    },
+    "round": "1re journée",
+    "group": "E",
+    "homeTeamId": 19,
+    "awayTeamId": 20,
+    "homeTeamName": "Côte d'Ivoire",
+    "awayTeamName": "Équateur",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 10,
+    "date": "2026-06-14T17:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "NRG Stadium",
+      "city": "Houston"
+    },
+    "round": "1re journée",
+    "group": "E",
+    "homeTeamId": 17,
+    "awayTeamId": 18,
+    "homeTeamName": "Allemagne",
+    "awayTeamName": "Curaçao",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 11,
+    "date": "2026-06-14T20:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "AT&T Stadium",
+      "city": "Arlington"
+    },
+    "round": "1re journée",
+    "group": "F",
+    "homeTeamId": 21,
+    "awayTeamId": 22,
+    "homeTeamName": "Pays-Bas",
+    "awayTeamName": "Japon",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 12,
+    "date": "2026-06-15T02:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Estadio BBVA",
+      "city": "Monterrey"
+    },
+    "round": "1re journée",
+    "group": "F",
+    "homeTeamId": 23,
+    "awayTeamId": 24,
+    "homeTeamName": "Suède",
+    "awayTeamName": "Tunisie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 13,
+    "date": "2026-06-15T22:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Hard Rock Stadium",
+      "city": "Miami"
+    },
+    "round": "1re journée",
+    "group": "H",
+    "homeTeamId": 31,
+    "awayTeamId": 32,
+    "homeTeamName": "Arabie saoudite",
+    "awayTeamName": "Uruguay",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 14,
+    "date": "2026-06-15T16:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Mercedes-Benz Stadium",
+      "city": "Atlanta"
+    },
+    "round": "1re journée",
+    "group": "H",
+    "homeTeamId": 29,
+    "awayTeamId": 30,
+    "homeTeamName": "Espagne",
+    "awayTeamName": "Cap-Vert",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 15,
+    "date": "2026-06-16T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "SoFi Stadium",
+      "city": "Los Angeles"
+    },
+    "round": "1re journée",
+    "group": "G",
+    "homeTeamId": 27,
+    "awayTeamId": 28,
+    "homeTeamName": "Iran",
+    "awayTeamName": "Nouvelle-Zélande",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 16,
+    "date": "2026-06-15T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lumen Field",
+      "city": "Seattle"
+    },
+    "round": "1re journée",
+    "group": "G",
+    "homeTeamId": 25,
+    "awayTeamId": 26,
+    "homeTeamName": "Belgique",
+    "awayTeamName": "Égypte",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 17,
+    "date": "2026-06-16T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "MetLife Stadium",
+      "city": "New York"
+    },
+    "round": "1re journée",
+    "group": "I",
+    "homeTeamId": 33,
+    "awayTeamId": 34,
+    "homeTeamName": "France",
+    "awayTeamName": "Sénégal",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 18,
+    "date": "2026-06-16T22:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Gillette Stadium",
+      "city": "Boston"
+    },
+    "round": "1re journée",
+    "group": "I",
+    "homeTeamId": 35,
+    "awayTeamId": 36,
+    "homeTeamName": "Irak",
+    "awayTeamName": "Norvège",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 19,
+    "date": "2026-06-17T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Arrowhead Stadium",
+      "city": "Kansas City"
+    },
+    "round": "1re journée",
+    "group": "J",
+    "homeTeamId": 37,
+    "awayTeamId": 38,
+    "homeTeamName": "Argentine",
+    "awayTeamName": "Algérie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 20,
+    "date": "2026-06-17T04:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Levi's Stadium",
+      "city": "Santa Clara"
+    },
+    "round": "1re journée",
+    "group": "J",
+    "homeTeamId": 39,
+    "awayTeamId": 40,
+    "homeTeamName": "Autriche",
+    "awayTeamName": "Jordanie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 21,
+    "date": "2026-06-17T23:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BMO Field",
+      "city": "Toronto"
+    },
+    "round": "1re journée",
+    "group": "L",
+    "homeTeamId": 47,
+    "awayTeamId": 48,
+    "homeTeamName": "Ghana",
+    "awayTeamName": "Panama",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 22,
+    "date": "2026-06-17T20:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "AT&T Stadium",
+      "city": "Arlington"
+    },
+    "round": "1re journée",
+    "group": "L",
+    "homeTeamId": 45,
+    "awayTeamId": 46,
+    "homeTeamName": "Angleterre",
+    "awayTeamName": "Croatie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 23,
+    "date": "2026-06-17T17:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "NRG Stadium",
+      "city": "Houston"
+    },
+    "round": "1re journée",
+    "group": "K",
+    "homeTeamId": 41,
+    "awayTeamId": 42,
+    "homeTeamName": "Portugal",
+    "awayTeamName": "RD Congo",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 24,
+    "date": "2026-06-18T02:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Estadio Azteca",
+      "city": "Mexico"
+    },
+    "round": "1re journée",
+    "group": "K",
+    "homeTeamId": 43,
+    "awayTeamId": 44,
+    "homeTeamName": "Ouzbékistan",
+    "awayTeamName": "Colombie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 25,
+    "date": "2026-06-18T16:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Mercedes-Benz Stadium",
+      "city": "Atlanta"
+    },
+    "round": "2e journée",
+    "group": "A",
+    "homeTeamId": 4,
+    "awayTeamId": 2,
+    "homeTeamName": "Tchéquie",
+    "awayTeamName": "Afrique du Sud",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 26,
+    "date": "2026-06-18T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "SoFi Stadium",
+      "city": "Los Angeles"
+    },
+    "round": "2e journée",
+    "group": "B",
+    "homeTeamId": 8,
+    "awayTeamId": 6,
+    "homeTeamName": "Suisse",
+    "awayTeamName": "Bosnie-Herzégovine",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 27,
+    "date": "2026-06-19T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BC Place",
+      "city": "Vancouver"
+    },
+    "round": "2e journée",
+    "group": "B",
+    "homeTeamId": 5,
+    "awayTeamId": 7,
+    "homeTeamName": "Canada",
+    "awayTeamName": "Qatar",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 28,
+    "date": "2026-06-19T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Estadio Akron",
+      "city": "Guadalajara"
+    },
+    "round": "2e journée",
+    "group": "A",
+    "homeTeamId": 1,
+    "awayTeamId": 3,
+    "homeTeamName": "Mexique",
+    "awayTeamName": "Corée du Sud",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 29,
+    "date": "2026-06-20T00:30:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lincoln Financial Field",
+      "city": "Philadelphie"
+    },
+    "round": "2e journée",
+    "group": "C",
+    "homeTeamId": 9,
+    "awayTeamId": 11,
+    "homeTeamName": "Brésil",
+    "awayTeamName": "Haïti",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 30,
+    "date": "2026-06-19T22:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Gillette Stadium",
+      "city": "Boston"
+    },
+    "round": "2e journée",
+    "group": "C",
+    "homeTeamId": 12,
+    "awayTeamId": 10,
+    "homeTeamName": "Écosse",
+    "awayTeamName": "Maroc",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 31,
+    "date": "2026-06-20T03:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Levi's Stadium",
+      "city": "Santa Clara"
+    },
+    "round": "2e journée",
+    "group": "D",
+    "homeTeamId": 16,
+    "awayTeamId": 14,
+    "homeTeamName": "Turquie",
+    "awayTeamName": "Paraguay",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 32,
+    "date": "2026-06-19T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lumen Field",
+      "city": "Seattle"
+    },
+    "round": "2e journée",
+    "group": "D",
+    "homeTeamId": 13,
+    "awayTeamId": 15,
+    "homeTeamName": "États-Unis",
+    "awayTeamName": "Australie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 33,
+    "date": "2026-06-20T20:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BMO Field",
+      "city": "Toronto"
+    },
+    "round": "2e journée",
+    "group": "E",
+    "homeTeamId": 17,
+    "awayTeamId": 19,
+    "homeTeamName": "Allemagne",
+    "awayTeamName": "Côte d'Ivoire",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 34,
+    "date": "2026-06-21T00:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Arrowhead Stadium",
+      "city": "Kansas City"
+    },
+    "round": "2e journée",
+    "group": "E",
+    "homeTeamId": 20,
+    "awayTeamId": 18,
+    "homeTeamName": "Équateur",
+    "awayTeamName": "Curaçao",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 35,
+    "date": "2026-06-20T17:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "NRG Stadium",
+      "city": "Houston"
+    },
+    "round": "2e journée",
+    "group": "F",
+    "homeTeamId": 21,
+    "awayTeamId": 23,
+    "homeTeamName": "Pays-Bas",
+    "awayTeamName": "Suède",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 36,
+    "date": "2026-06-21T04:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Estadio BBVA",
+      "city": "Monterrey"
+    },
+    "round": "2e journée",
+    "group": "F",
+    "homeTeamId": 24,
+    "awayTeamId": 22,
+    "homeTeamName": "Tunisie",
+    "awayTeamName": "Japon",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 37,
+    "date": "2026-06-21T22:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Hard Rock Stadium",
+      "city": "Miami"
+    },
+    "round": "2e journée",
+    "group": "H",
+    "homeTeamId": 32,
+    "awayTeamId": 30,
+    "homeTeamName": "Uruguay",
+    "awayTeamName": "Cap-Vert",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 38,
+    "date": "2026-06-21T16:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Mercedes-Benz Stadium",
+      "city": "Atlanta"
+    },
+    "round": "2e journée",
+    "group": "H",
+    "homeTeamId": 29,
+    "awayTeamId": 31,
+    "homeTeamName": "Espagne",
+    "awayTeamName": "Arabie saoudite",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 39,
+    "date": "2026-06-21T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "SoFi Stadium",
+      "city": "Los Angeles"
+    },
+    "round": "2e journée",
+    "group": "G",
+    "homeTeamId": 25,
+    "awayTeamId": 27,
+    "homeTeamName": "Belgique",
+    "awayTeamName": "Iran",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 40,
+    "date": "2026-06-22T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BC Place",
+      "city": "Vancouver"
+    },
+    "round": "2e journée",
+    "group": "G",
+    "homeTeamId": 28,
+    "awayTeamId": 26,
+    "homeTeamName": "Nouvelle-Zélande",
+    "awayTeamName": "Égypte",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 41,
+    "date": "2026-06-22T21:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lincoln Financial Field",
+      "city": "Philadelphie"
+    },
+    "round": "2e journée",
+    "group": "I",
+    "homeTeamId": 33,
+    "awayTeamId": 35,
+    "homeTeamName": "France",
+    "awayTeamName": "Irak",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 42,
+    "date": "2026-06-23T00:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "MetLife Stadium",
+      "city": "New York"
+    },
+    "round": "2e journée",
+    "group": "I",
+    "homeTeamId": 36,
+    "awayTeamId": 34,
+    "homeTeamName": "Norvège",
+    "awayTeamName": "Sénégal",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 43,
+    "date": "2026-06-22T17:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "AT&T Stadium",
+      "city": "Arlington"
+    },
+    "round": "2e journée",
+    "group": "J",
+    "homeTeamId": 37,
+    "awayTeamId": 39,
+    "homeTeamName": "Argentine",
+    "awayTeamName": "Autriche",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 44,
+    "date": "2026-06-23T03:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Levi's Stadium",
+      "city": "Santa Clara"
+    },
+    "round": "2e journée",
+    "group": "J",
+    "homeTeamId": 40,
+    "awayTeamId": 38,
+    "homeTeamName": "Jordanie",
+    "awayTeamName": "Algérie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 45,
+    "date": "2026-06-23T20:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Gillette Stadium",
+      "city": "Boston"
+    },
+    "round": "2e journée",
+    "group": "L",
+    "homeTeamId": 45,
+    "awayTeamId": 47,
+    "homeTeamName": "Angleterre",
+    "awayTeamName": "Ghana",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 46,
+    "date": "2026-06-23T23:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BMO Field",
+      "city": "Toronto"
+    },
+    "round": "2e journée",
+    "group": "L",
+    "homeTeamId": 48,
+    "awayTeamId": 46,
+    "homeTeamName": "Panama",
+    "awayTeamName": "Croatie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 47,
+    "date": "2026-06-23T17:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "NRG Stadium",
+      "city": "Houston"
+    },
+    "round": "2e journée",
+    "group": "K",
+    "homeTeamId": 41,
+    "awayTeamId": 43,
+    "homeTeamName": "Portugal",
+    "awayTeamName": "Ouzbékistan",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 48,
+    "date": "2026-06-24T02:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Estadio Akron",
+      "city": "Guadalajara"
+    },
+    "round": "2e journée",
+    "group": "K",
+    "homeTeamId": 44,
+    "awayTeamId": 42,
+    "homeTeamName": "Colombie",
+    "awayTeamName": "RD Congo",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 49,
+    "date": "2026-06-24T22:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Hard Rock Stadium",
+      "city": "Miami"
+    },
+    "round": "3e journée",
+    "group": "C",
+    "homeTeamId": 12,
+    "awayTeamId": 9,
+    "homeTeamName": "Écosse",
+    "awayTeamName": "Brésil",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 50,
+    "date": "2026-06-24T22:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Mercedes-Benz Stadium",
+      "city": "Atlanta"
+    },
+    "round": "3e journée",
+    "group": "C",
+    "homeTeamId": 10,
+    "awayTeamId": 11,
+    "homeTeamName": "Maroc",
+    "awayTeamName": "Haïti",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 51,
+    "date": "2026-06-24T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BC Place",
+      "city": "Vancouver"
+    },
+    "round": "3e journée",
+    "group": "B",
+    "homeTeamId": 8,
+    "awayTeamId": 5,
+    "homeTeamName": "Suisse",
+    "awayTeamName": "Canada",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 52,
+    "date": "2026-06-24T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lumen Field",
+      "city": "Seattle"
+    },
+    "round": "3e journée",
+    "group": "B",
+    "homeTeamId": 6,
+    "awayTeamId": 7,
+    "homeTeamName": "Bosnie-Herzégovine",
+    "awayTeamName": "Qatar",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 53,
+    "date": "2026-06-25T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Stade Azteca",
+      "city": "Mexico"
+    },
+    "round": "3e journée",
+    "group": "A",
+    "homeTeamId": 4,
+    "awayTeamId": 1,
+    "homeTeamName": "Tchéquie",
+    "awayTeamName": "Mexique",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 54,
+    "date": "2026-06-25T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Stade BBVA",
+      "city": "Monterrey"
+    },
+    "round": "3e journée",
+    "group": "A",
+    "homeTeamId": 2,
+    "awayTeamId": 3,
+    "homeTeamName": "Afrique du Sud",
+    "awayTeamName": "Corée du Sud",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 55,
+    "date": "2026-06-25T20:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "MetLife Stadium",
+      "city": "New York"
+    },
+    "round": "3e journée",
+    "group": "E",
+    "homeTeamId": 20,
+    "awayTeamId": 17,
+    "homeTeamName": "Équateur",
+    "awayTeamName": "Allemagne",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 56,
+    "date": "2026-06-25T20:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lincoln Financial Field",
+      "city": "Philadelphie"
+    },
+    "round": "3e journée",
+    "group": "E",
+    "homeTeamId": 18,
+    "awayTeamId": 19,
+    "homeTeamName": "Curaçao",
+    "awayTeamName": "Côte d'Ivoire",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 57,
+    "date": "2026-06-25T23:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "AT&T Stadium",
+      "city": "Arlington"
+    },
+    "round": "3e journée",
+    "group": "F",
+    "homeTeamId": 22,
+    "awayTeamId": 23,
+    "homeTeamName": "Japon",
+    "awayTeamName": "Suède",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 58,
+    "date": "2026-06-25T23:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Arrowhead Stadium",
+      "city": "Kansas City"
+    },
+    "round": "3e journée",
+    "group": "F",
+    "homeTeamId": 24,
+    "awayTeamId": 21,
+    "homeTeamName": "Tunisie",
+    "awayTeamName": "Pays-Bas",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 59,
+    "date": "2026-06-26T02:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "SoFi Stadium",
+      "city": "Los Angeles"
+    },
+    "round": "3e journée",
+    "group": "D",
+    "homeTeamId": 16,
+    "awayTeamId": 13,
+    "homeTeamName": "Turquie",
+    "awayTeamName": "États-Unis",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 60,
+    "date": "2026-06-26T02:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Levi's Stadium",
+      "city": "Santa Clara"
+    },
+    "round": "3e journée",
+    "group": "D",
+    "homeTeamId": 14,
+    "awayTeamId": 15,
+    "homeTeamName": "Paraguay",
+    "awayTeamName": "Australie",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 61,
+    "date": "2026-06-26T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Gillette Stadium",
+      "city": "Boston"
+    },
+    "round": "3e journée",
+    "group": "I",
+    "homeTeamId": 36,
+    "awayTeamId": 33,
+    "homeTeamName": "Norvège",
+    "awayTeamName": "France",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 62,
+    "date": "2026-06-26T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BMO Field",
+      "city": "Toronto"
+    },
+    "round": "3e journée",
+    "group": "I",
+    "homeTeamId": 34,
+    "awayTeamId": 35,
+    "homeTeamName": "Sénégal",
+    "awayTeamName": "Irak",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 63,
+    "date": "2026-06-27T03:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lumen Field",
+      "city": "Seattle"
+    },
+    "round": "3e journée",
+    "group": "G",
+    "homeTeamId": 26,
+    "awayTeamId": 27,
+    "homeTeamName": "Égypte",
+    "awayTeamName": "Iran",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 64,
+    "date": "2026-06-27T03:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BC Place",
+      "city": "Vancouver"
+    },
+    "round": "3e journée",
+    "group": "G",
+    "homeTeamId": 28,
+    "awayTeamId": 25,
+    "homeTeamName": "Nouvelle-Zélande",
+    "awayTeamName": "Belgique",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 65,
+    "date": "2026-06-27T00:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "NRG Stadium",
+      "city": "Houston"
+    },
+    "round": "3e journée",
+    "group": "H",
+    "homeTeamId": 30,
+    "awayTeamId": 31,
+    "homeTeamName": "Cap-Vert",
+    "awayTeamName": "Arabie saoudite",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 66,
+    "date": "2026-06-27T00:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Estadio Akron",
+      "city": "Guadalajara"
+    },
+    "round": "3e journée",
+    "group": "H",
+    "homeTeamId": 32,
+    "awayTeamId": 29,
+    "homeTeamName": "Uruguay",
+    "awayTeamName": "Espagne",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 67,
+    "date": "2026-06-27T21:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "MetLife Stadium",
+      "city": "New York"
+    },
+    "round": "3e journée",
+    "group": "L",
+    "homeTeamId": 48,
+    "awayTeamId": 45,
+    "homeTeamName": "Panama",
+    "awayTeamName": "Angleterre",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 68,
+    "date": "2026-06-27T21:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lincoln Financial Field",
+      "city": "Philadelphie"
+    },
+    "round": "3e journée",
+    "group": "L",
+    "homeTeamId": 46,
+    "awayTeamId": 47,
+    "homeTeamName": "Croatie",
+    "awayTeamName": "Ghana",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 69,
+    "date": "2026-06-28T02:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Arrowhead Stadium",
+      "city": "Kansas City"
+    },
+    "round": "3e journée",
+    "group": "J",
+    "homeTeamId": 38,
+    "awayTeamId": 39,
+    "homeTeamName": "Algérie",
+    "awayTeamName": "Autriche",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 70,
+    "date": "2026-06-28T02:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "AT&T Stadium",
+      "city": "Arlington"
+    },
+    "round": "3e journée",
+    "group": "J",
+    "homeTeamId": 40,
+    "awayTeamId": 37,
+    "homeTeamName": "Jordanie",
+    "awayTeamName": "Argentine",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 71,
+    "date": "2026-06-27T23:30:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Hard Rock Stadium",
+      "city": "Miami"
+    },
+    "round": "3e journée",
+    "group": "K",
+    "homeTeamId": 44,
+    "awayTeamId": 41,
+    "homeTeamName": "Colombie",
+    "awayTeamName": "Portugal",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 72,
+    "date": "2026-06-27T23:30:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Mercedes-Benz Stadium",
+      "city": "Atlanta"
+    },
+    "round": "3e journée",
+    "group": "K",
+    "homeTeamId": 42,
+    "awayTeamId": 43,
+    "homeTeamName": "RD Congo",
+    "awayTeamName": "Ouzbékistan",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 73,
+    "date": "2026-06-28T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "SoFi Stadium",
+      "city": "Los Angeles"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "2A",
+    "awayTeamName": "2B",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 74,
+    "date": "2026-06-29T20:30:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Gillette Stadium",
+      "city": "Boston"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1E",
+    "awayTeamName": "3A/B/C/D/F",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 75,
+    "date": "2026-06-30T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Stade BBVA",
+      "city": "Monterrey"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1F",
+    "awayTeamName": "2C",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 76,
+    "date": "2026-06-29T17:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "NRG Stadium",
+      "city": "Houston"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1C",
+    "awayTeamName": "2F",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 77,
+    "date": "2026-06-30T21:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "MetLife Stadium",
+      "city": "New York"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1I",
+    "awayTeamName": "3C/D/F/G/H",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 78,
+    "date": "2026-06-30T17:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "AT&T Stadium",
+      "city": "Arlington"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "2E",
+    "awayTeamName": "2I",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 79,
+    "date": "2026-07-01T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Stade Azteca",
+      "city": "Mexico"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1A",
+    "awayTeamName": "3C/E/F/H/I",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 80,
+    "date": "2026-07-01T16:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Mercedes-Benz Stadium",
+      "city": "Atlanta"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1L",
+    "awayTeamName": "3E/H/I/J/K",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 81,
+    "date": "2026-07-02T00:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Levi's Stadium",
+      "city": "Santa Clara"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1D",
+    "awayTeamName": "3B/E/F/I/J",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 82,
+    "date": "2026-07-01T20:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lumen Field",
+      "city": "Seattle"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1G",
+    "awayTeamName": "3A/E/H/I/J",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 83,
+    "date": "2026-07-02T23:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BMO Field",
+      "city": "Toronto"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "2K",
+    "awayTeamName": "2L",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 84,
+    "date": "2026-07-02T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "SoFi Stadium",
+      "city": "Los Angeles"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1H",
+    "awayTeamName": "2J",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 85,
+    "date": "2026-07-03T03:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BC Place",
+      "city": "Vancouver"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1B",
+    "awayTeamName": "3E/F/G/I/J",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 86,
+    "date": "2026-07-03T22:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Hard Rock Stadium",
+      "city": "Miami"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1J",
+    "awayTeamName": "2H",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 87,
+    "date": "2026-07-04T01:30:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Arrowhead Stadium",
+      "city": "Kansas City"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "1K",
+    "awayTeamName": "3D/E/I/J/L",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 88,
+    "date": "2026-07-03T18:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "AT&T Stadium",
+      "city": "Arlington"
+    },
+    "round": "Seizièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "2D",
+    "awayTeamName": "2G",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 89,
+    "date": "2026-07-04T21:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lincoln Financial Field",
+      "city": "Philadelphie"
+    },
+    "round": "Huitièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V74",
+    "awayTeamName": "V77",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 90,
+    "date": "2026-07-04T17:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "NRG Stadium",
+      "city": "Houston"
+    },
+    "round": "Huitièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V73",
+    "awayTeamName": "V75",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 91,
+    "date": "2026-07-05T20:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "MetLife Stadium",
+      "city": "New York"
+    },
+    "round": "Huitièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V76",
+    "awayTeamName": "V78",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 92,
+    "date": "2026-07-06T00:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Stade Azteca",
+      "city": "Mexico"
+    },
+    "round": "Huitièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V79",
+    "awayTeamName": "V80",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 93,
+    "date": "2026-07-06T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "AT&T Stadium",
+      "city": "Arlington"
+    },
+    "round": "Huitièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V83",
+    "awayTeamName": "V84",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 94,
+    "date": "2026-07-07T00:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Lumen Field",
+      "city": "Seattle"
+    },
+    "round": "Huitièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V81",
+    "awayTeamName": "V82",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 95,
+    "date": "2026-07-07T16:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Mercedes-Benz Stadium",
+      "city": "Atlanta"
+    },
+    "round": "Huitièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V86",
+    "awayTeamName": "V88",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 96,
+    "date": "2026-07-07T20:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "BC Place",
+      "city": "Vancouver"
+    },
+    "round": "Huitièmes de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V85",
+    "awayTeamName": "V87",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 97,
+    "date": "2026-07-09T20:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Gillette Stadium",
+      "city": "Boston"
+    },
+    "round": "Quarts de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V89",
+    "awayTeamName": "V90",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 98,
+    "date": "2026-07-10T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "SoFi Stadium",
+      "city": "Los Angeles"
+    },
+    "round": "Quarts de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V93",
+    "awayTeamName": "V94",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 99,
+    "date": "2026-07-11T21:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Hard Rock Stadium",
+      "city": "Miami"
+    },
+    "round": "Quarts de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V91",
+    "awayTeamName": "V92",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 100,
+    "date": "2026-07-12T01:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Arrowhead Stadium",
+      "city": "Kansas City"
+    },
+    "round": "Quarts de finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V95",
+    "awayTeamName": "V96",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 101,
+    "date": "2026-07-14T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "AT&T Stadium",
+      "city": "Arlington"
+    },
+    "round": "Demi-finales",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V97",
+    "awayTeamName": "V98",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 102,
+    "date": "2026-07-15T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Mercedes-Benz Stadium",
+      "city": "Atlanta"
+    },
+    "round": "Demi-finales",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V99",
+    "awayTeamName": "V100",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 103,
+    "date": "2026-07-18T21:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "Hard Rock Stadium",
+      "city": "Miami"
+    },
+    "round": "Match pour la troisième place",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "P101",
+    "awayTeamName": "P102",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  },
+  {
+    "id": 104,
+    "date": "2026-07-19T19:00:00.000Z",
+    "timezone": "UTC",
+    "venue": {
+      "name": "MetLife Stadium",
+      "city": "New York"
+    },
+    "round": "Finale",
+    "group": null,
+    "homeTeamId": 0,
+    "awayTeamId": 0,
+    "homeTeamName": "V101",
+    "awayTeamName": "V102",
+    "goals": {
+      "home": null,
+      "away": null
+    },
+    "status": "NS"
+  }
+]

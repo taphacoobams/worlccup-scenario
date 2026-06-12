@@ -1,0 +1,882 @@
+{
+  "groups": [
+    {
+      "letter": "A",
+      "standings": [
+        {
+          "teamId": 1,
+          "teamName": "Mexique",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 2,
+          "teamName": "Afrique du Sud",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 3,
+          "teamName": "Corée du Sud",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 4,
+          "teamName": "Tchéquie",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "B",
+      "standings": [
+        {
+          "teamId": 5,
+          "teamName": "Canada",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 6,
+          "teamName": "Bosnie-Herzégovine",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 7,
+          "teamName": "Qatar",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 8,
+          "teamName": "Suisse",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "C",
+      "standings": [
+        {
+          "teamId": 9,
+          "teamName": "Brésil",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 10,
+          "teamName": "Maroc",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 11,
+          "teamName": "Haïti",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 12,
+          "teamName": "Écosse",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "D",
+      "standings": [
+        {
+          "teamId": 13,
+          "teamName": "États-Unis",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 14,
+          "teamName": "Paraguay",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 15,
+          "teamName": "Australie",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 16,
+          "teamName": "Turquie",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "E",
+      "standings": [
+        {
+          "teamId": 17,
+          "teamName": "Allemagne",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 18,
+          "teamName": "Curaçao",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 19,
+          "teamName": "Côte d'Ivoire",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 20,
+          "teamName": "Équateur",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "F",
+      "standings": [
+        {
+          "teamId": 21,
+          "teamName": "Pays-Bas",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 22,
+          "teamName": "Japon",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 23,
+          "teamName": "Suède",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 24,
+          "teamName": "Tunisie",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "G",
+      "standings": [
+        {
+          "teamId": 25,
+          "teamName": "Belgique",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 26,
+          "teamName": "Égypte",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 27,
+          "teamName": "Iran",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 28,
+          "teamName": "Nouvelle-Zélande",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "H",
+      "standings": [
+        {
+          "teamId": 29,
+          "teamName": "Espagne",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 30,
+          "teamName": "Cap-Vert",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 31,
+          "teamName": "Arabie saoudite",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 32,
+          "teamName": "Uruguay",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "I",
+      "standings": [
+        {
+          "teamId": 33,
+          "teamName": "France",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 34,
+          "teamName": "Sénégal",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 35,
+          "teamName": "Irak",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 36,
+          "teamName": "Norvège",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "J",
+      "standings": [
+        {
+          "teamId": 37,
+          "teamName": "Argentine",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 38,
+          "teamName": "Algérie",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 39,
+          "teamName": "Autriche",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 40,
+          "teamName": "Jordanie",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "K",
+      "standings": [
+        {
+          "teamId": 41,
+          "teamName": "Portugal",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 42,
+          "teamName": "RD Congo",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 43,
+          "teamName": "Ouzbékistan",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 44,
+          "teamName": "Colombie",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "letter": "L",
+      "standings": [
+        {
+          "teamId": 45,
+          "teamName": "Angleterre",
+          "position": 1,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 46,
+          "teamName": "Croatie",
+          "position": 2,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 47,
+          "teamName": "Ghana",
+          "position": 3,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        },
+        {
+          "teamId": 48,
+          "teamName": "Panama",
+          "position": 4,
+          "played": 0,
+          "won": 0,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "points": 0
+        }
+      ]
+    }
+  ],
+  "bestThirds": [
+    {
+      "group": "A",
+      "key": "3A",
+      "teamId": 3,
+      "teamName": "Corée du Sud",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 1,
+      "inQualifyingZone": true
+    },
+    {
+      "group": "B",
+      "key": "3B",
+      "teamId": 7,
+      "teamName": "Qatar",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 2,
+      "inQualifyingZone": true
+    },
+    {
+      "group": "C",
+      "key": "3C",
+      "teamId": 11,
+      "teamName": "Haïti",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 3,
+      "inQualifyingZone": true
+    },
+    {
+      "group": "D",
+      "key": "3D",
+      "teamId": 15,
+      "teamName": "Australie",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 4,
+      "inQualifyingZone": true
+    },
+    {
+      "group": "E",
+      "key": "3E",
+      "teamId": 19,
+      "teamName": "Côte d'Ivoire",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 5,
+      "inQualifyingZone": true
+    },
+    {
+      "group": "F",
+      "key": "3F",
+      "teamId": 23,
+      "teamName": "Suède",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 6,
+      "inQualifyingZone": true
+    },
+    {
+      "group": "G",
+      "key": "3G",
+      "teamId": 27,
+      "teamName": "Iran",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 7,
+      "inQualifyingZone": true
+    },
+    {
+      "group": "H",
+      "key": "3H",
+      "teamId": 31,
+      "teamName": "Arabie saoudite",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 8,
+      "inQualifyingZone": true
+    },
+    {
+      "group": "I",
+      "key": "3I",
+      "teamId": 35,
+      "teamName": "Irak",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 9,
+      "inQualifyingZone": false
+    },
+    {
+      "group": "J",
+      "key": "3J",
+      "teamId": 39,
+      "teamName": "Autriche",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 10,
+      "inQualifyingZone": false
+    },
+    {
+      "group": "K",
+      "key": "3K",
+      "teamId": 43,
+      "teamName": "Ouzbékistan",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 11,
+      "inQualifyingZone": false
+    },
+    {
+      "group": "L",
+      "key": "3L",
+      "teamId": 47,
+      "teamName": "Ghana",
+      "played": 0,
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "points": 0,
+      "rank": 12,
+      "inQualifyingZone": false
+    }
+  ]
+}

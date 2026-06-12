@@ -1,0 +1,636 @@
+{
+  "title": "Tableau final — Coupe du Monde FIFA 2026",
+  "updatedAt": "2026-06-09T09:37:09.874Z",
+  "rounds": [
+    {
+      "key": "round_of_32",
+      "label": "Seizièmes de finale",
+      "matches": [
+        {
+          "matchNumber": 73,
+          "id": "V73",
+          "home": "2A",
+          "away": "2B",
+          "teams": [
+            "2A",
+            "2B"
+          ],
+          "dateGmt": "2026-06-28T19:00:00.000Z",
+          "date": "28 juin 2026",
+          "venue": "SoFi Stadium, Los Angeles",
+          "city": "Los Angeles"
+        },
+        {
+          "matchNumber": 76,
+          "id": "V76",
+          "home": "1C",
+          "away": "2F",
+          "teams": [
+            "1C",
+            "2F"
+          ],
+          "dateGmt": "2026-06-29T17:00:00.000Z",
+          "date": "29 juin 2026",
+          "venue": "NRG Stadium, Houston",
+          "city": "Houston"
+        },
+        {
+          "matchNumber": 74,
+          "id": "V74",
+          "home": "1E",
+          "away": "3A/B/C/D/F",
+          "teams": [
+            "1E",
+            "3A/B/C/D/F"
+          ],
+          "dateGmt": "2026-06-29T20:30:00.000Z",
+          "date": "29 juin 2026",
+          "venue": "Gillette Stadium, Boston",
+          "city": "Boston"
+        },
+        {
+          "matchNumber": 75,
+          "id": "V75",
+          "home": "1F",
+          "away": "2C",
+          "teams": [
+            "1F",
+            "2C"
+          ],
+          "dateGmt": "2026-06-30T01:00:00.000Z",
+          "date": "30 juin 2026",
+          "venue": "Stade BBVA, Monterrey",
+          "city": "Monterrey"
+        },
+        {
+          "matchNumber": 78,
+          "id": "V78",
+          "home": "2E",
+          "away": "2I",
+          "teams": [
+            "2E",
+            "2I"
+          ],
+          "dateGmt": "2026-06-30T17:00:00.000Z",
+          "date": "30 juin 2026",
+          "venue": "AT&T Stadium, Arlington",
+          "city": "Arlington"
+        },
+        {
+          "matchNumber": 77,
+          "id": "V77",
+          "home": "1I",
+          "away": "3C/D/F/G/H",
+          "teams": [
+            "1I",
+            "3C/D/F/G/H"
+          ],
+          "dateGmt": "2026-06-30T21:00:00.000Z",
+          "date": "30 juin 2026",
+          "venue": "MetLife Stadium, New York",
+          "city": "New York"
+        },
+        {
+          "matchNumber": 79,
+          "id": "V79",
+          "home": "1A",
+          "away": "3C/E/F/H/I",
+          "teams": [
+            "1A",
+            "3C/E/F/H/I"
+          ],
+          "dateGmt": "2026-07-01T01:00:00.000Z",
+          "date": "1er juillet 2026",
+          "venue": "Stade Azteca, Mexico",
+          "city": "Mexico"
+        },
+        {
+          "matchNumber": 80,
+          "id": "V80",
+          "home": "1L",
+          "away": "3E/H/I/J/K",
+          "teams": [
+            "1L",
+            "3E/H/I/J/K"
+          ],
+          "dateGmt": "2026-07-01T16:00:00.000Z",
+          "date": "1er juillet 2026",
+          "venue": "Mercedes-Benz Stadium, Atlanta",
+          "city": "Atlanta"
+        },
+        {
+          "matchNumber": 82,
+          "id": "V82",
+          "home": "1G",
+          "away": "3A/E/H/I/J",
+          "teams": [
+            "1G",
+            "3A/E/H/I/J"
+          ],
+          "dateGmt": "2026-07-01T20:00:00.000Z",
+          "date": "1er juillet 2026",
+          "venue": "Lumen Field, Seattle",
+          "city": "Seattle"
+        },
+        {
+          "matchNumber": 81,
+          "id": "V81",
+          "home": "1D",
+          "away": "3B/E/F/I/J",
+          "teams": [
+            "1D",
+            "3B/E/F/I/J"
+          ],
+          "dateGmt": "2026-07-02T00:00:00.000Z",
+          "date": "2 juillet 2026",
+          "venue": "Levi's Stadium, Santa Clara",
+          "city": "Santa Clara"
+        },
+        {
+          "matchNumber": 84,
+          "id": "V84",
+          "home": "1H",
+          "away": "2J",
+          "teams": [
+            "1H",
+            "2J"
+          ],
+          "dateGmt": "2026-07-02T19:00:00.000Z",
+          "date": "2 juillet 2026",
+          "venue": "SoFi Stadium, Los Angeles",
+          "city": "Los Angeles"
+        },
+        {
+          "matchNumber": 83,
+          "id": "V83",
+          "home": "2K",
+          "away": "2L",
+          "teams": [
+            "2K",
+            "2L"
+          ],
+          "dateGmt": "2026-07-02T23:00:00.000Z",
+          "date": "2 juillet 2026",
+          "venue": "BMO Field, Toronto",
+          "city": "Toronto"
+        },
+        {
+          "matchNumber": 85,
+          "id": "V85",
+          "home": "1B",
+          "away": "3E/F/G/I/J",
+          "teams": [
+            "1B",
+            "3E/F/G/I/J"
+          ],
+          "dateGmt": "2026-07-03T03:00:00.000Z",
+          "date": "3 juillet 2026",
+          "venue": "BC Place, Vancouver",
+          "city": "Vancouver"
+        },
+        {
+          "matchNumber": 88,
+          "id": "V88",
+          "home": "2D",
+          "away": "2G",
+          "teams": [
+            "2D",
+            "2G"
+          ],
+          "dateGmt": "2026-07-03T18:00:00.000Z",
+          "date": "3 juillet 2026",
+          "venue": "AT&T Stadium, Arlington",
+          "city": "Arlington"
+        },
+        {
+          "matchNumber": 86,
+          "id": "V86",
+          "home": "1J",
+          "away": "2H",
+          "teams": [
+            "1J",
+            "2H"
+          ],
+          "dateGmt": "2026-07-03T22:00:00.000Z",
+          "date": "3 juillet 2026",
+          "venue": "Hard Rock Stadium, Miami",
+          "city": "Miami"
+        },
+        {
+          "matchNumber": 87,
+          "id": "V87",
+          "home": "1K",
+          "away": "3D/E/I/J/L",
+          "teams": [
+            "1K",
+            "3D/E/I/J/L"
+          ],
+          "dateGmt": "2026-07-04T01:30:00.000Z",
+          "date": "4 juillet 2026",
+          "venue": "Arrowhead Stadium, Kansas City",
+          "city": "Kansas City"
+        }
+      ]
+    },
+    {
+      "key": "round_of_16",
+      "label": "Huitièmes de finale",
+      "matches": [
+        {
+          "matchNumber": 90,
+          "id": "V90",
+          "home": "V73",
+          "away": "V75",
+          "teams": [
+            "V73",
+            "V75"
+          ],
+          "dateGmt": "2026-07-04T17:00:00.000Z",
+          "date": "4 juillet 2026",
+          "venue": "NRG Stadium, Houston",
+          "city": "Houston"
+        },
+        {
+          "matchNumber": 89,
+          "id": "V89",
+          "home": "V74",
+          "away": "V77",
+          "teams": [
+            "V74",
+            "V77"
+          ],
+          "dateGmt": "2026-07-04T21:00:00.000Z",
+          "date": "4 juillet 2026",
+          "venue": "Lincoln Financial Field, Philadelphie",
+          "city": "Philadelphie"
+        },
+        {
+          "matchNumber": 91,
+          "id": "V91",
+          "home": "V76",
+          "away": "V78",
+          "teams": [
+            "V76",
+            "V78"
+          ],
+          "dateGmt": "2026-07-05T20:00:00.000Z",
+          "date": "5 juillet 2026",
+          "venue": "MetLife Stadium, New York",
+          "city": "New York"
+        },
+        {
+          "matchNumber": 92,
+          "id": "V92",
+          "home": "V79",
+          "away": "V80",
+          "teams": [
+            "V79",
+            "V80"
+          ],
+          "dateGmt": "2026-07-06T00:00:00.000Z",
+          "date": "6 juillet 2026",
+          "venue": "Stade Azteca, Mexico",
+          "city": "Mexico"
+        },
+        {
+          "matchNumber": 93,
+          "id": "V93",
+          "home": "V83",
+          "away": "V84",
+          "teams": [
+            "V83",
+            "V84"
+          ],
+          "dateGmt": "2026-07-06T19:00:00.000Z",
+          "date": "6 juillet 2026",
+          "venue": "AT&T Stadium, Arlington",
+          "city": "Arlington"
+        },
+        {
+          "matchNumber": 94,
+          "id": "V94",
+          "home": "V81",
+          "away": "V82",
+          "teams": [
+            "V81",
+            "V82"
+          ],
+          "dateGmt": "2026-07-07T00:00:00.000Z",
+          "date": "7 juillet 2026",
+          "venue": "Lumen Field, Seattle",
+          "city": "Seattle"
+        },
+        {
+          "matchNumber": 95,
+          "id": "V95",
+          "home": "V86",
+          "away": "V88",
+          "teams": [
+            "V86",
+            "V88"
+          ],
+          "dateGmt": "2026-07-07T16:00:00.000Z",
+          "date": "7 juillet 2026",
+          "venue": "Mercedes-Benz Stadium, Atlanta",
+          "city": "Atlanta"
+        },
+        {
+          "matchNumber": 96,
+          "id": "V96",
+          "home": "V85",
+          "away": "V87",
+          "teams": [
+            "V85",
+            "V87"
+          ],
+          "dateGmt": "2026-07-07T20:00:00.000Z",
+          "date": "7 juillet 2026",
+          "venue": "BC Place, Vancouver",
+          "city": "Vancouver"
+        }
+      ]
+    },
+    {
+      "key": "quarter_finals",
+      "label": "Quarts de finale",
+      "matches": [
+        {
+          "matchNumber": 97,
+          "id": "V97",
+          "home": "V89",
+          "away": "V90",
+          "teams": [
+            "V89",
+            "V90"
+          ],
+          "dateGmt": "2026-07-09T20:00:00.000Z",
+          "date": "9 juillet 2026",
+          "venue": "Gillette Stadium, Boston",
+          "city": "Boston"
+        },
+        {
+          "matchNumber": 98,
+          "id": "V98",
+          "home": "V93",
+          "away": "V94",
+          "teams": [
+            "V93",
+            "V94"
+          ],
+          "dateGmt": "2026-07-10T19:00:00.000Z",
+          "date": "10 juillet 2026",
+          "venue": "SoFi Stadium, Los Angeles",
+          "city": "Los Angeles"
+        },
+        {
+          "matchNumber": 99,
+          "id": "V99",
+          "home": "V91",
+          "away": "V92",
+          "teams": [
+            "V91",
+            "V92"
+          ],
+          "dateGmt": "2026-07-11T21:00:00.000Z",
+          "date": "11 juillet 2026",
+          "venue": "Hard Rock Stadium, Miami",
+          "city": "Miami"
+        },
+        {
+          "matchNumber": 100,
+          "id": "V100",
+          "home": "V95",
+          "away": "V96",
+          "teams": [
+            "V95",
+            "V96"
+          ],
+          "dateGmt": "2026-07-12T01:00:00.000Z",
+          "date": "12 juillet 2026",
+          "venue": "Arrowhead Stadium, Kansas City",
+          "city": "Kansas City"
+        }
+      ]
+    },
+    {
+      "key": "semi_finals",
+      "label": "Demi-finales",
+      "matches": [
+        {
+          "matchNumber": 101,
+          "id": "V101",
+          "home": "V97",
+          "away": "V98",
+          "teams": [
+            "V97",
+            "V98"
+          ],
+          "dateGmt": "2026-07-14T19:00:00.000Z",
+          "date": "14 juillet 2026",
+          "venue": "AT&T Stadium, Arlington",
+          "city": "Arlington"
+        },
+        {
+          "matchNumber": 102,
+          "id": "V102",
+          "home": "V99",
+          "away": "V100",
+          "teams": [
+            "V99",
+            "V100"
+          ],
+          "dateGmt": "2026-07-15T19:00:00.000Z",
+          "date": "15 juillet 2026",
+          "venue": "Mercedes-Benz Stadium, Atlanta",
+          "city": "Atlanta"
+        }
+      ]
+    },
+    {
+      "key": "third_place",
+      "label": "Match pour la troisième place",
+      "matches": [
+        {
+          "matchNumber": 103,
+          "id": "103",
+          "home": "P101",
+          "away": "P102",
+          "teams": [
+            "P101",
+            "P102"
+          ],
+          "dateGmt": "2026-07-18T21:00:00.000Z",
+          "date": "18 juillet 2026",
+          "venue": "Hard Rock Stadium, Miami",
+          "city": "Miami"
+        }
+      ]
+    },
+    {
+      "key": "final",
+      "label": "Finale",
+      "matches": [
+        {
+          "matchNumber": 104,
+          "id": "104",
+          "home": "V101",
+          "away": "V102",
+          "teams": [
+            "V101",
+            "V102"
+          ],
+          "dateGmt": "2026-07-19T19:00:00.000Z",
+          "date": "19 juillet 2026",
+          "venue": "MetLife Stadium, New York",
+          "city": "New York"
+        }
+      ]
+    }
+  ],
+  "round_of_32": [
+    {
+      "id": "V73",
+      "teams": [
+        "2A",
+        "2B"
+      ],
+      "date": "28 juin 2026",
+      "venue": "SoFi Stadium, Los Angeles"
+    },
+    {
+      "id": "V76",
+      "teams": [
+        "1C",
+        "2F"
+      ],
+      "date": "29 juin 2026",
+      "venue": "NRG Stadium, Houston"
+    },
+    {
+      "id": "V74",
+      "teams": [
+        "1E",
+        "3A/B/C/D/F"
+      ],
+      "date": "29 juin 2026",
+      "venue": "Gillette Stadium, Boston"
+    },
+    {
+      "id": "V75",
+      "teams": [
+        "1F",
+        "2C"
+      ],
+      "date": "30 juin 2026",
+      "venue": "Stade BBVA, Monterrey"
+    },
+    {
+      "id": "V78",
+      "teams": [
+        "2E",
+        "2I"
+      ],
+      "date": "30 juin 2026",
+      "venue": "AT&T Stadium, Arlington"
+    },
+    {
+      "id": "V77",
+      "teams": [
+        "1I",
+        "3C/D/F/G/H"
+      ],
+      "date": "30 juin 2026",
+      "venue": "MetLife Stadium, New York"
+    },
+    {
+      "id": "V79",
+      "teams": [
+        "1A",
+        "3C/E/F/H/I"
+      ],
+      "date": "1er juillet 2026",
+      "venue": "Stade Azteca, Mexico"
+    },
+    {
+      "id": "V80",
+      "teams": [
+        "1L",
+        "3E/H/I/J/K"
+      ],
+      "date": "1er juillet 2026",
+      "venue": "Mercedes-Benz Stadium, Atlanta"
+    },
+    {
+      "id": "V82",
+      "teams": [
+        "1G",
+        "3A/E/H/I/J"
+      ],
+      "date": "1er juillet 2026",
+      "venue": "Lumen Field, Seattle"
+    },
+    {
+      "id": "V81",
+      "teams": [
+        "1D",
+        "3B/E/F/I/J"
+      ],
+      "date": "2 juillet 2026",
+      "venue": "Levi's Stadium, Santa Clara"
+    },
+    {
+      "id": "V84",
+      "teams": [
+        "1H",
+        "2J"
+      ],
+      "date": "2 juillet 2026",
+      "venue": "SoFi Stadium, Los Angeles"
+    },
+    {
+      "id": "V83",
+      "teams": [
+        "2K",
+        "2L"
+      ],
+      "date": "2 juillet 2026",
+      "venue": "BMO Field, Toronto"
+    },
+    {
+      "id": "V85",
+      "teams": [
+        "1B",
+        "3E/F/G/I/J"
+      ],
+      "date": "3 juillet 2026",
+      "venue": "BC Place, Vancouver"
+    },
+    {
+      "id": "V88",
+      "teams": [
+        "2D",
+        "2G"
+      ],
+      "date": "3 juillet 2026",
+      "venue": "AT&T Stadium, Arlington"
+    },
+    {
+      "id": "V86",
+      "teams": [
+        "1J",
+        "2H"
+      ],
+      "date": "3 juillet 2026",
+      "venue": "Hard Rock Stadium, Miami"
+    },
+    {
+      "id": "V87",
+      "teams": [
+        "1K",
+        "3D/E/I/J/L"
+      ],
+      "date": "4 juillet 2026",
+      "venue": "Arrowhead Stadium, Kansas City"
+    }
+  ]
+}

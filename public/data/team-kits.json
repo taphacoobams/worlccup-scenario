@@ -1,0 +1,1328 @@
+{
+  "ALG": {
+    "matches": [
+      {
+        "match": 19,
+        "filename": "alg-m19.png",
+        "colors": [
+          "green",
+          "white",
+          "black"
+        ]
+      },
+      {
+        "match": 44,
+        "filename": "alg-m44.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 69,
+        "filename": "alg-m69.png",
+        "colors": [
+          "white"
+        ]
+      }
+    ]
+  },
+  "ARG": {
+    "matches": [
+      {
+        "match": 19,
+        "filename": "arg-m19.png",
+        "colors": [
+          "white",
+          "light blue",
+          "blue"
+        ]
+      },
+      {
+        "match": 43,
+        "filename": "arg-m43.png",
+        "colors": [
+          "white",
+          "light blue",
+          "blue"
+        ]
+      },
+      {
+        "match": 70,
+        "filename": "arg-m70.png",
+        "colors": [
+          "blue",
+          "black",
+          "white"
+        ]
+      }
+    ]
+  },
+  "AUS": {
+    "matches": [
+      {
+        "match": 6,
+        "filename": "aus-m06.png",
+        "colors": [
+          "gold",
+          "olive green",
+          "white"
+        ]
+      },
+      {
+        "match": 32,
+        "filename": "aus-m32.png",
+        "colors": [
+          "gold",
+          "yellow"
+        ]
+      },
+      {
+        "match": 60,
+        "filename": "aus-m60.png",
+        "colors": [
+          "gold",
+          "olive green",
+          "white"
+        ]
+      }
+    ]
+  },
+  "AUT": {
+    "matches": [
+      {
+        "match": 20,
+        "filename": "aut-m20.png",
+        "colors": [
+          "red",
+          "black"
+        ]
+      },
+      {
+        "match": 43,
+        "filename": "aut-m43.png",
+        "colors": [
+          "red",
+          "black",
+          "white"
+        ]
+      },
+      {
+        "match": 69,
+        "filename": "aut-m69.png",
+        "colors": [
+          "red",
+          "black"
+        ]
+      }
+    ]
+  },
+  "BEL": {
+    "matches": [
+      {
+        "match": 16,
+        "filename": "bel-m16.png",
+        "colors": [
+          "red",
+          "yellow",
+          "black"
+        ]
+      },
+      {
+        "match": 39,
+        "filename": "bel-m39.png",
+        "colors": [
+          "red",
+          "yellow",
+          "black"
+        ]
+      },
+      {
+        "match": 64,
+        "filename": "bel-m64.png",
+        "colors": [
+          "red",
+          "yellow",
+          "black"
+        ]
+      }
+    ]
+  },
+  "BIH": {
+    "matches": [
+      {
+        "match": 3,
+        "filename": "bih-m03.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 26,
+        "filename": "bih-m26.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 52,
+        "filename": "bih-m52.png",
+        "colors": [
+          "blue",
+          "yellow"
+        ]
+      }
+    ]
+  },
+  "BRA": {
+    "matches": [
+      {
+        "match": 7,
+        "filename": "bra-m07.png",
+        "colors": [
+          "yellow",
+          "blue",
+          "white"
+        ]
+      },
+      {
+        "match": 29,
+        "filename": "bra-m29.png",
+        "colors": [
+          "blue",
+          "black"
+        ]
+      },
+      {
+        "match": 49,
+        "filename": "bra-m49.png",
+        "colors": [
+          "yellow",
+          "white"
+        ]
+      }
+    ]
+  },
+  "CAN": {
+    "matches": [
+      {
+        "match": 3,
+        "filename": "can-m03.png",
+        "colors": [
+          "red"
+        ]
+      },
+      {
+        "match": 27,
+        "filename": "can-m27.png",
+        "colors": [
+          "black"
+        ]
+      },
+      {
+        "match": 51,
+        "filename": "can-m51.png",
+        "colors": [
+          "white"
+        ]
+      }
+    ]
+  },
+  "CIV": {
+    "matches": [
+      {
+        "match": 9,
+        "filename": "civ-m09.png",
+        "colors": [
+          "orange",
+          "green"
+        ]
+      },
+      {
+        "match": 33,
+        "filename": "civ-m33.png",
+        "colors": [
+          "orange",
+          "green"
+        ]
+      },
+      {
+        "match": 55,
+        "filename": "civ-m55.png",
+        "colors": [
+          "orange",
+          "green"
+        ]
+      }
+    ]
+  },
+  "COD": {
+    "matches": [
+      {
+        "match": 23,
+        "filename": "cod-m23.png",
+        "colors": [
+          "blue"
+        ]
+      },
+      {
+        "match": 48,
+        "filename": "cod-m48.png",
+        "colors": [
+          "blue"
+        ]
+      },
+      {
+        "match": 72,
+        "filename": "cod-m72.png",
+        "colors": [
+          "red"
+        ]
+      }
+    ]
+  },
+  "COL": {
+    "matches": [
+      {
+        "match": 24,
+        "filename": "col-m24.png",
+        "colors": [
+          "blue",
+          "yellow",
+          "neon green"
+        ]
+      },
+      {
+        "match": 48,
+        "filename": "col-m48.png",
+        "colors": [
+          "yellow",
+          "red",
+          "white"
+        ]
+      },
+      {
+        "match": 71,
+        "filename": "col-m71.png",
+        "colors": [
+          "yellow",
+          "red",
+          "blue",
+          "white"
+        ]
+      }
+    ]
+  },
+  "CPV": {
+    "matches": [
+      {
+        "match": 14,
+        "filename": "cpv-m14.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 37,
+        "filename": "cpv-m37.png",
+        "colors": [
+          "red"
+        ]
+      },
+      {
+        "match": 65,
+        "filename": "cpv-m65.png",
+        "colors": [
+          "blue"
+        ]
+      }
+    ]
+  },
+  "CRO": {
+    "matches": [
+      {
+        "match": 22,
+        "filename": "cro-m22.png",
+        "colors": [
+          "blue"
+        ]
+      },
+      {
+        "match": 46,
+        "filename": "cro-m46.png",
+        "colors": [
+          "white",
+          "red"
+        ]
+      },
+      {
+        "match": 68,
+        "filename": "cro-m68.png",
+        "colors": [
+          "white",
+          "red"
+        ]
+      }
+    ]
+  },
+  "CUW": {
+    "matches": [
+      {
+        "match": 10,
+        "filename": "cuw-m10.png",
+        "colors": [
+          "blue",
+          "gold",
+          "yellow"
+        ]
+      },
+      {
+        "match": 34,
+        "filename": "cuw-m34.png",
+        "colors": [
+          "blue",
+          "yellow"
+        ]
+      },
+      {
+        "match": 55,
+        "filename": "cuw-m55.png",
+        "colors": [
+          "blue",
+          "yellow"
+        ]
+      }
+    ]
+  },
+  "CZE": {
+    "matches": [
+      {
+        "match": 2,
+        "filename": "cze-m02.png",
+        "colors": [
+          "white",
+          "bronze"
+        ]
+      },
+      {
+        "match": 25,
+        "filename": "cze-m25.png",
+        "colors": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "match": 53,
+        "filename": "cze-m53.png",
+        "colors": [
+          "red",
+          "blue"
+        ]
+      }
+    ]
+  },
+  "ECU": {
+    "matches": [
+      {
+        "match": 9,
+        "filename": "ecu-m09.png",
+        "colors": [
+          "blue",
+          "white"
+        ]
+      },
+      {
+        "match": 34,
+        "filename": "ecu-m34.png",
+        "colors": [
+          "yellow",
+          "blue"
+        ]
+      },
+      {
+        "match": 56,
+        "filename": "ecu-m56.png",
+        "colors": [
+          "yellow",
+          "blue",
+          "red"
+        ]
+      }
+    ]
+  },
+  "EGY": {
+    "matches": [
+      {
+        "match": 16,
+        "filename": "egy-m16.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 40,
+        "filename": "egy-m40.png",
+        "colors": [
+          "red",
+          "black"
+        ]
+      },
+      {
+        "match": 63,
+        "filename": "egy-m63.png",
+        "colors": [
+          "red",
+          "black"
+        ]
+      }
+    ]
+  },
+  "ENG": {
+    "matches": [
+      {
+        "match": 22,
+        "filename": "eng-m22.png",
+        "colors": [
+          "white",
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "match": 45,
+        "filename": "eng-m45.png",
+        "colors": [
+          "white",
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "match": 67,
+        "filename": "eng-m67.png",
+        "colors": [
+          "red",
+          "blue"
+        ]
+      }
+    ]
+  },
+  "ESP": {
+    "matches": [
+      {
+        "match": 14,
+        "filename": "esp-m14.png",
+        "colors": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "match": 38,
+        "filename": "esp-m38.png",
+        "colors": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "match": 66,
+        "filename": "esp-m66.png",
+        "colors": [
+          "white",
+          "maroon"
+        ]
+      }
+    ]
+  },
+  "FRA": {
+    "matches": [
+      {
+        "match": 17,
+        "filename": "fra-m17.png",
+        "colors": [
+          "blue",
+          "white",
+          "red"
+        ]
+      },
+      {
+        "match": 42,
+        "filename": "fra-m42.png",
+        "colors": [
+          "blue"
+        ]
+      },
+      {
+        "match": 61,
+        "filename": "fra-m61.png",
+        "colors": [
+          "green"
+        ]
+      }
+    ]
+  },
+  "GER": {
+    "matches": [
+      {
+        "match": 10,
+        "filename": "ger-m10.png",
+        "colors": [
+          "white",
+          "black"
+        ]
+      },
+      {
+        "match": 33,
+        "filename": "ger-m33.png",
+        "colors": [
+          "white",
+          "black"
+        ]
+      },
+      {
+        "match": 56,
+        "filename": "ger-m56.png",
+        "colors": [
+          "blue",
+          "turquoise"
+        ]
+      }
+    ]
+  },
+  "GHA": {
+    "matches": [
+      {
+        "match": 21,
+        "filename": "gha-m21.png",
+        "colors": [
+          "yellow"
+        ]
+      },
+      {
+        "match": 45,
+        "filename": "gha-m45.png",
+        "colors": [
+          "yellow",
+          "black"
+        ]
+      },
+      {
+        "match": 68,
+        "filename": "gha-m68.png",
+        "colors": [
+          "yellow",
+          "black"
+        ]
+      }
+    ]
+  },
+  "HAI": {
+    "matches": [
+      {
+        "match": 5,
+        "filename": "hai-m05.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 29,
+        "filename": "hai-m29.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 50,
+        "filename": "hai-m50.png",
+        "colors": [
+          "blue"
+        ]
+      }
+    ]
+  },
+  "IRN": {
+    "matches": [
+      {
+        "match": 15,
+        "filename": "irn-m15.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 39,
+        "filename": "irn-m39.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 63,
+        "filename": "irn-m63.png",
+        "colors": [
+          "white"
+        ]
+      }
+    ]
+  },
+  "IRQ": {
+    "matches": [
+      {
+        "match": 18,
+        "filename": "irq-m18.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 42,
+        "filename": "irq-m42.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 62,
+        "filename": "irq-m62.png",
+        "colors": [
+          "green"
+        ]
+      }
+    ]
+  },
+  "JOR": {
+    "matches": [
+      {
+        "match": 20,
+        "filename": "jor-m20.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 44,
+        "filename": "jor-m44.png",
+        "colors": [
+          "red"
+        ]
+      },
+      {
+        "match": 70,
+        "filename": "jor-m70.png",
+        "colors": [
+          "white"
+        ]
+      }
+    ]
+  },
+  "JPN": {
+    "matches": [
+      {
+        "match": 11,
+        "filename": "jpn-m11.png",
+        "colors": [
+          "blue",
+          "white"
+        ]
+      },
+      {
+        "match": 36,
+        "filename": "jpn-m36.png",
+        "colors": [
+          "blue",
+          "white"
+        ]
+      },
+      {
+        "match": 57,
+        "filename": "jpn-m57.png",
+        "colors": [
+          "blue",
+          "white"
+        ]
+      }
+    ]
+  },
+  "KOR": {
+    "matches": [
+      {
+        "match": 2,
+        "filename": "kor-m02.png",
+        "colors": [
+          "red",
+          "black"
+        ]
+      },
+      {
+        "match": 28,
+        "filename": "kor-m28.png",
+        "colors": [
+          "magenta"
+        ]
+      },
+      {
+        "match": 54,
+        "filename": "kor-m54.png",
+        "colors": [
+          "red",
+          "black"
+        ]
+      }
+    ]
+  },
+  "KSA": {
+    "matches": [
+      {
+        "match": 13,
+        "filename": "ksa-m13.png",
+        "colors": [
+          "green",
+          "white"
+        ]
+      },
+      {
+        "match": 38,
+        "filename": "ksa-m38.png",
+        "colors": [
+          "white",
+          "bronze"
+        ]
+      },
+      {
+        "match": 65,
+        "filename": "ksa-m65.png",
+        "colors": [
+          "white",
+          "bronze"
+        ]
+      }
+    ]
+  },
+  "MAR": {
+    "matches": [
+      {
+        "match": 7,
+        "filename": "mar-m07.png",
+        "colors": [
+          "red",
+          "green"
+        ]
+      },
+      {
+        "match": 30,
+        "filename": "mar-m30.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 50,
+        "filename": "mar-m50.png",
+        "colors": [
+          "red",
+          "green"
+        ]
+      }
+    ]
+  },
+  "MEX": {
+    "matches": [
+      {
+        "match": 1,
+        "filename": "mex-m01.png",
+        "colors": [
+          "green",
+          "white",
+          "red"
+        ]
+      },
+      {
+        "match": 28,
+        "filename": "mex-m28.png",
+        "colors": [
+          "black",
+          "white"
+        ]
+      },
+      {
+        "match": 53,
+        "filename": "mex-m53.png",
+        "colors": [
+          "white",
+          "green"
+        ]
+      }
+    ]
+  },
+  "NED": {
+    "matches": [
+      {
+        "match": 11,
+        "filename": "ned-m11.png",
+        "colors": [
+          "orange",
+          "black"
+        ]
+      },
+      {
+        "match": 35,
+        "filename": "ned-m35.png",
+        "colors": [
+          "orange",
+          "black"
+        ]
+      },
+      {
+        "match": 58,
+        "filename": "ned-m58.png",
+        "colors": [
+          "orange",
+          "black"
+        ]
+      }
+    ]
+  },
+  "NOR": {
+    "matches": [
+      {
+        "match": 18,
+        "filename": "nor-m18.png",
+        "colors": [
+          "red"
+        ]
+      },
+      {
+        "match": 41,
+        "filename": "nor-m41.png",
+        "colors": [
+          "black"
+        ]
+      },
+      {
+        "match": 61,
+        "filename": "nor-m61.png",
+        "colors": [
+          "red"
+        ]
+      }
+    ]
+  },
+  "NZL": {
+    "matches": [
+      {
+        "match": 15,
+        "filename": "nzl-m15.png",
+        "colors": [
+          "black"
+        ]
+      },
+      {
+        "match": 40,
+        "filename": "nzl-m40.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 64,
+        "filename": "nzl-m64.png",
+        "colors": [
+          "white"
+        ]
+      }
+    ]
+  },
+  "PAN": {
+    "matches": [
+      {
+        "match": 21,
+        "filename": "pan-m21.png",
+        "colors": [
+          "red",
+          "white"
+        ]
+      },
+      {
+        "match": 46,
+        "filename": "pan-m46.png",
+        "colors": [
+          "blue",
+          "white"
+        ]
+      },
+      {
+        "match": 67,
+        "filename": "pan-m67.png",
+        "colors": [
+          "white"
+        ]
+      }
+    ]
+  },
+  "PAR": {
+    "matches": [
+      {
+        "match": 4,
+        "filename": "par-m04.png",
+        "colors": [
+          "blue"
+        ]
+      },
+      {
+        "match": 31,
+        "filename": "par-m31.png",
+        "colors": [
+          "blue"
+        ]
+      },
+      {
+        "match": 60,
+        "filename": "par-m60.png",
+        "colors": [
+          "red",
+          "white",
+          "blue"
+        ]
+      }
+    ]
+  },
+  "POR": {
+    "matches": [
+      {
+        "match": 23,
+        "filename": "por-m23.png",
+        "colors": [
+          "red",
+          "olive green",
+          "green"
+        ]
+      },
+      {
+        "match": 47,
+        "filename": "por-m47.png",
+        "colors": [
+          "red",
+          "olive green",
+          "green"
+        ]
+      },
+      {
+        "match": 71,
+        "filename": "por-m71.png",
+        "colors": [
+          "red",
+          "olive green",
+          "green"
+        ]
+      }
+    ]
+  },
+  "QAT": {
+    "matches": [
+      {
+        "match": 8,
+        "filename": "qat-m08.png",
+        "colors": [
+          "maroon",
+          "white"
+        ]
+      },
+      {
+        "match": 27,
+        "filename": "qat-m27.png",
+        "colors": [
+          "white",
+          "maroon"
+        ]
+      },
+      {
+        "match": 52,
+        "filename": "qat-m52.png",
+        "colors": [
+          "white",
+          "maroon"
+        ]
+      }
+    ]
+  },
+  "RSA": {
+    "matches": [
+      {
+        "match": 1,
+        "filename": "rsa-m01.png",
+        "colors": [
+          "yellow",
+          "green"
+        ]
+      },
+      {
+        "match": 25,
+        "filename": "rsa-m25.png",
+        "colors": [
+          "yellow",
+          "green"
+        ]
+      },
+      {
+        "match": 54,
+        "filename": "rsa-m54.png",
+        "colors": [
+          "yellow",
+          "green"
+        ]
+      }
+    ]
+  },
+  "SCO": {
+    "matches": [
+      {
+        "match": 5,
+        "filename": "sco-m05.png",
+        "colors": [
+          "red",
+          "purple"
+        ]
+      },
+      {
+        "match": 30,
+        "filename": "sco-m30.png",
+        "colors": [
+          "blue",
+          "white"
+        ]
+      },
+      {
+        "match": 49,
+        "filename": "sco-m49.png",
+        "colors": [
+          "blue",
+          "white"
+        ]
+      }
+    ]
+  },
+  "SEN": {
+    "matches": [
+      {
+        "match": 17,
+        "filename": "sen-m17.png",
+        "colors": [
+          "white",
+          "green",
+          "red"
+        ]
+      },
+      {
+        "match": 41,
+        "filename": "sen-m41.png",
+        "colors": [
+          "white",
+          "green"
+        ]
+      },
+      {
+        "match": 62,
+        "filename": "sen-m62.png",
+        "colors": [
+          "white",
+          "green"
+        ]
+      }
+    ]
+  },
+  "SUI": {
+    "matches": [
+      {
+        "match": 8,
+        "filename": "sui-m08.png",
+        "colors": [
+          "light grey",
+          "green"
+        ]
+      },
+      {
+        "match": 26,
+        "filename": "sui-m26.png",
+        "colors": [
+          "red",
+          "white"
+        ]
+      },
+      {
+        "match": 51,
+        "filename": "sui-m51.png",
+        "colors": [
+          "red",
+          "white"
+        ]
+      }
+    ]
+  },
+  "SWE": {
+    "matches": [
+      {
+        "match": 12,
+        "filename": "swe-m12.png",
+        "colors": [
+          "yellow",
+          "blue",
+          "white"
+        ]
+      },
+      {
+        "match": 35,
+        "filename": "swe-m35.png",
+        "colors": [
+          "blue",
+          "yellow",
+          "gold"
+        ]
+      },
+      {
+        "match": 57,
+        "filename": "swe-m57.png",
+        "colors": [
+          "yellow",
+          "blue",
+          "white"
+        ]
+      }
+    ]
+  },
+  "TUN": {
+    "matches": [
+      {
+        "match": 12,
+        "filename": "tun-m12.png",
+        "colors": [
+          "red"
+        ]
+      },
+      {
+        "match": 36,
+        "filename": "tun-m36.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 58,
+        "filename": "tun-m58.png",
+        "colors": [
+          "white"
+        ]
+      }
+    ]
+  },
+  "TUR": {
+    "matches": [
+      {
+        "match": 6,
+        "filename": "tur-m06.png",
+        "colors": [
+          "port",
+          "red"
+        ]
+      },
+      {
+        "match": 31,
+        "filename": "tur-m31.png",
+        "colors": [
+          "white",
+          "port",
+          "red"
+        ]
+      },
+      {
+        "match": 59,
+        "filename": "tur-m59.png",
+        "colors": [
+          "white",
+          "red"
+        ]
+      }
+    ]
+  },
+  "URU": {
+    "matches": [
+      {
+        "match": 13,
+        "filename": "uru-m13.png",
+        "colors": [
+          "light blue",
+          "white"
+        ]
+      },
+      {
+        "match": 37,
+        "filename": "uru-m37.png",
+        "colors": [
+          "light blue",
+          "blue"
+        ]
+      },
+      {
+        "match": 66,
+        "filename": "uru-m66.png",
+        "colors": [
+          "blue"
+        ]
+      }
+    ]
+  },
+  "USA": {
+    "matches": [
+      {
+        "match": 4,
+        "filename": "usa-m04.png",
+        "colors": [
+          "white",
+          "red"
+        ]
+      },
+      {
+        "match": 32,
+        "filename": "usa-m32.png",
+        "colors": [
+          "white",
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "match": 59,
+        "filename": "usa-m59.png",
+        "colors": [
+          "blue"
+        ]
+      }
+    ]
+  },
+  "UZB": {
+    "matches": [
+      {
+        "match": 24,
+        "filename": "uzb-m24.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 47,
+        "filename": "uzb-m47.png",
+        "colors": [
+          "white"
+        ]
+      },
+      {
+        "match": 72,
+        "filename": "uzb-m72.png",
+        "colors": [
+          "white"
+        ]
+      }
+    ]
+  }
+}

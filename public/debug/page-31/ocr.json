@@ -1,0 +1,305 @@
+{
+  "page": 31,
+  "blocks": [
+    {
+      "matchNumber": 61,
+      "blockTop": 244,
+      "teams": {
+        "home": {
+          "code": "NOR",
+          "ocr": "Norway",
+          "name": "Norway"
+        },
+        "away": {
+          "code": "FRA",
+          "ocr": "France",
+          "name": "France"
+        }
+      },
+      "colors": {
+        "NOR": {
+          "player": {
+            "shirt": {
+              "raw": "ad red Goalkeeper",
+              "color": "red",
+              "rect": {
+                "left": 73,
+                "top": 439,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "red",
+              "color": "red",
+              "rect": {
+                "left": 162,
+                "top": 439,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "red",
+              "color": "red",
+              "rect": {
+                "left": 256,
+                "top": 439,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "light blue",
+              "color": "light blue",
+              "rect": {
+                "left": 73,
+                "top": 614,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "EY light blue",
+              "color": "light blue",
+              "rect": {
+                "left": 162,
+                "top": 614,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- light blue",
+              "color": "light blue",
+              "rect": {
+                "left": 256,
+                "top": 614,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "FRA": {
+          "player": {
+            "shirt": {
+              "raw": "light green Goalkeeper",
+              "color": "green",
+              "rect": {
+                "left": 646,
+                "top": 439,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "light green i",
+              "color": "green",
+              "rect": {
+                "left": 746,
+                "top": 439,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "light green",
+              "color": "green",
+              "rect": {
+                "left": 846,
+                "top": 439,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "yellow / black",
+              "color": "yellow / black",
+              "rect": {
+                "left": 646,
+                "top": 614,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 746,
+                "top": 614,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 846,
+                "top": 614,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "matchNumber": 62,
+      "blockTop": 791,
+      "teams": {
+        "home": {
+          "code": "SEN",
+          "ocr": "Senegal",
+          "name": "Senegal"
+        },
+        "away": {
+          "code": "IRQ",
+          "ocr": "Iraq",
+          "name": "Iraq"
+        }
+      },
+      "colors": {
+        "SEN": {
+          "player": {
+            "shirt": {
+              "raw": "had lo - 1 4 white",
+              "color": "white",
+              "rect": {
+                "left": 73,
+                "top": 986,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "white / dark green",
+              "color": "white / green",
+              "rect": {
+                "left": 162,
+                "top": 986,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white / green",
+              "color": "white / green",
+              "rect": {
+                "left": 256,
+                "top": 986,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "orange",
+              "color": "orange",
+              "rect": {
+                "left": 73,
+                "top": 1161,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "py orange",
+              "color": "orange",
+              "rect": {
+                "left": 162,
+                "top": 1161,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "oe orange",
+              "color": "orange",
+              "rect": {
+                "left": 256,
+                "top": 1161,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "IRQ": {
+          "player": {
+            "shirt": {
+              "raw": "dark green Goalkeeper",
+              "color": "green",
+              "rect": {
+                "left": 646,
+                "top": 986,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "dark green d",
+              "color": "green",
+              "rect": {
+                "left": 746,
+                "top": 986,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "dark green",
+              "color": "green",
+              "rect": {
+                "left": 846,
+                "top": 986,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "black",
+              "color": "black",
+              "rect": {
+                "left": 646,
+                "top": 1161,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "black",
+              "color": "black",
+              "rect": {
+                "left": 746,
+                "top": 1161,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "black",
+              "color": "black",
+              "rect": {
+                "left": 846,
+                "top": 1161,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

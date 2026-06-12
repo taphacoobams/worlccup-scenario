@@ -1,0 +1,72 @@
+m01: Mexique vs Afrique du Sud
+m02: Corée du Sud vs Tchéquie
+m03: Canada vs Bosnie-Herzégovine
+m04: États-Unis vs Paraguay
+m05: Haïti vs Écosse
+m06: Australie vs Turquie
+m07: Brésil vs Maroc
+m08: Qatar vs Suisse
+m09: Côte d'Ivoire vs Équateur
+m10: Allemagne vs Curaçao
+m11: Pays-Bas vs Japon
+m12: Suède vs Tunisie
+m13: Arabie saoudite vs Uruguay
+m14: Espagne vs Cap-Vert
+m15: Iran vs Nouvelle-Zélande
+m16: Belgique vs Égypte
+m17: France vs Sénégal
+m18: Irak vs Norvège
+m19: Argentine vs Algérie
+m20: Autriche vs Jordanie
+m21: Ghana vs Panama
+m22: Angleterre vs Croatie
+m23: Portugal vs RD Congo
+m24: Ouzbékistan vs Colombie
+m25: Tchéquie vs Afrique du Sud
+m26: Suisse vs Bosnie-Herzégovine
+m27: Canada vs Qatar
+m28: Mexique vs Corée du Sud
+m29: Brésil vs Haïti
+m30: Écosse vs Maroc
+m31: Turquie vs Paraguay
+m32: États-Unis vs Australie
+m33: Allemagne vs Côte d'Ivoire
+m34: Équateur vs Curaçao
+m35: Pays-Bas vs Suède
+m36: Tunisie vs Japon
+m37: Uruguay vs Cap-Vert
+m38: Espagne vs Arabie saoudite
+m39: Belgique vs Iran
+m40: Nouvelle-Zélande vs Égypte
+m41: France vs Irak
+m42: Norvège vs Sénégal
+m43: Argentine vs Autriche
+m44: Jordanie vs Algérie
+m45: Angleterre vs Ghana
+m46: Panama vs Croatie
+m47: Portugal vs Ouzbékistan
+m48: Colombie vs RD Congo
+m49: Écosse vs Brésil
+m50: Maroc vs Haïti
+m51: Suisse vs Canada
+m52: Bosnie-Herzégovine vs Qatar
+m53: Tchéquie vs Mexique
+m54: Afrique du Sud vs Corée du Sud
+m55: Équateur vs Allemagne
+m56: Curaçao vs Côte d'Ivoire
+m57: Japon vs Suède
+m58: Tunisie vs Pays-Bas
+m59: Turquie vs États-Unis
+m60: Paraguay vs Australie
+m61: Norvège vs France
+m62: Sénégal vs Irak
+m63: Égypte vs Iran
+m64: Nouvelle-Zélande vs Belgique
+m65: Cap-Vert vs Arabie saoudite
+m66: Uruguay vs Espagne
+m67: Panama vs Angleterre
+m68: Croatie vs Ghana
+m69: Algérie vs Autriche
+m70: Jordanie vs Argentine
+m71: Colombie vs Portugal
+m72: RD Congo vs Ouzbékistan

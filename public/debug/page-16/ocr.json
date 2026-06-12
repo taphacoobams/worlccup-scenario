@@ -1,0 +1,305 @@
+{
+  "page": 16,
+  "blocks": [
+    {
+      "matchNumber": 31,
+      "blockTop": 240,
+      "teams": {
+        "home": {
+          "code": "BRA",
+          "ocr": "Tarkiye",
+          "name": "Tarkiye"
+        },
+        "away": {
+          "code": "PAR",
+          "ocr": "Paraguay",
+          "name": "Paraguay"
+        }
+      },
+      "colors": {
+        "BRA": {
+          "player": {
+            "shirt": {
+              "raw": "white / port red",
+              "color": "white / red",
+              "rect": {
+                "left": 73,
+                "top": 435,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "white / red",
+              "color": "white / red",
+              "rect": {
+                "left": 162,
+                "top": 435,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white / red",
+              "color": "white / red",
+              "rect": {
+                "left": 256,
+                "top": 435,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "green / neon green",
+              "color": "green / neon green",
+              "rect": {
+                "left": 73,
+                "top": 610,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "-- green",
+              "color": "green",
+              "rect": {
+                "left": 162,
+                "top": 610,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "a green",
+              "color": "green",
+              "rect": {
+                "left": 256,
+                "top": 610,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "PAR": {
+          "player": {
+            "shirt": {
+              "raw": "- h navy blue Goalkeeper",
+              "color": "blue",
+              "rect": {
+                "left": 646,
+                "top": 435,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "A dd -w navy blue",
+              "color": "blue",
+              "rect": {
+                "left": 746,
+                "top": 435,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "-w navy blue",
+              "color": "blue",
+              "rect": {
+                "left": 846,
+                "top": 435,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "ld yD - orange",
+              "color": "orange",
+              "rect": {
+                "left": 646,
+                "top": 610,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "CT way we - orange",
+              "color": "orange",
+              "rect": {
+                "left": 746,
+                "top": 610,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- orange",
+              "color": "orange",
+              "rect": {
+                "left": 846,
+                "top": 610,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "matchNumber": 32,
+      "blockTop": 796,
+      "teams": {
+        "home": {
+          "code": "USA",
+          "ocr": "USA",
+          "name": "USA"
+        },
+        "away": {
+          "code": "AUS",
+          "ocr": "Australia",
+          "name": "Australia"
+        }
+      },
+      "colors": {
+        "USA": {
+          "player": {
+            "shirt": {
+              "raw": "white / red Goalkeeper",
+              "color": "white / red",
+              "rect": {
+                "left": 73,
+                "top": 991,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "navy blue",
+              "color": "blue",
+              "rect": {
+                "left": 162,
+                "top": 991,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 256,
+                "top": 991,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "blue",
+              "color": "blue",
+              "rect": {
+                "left": 73,
+                "top": 1166,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "blue",
+              "color": "blue",
+              "rect": {
+                "left": 162,
+                "top": 1166,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "blue",
+              "color": "blue",
+              "rect": {
+                "left": 256,
+                "top": 1166,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "AUS": {
+          "player": {
+            "shirt": {
+              "raw": "gold Goalkeeper",
+              "color": "gold",
+              "rect": {
+                "left": 646,
+                "top": 991,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "gold j BN",
+              "color": "gold",
+              "rect": {
+                "left": 746,
+                "top": 991,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "- yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 846,
+                "top": 991,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "al h purple",
+              "color": "purple",
+              "rect": {
+                "left": 646,
+                "top": 1166,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "Tey - purple",
+              "color": "purple",
+              "rect": {
+                "left": 746,
+                "top": 1166,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- purple",
+              "color": "purple",
+              "rect": {
+                "left": 846,
+                "top": 1166,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

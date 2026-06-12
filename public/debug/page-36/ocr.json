@@ -1,0 +1,305 @@
+{
+  "page": 36,
+  "blocks": [
+    {
+      "matchNumber": 71,
+      "blockTop": 246,
+      "teams": {
+        "home": {
+          "code": "COL",
+          "ocr": "Colombia",
+          "name": "Colombia"
+        },
+        "away": {
+          "code": "POR",
+          "ocr": "Portugal",
+          "name": "Portugal"
+        }
+      },
+      "colors": {
+        "COL": {
+          "player": {
+            "shirt": {
+              "raw": "yellow / red",
+              "color": "yellow / red",
+              "rect": {
+                "left": 73,
+                "top": 441,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "blue / yellow",
+              "color": "blue / yellow",
+              "rect": {
+                "left": 162,
+                "top": 441,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white / yellow",
+              "color": "white / yellow",
+              "rect": {
+                "left": 256,
+                "top": 441,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "Cal & light grey / dark grey",
+              "color": "light grey / dark grey",
+              "rect": {
+                "left": 73,
+                "top": 616,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "oA 1 light grey / dark grey",
+              "color": "light grey / dark grey",
+              "rect": {
+                "left": 162,
+                "top": 616,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- light grey",
+              "color": "light grey",
+              "rect": {
+                "left": 256,
+                "top": 616,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "POR": {
+          "player": {
+            "shirt": {
+              "raw": "CE bh port red / olive green",
+              "color": "red / olive green",
+              "rect": {
+                "left": 646,
+                "top": 441,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "A A a port red lo",
+              "color": "red",
+              "rect": {
+                "left": 746,
+                "top": 441,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "port red / dark green",
+              "color": "red / green",
+              "rect": {
+                "left": 846,
+                "top": 441,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "Cy neon green",
+              "color": "neon green",
+              "rect": {
+                "left": 646,
+                "top": 616,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "oY BL XE neon green n",
+              "color": "neon green",
+              "rect": {
+                "left": 746,
+                "top": 616,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "neon green",
+              "color": "neon green",
+              "rect": {
+                "left": 846,
+                "top": 616,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "matchNumber": 72,
+      "blockTop": 802,
+      "teams": {
+        "home": {
+          "code": "JOR",
+          "ocr": "Congo DR",
+          "name": "Congo DR"
+        },
+        "away": {
+          "code": "UZB",
+          "ocr": "Uzbekistan",
+          "name": "Uzbekistan"
+        }
+      },
+      "colors": {
+        "JOR": {
+          "player": {
+            "shirt": {
+              "raw": "red Goalkeeper",
+              "color": "red",
+              "rect": {
+                "left": 73,
+                "top": 997,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "red",
+              "color": "red",
+              "rect": {
+                "left": 162,
+                "top": 997,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "red",
+              "color": "red",
+              "rect": {
+                "left": 256,
+                "top": 997,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "green",
+              "color": "green",
+              "rect": {
+                "left": 73,
+                "top": 1172,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "green",
+              "color": "green",
+              "rect": {
+                "left": 162,
+                "top": 1172,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "green",
+              "color": "green",
+              "rect": {
+                "left": 256,
+                "top": 1172,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "UZB": {
+          "player": {
+            "shirt": {
+              "raw": "white Goalkeeper",
+              "color": "white",
+              "rect": {
+                "left": 646,
+                "top": 997,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 746,
+                "top": 997,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 846,
+                "top": 997,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "grey",
+              "color": "grey",
+              "rect": {
+                "left": 646,
+                "top": 1172,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "CT black",
+              "color": "black",
+              "rect": {
+                "left": 746,
+                "top": 1172,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "black",
+              "color": "black",
+              "rect": {
+                "left": 846,
+                "top": 1172,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

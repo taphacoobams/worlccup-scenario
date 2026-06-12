@@ -1,0 +1,305 @@
+{
+  "page": 2,
+  "blocks": [
+    {
+      "matchNumber": 3,
+      "blockTop": 242,
+      "teams": {
+        "home": {
+          "code": "CAN",
+          "ocr": "Canada",
+          "name": "Canada"
+        },
+        "away": {
+          "code": "BIH",
+          "ocr": "Bosnia and Herzegovina",
+          "name": "Bosnia and Herzegovina"
+        }
+      },
+      "colors": {
+        "CAN": {
+          "player": {
+            "shirt": {
+              "raw": "red Goalkeeper",
+              "color": "red",
+              "rect": {
+                "left": 73,
+                "top": 437,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "red",
+              "color": "red",
+              "rect": {
+                "left": 162,
+                "top": 437,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "red",
+              "color": "red",
+              "rect": {
+                "left": 256,
+                "top": 437,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "blue",
+              "color": "blue",
+              "rect": {
+                "left": 73,
+                "top": 612,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "blue",
+              "color": "blue",
+              "rect": {
+                "left": 162,
+                "top": 612,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "blue",
+              "color": "blue",
+              "rect": {
+                "left": 256,
+                "top": 612,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "BIH": {
+          "player": {
+            "shirt": {
+              "raw": "white Goalkeeper",
+              "color": "white",
+              "rect": {
+                "left": 646,
+                "top": 437,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 746,
+                "top": 437,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 846,
+                "top": 437,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 646,
+                "top": 612,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 746,
+                "top": 612,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 846,
+                "top": 612,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "matchNumber": 4,
+      "blockTop": 780,
+      "teams": {
+        "home": {
+          "code": "USA",
+          "ocr": "USA",
+          "name": "USA"
+        },
+        "away": {
+          "code": "PAR",
+          "ocr": "Paraguay",
+          "name": "Paraguay"
+        }
+      },
+      "colors": {
+        "USA": {
+          "player": {
+            "shirt": {
+              "raw": "white / red Goalkeeper",
+              "color": "white / red",
+              "rect": {
+                "left": 73,
+                "top": 975,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 162,
+                "top": 975,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 256,
+                "top": 975,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 73,
+                "top": 1150,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 162,
+                "top": 1150,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 256,
+                "top": 1150,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "PAR": {
+          "player": {
+            "shirt": {
+              "raw": "I h navy blue Goalkeeper",
+              "color": "blue",
+              "rect": {
+                "left": 646,
+                "top": 975,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "Aad -w navy blue",
+              "color": "blue",
+              "rect": {
+                "left": 746,
+                "top": 975,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "-w navy blue",
+              "color": "blue",
+              "rect": {
+                "left": 846,
+                "top": 975,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "MY te BD - orange",
+              "color": "orange",
+              "rect": {
+                "left": 646,
+                "top": 1150,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "Cay me - orange",
+              "color": "orange",
+              "rect": {
+                "left": 746,
+                "top": 1150,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- orange",
+              "color": "orange",
+              "rect": {
+                "left": 846,
+                "top": 1150,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

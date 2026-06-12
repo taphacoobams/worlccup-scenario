@@ -1,0 +1,305 @@
+{
+  "page": 3,
+  "blocks": [
+    {
+      "matchNumber": 5,
+      "blockTop": 236,
+      "teams": {
+        "home": {
+          "code": "HAI",
+          "ocr": "Haiti",
+          "name": "Haiti"
+        },
+        "away": {
+          "code": "SCO",
+          "ocr": "Scotland",
+          "name": "Scotland"
+        }
+      },
+      "colors": {
+        "HAI": {
+          "player": {
+            "shirt": {
+              "raw": "white Goalkeeper",
+              "color": "white",
+              "rect": {
+                "left": 73,
+                "top": 431,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 162,
+                "top": 431,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 256,
+                "top": 431,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 73,
+                "top": 606,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 162,
+                "top": 606,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 256,
+                "top": 606,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "SCO": {
+          "player": {
+            "shirt": {
+              "raw": "red Goalkeeper",
+              "color": "red",
+              "rect": {
+                "left": 646,
+                "top": 431,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "TEE We ey purple",
+              "color": "purple",
+              "rect": {
+                "left": 746,
+                "top": 431,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "- red",
+              "color": "red",
+              "rect": {
+                "left": 846,
+                "top": 431,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "Nd h blue",
+              "color": "blue",
+              "rect": {
+                "left": 646,
+                "top": 606,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "EERE EEE ay blue",
+              "color": "blue",
+              "rect": {
+                "left": 746,
+                "top": 606,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- blue",
+              "color": "blue",
+              "rect": {
+                "left": 846,
+                "top": 606,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "matchNumber": 6,
+      "blockTop": 774,
+      "teams": {
+        "home": {
+          "code": "AUS",
+          "ocr": "Australia",
+          "name": "Australia"
+        },
+        "away": {
+          "code": "MAR",
+          "ocr": "Tirkiye",
+          "name": "Tirkiye"
+        }
+      },
+      "colors": {
+        "AUS": {
+          "player": {
+            "shirt": {
+              "raw": "gold Goalkeeper",
+              "color": "gold",
+              "rect": {
+                "left": 73,
+                "top": 969,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "ha Ad olive green",
+              "color": "olive green",
+              "rect": {
+                "left": 162,
+                "top": 969,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 256,
+                "top": 969,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "a black",
+              "color": "black",
+              "rect": {
+                "left": 73,
+                "top": 1144,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "TRG black",
+              "color": "black",
+              "rect": {
+                "left": 162,
+                "top": 1144,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "LJ black",
+              "color": "black",
+              "rect": {
+                "left": 256,
+                "top": 1144,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "MAR": {
+          "player": {
+            "shirt": {
+              "raw": "port red / red Goalkeeper",
+              "color": "red",
+              "rect": {
+                "left": 646,
+                "top": 969,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "i red/portred re",
+              "color": "red",
+              "rect": {
+                "left": 746,
+                "top": 969,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "red / port red",
+              "color": "red",
+              "rect": {
+                "left": 846,
+                "top": 969,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "blue / light blue",
+              "color": "blue / light blue",
+              "rect": {
+                "left": 646,
+                "top": 1144,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "TE ha al h blue",
+              "color": "blue",
+              "rect": {
+                "left": 746,
+                "top": 1144,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "blue",
+              "color": "blue",
+              "rect": {
+                "left": 846,
+                "top": 1144,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

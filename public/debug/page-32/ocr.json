@@ -1,0 +1,305 @@
+{
+  "page": 32,
+  "blocks": [
+    {
+      "matchNumber": 63,
+      "blockTop": 245,
+      "teams": {
+        "home": {
+          "code": "EGY",
+          "ocr": "Egypt",
+          "name": "Egypt"
+        },
+        "away": {
+          "code": "IRN",
+          "ocr": "IR Iran",
+          "name": "IR Iran"
+        }
+      },
+      "colors": {
+        "EGY": {
+          "player": {
+            "shirt": {
+              "raw": "Ld red Goalkeeper",
+              "color": "red",
+              "rect": {
+                "left": 73,
+                "top": 440,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "black",
+              "color": "black",
+              "rect": {
+                "left": 162,
+                "top": 440,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "black",
+              "color": "black",
+              "rect": {
+                "left": 256,
+                "top": 440,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 73,
+                "top": 615,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 162,
+                "top": 615,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 256,
+                "top": 615,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "IRN": {
+          "player": {
+            "shirt": {
+              "raw": "white Goalkeeper",
+              "color": "white",
+              "rect": {
+                "left": 646,
+                "top": 440,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 746,
+                "top": 440,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 846,
+                "top": 440,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "light blue",
+              "color": "light blue",
+              "rect": {
+                "left": 646,
+                "top": 615,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "light blue l",
+              "color": "light blue",
+              "rect": {
+                "left": 746,
+                "top": 615,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "light blue",
+              "color": "light blue",
+              "rect": {
+                "left": 846,
+                "top": 615,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "matchNumber": 64,
+      "blockTop": 783,
+      "teams": {
+        "home": {
+          "code": "NZL",
+          "ocr": "New Zealand",
+          "name": "New Zealand"
+        },
+        "away": {
+          "code": "ESP",
+          "ocr": "g",
+          "name": "g"
+        }
+      },
+      "colors": {
+        "NZL": {
+          "player": {
+            "shirt": {
+              "raw": "white Goalkeeper",
+              "color": "white",
+              "rect": {
+                "left": 73,
+                "top": 978,
+                "width": 95,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 162,
+                "top": 978,
+                "width": 100,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "white",
+              "color": "white",
+              "rect": {
+                "left": 256,
+                "top": 978,
+                "width": 95,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "neon green",
+              "color": "neon green",
+              "rect": {
+                "left": 73,
+                "top": 1153,
+                "width": 95,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "neon green",
+              "color": "neon green",
+              "rect": {
+                "left": 162,
+                "top": 1153,
+                "width": 100,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "neon green",
+              "color": "neon green",
+              "rect": {
+                "left": 256,
+                "top": 1153,
+                "width": 95,
+                "height": 78
+              }
+            }
+          }
+        },
+        "ESP": {
+          "player": {
+            "shirt": {
+              "raw": "red / yellow",
+              "color": "red / yellow",
+              "rect": {
+                "left": 646,
+                "top": 978,
+                "width": 115,
+                "height": 70
+              }
+            },
+            "shorts": {
+              "raw": "black / yellow",
+              "color": "black / yellow",
+              "rect": {
+                "left": 746,
+                "top": 978,
+                "width": 120,
+                "height": 70
+              }
+            },
+            "socks": {
+              "raw": "black / yellow",
+              "color": "black / yellow",
+              "rect": {
+                "left": 846,
+                "top": 978,
+                "width": 105,
+                "height": 70
+              }
+            }
+          },
+          "goalkeeper": {
+            "shirt": {
+              "raw": "a j i yellow / black",
+              "color": "yellow / black",
+              "rect": {
+                "left": 646,
+                "top": 1153,
+                "width": 115,
+                "height": 78
+              }
+            },
+            "shorts": {
+              "raw": "a 7 RT a yellow / black",
+              "color": "yellow / black",
+              "rect": {
+                "left": 746,
+                "top": 1153,
+                "width": 120,
+                "height": 78
+              }
+            },
+            "socks": {
+              "raw": "- yellow",
+              "color": "yellow",
+              "rect": {
+                "left": 846,
+                "top": 1153,
+                "width": 105,
+                "height": 78
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

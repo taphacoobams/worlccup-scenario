@@ -1,0 +1,119 @@
+import "server-only";
+
+import { prisma } from "@/lib/prisma";
+import { getAllScenarios } from "@/lib/scenarios/server";
+import { computeScenarioStats } from "@/lib/scenarios";
+import { TOTAL_SCENARIOS } from "@/lib/constants";
+import { recalculateQualificationProbabilities } from "@/lib/tournament-engine/scenarios";
+
+export type ManagerDashboardStats = {
+  teams: number;
+  players: number;
+  fixtures: number;
+  groups: number;
+  scenarios: number;
+  finishedMatches: number;
+  remainingMatches: number;
+  goals: number;
+  assists: number;
+  yellowCards: number;
+  redCards: number;
+  suspended: number;
+  lastUpdate: string | null;
+};
+
+export async function getManagerDashboardStats(): Promise<ManagerDashboardStats> {
+  const [
+    teams,
+    players,
+    fixtures,
+    groups,
+    finishedMatches,
+    meta,
+    goalSum,
+    assistSum,
+    yellowSum,
+    redSum,
+    suspended,
+  ] = await Promise.all([
+    prisma.team.count(),
+    prisma.player.count(),
+    prisma.fixture.count(),
+    prisma.groupStanding.groupBy({ by: ["group"] }),
+    prisma.fixture.count({ where: { status: { in: ["FT", "AET", "PEN"] } } }),
+    prisma.tournamentMeta.findUnique({ where: { key: "main" } }),
+    prisma.scorer.aggregate({ _sum: { goals: true } }),
+    prisma.assist.aggregate({ _sum: { assists: true } }),
+    prisma.card.aggregate({ _sum: { yellowCards: true } }),
+    prisma.card.aggregate({ _sum: { redCards: true } }),
+    prisma.card.count({ where: { suspended: true } }),
+  ]);
+
+  const metaValue = meta?.value as { updatedAt?: string } | undefined;
+
+  return {
+    teams,
+    players,
+    fixtures,
+    groups: groups.length,
+    scenarios: TOTAL_SCENARIOS,
+    finishedMatches,
+    remainingMatches: fixtures - finishedMatches,
+    goals: goalSum._sum.goals ?? 0,
+    assists: assistSum._sum.assists ?? 0,
+    yellowCards: yellowSum._sum.yellowCards ?? 0,
+    redCards: redSum._sum.redCards ?? 0,
+    suspended,
+    lastUpdate:
+      metaValue?.updatedAt ?? meta?.updatedAt.toISOString() ?? null,
+  };
+}
+
+export async function getManagerTodayMatches() {
+  const start = new Date();
+  start.setHours(0, 0, 0, 0);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 1);
+
+  const rows = await prisma.fixture.findMany({
+    where: { date: { gte: start, lt: end } },
+    include: {
+      homeTeam: true,
+      awayTeam: true,
+      venue: true,
+    },
+    orderBy: { date: "asc" },
+  });
+
+  return rows.map((f) => ({
+    id: f.legacyId,
+    date: f.date.toISOString(),
+    group: f.group,
+    status: f.status,
+    home: f.homeTeam?.name ?? f.homeSlotLabel ?? "—",
+    away: f.awayTeam?.name ?? f.awaySlotLabel ?? "—",
+    homeScore: f.homeScore,
+    awayScore: f.awayScore,
+  }));
+}
+
+export async function getManagerScenarioInsights() {
+  const scenarios = await getAllScenarios();
+  const stats = computeScenarioStats(scenarios);
+  const freqs = Object.entries(stats.groupFrequencies).sort(
+    (a, b) => b[1] - a[1]
+  );
+  return {
+    total: scenarios.length,
+    mostLikely: freqs.slice(0, 5),
+    leastLikely: [...freqs].reverse().slice(0, 5),
+    stats,
+  };
+}
+
+export async function getTeamQualificationAnalysis(teamLegacyId?: number) {
+  return recalculateQualificationProbabilities(teamLegacyId);
+}
+
+/** @deprecated */
+export const getSenegalAnalysis = getTeamQualificationAnalysis;
