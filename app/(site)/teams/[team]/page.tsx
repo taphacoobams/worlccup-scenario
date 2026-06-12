@@ -11,12 +11,6 @@ import { isNumericTeamParam, teamSlug } from "@/lib/team-slug";
 
 type Props = { params: Promise<{ team: string }> };
 
-export async function generateStaticParams() {
-  const { getTeams } = await import("@/lib/data");
-  const teams = await getTeams();
-  return teams.map((t) => ({ team: teamSlug(t.name, t.code) }));
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { team: teamParam } = await params;
   const data = isNumericTeamParam(teamParam)
