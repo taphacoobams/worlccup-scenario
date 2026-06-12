@@ -303,3 +303,34 @@ export function removeEventById(
   }
   return events.filter((e) => e.id !== eventId);
 }
+
+/** @deprecated Ancien modèle — utiliser `isMatchEventType` / types `goal` | `yellow_card` */
+export type AllowedEventType = "goal" | "card";
+
+/** @deprecated */
+export function normalizeEventType(type: string): AllowedEventType | null {
+  const t = type.toLowerCase();
+  if (t === "goal") return "goal";
+  if (t === "card" || t === "yellow_card" || t === "red_card") return "card";
+  return null;
+}
+
+/** @deprecated */
+export function isGoalEvent(type: string): boolean {
+  return type.toLowerCase() === "goal";
+}
+
+/** @deprecated Utiliser `isOwnGoal` sur `MatchEvent` ou `isOwnGoalDetail` */
+export function isOwnGoal(detail: string): boolean {
+  return isOwnGoalDetail(detail);
+}
+
+/** @deprecated */
+export function isYellowCard(detail: string): boolean {
+  return isYellowDetail(detail);
+}
+
+/** @deprecated */
+export function isRedCard(detail: string): boolean {
+  return isRedDetail(detail);
+}
