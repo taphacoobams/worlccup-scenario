@@ -6,6 +6,7 @@ import { useTranslations } from "@/context/locale-context";
 import { PlayerCard } from "@/components/teams/PlayerCard";
 import { GuardianCredit } from "@/components/ui/guardian-credit";
 import { toSquadPlayer } from "@/lib/data/squad";
+import { playerFullName } from "@/lib/player-display";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -44,6 +45,7 @@ export function PlayersGrid({ players, teams }: Props) {
         if (!q) return true;
         const team = teamById.get(p.teamId);
         return (
+          playerFullName(p).toLowerCase().includes(q) ||
           p.name.toLowerCase().includes(q) ||
           (p.club?.toLowerCase().includes(q) ?? false) ||
           (team?.name.toLowerCase().includes(q) ?? false) ||
@@ -51,14 +53,8 @@ export function PlayersGrid({ players, teams }: Props) {
         );
       })
       .map(toSquadPlayer)
-      .sort(
-        (a, b) =>
-          (teamById.get(a.teamId)?.name ?? "").localeCompare(
-            teamById.get(b.teamId)?.name ?? "",
-            "fr"
-          ) ||
-          (a.number ?? 99) - (b.number ?? 99) ||
-          a.name.localeCompare(b.name, "fr")
+      .sort((a, b) =>
+        playerFullName(a).localeCompare(playerFullName(b), "fr", { sensitivity: "base" })
       );
   }, [players, search, teamFilter, positionFilter, teamById]);
 

@@ -2,7 +2,9 @@ import Link from "next/link";
 import type { SquadPlayer } from "@/types/data";
 import type { LocalTeam } from "@/types/data";
 import { PlayerAvatar } from "@/components/ui/player-avatar";
+import { TeamFlag } from "@/components/ui/team-flag";
 import { playerHref } from "@/lib/player-href";
+import { playerFullName } from "@/lib/player-display";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -11,7 +13,9 @@ type Props = {
   className?: string;
 };
 
-export function PlayerCard({ player, className }: Props) {
+export function PlayerCard({ player, team, className }: Props) {
+  const displayName = playerFullName(player);
+
   return (
     <Link
       href={playerHref({ id: player.id, name: player.name })}
@@ -26,12 +30,27 @@ export function PlayerCard({ player, className }: Props) {
         photo={player.photo}
         className="h-11 w-11 rounded-full ring-1 ring-white/10 shrink-0"
       />
-      <p className="min-w-0 flex-1 text-sm leading-snug">
-        {player.number != null && (
-          <span className="font-bold tabular-nums text-gold mr-2">#{player.number}</span>
+      <div className="min-w-0 flex-1 text-sm leading-snug">
+        <p className="truncate">
+          {player.number != null && (
+            <span className="font-bold tabular-nums text-gold mr-2">#{player.number}</span>
+          )}
+          <span className="font-medium">{displayName}</span>
+        </p>
+        {team && (
+          <p className="text-[11px] text-muted-foreground truncate mt-0.5">{team.name}</p>
         )}
-        <span className="font-medium">{player.name}</span>
-      </p>
+      </div>
+      {team && (
+        <span title={team.name} aria-label={team.name} className="shrink-0">
+          <TeamFlag
+            code={team.code}
+            teamName={team.name}
+            size="sm"
+            className="ring-1 ring-white/10 rounded-sm"
+          />
+        </span>
+      )}
     </Link>
   );
 }
