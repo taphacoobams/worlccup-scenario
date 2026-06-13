@@ -1,21 +1,26 @@
+import Link from "next/link";
 import type { GroupQualificationSummary } from "@/types/qualification";
 import type { WorldCupGroup } from "@/types/worldcup";
 import { DataCard, DataCardContent, DataCardDescription, DataCardHeader, DataCardTitle } from "@/components/ui/data-card";
 import { StandingsTable } from "@/components/worldcup/StandingsTable";
+import { StandingsProbabilityInsights } from "@/components/worldcup/StandingsProbabilityInsights";
 import { GROUP_COLORS } from "@/lib/constants";
+import { groupHref } from "@/lib/slugs/group";
 import type { Group } from "@/types";
 
 type Props = {
   group: WorldCupGroup;
   summary?: GroupQualificationSummary;
   highlightCode?: string;
+  /** Désactive le lien vers la page détail (ex. déjà sur la fiche groupe) */
+  disableLink?: boolean;
 };
 
-export function GroupTable({ group, summary, highlightCode }: Props) {
+export function GroupTable({ group, summary, highlightCode, disableLink }: Props) {
   const letter = group.name.replace(/Groupe\s*/i, "").trim().toUpperCase().slice(0, 1);
   const color = GROUP_COLORS[letter as Group] ?? "#18c964";
 
-  return (
+  const card = (
     <DataCard
       className="overflow-hidden h-full min-w-0"
       style={{ borderTopColor: `${color}50`, borderTopWidth: 2 }}
@@ -31,9 +36,17 @@ export function GroupTable({ group, summary, highlightCode }: Props) {
           {group.name}
         </DataCardTitle>
         {summary && (
-          <DataCardDescription>
-            P(3e au tableau) :{" "}
-            <strong className="text-gold">{summary.thirdPlaceScenarioRate}%</strong>
+          <DataCardDescription className="space-y-1">
+            <span className="block">
+              <strong className="text-foreground font-medium">Classement actuel</strong>
+              {" — "}
+              basé sur les matchs déjà joués
+            </span>
+            <span className="block">
+              <strong className="text-gold font-medium">P(3e au tableau)</strong>
+              {" : "}
+              {summary.thirdPlaceScenarioRate}% — projection sur les 495 scénarios FIFA
+            </span>
           </DataCardDescription>
         )}
       </DataCardHeader>
@@ -43,7 +56,25 @@ export function GroupTable({ group, summary, highlightCode }: Props) {
           teamProbs={summary?.teamProbs}
           highlightCode={highlightCode}
         />
+        {summary && (
+          <StandingsProbabilityInsights
+            standings={group.standings}
+            teamProbs={summary.teamProbs}
+            compact
+            className="mt-4 px-1"
+          />
+        )}
       </DataCardContent>
     </DataCard>
+  );
+
+  if (disableLink) {
+    return <div className="h-full">{card}</div>;
+  }
+
+  return (
+    <Link href={groupHref(letter)} className="block h-full rounded-xl transition-opacity hover:opacity-95">
+      {card}
+    </Link>
   );
 }

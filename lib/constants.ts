@@ -19,19 +19,25 @@ export const NON_SENEGAL_SCENARIOS = SCENARIOS_WITHOUT_GROUP;
 
 export const COMBINATION_FORMULA = "C(12,8) = 495";
 
+import { PATHS } from "@/lib/i18n/paths";
+
 /** Routes nav — libellés via messages/{locale}.json */
 export const NAV_ROUTES = [
-  { href: "/", key: "home", icon: "Home" },
-  { href: "/groups", key: "groups", icon: "Users" },
-  { href: "/fixtures", key: "fixtures", icon: "Calendar" },
-  { href: "/scenarios", key: "scenarios", icon: "Flag" },
-  { href: "/explorer", key: "explorer", icon: "Table" },
-  { href: "/analytique", key: "analytique", icon: "BarChart3" },
-  { href: "/statistics", key: "statistics", icon: "BarChart2" },
-  { href: "/monte-carlo", key: "monteCarlo", icon: "Dices" },
-  { href: "/knockout", key: "knockout", icon: "Trophy" },
+  { href: PATHS.home, key: "home", icon: "Home" },
+  { href: PATHS.groupes, key: "groups", icon: "Users" },
+  { href: PATHS.matchs, key: "fixtures", icon: "Calendar" },
+  { href: PATHS.scenarios, key: "scenarios", icon: "Flag" },
+  { href: PATHS.explorer, key: "explorer", icon: "Table" },
+  { href: PATHS.analytique, key: "analytique", icon: "BarChart3" },
+  { href: PATHS.statistiques, key: "statistics", icon: "BarChart2" },
+  { href: PATHS.monteCarlo, key: "monteCarlo", icon: "Dices" },
   { href: "/login", key: "manager", icon: "Settings" },
 ] as const;
+
+/** Nav affichée — sans Accueil (logo) ni Manager */
+export const PUBLIC_NAV_ROUTES = NAV_ROUTES.filter(
+  (r) => r.key !== "manager" && r.key !== "home"
+);
 
 /** @deprecated Utiliser NAV_ROUTES + i18n */
 export const NAV_ITEMS = NAV_ROUTES.map((r) => ({

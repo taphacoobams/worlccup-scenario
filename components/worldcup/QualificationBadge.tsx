@@ -25,7 +25,7 @@ export function QualificationBadge({ probs, compact }: Props) {
               ? "bg-gold/20 text-gold"
               : "bg-white/10 text-muted-foreground"
         )}
-        title={`1er ${probs.first}% · 2e ${probs.second}% · 3e ${probs.third}%`}
+        title={`Probabilité de qualification : ${probs.total}% (projection) · 1er ${probs.first}% · 2e ${probs.second}% · 3e ${probs.third}%`}
       >
         {probs.total}%
       </span>

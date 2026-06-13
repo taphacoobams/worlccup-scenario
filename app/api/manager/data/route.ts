@@ -5,23 +5,15 @@ import {
   isManagerRequestAuthorized,
 } from "@/lib/manager/auth";
 import { readWorldCupData, writeWorldCupData } from "@/lib/worldcup-data";
+import { loadManagerDashboardData } from "@/lib/results/manager-load";
 import { saveTournamentStatisticsToDb } from "@/lib/worldcup-db";
 import { runTournamentPipeline } from "@/lib/tournament-engine";
 import { logActivity } from "@/lib/tournament-engine/activity";
 import type { WorldCupManualData } from "@/types/worldcup-manual";
 
-const REVALIDATE_ROUTES = [
-  "/",
-  "/groups",
-  "/fixtures",
-  "/knockout",
-  "/teams",
-  "/players",
-  "/statistics",
-  "/scenarios",
-  "/dashboard",
-  "/dashboard/matches",
-];
+import { REVALIDATE_PATHS } from "@/lib/results/pipeline";
+
+const REVALIDATE_ROUTES = [...REVALIDATE_PATHS, "/knockout", "/dashboard"];
 
 export async function GET(req: NextRequest) {
   if (!isManagerConfigured()) {
@@ -35,8 +27,8 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const data = await readWorldCupData();
-    return NextResponse.json(data);
+    const data = await loadManagerDashboardData();
+    return NextResponse.json({ ...data, source: "results.json" });
   } catch (e) {
     return NextResponse.json(
       { error: e instanceof Error ? e.message : "Lecture impossible" },

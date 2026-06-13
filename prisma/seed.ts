@@ -114,15 +114,6 @@ function loadStandingsJson(): JsonStanding[] {
   );
 }
 
-type JsonStatRow = {
-  playerId: number;
-  goals?: number;
-  assists?: number;
-  yellowCards?: number;
-  redCards?: number;
-  suspended?: boolean;
-};
-
 type FixturesAllFile = {
   matches: {
     phase: string;
@@ -155,9 +146,6 @@ async function main() {
   const playersJson = readData<JsonPlayer[]>("players.json");
   const standingsJson = loadStandingsJson();
   const fixturesAll = readData<FixturesAllFile>("fixtures-all.json");
-  const scorersJson = readData<JsonStatRow[]>("scorers.json", []);
-  const assistsJson = readData<JsonStatRow[]>("assists.json", []);
-  const cardsJson = readData<JsonStatRow[]>("cards.json", []);
 
   console.log("Nettoyage des tables…");
   await prisma.card.deleteMany();
@@ -300,38 +288,6 @@ async function main() {
     });
   }
 
-  console.log(`Buteurs (${scorersJson.length})…`);
-  for (const row of scorersJson) {
-    const playerDbId = playerIdByLegacy.get(row.playerId);
-    if (!playerDbId || row.goals == null) continue;
-    await prisma.scorer.create({
-      data: { playerId: playerDbId, goals: row.goals },
-    });
-  }
-
-  console.log(`Passeurs (${assistsJson.length})…`);
-  for (const row of assistsJson) {
-    const playerDbId = playerIdByLegacy.get(row.playerId);
-    if (!playerDbId || row.assists == null) continue;
-    await prisma.assist.create({
-      data: { playerId: playerDbId, assists: row.assists },
-    });
-  }
-
-  console.log(`Cartons (${cardsJson.length})…`);
-  for (const row of cardsJson) {
-    const playerDbId = playerIdByLegacy.get(row.playerId);
-    if (!playerDbId) continue;
-    await prisma.card.create({
-      data: {
-        playerId: playerDbId,
-        yellowCards: row.yellowCards ?? 0,
-        redCards: row.redCards ?? 0,
-        suspended: row.suspended ?? false,
-      },
-    });
-  }
-
   const thirdTable = readData<FifaThirdTable>("third-table-source.json");
   const fifaRows = buildFifaRowsFromThirdTable(thirdTable);
   console.log(`Scénarios FIFA (${fifaRows.length})…`);
@@ -363,9 +319,7 @@ async function main() {
   console.log(`Players imported: ${playersJson.length}`);
   console.log(`Fixtures imported: ${fixturesAll.matches.length}`);
   console.log(`Standings imported: ${standingsJson.length}`);
-  console.log(`Scorers imported: ${scorersJson.length}`);
-  console.log(`Assists imported: ${assistsJson.length}`);
-  console.log(`Cards imported: ${cardsJson.length}`);
+  console.log("Résultats matchs : data/results.json + npx tsx scripts/apply-matchday-events.ts");
   console.log(`FIFA third-place scenarios: ${fifaRows.length}`);
 }
 

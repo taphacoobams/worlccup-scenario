@@ -1,13 +1,58 @@
-import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { isManagerRequestAuthorized } from "@/lib/manager/auth";
-import { readWorldCupData, writeWorldCupData } from "@/lib/worldcup-data";
-import { saveTournamentStatisticsToDb } from "@/lib/worldcup-db";
-import { runTournamentPipeline } from "@/lib/tournament-engine";
-import { logActivity } from "@/lib/tournament-engine/activity";
+import { getMatchResult } from "@/lib/results/repository";
+import { resultEventsToMatchEvents } from "@/lib/results/events";
+import {
+  getMatchResultForApi,
+  loadManagerDashboardData,
+  loadManagerMatchFromResults,
+} from "@/lib/results/manager-load";
+import { persistMatchResultFromManager } from "@/lib/results/pipeline";
+import { normalizeMatchEvents } from "@/lib/tournament-engine/events";
 import type { ManualFixture } from "@/types/worldcup-manual";
+import type { MatchResultStatus } from "@/types/results";
 
 type RouteContext = { params: Promise<{ id: string }> };
+
+export async function GET(req: NextRequest, context: RouteContext) {
+  if (!(await isManagerRequestAuthorized(req))) {
+    return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
+  }
+
+  const { id } = await context.params;
+  const fixtureId = Number(id);
+  if (!Number.isFinite(fixtureId)) {
+    return NextResponse.json({ error: "ID invalide" }, { status: 400 });
+  }
+
+  try {
+    const loaded = await loadManagerMatchFromResults(fixtureId);
+    if (!loaded) {
+      return NextResponse.json({ error: "Match introuvable" }, { status: 404 });
+    }
+
+    const { fixture, data } = loaded;
+    const result = getMatchResult(fixtureId);
+    const computed = getMatchResultForApi(
+      fixtureId,
+      fixture.homeTeamId,
+      fixture.awayTeamId,
+      data.teams
+    );
+
+    return NextResponse.json({
+      source: "results.json",
+      fixture,
+      result,
+      computed,
+    });
+  } catch (e) {
+    return NextResponse.json(
+      { error: e instanceof Error ? e.message : "Lecture impossible" },
+      { status: 500 }
+    );
+  }
+}
 
 export async function PATCH(req: NextRequest, context: RouteContext) {
   if (!(await isManagerRequestAuthorized(req))) {
@@ -22,53 +67,41 @@ export async function PATCH(req: NextRequest, context: RouteContext) {
 
   try {
     const patch = (await req.json()) as Partial<ManualFixture>;
-    const data = await readWorldCupData();
-    const exists = data.fixtures.some((f) => f.id === fixtureId);
-    if (!exists) {
+    const loaded = await loadManagerMatchFromResults(fixtureId);
+    if (!loaded) {
       return NextResponse.json({ error: "Match introuvable" }, { status: 404 });
     }
 
-    const next = {
-      ...data,
-      fixtures: data.fixtures.map((f) =>
-        f.id === fixtureId ? { ...f, ...patch } : f
-      ),
-    };
+    const { fixture, data } = loaded;
+    const existingResult = getMatchResult(fixtureId);
+    const existingEvents = existingResult
+      ? resultEventsToMatchEvents(
+          existingResult.events,
+          data.teams,
+          data.players
+        )
+      : fixture.events;
 
-    const result = await runTournamentPipeline(next, {
-      logActivities: true,
-      activityDetail: `Match #${fixtureId}`,
+    const events = normalizeMatchEvents(
+      patch.events ?? existingEvents,
+      data.teams,
+      data.players
+    );
+    const status = (patch.status ?? fixture.status) as MatchResultStatus;
+
+    const result = await persistMatchResultFromManager({
+      matchId: fixtureId,
+      status,
+      events,
+      teams: data.teams,
     });
 
-    await writeWorldCupData(result.data);
-    await saveTournamentStatisticsToDb(result.statistics);
-    await logActivity("match_updated", `Match #${fixtureId}`);
-
-    if (patch.events?.some((e) => e.type === "goal")) {
-      await logActivity("goal_added", `Match #${fixtureId}`);
-    }
-    if (
-      patch.events?.some(
-        (e) => e.type === "yellow_card" || e.type === "red_card"
-      )
-    ) {
-      await logActivity("card_added", `Match #${fixtureId}`);
-    }
-
-    revalidatePath("/groups");
-    revalidatePath("/fixtures");
-    revalidatePath(`/fixtures/${fixtureId}`);
-    revalidatePath("/statistics");
-    revalidatePath("/teams", "layout");
-    revalidatePath("/scenarios");
-    revalidatePath("/explorer");
-    revalidatePath("/analytique");
-    revalidatePath("/dashboard");
-    revalidatePath("/dashboard/matches");
-    revalidatePath(`/dashboard/matches/${fixtureId}`);
-
-    const saved = result.data.fixtures.find((f) => f.id === fixtureId);
-    return NextResponse.json({ ok: true, fixture: saved });
+    const saved = result.fixtures.find((f) => f.id === fixtureId);
+    return NextResponse.json({
+      ok: true,
+      source: "results.json",
+      fixture: saved,
+    });
   } catch (e) {
     return NextResponse.json(
       { error: e instanceof Error ? e.message : "Mise à jour impossible" },

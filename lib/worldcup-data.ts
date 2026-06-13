@@ -31,6 +31,7 @@ import type {
   WorldCupManualData,
 } from "@/types/worldcup-manual";
 import { resolveVenueImage } from "@/lib/stadium-images";
+import { findFixtureBySlug } from "@/lib/slugs/fixture";
 
 const TABLEAU_FILE = path.join(process.cwd(), "data", "tableau-final.json");
 
@@ -304,6 +305,15 @@ export const getRecentFinishedFixtures = cache(
       .filter((f) => f.goals.home !== null && f.goals.away !== null)
       .sort((a, b) => b.timestamp - a.timestamp)
       .slice(0, limit);
+  }
+);
+
+export const getFixtureBySlug = cache(
+  async (slug: string): Promise<FixtureDetail | null> => {
+    const fixtures = await getWorldCupFixtures();
+    const match = findFixtureBySlug(slug, fixtures);
+    if (!match) return null;
+    return getFixtureById(match.id);
   }
 );
 

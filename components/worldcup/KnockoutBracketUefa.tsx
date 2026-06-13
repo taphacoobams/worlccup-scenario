@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { fixtureHref } from "@/lib/slugs/fixture";
 import type { EnrichedTableauMatch, EnrichedTableauRound } from "@/lib/worldcup-data";
 import { BracketParticipant } from "@/components/worldcup/BracketParticipant";
 import { shouldShowScore } from "@/types/worldcup";
@@ -121,7 +122,7 @@ function BracketMatchCard({
 
   if (f) {
     return (
-      <Link href={`/fixtures/${f.id}`} className="block">
+      <Link href={fixtureHref(f)} className="block">
         {positioned}
       </Link>
     );

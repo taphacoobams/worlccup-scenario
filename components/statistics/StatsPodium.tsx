@@ -64,7 +64,7 @@ export function StatsPodium({ players, mode, className }: Props) {
                   className="h-4 w-6 rounded-sm mt-2 opacity-80"
                 />
                 <Link
-                  href={playerHref(p.playerId)}
+                  href={playerHref({ id: p.playerId, name: p.name })}
                   className="text-xs font-semibold text-center truncate w-full mt-2 hover:text-senegal-green transition-colors"
                 >
                   {p.name}

@@ -1,0 +1,23 @@
+import type { Metadata } from "next";
+import { StatisticsPageHeader } from "@/components/statistics/StatisticsPageHeader";
+import { StatisticsView } from "@/components/statistics/StatisticsView";
+import { getStatistics } from "@/lib/api";
+
+export const metadata: Metadata = {
+  title: "Statistiques",
+  description:
+    "Coupe du Monde 2026 — meilleurs buteurs, passeurs et discipline (données locales).",
+};
+
+export const dynamic = "force-dynamic";
+
+export default async function StatistiquesPage() {
+  const data = await getStatistics();
+
+  return (
+    <div className="page-container max-w-5xl">
+      <StatisticsPageHeader />
+      <StatisticsView data={data} />
+    </div>
+  );
+}

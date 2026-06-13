@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import { useManagerData } from "@/context/manager-data-context";
@@ -20,13 +20,18 @@ import {
   resolveManagerParticipant,
 } from "@/lib/manager/fixture-display";
 import { normalizeMatchEvents } from "@/lib/tournament-engine/events";
+import type { ManualFixture } from "@/types/worldcup-manual";
 
 export function MatchEditorView({ matchId }: { matchId: number }) {
   const { data, loading, saving, updateFixture, reload } = useManagerData();
   const [localSaving, setLocalSaving] = useState(false);
   const [localMessage, setLocalMessage] = useState<string | null>(null);
+  const [resultsLoaded, setResultsLoaded] = useState(false);
+  const [localFixture, setLocalFixture] = useState<ManualFixture | null>(null);
+  const [dirty, setDirty] = useState(false);
 
   const fixture = useMemo(() => {
+    if (localFixture) return localFixture;
     if (!data) return null;
     const f = data.fixtures.find((x) => x.id === matchId);
     if (!f) return null;
@@ -34,7 +39,7 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
       ...f,
       events: normalizeMatchEvents(f.events, data.teams, data.players),
     };
-  }, [data, matchId]);
+  }, [data, matchId, localFixture]);
 
   const score = useMemo(() => {
     if (!fixture || !data) return { home: 0, away: 0 };
@@ -80,32 +85,47 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
       fixture.status === "PEN" ||
       (fixture.events?.length ?? 0) > 0);
 
-  async function saveMatch() {
+  const saveMatch = useCallback(async () => {
     if (!fixture || !data) return;
+
     setLocalSaving(true);
     setLocalMessage(null);
 
-    const payload = {
-      ...fixture,
-      events: normalizeMatchEvents(fixture.events, data.teams, data.players),
-      goals: score,
-      status:
-        (fixture.events?.length ?? 0) > 0 && fixture.status === "NS"
-          ? "FT"
-          : fixture.status,
-    };
+    const events = normalizeMatchEvents(fixture.events, data.teams, data.players);
+    const status =
+      events.length > 0 && fixture.status === "NS" ? "FT" : fixture.status;
 
     try {
       const res = await fetch(`/api/manager/matches/${matchId}`, {
         method: "PATCH",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ status, events }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "Échec enregistrement");
+
+      if (json.fixture) {
+        const saved: ManualFixture = {
+          ...fixture,
+          ...json.fixture,
+          events: normalizeMatchEvents(
+            json.fixture.events,
+            data.teams,
+            data.players
+          ),
+        };
+        setLocalFixture(saved);
+        updateFixture(matchId, {
+          events: saved.events,
+          status: saved.status,
+          goals: saved.goals,
+        });
+      }
+
+      setDirty(false);
       setLocalMessage(
-        "Enregistré — classements, buteurs, cartons et scénarios recalculés."
+        "Enregistré dans results.json — PostgreSQL, classements, statistiques et scénarios mis à jour."
       );
       await reload();
     } catch (e) {
@@ -113,7 +133,52 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
     } finally {
       setLocalSaving(false);
     }
-  }
+  }, [fixture, data, matchId, reload, updateFixture]);
+
+  useEffect(() => {
+    if (!data || resultsLoaded) return;
+
+    let cancelled = false;
+
+    async function loadFromResultsJson() {
+      try {
+        const res = await fetch(`/api/manager/matches/${matchId}`, {
+          credentials: "include",
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error ?? "Chargement impossible");
+        if (cancelled || !json.fixture) return;
+
+        const loaded: ManualFixture = {
+          ...json.fixture,
+          events: normalizeMatchEvents(
+            json.fixture.events,
+            data!.teams,
+            data!.players
+          ),
+        };
+        setLocalFixture(loaded);
+        updateFixture(matchId, {
+          events: loaded.events,
+          status: loaded.status,
+          goals: loaded.goals,
+        });
+        setResultsLoaded(true);
+        setDirty(false);
+      } catch (e) {
+        if (!cancelled) {
+          setLocalMessage(
+            e instanceof Error ? e.message : "Impossible de lire results.json"
+          );
+        }
+      }
+    }
+
+    void loadFromResultsJson();
+    return () => {
+      cancelled = true;
+    };
+  }, [data, matchId, resultsLoaded, updateFixture]);
 
   if (loading || !data) {
     return <p className="text-muted-foreground">Chargement…</p>;
@@ -131,6 +196,7 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
   }
 
   const statusLabel = MANUAL_STATUS_LABELS[fixture.status] ?? fixture.status;
+  const isSaving = localSaving || saving;
 
   return (
     <div className="max-w-4xl space-y-6">
@@ -140,15 +206,29 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
             <ArrowLeft className="h-4 w-4" /> Retour au calendrier
           </Link>
         </Button>
-        <Button onClick={() => void saveMatch()} disabled={localSaving || saving} size="sm">
-          {(localSaving || saving) && <Loader2 className="h-4 w-4 animate-spin" />}
-          Enregistrer
-        </Button>
+        <div className="flex items-center gap-2">
+          {dirty && (
+            <span className="text-xs text-amber-400">Modifications non enregistrées</span>
+          )}
+          <Button
+            onClick={() => void saveMatch()}
+            disabled={isSaving || !dirty}
+            size="sm"
+          >
+            {isSaving && <Loader2 className="h-4 w-4 animate-spin" />}
+            Enregistrer
+          </Button>
+        </div>
       </div>
 
       {localMessage && (
         <p className="text-sm text-senegal-green">{localMessage}</p>
       )}
+
+      <p className="text-xs text-muted-foreground">
+        Source officielle : <code className="text-gold">data/results.json</code> — cliquez sur{" "}
+        <strong>Enregistrer</strong> pour persister vos modifications.
+      </p>
 
       <GlassPanel className="p-5 sm:p-6 text-center">
         <div className="flex flex-wrap justify-center gap-2 mb-6">
@@ -201,7 +281,13 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
           fixture={fixture}
           teams={data.teams}
           players={data.players}
-          onChange={(events) => updateFixture(matchId, { events })}
+          onChange={(events) => {
+            const next = { ...fixture, events };
+            setLocalFixture(next);
+            updateFixture(matchId, { events });
+            setDirty(true);
+            setLocalMessage(null);
+          }}
           hideTimeline
         />
       </SectionCard>

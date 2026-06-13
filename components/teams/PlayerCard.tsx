@@ -14,7 +14,7 @@ type Props = {
 export function PlayerCard({ player, className }: Props) {
   return (
     <Link
-      href={playerHref(player.id)}
+      href={playerHref({ id: player.id, name: player.name })}
       className={cn(
         "flex w-full items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5",
         "hover:bg-white/[0.07] hover:border-senegal-green/30 transition-colors min-w-0",

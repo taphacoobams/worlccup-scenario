@@ -10,6 +10,8 @@ import { FixtureTeamColumn } from "@/components/fixtures/FixtureTeamColumn";
 import { VenueCard } from "@/components/worldcup/VenueCard";
 import { Button } from "@/components/ui/button";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { PATHS } from "@/lib/i18n/paths";
+import { useLocale } from "@/context/locale-context";
 import type { FixtureDetail, GroupStanding } from "@/types/worldcup";
 import type { TeamKitImage } from "@/types/match-kits";
 import {
@@ -25,13 +27,14 @@ type Props = {
 };
 
 export function FixtureDetailView({ fixture, kits, groupStandings }: Props) {
+  const { href } = useLocale();
   const hasScore = shouldShowScore(fixture);
   const status = fixtureStatus(fixture);
 
   return (
     <div className="page-container max-w-4xl">
       <Button variant="ghost" size="sm" className="mb-6" asChild>
-        <Link href="/fixtures">
+        <Link href={href(PATHS.matchs)}>
           <ArrowLeft className="h-4 w-4" /> Retour au calendrier
         </Link>
       </Button>
@@ -55,7 +58,7 @@ export function FixtureDetailView({ fixture, kits, groupStandings }: Props) {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-6 sm:gap-4 max-w-lg mx-auto w-full">
-            <FixtureTeamColumn team={fixture.teams.home} />
+            <FixtureTeamColumn team={fixture.teams.home} linkToTeam />
             <div className="shrink-0 px-2 order-first sm:order-none">
               {hasScore ? (
                 <p className="text-4xl sm:text-5xl lg:text-6xl font-bold tabular-nums tracking-tight">
@@ -67,7 +70,7 @@ export function FixtureDetailView({ fixture, kits, groupStandings }: Props) {
                 <p className="text-3xl text-text-secondary font-light">vs</p>
               )}
             </div>
-            <FixtureTeamColumn team={fixture.teams.away} />
+            <FixtureTeamColumn team={fixture.teams.away} linkToTeam />
           </div>
 
           {kits && (

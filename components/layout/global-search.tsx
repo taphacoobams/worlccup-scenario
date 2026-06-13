@@ -3,10 +3,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, Layers, Search, Target, Trophy, Users, X } from "lucide-react";
+import { Calendar, Layers, Search, Target, Users, X } from "lucide-react";
 import { useTeamContext } from "@/context/team-context";
 import { useLocale } from "@/context/locale-context";
-import { NAV_ROUTES } from "@/lib/constants";
+import { PUBLIC_NAV_ROUTES } from "@/lib/constants";
 import { filterTeams } from "@/lib/teams-selection";
 import { teamHref } from "@/lib/team-slug";
 import { TeamFlag } from "@/components/ui/team-flag";
@@ -17,7 +17,6 @@ const ICONS: Record<string, typeof Search> = {
   fixtures: Calendar,
   teams: Users,
   scenarios: Layers,
-  knockout: Trophy,
 };
 
 export function GlobalSearch() {
@@ -30,7 +29,7 @@ export function GlobalSearch() {
 
   const navItems = useMemo(
     () =>
-      NAV_ROUTES.filter((r) => r.key !== "manager").map((r) => ({
+      PUBLIC_NAV_ROUTES.map((r) => ({
         type: "page" as const,
         id: r.href,
         label: t(`navigation.${r.key}`),

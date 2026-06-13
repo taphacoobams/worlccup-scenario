@@ -4,6 +4,7 @@ import { GuardianCredit } from "@/components/ui/guardian-credit";
 import { PlayerAvatar } from "@/components/ui/player-avatar";
 import { TeamFlag } from "@/components/ui/team-flag";
 import { Button } from "@/components/ui/button";
+import { playerFullName } from "@/lib/player-display";
 import { teamHref } from "@/lib/team-slug";
 import type { LocalPlayer, LocalTeam } from "@/types/data";
 
@@ -13,6 +14,7 @@ type Props = {
 };
 
 export function PlayerProfileView({ player, team }: Props) {
+  const displayName = playerFullName(player);
   const meta = [
     player.position,
     player.club,
@@ -39,11 +41,11 @@ export function PlayerProfileView({ player, team }: Props) {
           <p className="text-[10px] font-semibold uppercase tracking-widest text-gold mb-1">
             Joueur
           </p>
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-2xl sm:text-3xl font-bold">
             {player.number != null && (
               <span className="text-gold tabular-nums mr-2">#{player.number}</span>
             )}
-            {player.name}
+            {displayName}
           </h1>
           {team && (
             <Link

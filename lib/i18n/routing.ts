@@ -1,5 +1,6 @@
-/** Normalize internal path — always without locale prefix */
+import { toPublicPath } from "@/lib/i18n/paths";
+
+/** Chemin public français (sans préfixe locale) */
 export function appPath(path: string): string {
-  const clean = path.startsWith("/") ? path : `/${path}`;
-  return clean === "" ? "/" : clean;
+  return toPublicPath(path);
 }

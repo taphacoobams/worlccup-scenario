@@ -6,18 +6,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, User, X } from "lucide-react";
 import { CompetitionLogo } from "@/components/layout/competition-logo";
 import { GlobalSearch } from "@/components/layout/global-search";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TeamSelector } from "@/components/header/TeamSelector";
 import { useTeamContext } from "@/context/team-context";
 import { useLocale } from "@/context/locale-context";
-import { NAV_ROUTES } from "@/lib/constants";
+import { PUBLIC_NAV_ROUTES } from "@/lib/constants";
 import { DEFAULT_FAVORITE_TEAM_ID } from "@/lib/teams-selection";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { worldCupBadge } from "@/lib/ui-classes";
 
-const DESKTOP_NAV = NAV_ROUTES.filter((r) => r.key !== "manager");
+const DESKTOP_NAV = PUBLIC_NAV_ROUTES;
 
 export function Header() {
   return <WorldCupHeader />;
@@ -33,6 +33,19 @@ export function WorldCupHeader() {
 
   const isSenegalDefault = selectedTeam.id === DEFAULT_FAVORITE_TEAM_ID;
   const scenarioSubtitle = t("header.scenariosFor", { team: selectedTeam.name });
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathBase]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-background">
@@ -100,43 +113,109 @@ export function WorldCupHeader() {
             variant="ghost"
             size="icon"
             className="xl:hidden rounded-lg h-9 w-9"
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={() => setMobileOpen(true)}
             aria-label={t("header.menu")}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-nav-sidebar"
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            <Menu className="h-5 w-5" />
           </Button>
         </div>
       </div>
 
       <AnimatePresence>
         {mobileOpen && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="xl:hidden border-t border-white/10 overflow-hidden bg-background"
-            aria-label={t("header.mobileNav")}
-          >
-            <div className="grid max-h-[70vh] gap-2 overflow-y-auto px-4 py-4">
-              <div className={cn(worldCupBadge, "mb-2 w-fit")}>Coupe du Monde 2026</div>
-              {NAV_ROUTES.filter((r) => r.key !== "manager").map((item) => (
+          <>
+            <motion.button
+              type="button"
+              aria-label="Fermer le menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-[2px] xl:hidden"
+              onClick={() => setMobileOpen(false)}
+            />
+            <motion.aside
+              id="mobile-nav-sidebar"
+              role="dialog"
+              aria-modal="true"
+              aria-label={t("header.mobileNav")}
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 320 }}
+              className="fixed top-0 left-0 z-[70] flex h-full w-[min(88vw,320px)] flex-col border-r border-white/10 bg-background shadow-2xl xl:hidden"
+            >
+              <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-4">
                 <Link
-                  key={item.href}
-                  href={href(item.href)}
+                  href={href("/")}
+                  className="flex min-w-0 items-center gap-3"
                   onClick={() => setMobileOpen(false)}
-                  className={cn(
-                    "rounded-lg px-4 py-2.5 text-sm font-medium transition-colors",
-                    pathBase === item.href || pathBase.startsWith(`${item.href}/`)
-                      ? "bg-senegal-green/20 text-senegal-green"
-                      : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
-                  )}
                 >
-                  {t(`navigation.${item.key}`)}
+                  <CompetitionLogo
+                    size={32}
+                    className="h-8 w-8 shrink-0 rounded-lg ring-1 ring-white/10"
+                  />
+                  <div className="min-w-0">
+                    <span className="font-bold tracking-tight block truncate text-sm">
+                      World Cup Scenario
+                      <span className="text-gold"> 2026</span>
+                    </span>
+                    <span className="text-[10px] text-muted-foreground block truncate">
+                      {isSenegalDefault ? t("header.defaultFocus") : scenarioSubtitle}
+                    </span>
+                  </div>
                 </Link>
-              ))}
-            </div>
-          </motion.nav>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="shrink-0 rounded-lg h-9 w-9"
+                  onClick={() => setMobileOpen(false)}
+                  aria-label="Fermer le menu"
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+
+              <nav className="flex-1 overflow-y-auto px-3 py-4">
+                <div className={cn(worldCupBadge, "mb-4 w-fit")}>Coupe du Monde 2026</div>
+                <ul className="space-y-1">
+                  {PUBLIC_NAV_ROUTES.map((item) => {
+                    const active =
+                      pathBase === item.href || pathBase.startsWith(`${item.href}/`);
+                    return (
+                      <li key={item.href}>
+                        <Link
+                          href={href(item.href)}
+                          onClick={() => setMobileOpen(false)}
+                          className={cn(
+                            "block rounded-lg px-4 py-3 text-sm font-medium transition-colors",
+                            active
+                              ? "bg-senegal-green/20 text-senegal-green"
+                              : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
+                          )}
+                        >
+                          {t(`navigation.${item.key}`)}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
+
+              <div className="border-t border-white/10 p-4 space-y-3">
+                <Link
+                  href={href("/about")}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm text-muted-foreground hover:bg-white/5 hover:text-foreground transition-colors"
+                >
+                  <User className="h-4 w-4" />
+                  À propos
+                </Link>
+              </div>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </header>

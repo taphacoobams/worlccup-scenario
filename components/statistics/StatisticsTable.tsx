@@ -111,7 +111,7 @@ export function PlayerCell({
   const nameEl =
     playerId != null ? (
       <Link
-        href={playerHref(playerId)}
+        href={playerHref({ id: playerId, name })}
         className="font-medium truncate hover:text-senegal-green transition-colors"
       >
         {name}

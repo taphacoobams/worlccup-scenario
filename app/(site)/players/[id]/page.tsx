@@ -1,31 +1,12 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { PlayerProfileView } from "@/components/players/PlayerProfileView";
-import { getPlayerById, getTeamById } from "@/lib/api";
+import { redirect, notFound } from "next/navigation";
+import { getPlayerBySlug } from "@/lib/api";
+import { playerHref } from "@/lib/player-href";
 
 type Props = { params: Promise<{ id: string }> };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export default async function LegacyPlayerRedirect({ params }: Props) {
   const { id } = await params;
-  const playerId = Number(id);
-  if (!Number.isFinite(playerId)) return { title: "Joueur introuvable" };
-  const player = await getPlayerById(playerId);
-  if (!player) return { title: "Joueur introuvable" };
-  return {
-    title: player.name,
-    description: player.bio?.slice(0, 160) ?? `Fiche joueur — Coupe du Monde 2026`,
-  };
-}
-
-export default async function PlayerDetailPage({ params }: Props) {
-  const { id } = await params;
-  const playerId = Number(id);
-  if (!Number.isFinite(playerId)) notFound();
-
-  const player = await getPlayerById(playerId);
+  const player = await getPlayerBySlug(id);
   if (!player) notFound();
-
-  const team = await getTeamById(player.teamId);
-
-  return <PlayerProfileView player={player} team={team} />;
+  redirect(playerHref(player));
 }

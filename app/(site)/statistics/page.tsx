@@ -1,24 +1,6 @@
-import type { Metadata } from "next";
-import { StatisticsPageHeader } from "@/components/statistics/StatisticsPageHeader";
-import { StatisticsView } from "@/components/statistics/StatisticsView";
-import { getStatistics } from "@/lib/api";
+import { redirect } from "next/navigation";
+import { PATHS } from "@/lib/i18n/paths";
 
-export const metadata: Metadata = {
-  title: "Statistiques",
-  description:
-    "Coupe du Monde 2026 — meilleurs buteurs, passeurs et discipline (données locales).",
-};
-
-export const dynamic = "force-dynamic";
-
-export default async function StatisticsPage() {
-  const data = await getStatistics();
-
-  return (
-    <div className="page-container max-w-5xl">
-      <StatisticsPageHeader />
-
-      <StatisticsView data={data} />
-    </div>
-  );
+export default function StatisticsRedirect() {
+  redirect(PATHS.statistiques);
 }

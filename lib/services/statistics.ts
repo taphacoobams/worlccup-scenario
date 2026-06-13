@@ -1,178 +1,31 @@
 import "server-only";
 
-import { getFlag } from "@/lib/flags";
 import { loadWorldCupBundle } from "@/lib/services/worldcup";
+import { computeStatisticsFromResults } from "@/lib/results/statistics";
 import { withDbFallback } from "@/lib/services/with-fallback";
-import { prisma } from "@/lib/prisma";
-import { isDatabaseEnabled } from "@/lib/database";
-import { recalculateStatistics, statsToJson } from "@/lib/tournament-engine/statistics";
-import { buildSuspendedPlayerRows } from "@/lib/statistics/suspensions";
-import type { StatEntry, StatisticsViewData } from "@/types/data";
+import { loadWorldCupFromDb } from "@/lib/worldcup-db";
+import { loadWorldCupFromJson } from "@/lib/services/worldcup-json";
+import type { StatisticsViewData } from "@/types/data";
+import type { WorldCupManualData } from "@/types/worldcup-manual";
 
-type PlayerRow = {
-  legacyId: number;
-  name: string;
-  image: string | null;
-  team: { legacyId: number; name: string; code: string };
-};
-
-function toStatEntry(
-  player: PlayerRow,
-  stats: Partial<Pick<StatEntry, "goals" | "assists" | "yellowCards" | "redCards">>
-): StatEntry {
+function stripEmbeddedResults(data: WorldCupManualData): WorldCupManualData {
   return {
-    playerId: player.legacyId,
-    name: player.name,
-    teamId: player.team.legacyId,
-    teamName: player.team.name,
-    teamCode: player.team.code,
-    flag: getFlag(player.team.code, null, player.team.name),
-    photo: player.image ?? undefined,
-    ...stats,
+    ...data,
+    fixtures: data.fixtures.map((f) => ({
+      ...f,
+      goals: { home: null, away: null },
+      status: "NS",
+      events: [],
+    })),
   };
 }
 
-async function loadFromPrisma(): Promise<StatisticsViewData> {
-  const [scorers, assists, cards, players] = await Promise.all([
-    prisma.scorer.findMany({
-      include: {
-        player: { include: { team: { select: { legacyId: true, name: true, code: true } } } },
-      },
-      orderBy: { goals: "desc" },
-    }),
-    prisma.assist.findMany({
-      include: {
-        player: { include: { team: { select: { legacyId: true, name: true, code: true } } } },
-      },
-      orderBy: { assists: "desc" },
-    }),
-    prisma.card.findMany({
-      include: {
-        player: { include: { team: { select: { legacyId: true, name: true, code: true } } } },
-      },
-      orderBy: [{ yellowCards: "desc" }, { redCards: "desc" }],
-    }),
-    prisma.player.findMany({
-      select: {
-        legacyId: true,
-        name: true,
-        image: true,
-        team: { select: { legacyId: true, name: true, code: true } },
-      },
-    }),
-  ]);
-
-  const playerMap = new Map(players.map((p) => [p.legacyId, p]));
-
-  const resolvePlayer = (legacyId: number): PlayerRow | null => {
-    const p = playerMap.get(legacyId);
-    if (!p) return null;
-    return {
-      legacyId: p.legacyId,
-      name: p.name,
-      image: p.image,
-      team: p.team,
-    };
-  };
-
-  let suspended: StatisticsViewData["suspended"] = [];
-  try {
-    const data = await loadWorldCupBundle();
-    suspended = buildSuspendedPlayerRows(data);
-  } catch {
-    suspended = [];
-  }
-
-  const updatedAt =
-    [
-      ...scorers.map((s) => s.updatedAt),
-      ...assists.map((a) => a.updatedAt),
-      ...cards.map((c) => c.updatedAt),
-    ]
-      .sort((a, b) => b.getTime() - a.getTime())[0]
-      ?.toISOString() ?? new Date().toISOString();
-
-  return {
-    topScorers: scorers
-      .map((s) => {
-        const p = resolvePlayer(s.player.legacyId);
-        return p ? toStatEntry(p, { goals: s.goals }) : null;
-      })
-      .filter((x): x is StatEntry => x != null),
-    topAssists: assists
-      .map((a) => {
-        const p = resolvePlayer(a.player.legacyId);
-        return p ? toStatEntry(p, { assists: a.assists }) : null;
-      })
-      .filter((x): x is StatEntry => x != null),
-    topYellowCards: cards
-      .filter((c) => c.yellowCards > 0)
-      .map((c) => {
-        const p = resolvePlayer(c.player.legacyId);
-        return p ? toStatEntry(p, { yellowCards: c.yellowCards }) : null;
-      })
-      .filter((x): x is StatEntry => x != null),
-    topRedCards: cards
-      .filter((c) => c.redCards > 0)
-      .map((c) => {
-        const p = resolvePlayer(c.player.legacyId);
-        return p ? toStatEntry(p, { redCards: c.redCards }) : null;
-      })
-      .filter((x): x is StatEntry => x != null),
-    suspended,
-    updatedAt,
-  };
-}
-
-async function loadFromEngine(): Promise<StatisticsViewData> {
-  const data = await loadWorldCupBundle();
-  const raw = recalculateStatistics(data);
-  const json = statsToJson(raw);
-
-  const playerMap = new Map(data.players.map((p) => [p.id, p]));
-  const teamMap = new Map(data.teams.map((t) => [t.id, t]));
-
-  const build = (
-    rows: {
-      playerId: number;
-      goals?: number;
-      assists?: number;
-      yellowCards?: number;
-      redCards?: number;
-    }[],
-    field: "goals" | "assists" | "yellowCards" | "redCards"
-  ): StatEntry[] =>
-    rows
-      .map((row) => {
-        const player = playerMap.get(row.playerId);
-        const team = player ? teamMap.get(player.teamId) : null;
-        if (!player || !team) return null;
-        return toStatEntry(
-          {
-            legacyId: player.id,
-            name: player.name,
-            image: player.photo ?? null,
-            team: { legacyId: team.id, name: team.name, code: team.code },
-          },
-          { [field]: row[field] ?? 0 }
-        );
-      })
-      .filter((x): x is StatEntry => x != null);
-
-  return {
-    topScorers: build(json.scorers, "goals"),
-    topAssists: build(json.assists, "assists"),
-    topYellowCards: build(
-      json.cards.filter((c) => c.yellowCards > 0),
-      "yellowCards"
-    ),
-    topRedCards: build(
-      json.cards.filter((c) => c.redCards > 0),
-      "redCards"
-    ),
-    suspended: buildSuspendedPlayerRows(data),
-    updatedAt: new Date().toISOString(),
-  };
+async function loadSchedule(): Promise<WorldCupManualData> {
+  return withDbFallback(
+    () => loadWorldCupFromDb().then(stripEmbeddedResults),
+    () => loadWorldCupFromJson(),
+    "statistics-schedule"
+  );
 }
 
 function emptyStatistics(): StatisticsViewData {
@@ -187,29 +40,15 @@ function emptyStatistics(): StatisticsViewData {
 }
 
 export async function loadStatistics(): Promise<StatisticsViewData> {
-  if (!isDatabaseEnabled()) {
+  try {
+    const schedule = await loadSchedule();
+    return computeStatisticsFromResults(schedule);
+  } catch {
     try {
-      return await loadFromEngine();
+      const bundle = await loadWorldCupBundle();
+      return computeStatisticsFromResults(bundle);
     } catch {
       return emptyStatistics();
     }
   }
-
-  return withDbFallback(
-    async () => {
-      const fromDb = await loadFromPrisma();
-      if (fromDb.topScorers.length + fromDb.topAssists.length > 0) {
-        return fromDb;
-      }
-      return loadFromEngine();
-    },
-    async () => {
-      try {
-        return await loadFromEngine();
-      } catch {
-        return emptyStatistics();
-      }
-    },
-    "statistics"
-  );
 }

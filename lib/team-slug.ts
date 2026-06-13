@@ -1,21 +1,17 @@
 import type { LocalTeam } from "@/types/data";
 import { slugCode } from "@/lib/data/paths";
+import { PATHS } from "@/lib/i18n/paths";
+import { slugifyText } from "@/lib/slugs/text";
 
 /** Slug URL à partir du nom d'équipe (ex. « Sénégal » → senegal) */
 export function teamSlug(name: string, code?: string): string {
-  const slug = name
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[''`]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+  const slug = slugifyText(name, "");
   if (slug) return slug;
   return code ? slugCode(code) : "equipe";
 }
 
 export function teamHref(team: Pick<LocalTeam, "name" | "code">): string {
-  return `/teams/${teamSlug(team.name, team.code)}`;
+  return PATHS.equipe(teamSlug(team.name, team.code));
 }
 
 export function findTeamIdBySlug(

@@ -1,3 +1,1 @@
-export function playerHref(playerId: number): string {
-  return `/players/${playerId}`;
-}
+export { playerHref, playerSlug, findPlayerIdBySlug } from "@/lib/slugs/player";

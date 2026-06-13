@@ -22,8 +22,35 @@ function MatchRef({
   );
 }
 
+function DisciplineStatusBadge({ player }: { player: StatEntry }) {
+  if (player.suspended) {
+    return (
+      <span className="inline-flex rounded-md px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide bg-amber-500/15 text-amber-300">
+        Suspendu
+      </span>
+    );
+  }
+  if (player.suspensionRisk) {
+    return (
+      <span className="inline-flex rounded-md px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide bg-yellow-500/10 text-yellow-300">
+        Risque suspension
+      </span>
+    );
+  }
+  return <span className="text-muted-foreground text-sm">—</span>;
+}
+
 export function YellowCardsTable({ players }: { players: StatEntry[] }) {
+  const atRisk = players.filter((p) => p.suspensionRisk || p.suspended).length;
+
   return (
+    <div className="space-y-3">
+      {atRisk > 0 && (
+        <p className="text-xs text-muted-foreground">
+          {atRisk} joueur{atRisk > 1 ? "s" : ""} suspendu{atRisk > 1 ? "s" : ""} ou à risque de
+          suspension.
+        </p>
+      )}
     <StatisticsTable
       rows={players}
       columns={[
@@ -53,8 +80,15 @@ export function YellowCardsTable({ players }: { players: StatEntry[] }) {
             </span>
           ),
         },
+        {
+          key: "status",
+          header: "Statut",
+          align: "right",
+          render: (p) => <DisciplineStatusBadge player={p} />,
+        },
       ]}
     />
+    </div>
   );
 }
 
@@ -88,6 +122,12 @@ export function RedCardsTable({ players }: { players: StatEntry[] }) {
               {p.redCards ?? 0}
             </span>
           ),
+        },
+        {
+          key: "status",
+          header: "Statut",
+          align: "right",
+          render: (p) => <DisciplineStatusBadge player={p} />,
         },
       ]}
     />

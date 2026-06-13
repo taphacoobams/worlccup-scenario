@@ -5,6 +5,7 @@ import { SitePageHeader } from "@/components/layout/site-page-header";
 import { KnockoutView } from "@/components/worldcup/KnockoutView";
 import { FixturesSkeleton } from "@/components/worldcup/WorldCupSkeleton";
 import { getKnockoutBracket, getKnockoutTableau } from "@/lib/api";
+import { PATHS } from "@/lib/i18n/paths";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ async function KnockoutContent() {
           configurés.
         </p>
         <Button asChild variant="outline">
-          <Link href="/fixtures">Voir le calendrier</Link>
+          <Link href={PATHS.matchs}>Voir le calendrier</Link>
         </Button>
       </div>
     );

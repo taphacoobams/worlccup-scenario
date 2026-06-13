@@ -56,8 +56,25 @@ export function StandingsTable({
           <th className="text-center w-14">Buts</th>
           <th className="text-center w-11">+/-</th>
           <th className="text-center w-11 font-bold">Pts</th>
-          {teamProbs && <th className="text-right w-24">Qualif.</th>}
+          {teamProbs && (
+            <th
+              className="text-right w-24"
+              title="Projection statistique — ne modifie pas le classement"
+            >
+              P. qualif.
+            </th>
+          )}
         </tr>
+        {teamProbs && (
+          <tr className="border-t border-white/5 text-[9px] uppercase tracking-wide text-muted-foreground">
+            <th colSpan={9} className="py-1.5 px-2 text-left font-medium normal-case tracking-normal">
+              Classement actuel (résultats joués)
+            </th>
+            <th className="py-1.5 px-2 text-right font-medium normal-case tracking-normal">
+              Projection
+            </th>
+          </tr>
+        )}
       </thead>
       <tbody>
         {sorted.map((row) => {
@@ -104,13 +121,14 @@ export function StandingsTable({
                         <div
                           className={cn(
                             "h-full rounded-full",
-                            row.position <= 2
-                              ? "bg-emerald-500"
-                              : row.position === 3
-                                ? "bg-amber-400"
-                                : "bg-red-500/70"
+                            probs.total >= 50
+                              ? "bg-senegal-green"
+                              : probs.total >= 25
+                                ? "bg-gold"
+                                : "bg-white/35"
                           )}
                           style={{ width: `${Math.min(100, probs.total)}%` }}
+                          title={`Probabilité de qualification : ${probs.total}%`}
                         />
                       </div>
                     </div>

@@ -5,7 +5,7 @@ import { getFlag } from "@/lib/flags";
 import { isDatabaseEnabled } from "@/lib/database";
 import { loadWorldCupFromFiles } from "@/lib/worldcup-persistence";
 import { recalculateStatistics, statsToJson } from "@/lib/tournament-engine/statistics";
-import { buildSuspendedPlayerRows } from "@/lib/statistics/suspensions";
+import { buildSuspendedPlayerRows, enrichStatEntriesWithDiscipline } from "@/lib/statistics/suspensions";
 import type { StatEntry, StatisticsViewData } from "@/types/data";
 
 type PlayerRow = {
@@ -99,7 +99,9 @@ async function loadFromPrisma(): Promise<StatisticsViewData | null> {
     })
     .filter((x): x is StatEntry => x != null);
 
-  const topYellowCards: StatEntry[] = cards
+  const suspended = await buildSuspendedFromTournament();
+
+  let topYellowCards: StatEntry[] = cards
     .filter((c) => c.yellowCards > 0)
     .map((c) => {
       const p = resolvePlayer(c.player.legacyId);
@@ -107,7 +109,7 @@ async function loadFromPrisma(): Promise<StatisticsViewData | null> {
     })
     .filter((x): x is StatEntry => x != null);
 
-  const topRedCards: StatEntry[] = cards
+  let topRedCards: StatEntry[] = cards
     .filter((c) => c.redCards > 0)
     .map((c) => {
       const p = resolvePlayer(c.player.legacyId);
@@ -115,7 +117,13 @@ async function loadFromPrisma(): Promise<StatisticsViewData | null> {
     })
     .filter((x): x is StatEntry => x != null);
 
-  const suspended = await buildSuspendedFromTournament();
+  try {
+    const tournament = await loadWorldCupFromFiles();
+    topYellowCards = enrichStatEntriesWithDiscipline(topYellowCards, tournament);
+    topRedCards = enrichStatEntriesWithDiscipline(topRedCards, tournament);
+  } catch {
+    /* garde les listes sans statut discipline */
+  }
 
   const updatedAt =
     [
@@ -168,13 +176,13 @@ async function loadFromEngine(): Promise<StatisticsViewData> {
   return {
     topScorers: build(json.scorers, "goals"),
     topAssists: build(json.assists, "assists"),
-    topYellowCards: build(
-      json.cards.filter((c) => c.yellowCards > 0),
-      "yellowCards"
+    topYellowCards: enrichStatEntriesWithDiscipline(
+      build(json.cards.filter((c) => c.yellowCards > 0), "yellowCards"),
+      data
     ),
-    topRedCards: build(
-      json.cards.filter((c) => c.redCards > 0),
-      "redCards"
+    topRedCards: enrichStatEntriesWithDiscipline(
+      build(json.cards.filter((c) => c.redCards > 0), "redCards"),
+      data
     ),
     suspended: buildSuspendedPlayerRows(data),
     updatedAt: new Date().toISOString(),

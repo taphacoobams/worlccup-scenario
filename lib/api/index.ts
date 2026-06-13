@@ -11,6 +11,7 @@ import {
   getTeamById as getTeamByIdData,
   getPlayers as getPlayersData,
   getPlayerById as getPlayerByIdData,
+  getPlayerBySlug as getPlayerBySlugData,
   getPlayersByTeam as getPlayersByTeamData,
   getTeamDetailBySlug as getTeamDetailBySlugData,
   getTeamsPageData as getTeamsPageDataData,
@@ -27,6 +28,7 @@ import {
   getWorldCupGroups as getWorldCupGroupsWc,
   getGroupsWithResults as getGroupsWithResultsWc,
   getFixtureById as getWorldCupFixtureById,
+  getFixtureBySlug as getWorldCupFixtureBySlug,
   getKnockoutBracket as getKnockoutBracketWc,
   getKnockoutTableau as getKnockoutTableauWc,
   getWorldCupTeams as getWorldCupTeamsWc,
@@ -51,6 +53,7 @@ export const getSelectableTeams = listSelectableTeams;
 // ——— Joueurs ———
 export const getPlayers = getPlayersData;
 export const getPlayerById = getPlayerByIdData;
+export const getPlayerBySlug = getPlayerBySlugData;
 export const getPlayersByTeam = getPlayersByTeamData;
 
 // ——— Tournoi (affichage worldcup) ———
@@ -60,6 +63,7 @@ export const getWorldCupFixtures = getWorldCupFixturesWc;
 export const getGroupsWithResults = getGroupsWithResultsWc;
 export const getRecentFinishedFixtures = getRecentFinishedFixturesWc;
 export const getFixtureById = getWorldCupFixtureById;
+export const getFixtureBySlug = getWorldCupFixtureBySlug;
 export const getKnockoutBracket = getKnockoutBracketWc;
 export const getKnockoutTableau = getKnockoutTableauWc;
 

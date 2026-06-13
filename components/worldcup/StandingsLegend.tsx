@@ -1,4 +1,8 @@
 import { cn } from "@/lib/utils";
+import {
+  PROBABILITY_DISCLAIMER,
+  STANDINGS_DISCLAIMER,
+} from "@/lib/standings/rank-probability-insights";
 
 function Swatch({
   className,
@@ -52,9 +56,20 @@ export function StandingsLegend() {
       className="rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:p-5 space-y-4"
       aria-label="Légende des classements"
     >
+      <div className="rounded-lg border border-senegal-green/20 bg-senegal-green/[0.06] p-3 sm:p-4 space-y-2">
+        <h3 className="text-sm font-semibold text-foreground">
+          Règle fondamentale — ne pas confondre classement et probabilité
+        </h3>
+        <p className="text-[11px] text-muted-foreground leading-relaxed">
+          {STANDINGS_DISCLAIMER} {PROBABILITY_DISCLAIMER} Une équipe classée 2e peut
+          ainsi afficher une probabilité de qualification supérieure au 1er — c&apos;est
+          normal dans un modèle de projection.
+        </p>
+      </div>
+
       <div>
         <h3 className="text-sm font-semibold text-foreground mb-3">
-          Légende — classement des poules
+          Classement actuel — résultats joués
         </h3>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <LegendItem
@@ -75,20 +90,25 @@ export function StandingsLegend() {
           <LegendItem
             swatch="bg-emerald-500"
             bar
-            label="Colonne Qualif."
-            detail="Probabilité estimée (résultats, FIFA, scénarios 495). Survol = détail 1er / 2e / 3e"
+            label="P. qualif."
+            detail="Projection statistique (simulations, matchs restants, force estimée) — indépendante du rang actuel"
           />
         </ul>
       </div>
 
       <div className="pt-3 border-t border-white/10">
+        <h3 className="text-sm font-semibold text-foreground mb-2">
+          Probabilité de qualification — projection
+        </h3>
         <p className="text-[11px] text-muted-foreground leading-relaxed">
           <strong className="text-foreground font-medium">P(3e au tableau)</strong>{" "}
-          sous chaque poule : part des 495 combinaisons où ce groupe figure parmi les 8
-          meilleurs troisièmes. Pastilles Qualif. :{" "}
+          sous chaque poule : fréquence des 495 scénarios où ce groupe figure parmi les 8
+          meilleurs troisièmes. Pastilles{" "}
+          <strong className="text-foreground font-medium">P. qualif.</strong> :{" "}
           <span className="text-senegal-green font-medium">≥ 50 %</span>,{" "}
           <span className="text-gold font-medium">25–49 %</span>,{" "}
-          <span className="text-muted-foreground">{"< 25 %"}</span>.
+          <span className="text-muted-foreground">{"< 25 %"}</span>. Survol = détail 1er /
+          2e / 3e.
         </p>
       </div>
 

@@ -4,7 +4,7 @@ import {
   recalculateSuspensions,
   suspensionReasonLabel,
 } from "@/lib/tournament-engine/suspensions";
-import type { StatisticsViewData } from "@/types/data";
+import type { StatisticsViewData, StatEntry } from "@/types/data";
 
 function formatMatchDate(date: string | null): string | undefined {
   if (!date) return undefined;
@@ -54,4 +54,19 @@ export function buildSuspendedPlayerRows(
       };
     })
     .filter((x): x is NonNullable<typeof x> => x != null);
+}
+
+/** Ajoute suspendu / risque de suspension aux joueurs sanctionnés */
+export function enrichStatEntriesWithDiscipline(
+  entries: StatEntry[],
+  data: WorldCupManualData
+): StatEntry[] {
+  const { suspendedPlayerIds, yellowAccumulated } = recalculateSuspensions(data);
+  return entries.map((e) => ({
+    ...e,
+    suspended: suspendedPlayerIds.has(e.playerId),
+    suspensionRisk:
+      !suspendedPlayerIds.has(e.playerId) &&
+      (yellowAccumulated.get(e.playerId) ?? 0) >= 1,
+  }));
 }

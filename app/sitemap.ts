@@ -1,20 +1,23 @@
 import type { MetadataRoute } from "next";
+import { PATHS } from "@/lib/i18n/paths";
+import { groupSlug } from "@/lib/slugs/group";
+import { ALL_GROUPS } from "@/lib/constants";
 
 const routes = [
   "",
-  "/groups",
-  "/fixtures",
-  "/statistics",
-  "/players",
-  "/knockout",
-  "/scenarios",
-  "/explorer",
-  "/analytique",
-  "/monte-carlo",
-  "/about",
+  PATHS.groupes,
+  PATHS.matchs,
+  PATHS.statistiques,
+  PATHS.joueurs,
+  PATHS.scenarios,
+  PATHS.explorer,
+  PATHS.analytique,
+  PATHS.monteCarlo,
+  PATHS.about,
   "/mentions-legales",
   "/confidentialite",
   "/dmca",
+  ...ALL_GROUPS.map((g) => PATHS.groupe(groupSlug(g))),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -24,6 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${base}${route}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: route === "" ? 1 : route === "/scenarios" ? 0.95 : 0.8,
+    priority: route === "" ? 1 : route === PATHS.scenarios ? 0.95 : 0.8,
   }));
 }

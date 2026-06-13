@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ImportResultsSection } from "@/components/manager/ImportResultsSection";
 
 const IMPORT_FILES = [
   "teams.json",
@@ -71,6 +72,8 @@ export function DataManagerView() {
       </div>
 
       {message && <p className="text-sm text-senegal-green">{message}</p>}
+
+      <ImportResultsSection />
 
       <section className="rounded-xl border border-white/10 p-5 space-y-4">
         <h2 className="font-semibold">Import JSON (seed)</h2>

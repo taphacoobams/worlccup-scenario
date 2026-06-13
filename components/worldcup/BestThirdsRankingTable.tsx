@@ -26,8 +26,18 @@ export function BestThirdsRankingTable({ entries, highlightCode }: Props) {
             <th className="py-3 px-2 text-center">Bp</th>
             <th className="py-3 px-2 text-center">Bc</th>
             <th className="py-3 px-2 text-center">Diff</th>
-            <th className="py-3 px-2 text-center">P(3e)</th>
-            <th className="py-3 px-2 text-center hidden lg:table-cell">Scén.</th>
+            <th
+              className="py-3 px-2 text-center"
+              title="Projection — ne détermine pas le rang"
+            >
+              P(3e)
+            </th>
+            <th
+              className="py-3 px-2 text-center hidden lg:table-cell"
+              title="Fréquence scénarios FIFA (495 combinaisons)"
+            >
+              Scén.
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -113,8 +123,11 @@ export function BestThirdsRankingTable({ entries, highlightCode }: Props) {
         </tbody>
       </table>
       <p className="text-xs text-muted-foreground px-4 py-3 border-t border-white/10">
-        Les 8 premiers se qualifient · Ligne dorée = 8e place ·{" "}
-        <strong className="text-gold">Scén.</strong> = fréquence C(12,8) sur 495 combinaisons
+        <strong className="text-foreground">Rang</strong> = classement sportif des 12
+        troisièmes (pts, diff, buts) · Les 8 premiers se qualifient ·{" "}
+        <strong className="text-gold">P(3e)</strong> et{" "}
+        <strong className="text-gold">Scén.</strong> = projections statistiques, pas critère
+        de tri
       </p>
     </div>
   );

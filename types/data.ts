@@ -112,6 +112,10 @@ export type StatEntry = {
   appearances?: number;
   yellowCards?: number;
   redCards?: number;
+  /** Suspension en cours (rouge ou 2e jaune) */
+  suspended?: boolean;
+  /** 1 jaune accumulé — prochain jaune = suspension */
+  suspensionRisk?: boolean;
 };
 
 export type LocalCards = {

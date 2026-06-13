@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { MatchRow } from "@/components/worldcup/MatchRow";
 import { Button } from "@/components/ui/button";
 import type { Fixture } from "@/types/worldcup";
+import { PATHS } from "@/lib/i18n/paths";
 
 type Props = {
   fixtures: Fixture[];
@@ -21,14 +22,14 @@ export function RecentResultsSection({ fixtures }: Props) {
           <h2 className="text-xl font-bold">Derniers résultats</h2>
         </div>
         <Button asChild variant="outline" size="sm">
-          <Link href="/fixtures">
+          <Link href={PATHS.matchs}>
             Tout le calendrier <ArrowRight className="h-4 w-4" />
           </Link>
         </Button>
       </div>
       <div className="space-y-4">
         {fixtures.map((f, i) => (
-          <MatchRow key={f.id} fixture={f} index={i} />
+          <MatchRow key={f.id} fixture={f} index={i} allFixtures={fixtures} />
         ))}
       </div>
     </section>

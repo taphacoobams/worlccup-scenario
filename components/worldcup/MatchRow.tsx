@@ -10,6 +10,7 @@ import {
 } from "@/types/worldcup";
 import { TeamBadge } from "@/components/worldcup/TeamBadge";
 import { MapPin, Clock } from "lucide-react";
+import { fixtureHref } from "@/lib/slugs/fixture";
 import { cn } from "@/lib/utils";
 import { panelBase, premiumCardHover } from "@/lib/ui-classes";
 import { formatVenueCity } from "@/lib/venue-display";
@@ -46,9 +47,11 @@ const STATUS_STYLE: Record<string, string> = {
 export function MatchRow({
   fixture,
   index = 0,
+  allFixtures,
 }: {
   fixture: Fixture;
   index?: number;
+  allFixtures?: Fixture[];
 }) {
   const status = fixtureStatus(fixture);
   const statusLabel = FIXTURE_STATUS_LABELS[status] ?? fixture.status.long;
@@ -60,7 +63,7 @@ export function MatchRow({
       transition={{ delay: Math.min(index * 0.03, 0.3) }}
     >
       <Link
-        href={`/fixtures/${fixture.id}`}
+        href={fixtureHref(fixture, allFixtures)}
         className={cn("block p-4", panelBase, premiumCardHover)}
       >
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
@@ -84,15 +87,15 @@ export function MatchRow({
           </div>
         </div>
 
-        <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4">
-          <div className="flex justify-end min-w-0">
-            <TeamBadge team={fixture.teams.home} className="justify-end max-sm:flex-row-reverse" size="sm" />
+        <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3 sm:gap-4">
+          <div className="flex justify-center sm:justify-end min-w-0">
+            <TeamBadge team={fixture.teams.home} className="justify-center sm:justify-end" size="sm" />
           </div>
-          <div className="text-center shrink-0 px-1 sm:px-2">
+          <div className="text-center shrink-0 px-1 sm:px-2 order-first sm:order-none">
             <Score fixture={fixture} />
           </div>
-          <div className="flex justify-start min-w-0">
-            <TeamBadge team={fixture.teams.away} size="sm" />
+          <div className="flex justify-center sm:justify-start min-w-0">
+            <TeamBadge team={fixture.teams.away} className="justify-center sm:justify-start" size="sm" />
           </div>
         </div>
 

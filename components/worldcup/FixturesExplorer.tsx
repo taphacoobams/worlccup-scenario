@@ -84,7 +84,7 @@ export function FixturesExplorer({
   return (
     <div className="space-y-6">
       <FilterBar sticky className="min-w-0">
-      <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1 flex-nowrap sm:flex-wrap sm:overflow-visible">
+      <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
         {phaseTabs.map((tab) => (
           <button
             key={tab.id}
@@ -94,7 +94,7 @@ export function FixturesExplorer({
               if (tab.id === "knockout") setGroupFilter("all");
             }}
             className={cn(
-              "inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-colors shrink-0",
+              "inline-flex w-full sm:w-auto items-center justify-between sm:justify-start gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-colors",
               phaseFilter === tab.id
                 ? "border-senegal-green/40 bg-senegal-green/20 text-senegal-green"
                 : "border-white/10 bg-white/[0.02] text-muted-foreground hover:bg-white/[0.04] hover:text-foreground"
@@ -203,7 +203,7 @@ export function FixturesExplorer({
       ) : (
         <div className="space-y-4">
           {filtered.map((f, i) => (
-            <MatchRow key={f.id} fixture={f} index={i} />
+            <MatchRow key={f.id} fixture={f} index={i} allFixtures={fixtures} />
           ))}
         </div>
       )}

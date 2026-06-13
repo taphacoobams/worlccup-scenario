@@ -5,6 +5,7 @@ import { listPlayers, listPlayerCountsByTeam } from "@/lib/services/players";
 import { getTournamentBundle } from "@/lib/services/tournament";
 import { groupSquadByPosition, toSquadPlayer } from "@/lib/data/squad";
 import { findTeamIdBySlug } from "@/lib/team-slug";
+import { findPlayerIdBySlug } from "@/lib/slugs/player";
 import { loadStatistics } from "@/lib/services/statistics";
 import type {
   LocalBestThird,
@@ -32,6 +33,13 @@ export const getTeamById = cache(async (id: number): Promise<LocalTeam | null> =
 export const getPlayerById = cache(async (id: number): Promise<LocalPlayer | null> => {
   const players = await getPlayers();
   return players.find((p) => p.id === id) ?? null;
+});
+
+export const getPlayerBySlug = cache(async (slug: string): Promise<LocalPlayer | null> => {
+  const players = await getPlayers();
+  const id = findPlayerIdBySlug(slug, players);
+  if (id == null) return null;
+  return getPlayerById(id);
 });
 
 export const getPlayers = cache(async (): Promise<LocalPlayer[]> => {
