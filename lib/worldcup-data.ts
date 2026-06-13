@@ -29,6 +29,7 @@ import type {
   ManualTeam,
   WorldCupManualData,
 } from "@/types/worldcup-manual";
+import { resolveVenueImage } from "@/lib/stadium-images";
 
 const TABLEAU_FILE = path.join(process.cwd(), "data", "tableau-final.json");
 
@@ -103,6 +104,7 @@ function toTeam(t: ManualTeam): Team {
     name: t.name,
     code: t.code.toUpperCase(),
     country: t.country ?? t.name,
+    fifaRanking: t.fifaRanking ?? null,
     logo: getFlag(t.code, null, t.name),
   };
 }
@@ -152,7 +154,12 @@ function toFixture(
     date: m.date,
     timestamp: Math.floor(new Date(m.date).getTime() / 1000),
     timezone: m.timezone ?? "UTC",
-    venue: { id: 0, name: m.venue.name, city: m.venue.city },
+    venue: {
+      id: 0,
+      name: m.venue.name,
+      city: m.venue.city,
+      image: resolveVenueImage(m.venue.name, m.venueImage ?? m.venue.image),
+    },
     status: {
       short: m.status,
       long: STATUS_LONG[m.status] ?? m.status,

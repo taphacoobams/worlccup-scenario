@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FixtureDetailView } from "@/components/fixtures/FixtureDetailView";
 import { getFixtureTeamKitImages } from "@/lib/match-kits";
-import { getFixtureById, getHeadToHead, getWorldCupGroups } from "@/lib/worldcup-data";
+import { getFixtureById, getWorldCupGroups } from "@/lib/worldcup-data";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -29,7 +29,6 @@ export default async function FixtureDetailPage({ params }: Props) {
   const kits = fixture.group
     ? getFixtureTeamKitImages(fixture.teams.home.code, fixture.teams.away.code)
     : null;
-  const h2h = await getHeadToHead(fixture.teams.home.id, fixture.teams.away.id);
 
   let groupStandings;
   if (fixture.group) {
@@ -44,7 +43,6 @@ export default async function FixtureDetailPage({ params }: Props) {
     <FixtureDetailView
       fixture={fixture}
       kits={kits}
-      h2h={h2h}
       groupStandings={groupStandings}
     />
   );

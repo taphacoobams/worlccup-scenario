@@ -16,6 +16,7 @@ import {
   buildFifaRowsFromThirdTable,
   type FifaThirdTable,
 } from "../lib/fifa-third-table";
+import { getStadiumPublicPath } from "../lib/stadium-images";
 
 const prisma = new PrismaClient();
 const dataDir = path.join(process.cwd(), "data");
@@ -262,10 +263,11 @@ async function main() {
     const key = `${name}|${city}`;
     const cached = venueCache.get(key);
     if (cached) return cached;
+    const image = getStadiumPublicPath(name);
     const v = await prisma.venue.upsert({
       where: { name_city: { name, city } },
-      create: { name, city, country: "" },
-      update: {},
+      create: { name, city, country: "", image },
+      update: image ? { image } : {},
     });
     venueCache.set(key, v.id);
     return v.id;

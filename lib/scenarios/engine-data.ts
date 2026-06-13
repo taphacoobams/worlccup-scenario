@@ -49,6 +49,7 @@ export function mapWorldCupToScenarioEngineData(
     date: f.date,
     timezone: f.timezone ?? "UTC",
     venue: f.venue,
+    venueImage: f.venueImage ?? f.venue.image ?? null,
     round: f.round,
     group: f.group,
     homeTeamId: f.homeTeamId,

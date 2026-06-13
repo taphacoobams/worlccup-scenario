@@ -86,6 +86,7 @@ model Venue {
   city     String
   country  String    @default("")
   capacity Int?
+  image    String?
 
   fixtures Fixture[]
 

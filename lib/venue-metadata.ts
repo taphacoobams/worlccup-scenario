@@ -140,7 +140,14 @@ const VENUE_META: Record<string, VenueMeta> = {
     cityLabel: "Kansas City",
     country: "États-Unis",
     heroGradient: ["#0f172a", "#431407", "#991b1b"],
-    mapsQuery: "Arrowhead Stadium Kansas City",
+    mapsQuery: "GEHA Field at Arrowhead Stadium Kansas City",
+  },
+  "GEHA Field at Arrowhead Stadium": {
+    capacity: 76_416,
+    cityLabel: "Kansas City",
+    country: "États-Unis",
+    heroGradient: ["#0f172a", "#431407", "#991b1b"],
+    mapsQuery: "GEHA Field at Arrowhead Stadium Kansas City",
   },
 };
 

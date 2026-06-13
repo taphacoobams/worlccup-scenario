@@ -27,6 +27,7 @@
     "kits:extract": "node scripts/extract-kits.mjs",
     "kits:generate": "node scripts/generate-kit-presentations.mjs",
     "matchkits:generate": "node scripts/generate-final-matchkits.mjs",
+    "import-stadium-images": "tsx scripts/import-stadium-images.ts",
     "sort-fixtures": "node scripts/sort-fixtures-json.mjs",
     "parse-effectifs": "node scripts/parse-effectifs.mjs",
     "parse-players": "tsx scripts/parse-players-txt.ts",

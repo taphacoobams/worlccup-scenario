@@ -15,6 +15,8 @@ export type Team = {
   country: string;
   founded?: number;
   national?: boolean;
+  /** Classement FIFA (ex. 18) */
+  fifaRanking?: number | null;
   /** URL drapeau flagcdn.com */
   logo: string;
 };
@@ -23,6 +25,8 @@ export type FixtureVenue = {
   id: number;
   name: string;
   city: string;
+  /** Chemin public ex. `/stadiums/nrg-stadium.jpg` */
+  image?: string | null;
 };
 
 export type FixtureStatusDetail = {

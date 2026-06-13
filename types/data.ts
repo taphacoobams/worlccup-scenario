@@ -86,6 +86,7 @@ export type LocalFixture = {
   date: string;
   timezone: string;
   venue: { name: string; city: string };
+  venueImage?: string | null;
   round: string;
   group: string | null;
   homeTeamId: number;

@@ -13,6 +13,7 @@ export type ManualTeam = {
   name: string;
   code: string;
   country?: string;
+  fifaRanking?: number | null;
   coach?: ManualCoach;
 };
 
@@ -40,7 +41,9 @@ export type ManualFixture = {
   id: number;
   date: string;
   timezone?: string;
-  venue: { name: string; city: string };
+  venue: { name: string; city: string; image?: string | null };
+  /** Image stade (miroir racine pour JSON fixtures) */
+  venueImage?: string | null;
   round: string;
   group: string | null;
   homeTeamId: number;

@@ -6,38 +6,56 @@ import { ArrowLeft } from "lucide-react";
 import { GroupStandingsSection } from "@/components/fixtures/GroupStandingsSection";
 import { MatchKitsShowcase } from "@/components/fixtures/MatchKitsShowcase";
 import { MatchEventsTimeline } from "@/components/fixtures/MatchEventsTimeline";
-import { TeamBadge } from "@/components/worldcup/TeamBadge";
+import { BracketSlotLabel } from "@/components/worldcup/BracketSlotLabel";
+import { TeamFlag } from "@/components/ui/team-flag";
 import { VenueCard } from "@/components/worldcup/VenueCard";
 import { Button } from "@/components/ui/button";
-import { DataCard, DataCardContent } from "@/components/ui/data-card";
 import { GlassPanel } from "@/components/ui/glass-panel";
-import type { FixtureDetail, GroupStanding } from "@/types/worldcup";
+import { isBracketSlot } from "@/lib/bracket-slots";
+import type { FixtureDetail, GroupStanding, Team } from "@/types/worldcup";
 import type { TeamKitImage } from "@/types/match-kits";
 import {
   FIXTURE_STATUS_LABELS,
   fixtureStatus,
-  isMatchFinished,
   shouldShowScore,
 } from "@/types/worldcup";
-
-type H2HMatch = {
-  id: number;
-  date: string;
-  teams: { home: { name: string }; away: { name: string } };
-  goals: { home: number | null; away: number | null };
-};
 
 type Props = {
   fixture: FixtureDetail;
   kits: { home: TeamKitImage; away: TeamKitImage } | null;
-  h2h: H2HMatch[];
   groupStandings?: GroupStanding[];
 };
 
-export function FixtureDetailView({ fixture, kits, h2h, groupStandings }: Props) {
+function FixtureTeamColumn({ team }: { team: Team }) {
+  if (isBracketSlot(team.name)) {
+    return (
+      <div className="flex flex-1 justify-center min-w-0">
+        <BracketSlotLabel label={team.name} />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-1 flex-col items-center gap-2 min-w-0 text-center">
+      <TeamFlag
+        code={team.code}
+        teamName={team.name}
+        size="md"
+        className="h-10 w-14 rounded-lg shadow-md"
+      />
+      <span className="text-base font-semibold leading-tight">{team.name}</span>
+      {team.fifaRanking != null && (
+        <span className="text-xs font-medium text-text-secondary tabular-nums">
+          FIFA #{team.fifaRanking}
+        </span>
+      )}
+    </div>
+  );
+}
+
+export function FixtureDetailView({ fixture, kits, groupStandings }: Props) {
   const hasScore = shouldShowScore(fixture);
   const status = fixtureStatus(fixture);
-  const finished = isMatchFinished(fixture);
 
   return (
     <div className="page-container max-w-4xl">
@@ -66,8 +84,8 @@ export function FixtureDetailView({ fixture, kits, h2h, groupStandings }: Props)
           </div>
 
           <div className="flex items-center justify-between gap-4 max-w-lg mx-auto">
-            <TeamBadge team={fixture.teams.home} size="lg" />
-            <div>
+            <FixtureTeamColumn team={fixture.teams.home} />
+            <div className="shrink-0 px-2">
               {hasScore ? (
                 <p className="text-5xl sm:text-6xl font-bold tabular-nums tracking-tight">
                   {fixture.goals.home}
@@ -78,7 +96,7 @@ export function FixtureDetailView({ fixture, kits, h2h, groupStandings }: Props)
                 <p className="text-3xl text-text-secondary font-light">vs</p>
               )}
             </div>
-            <TeamBadge team={fixture.teams.away} size="lg" />
+            <FixtureTeamColumn team={fixture.teams.away} />
           </div>
 
           {kits && (
@@ -110,24 +128,6 @@ export function FixtureDetailView({ fixture, kits, h2h, groupStandings }: Props)
           standings={groupStandings}
           highlightTeamIds={[fixture.teams.home.id, fixture.teams.away.id]}
         />
-      )}
-
-      {finished && h2h.length > 0 && (
-        <DataCard className="mt-8">
-          <DataCardContent className="pt-6 space-y-3">
-            <h3 className="font-semibold mb-4">Face à face</h3>
-            {h2h.map((m) => (
-              <div key={m.id} className="flex justify-between gap-2 text-sm py-2 border-b border-border last:border-0">
-                <span className="text-text-secondary">
-                  {new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium" }).format(new Date(m.date))}
-                </span>
-                <span className="font-medium tabular-nums">
-                  {m.teams.home.name} {m.goals.home} – {m.goals.away} {m.teams.away.name}
-                </span>
-              </div>
-            ))}
-          </DataCardContent>
-        </DataCard>
       )}
     </div>
   );

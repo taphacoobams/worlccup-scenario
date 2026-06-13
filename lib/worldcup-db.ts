@@ -15,6 +15,7 @@ import {
   isMatchEventType,
   migrateLegacyEvent,
 } from "@/lib/tournament-engine/events";
+import { resolveVenueImage } from "@/lib/stadium-images";
 
 function teamSlug(name: string, code: string): string {
   const slug = name
@@ -129,6 +130,7 @@ export async function loadWorldCupFromDb(): Promise<WorldCupManualData> {
     name: t.name,
     code: t.code,
     country: t.country || t.name,
+    fifaRanking: t.fifaRanking,
     coach: t.coach ? { name: t.coach } : undefined,
   }));
 
@@ -168,14 +170,19 @@ export async function loadWorldCupFromDb(): Promise<WorldCupManualData> {
     };
   });
 
-  const manualFixtures: ManualFixture[] = fixtures.map((f) => ({
+  const manualFixtures: ManualFixture[] = fixtures.map((f) => {
+    const venueName = f.venue?.name ?? "";
+    const venueImage = resolveVenueImage(venueName, f.venue?.image ?? null);
+    return {
     id: f.legacyId,
     date: f.date.toISOString(),
     timezone: f.timezone,
     venue: {
-      name: f.venue?.name ?? "",
+      name: venueName,
       city: f.venue?.city ?? "",
+      image: venueImage,
     },
+    venueImage,
     round: f.round ?? f.stage,
     group: f.group,
     homeTeamId: f.homeTeam?.legacyId ?? 0,
@@ -187,7 +194,8 @@ export async function loadWorldCupFromDb(): Promise<WorldCupManualData> {
     events: f.events.flatMap((e) =>
       dbRowToMatchEvents(e as DbMatchEventRow, teams, manualPlayers)
     ),
-  }));
+  };
+  });
 
   const metaValue = meta?.value as { updatedAt?: string } | undefined;
 
@@ -271,14 +279,18 @@ export async function saveWorldCupToDb(data: WorldCupManualData): Promise<void> 
     }
 
     const venueCache = new Map<string, string>();
-    async function getVenueId(name: string, city: string): Promise<string> {
+    async function getVenueId(
+      name: string,
+      city: string,
+      image?: string | null
+    ): Promise<string> {
       const key = `${name}|${city}`;
       const cached = venueCache.get(key);
       if (cached) return cached;
       const v = await tx.venue.upsert({
         where: { name_city: { name, city } },
-        create: { name, city, country: "" },
-        update: {},
+        create: { name, city, country: "", image: image ?? null },
+        update: image ? { image } : {},
       });
       venueCache.set(key, v.id);
       return v.id;
@@ -289,7 +301,8 @@ export async function saveWorldCupToDb(data: WorldCupManualData): Promise<void> 
       0;
 
     for (const f of data.fixtures) {
-      const venueId = await getVenueId(f.venue.name, f.venue.city);
+      const venueImage = f.venueImage ?? f.venue.image ?? null;
+      const venueId = await getVenueId(f.venue.name, f.venue.city, venueImage);
       const homeDbId =
         f.homeTeamId > 0 ? teamIdMap.get(f.homeTeamId) ?? null : null;
       const awayDbId =
