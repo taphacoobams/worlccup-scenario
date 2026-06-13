@@ -1,6 +1,6 @@
 import type { GroupQualificationSummary } from "@/types/qualification";
 import type { WorldCupGroup } from "@/types/worldcup";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { DataCard, DataCardContent, DataCardDescription, DataCardHeader, DataCardTitle } from "@/components/ui/data-card";
 import { StandingsTable } from "@/components/worldcup/StandingsTable";
 import { GROUP_COLORS } from "@/lib/constants";
 import type { Group } from "@/types";
@@ -13,38 +13,37 @@ type Props = {
 
 export function GroupTable({ group, summary, highlightCode }: Props) {
   const letter = group.name.replace(/Groupe\s*/i, "").trim().toUpperCase().slice(0, 1);
-  const color = GROUP_COLORS[letter as Group] ?? "#00853f";
+  const color = GROUP_COLORS[letter as Group] ?? "#18c964";
 
   return (
-    <Card className="overflow-hidden">
-      <CardHeader
-        className="pb-3"
-        style={{ borderBottom: `2px solid ${color}40` }}
-      >
-        <CardTitle className="flex items-center gap-2">
+    <DataCard
+      className="overflow-hidden hover:-translate-y-1 transition-transform duration-300"
+      style={{ borderTopColor: `${color}50`, borderTopWidth: 2 }}
+    >
+      <DataCardHeader className="pb-4">
+        <DataCardTitle className="flex items-center gap-3">
           <span
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold text-white"
-            style={{ backgroundColor: color }}
+            className="flex h-10 w-10 items-center justify-center rounded-xl text-sm font-bold text-white shadow-lg"
+            style={{ backgroundColor: color, boxShadow: `0 4px 20px ${color}40` }}
           >
             {letter}
           </span>
           {group.name}
-        </CardTitle>
+        </DataCardTitle>
         {summary && (
-          <CardDescription className="text-xs">
-            P(groupe au tableau des 8 meilleurs 3es) :{" "}
-            <strong className="text-gold">{summary.thirdPlaceScenarioRate}%</strong>{" "}
-            · 495 scénarios
-          </CardDescription>
+          <DataCardDescription>
+            P(3e au tableau) :{" "}
+            <strong className="text-gold">{summary.thirdPlaceScenarioRate}%</strong>
+          </DataCardDescription>
         )}
-      </CardHeader>
-      <CardContent className="pt-4">
+      </DataCardHeader>
+      <DataCardContent className="pt-4">
         <StandingsTable
           standings={group.standings}
           teamProbs={summary?.teamProbs}
           highlightCode={highlightCode}
         />
-      </CardContent>
-    </Card>
+      </DataCardContent>
+    </DataCard>
   );
 }

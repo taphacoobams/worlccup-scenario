@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { TeamHeader } from "@/components/teams/TeamHeader";
 import { TeamProfile } from "@/components/teams/TeamProfile";
 import { TeamSquad } from "@/components/teams/TeamSquad";
 import { Button } from "@/components/ui/button";
-import { getTeamDetail, getTeamDetailBySlug, getPlayersByTeam } from "@/lib/data";
-import { isNumericTeamParam, teamSlug } from "@/lib/team-slug";
+import { getTeamDetailBySlug, getPlayersByTeam } from "@/lib/data";
 
 type Props = { params: Promise<{ team: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { team: teamParam } = await params;
-  const data = isNumericTeamParam(teamParam)
-    ? await getTeamDetail(Number(teamParam))
-    : await getTeamDetailBySlug(teamParam);
+  const data = await getTeamDetailBySlug(teamParam);
   if (!data) return { title: "Équipe introuvable" };
   return {
     title: data.team.name,
@@ -25,12 +22,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TeamDetailPage({ params }: Props) {
   const { team: teamParam } = await params;
-
-  if (isNumericTeamParam(teamParam)) {
-    const legacy = await getTeamDetail(Number(teamParam));
-    if (!legacy) notFound();
-    redirect(`/teams/${teamSlug(legacy.team.name, legacy.team.code)}`);
-  }
 
   const data = await getTeamDetailBySlug(teamParam);
   if (!data) notFound();

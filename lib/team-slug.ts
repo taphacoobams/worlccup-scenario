@@ -18,10 +18,6 @@ export function teamHref(team: Pick<LocalTeam, "name" | "code">): string {
   return `/teams/${teamSlug(team.name, team.code)}`;
 }
 
-export function isNumericTeamParam(param: string): boolean {
-  return /^\d+$/.test(param);
-}
-
 export function findTeamIdBySlug(
   slug: string,
   teams: Pick<LocalTeam, "id" | "name" | "code">[]

@@ -3,31 +3,58 @@
 :root {
   --background: #fafafa;
   --foreground: #0a0a0a;
+  --surface: #ffffff;
+  --surface-light: #f4f4f5;
   --card: #ffffff;
   --popover: #ffffff;
   --muted-foreground: #525252;
-  --senegal-green: #00853f;
-  --gold: #d4af37;
+  --primary: #22c55e;
+  --primary-hover: #16a34a;
+  --secondary: #3b82f6;
+  --senegal-green: #22c55e;
+  --gold: #f5c542;
+  --text: #0a0a0a;
+  --text-secondary: #64748b;
+  --border: rgba(0, 0, 0, 0.08);
 }
 
 .dark {
-  --background: #050505;
-  --foreground: #f5f5f5;
-  --card: #111111;
-  --popover: #141414;
-  --muted-foreground: #a3a3a3;
+  --background: #020617;
+  --foreground: #ffffff;
+  --surface: #0f172a;
+  --surface-light: #111827;
+  --card: #0f172a;
+  --popover: #111827;
+  --muted-foreground: #94a3b8;
+  --primary: #22c55e;
+  --primary-hover: #16a34a;
+  --secondary: #3b82f6;
+  --senegal-green: #22c55e;
+  --gold: #f5c542;
+  --text: #ffffff;
+  --text-secondary: #94a3b8;
+  --border: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
   --color-card: var(--card);
   --color-popover: var(--popover);
   --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
   --color-senegal-green: var(--senegal-green);
   --color-gold: var(--gold);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --radius-xl: 20px;
 }
 
 body {
@@ -36,15 +63,131 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+.dark body {
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -30%, rgba(34, 197, 94, 0.1), transparent 50%),
+    radial-gradient(ellipse 80% 50% at 100% 0%, rgba(59, 130, 246, 0.06), transparent 45%),
+    radial-gradient(ellipse 60% 40% at 0% 100%, rgba(34, 197, 94, 0.05), transparent 40%),
+    linear-gradient(180deg, #061326 0%, #020617 40%, #081a33 100%);
+  background-attachment: fixed;
+}
+
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+.glass-panel {
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(17, 24, 39, 0.9) 0%, rgba(15, 23, 42, 0.75) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.18);
 }
 
 .hero-gradient {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 133, 63, 0.25), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 175, 55, 0.12), transparent);
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(34, 197, 94, 0.16), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 10%, rgba(59, 130, 246, 0.08), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 10% 20%, rgba(245, 197, 66, 0.05), transparent 45%);
+}
+
+.stadium-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.stadium-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 6, 23, 0.3) 0%, rgba(2, 6, 23, 0.92) 72%, var(--background) 100%),
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(34, 197, 94, 0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.stadium-lights {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(34, 197, 94, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 80% 15%, rgba(59, 130, 246, 0.06) 0%, transparent 22%),
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.04) 0%, transparent 30%);
+}
+
+.nav-link {
+  position: relative;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-link-active {
+  color: var(--primary);
+}
+
+.nav-link-active::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.25rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.page-container {
+  @apply mx-auto max-w-7xl px-4 py-10 lg:px-8;
+}
+
+.data-table {
+  @apply w-full text-sm;
+}
+
+.data-table thead tr {
+  @apply border-b text-left text-xs uppercase tracking-wider;
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+
+.data-table th {
+  @apply py-3 px-3 font-semibold;
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s ease;
+}
+
+.data-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.bracket-scroll {
+  scrollbar-width: thin;
+}
+
+.premium-shadow {
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 ::-webkit-scrollbar {
@@ -53,6 +196,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 197, 94, 0.35);
 }

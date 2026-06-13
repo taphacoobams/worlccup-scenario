@@ -9,3 +9,9 @@ export type PlayerKit = {
   shorts: KitPiece;
   socks: KitPiece;
 };
+
+/** Maillot joueur extrait — PNG dans /public/team-kits */
+export type TeamKitImage = {
+  img: string;
+  colors: string[];
+};

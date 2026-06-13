@@ -21,7 +21,7 @@ export function TeamScenarioSummary({ team, stats, groupLabel }: Props) {
     <motion.section
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      className="rounded-2xl border border-white/10 bg-gradient-to-br from-senegal-green/10 via-transparent to-gold/5 p-6 backdrop-blur-sm"
+      className="rounded-2xl border border-border bg-gradient-to-br from-surface-light/80 via-surface/60 to-transparent p-6 sm:p-8 backdrop-blur-xl"
     >
       <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
         <TeamFlag

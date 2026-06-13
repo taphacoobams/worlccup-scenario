@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { TeamCardData } from "@/lib/data";
 import { TeamCard } from "@/components/teams/TeamCard";
+import { SearchInput } from "@/components/ui/search-input";
 
 type Props = { teams: TeamCardData[] };
 
@@ -25,15 +26,14 @@ export function TeamsPageSearch({ teams }: Props) {
 
   return (
     <div className="space-y-4">
-      <input
-        type="search"
+      <SearchInput
         placeholder="Rechercher une équipe ou un groupe…"
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        className="w-full max-w-md rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-senegal-green/50"
         aria-label="Rechercher une équipe"
+        containerClassName="max-w-md"
       />
-      <p className="text-sm text-muted-foreground">
+      <p className="text-sm text-text-secondary">
         {filtered.length} équipe{filtered.length !== 1 ? "s" : ""}
       </p>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">

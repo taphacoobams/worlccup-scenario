@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { PlayersGrid } from "@/components/players/PlayersGrid";
+import { SitePageHeader } from "@/components/layout/site-page-header";
 import { GroupsSkeleton } from "@/components/worldcup/WorldCupSkeleton";
 import { getPlayers, getTeams } from "@/lib/data";
 
@@ -18,13 +19,11 @@ async function PlayersContent() {
 
 export default function PlayersPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 lg:px-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Joueurs</h1>
-        <p className="text-muted-foreground mt-2">
-          Effectifs officiels FIFA — photo, numéro et nom
-        </p>
-      </div>
+    <div className="page-container">
+      <SitePageHeader
+        title="Joueurs"
+        description="Base de données des effectifs — recherche temps réel, filtres équipe et poste"
+      />
       <Suspense fallback={<GroupsSkeleton />}>
         <PlayersContent />
       </Suspense>

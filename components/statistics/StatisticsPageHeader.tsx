@@ -1,14 +1,12 @@
 "use client";
 
 import { useLocale } from "@/context/locale-context";
+import { PageHeader } from "@/components/ui/page-header";
 
 export function StatisticsPageHeader() {
   const { t } = useLocale();
 
   return (
-    <div className="mb-8">
-      <h1 className="text-3xl font-bold tracking-tight">{t("statistics.title")}</h1>
-      <p className="text-muted-foreground mt-2">{t("statistics.subtitle")}</p>
-    </div>
+    <PageHeader title={t("statistics.title")} description={t("statistics.subtitle")} />
   );
 }

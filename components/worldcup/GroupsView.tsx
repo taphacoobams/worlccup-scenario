@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { BestThirdsRankingTable } from "@/components/worldcup/BestThirdsRankingTable";
 import { GroupTable } from "@/components/worldcup/GroupTable";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SectionCard } from "@/components/ui/section-card";
+import { GlassPanel } from "@/components/ui/glass-panel";
 import type { BestThirdEntry, GroupQualificationSummary } from "@/types/qualification";
 import type { WorldCupGroup } from "@/types/worldcup";
 
@@ -28,30 +29,29 @@ export function GroupsView({
 
   return (
     <div className="space-y-10">
-      <p className="text-sm text-muted-foreground rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+      <GlassPanel className="px-5 py-4 text-sm text-text-secondary">
         {hasResults
           ? "Classements saisis manuellement (Manager). "
           : "Classements au tirage officiel (0 pt) — mettez à jour via "}
-        <Link href="/login" className="text-senegal-green hover:underline">
-          /dashboard
+        <Link href="/login" className="text-primary hover:underline font-medium">
+          Dashboard
         </Link>
-        . Probabilités : moteur 495 scénarios. Matchs :{" "}
-        <Link href="/fixtures" className="text-senegal-green hover:underline">
-          /fixtures
+        . Probabilités : moteur 495 scénarios ·{" "}
+        <Link href="/fixtures" className="text-primary hover:underline font-medium">
+          Calendrier
         </Link>
-        .
-      </p>
+      </GlassPanel>
 
       <div>
-        <h2 className="text-xl font-semibold mb-4">
+        <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
           Classements par groupe
           {favoriteGroup && (
-            <span className="text-sm font-normal text-muted-foreground ml-2">
-              · focus {favoriteTeamName} (G{favoriteGroup})
+            <span className="text-sm font-normal text-text-secondary">
+              · {favoriteTeamName} (G{favoriteGroup})
             </span>
           )}
         </h2>
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
           {groups.map((group) => (
             <GroupTable
               key={group.name}
@@ -63,17 +63,12 @@ export function GroupsView({
         </div>
       </div>
 
-      <Card className="border-gold/20 bg-gradient-to-br from-gold/5 to-transparent">
-        <CardHeader>
-          <CardTitle>Classement des meilleurs 3es</CardTitle>
-          <p className="text-sm text-muted-foreground">
-            12 équipes en 3e position de poule — top 8 qualifiés · probabilités scénarios
-          </p>
-        </CardHeader>
-        <CardContent>
-          <BestThirdsRankingTable entries={bestThirds} highlightCode={highlightCode} />
-        </CardContent>
-      </Card>
+      <SectionCard
+        title="Classement des meilleurs 3es"
+        description="12 équipes en 3e position — top 8 qualifiés · probabilités scénarios"
+      >
+        <BestThirdsRankingTable entries={bestThirds} highlightCode={highlightCode} />
+      </SectionCard>
     </div>
   );
 }

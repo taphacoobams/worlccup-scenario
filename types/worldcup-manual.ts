@@ -1,4 +1,4 @@
-/** Schéma éditable via /manager → data/teams.json, groups.json, fixtures.json */
+/** Schéma éditable via /dashboard → data/teams.json, groups.json, fixtures.json */
 
 import type { MatchEvent } from "@/types/match-events";
 

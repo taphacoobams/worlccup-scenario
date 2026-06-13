@@ -8,7 +8,7 @@ Plateforme web d'analyse des scénarios de qualification des **meilleurs troisi�
 
 - **495 scénarios** — C(12,8), mapping FIFA officiel
 - **Analytique** — KPIs, Recharts, Monte Carlo
-- **Manager** (`/manager`) — login admin, saisie résultats / événements / classements
+- **Manager** (`/dashboard`) — login admin, saisie résultats / événements / classements
 - **`/statistics`** — buteurs, passeurs, cartons, suspendus
 - **`/teams`** — 48 équipes + effectifs par poste
 - **Calendrier & groupes** — depuis JSON local
@@ -38,7 +38,7 @@ Plateforme web d'analyse des scénarios de qualification des **meilleurs troisi�
 ```bash
 npm install
 cp .env.example .env.local
-# MANAGER_SECRET=… pour /manager
+# MANAGER_SECRET=… pour /dashboard
 npm run seed-worldcup    # si besoin
 npm run parse-matchs     # calendrier + groups.json
 npm run parse-players    # effectifs
@@ -57,8 +57,7 @@ npm run dev
 ## Textes UI
 
 - Fichier unique : `messages/fr.json` (libellés navigation, scénarios, etc.)
-- Routes sans préfixe de langue : `/`, `/scenarios`, `/manager`, …
-- Anciennes URLs `/fr/...` et `/en/...` redirigent vers les routes courtes
+- Routes sans préfixe de langue : `/`, `/scenarios`, `/dashboard`, …
 - Noms d’équipes et joueurs **non traduits**
 - Projet **fan-first Sénégal** ; autres équipes via TeamSelector
 
@@ -72,13 +71,11 @@ Cœur du projet : **495 combinaisons** des meilleurs 3es (mapping FIFA), avec :
 - **Vue cartes** (liste virtualisée) ou **tableau** paginé
 - **Équipe globale** : sélecteur header (défaut Sénégal) — KPIs qualification / 1er / 2e / huitièmes
 
-`/senegal` redirige vers `/scenarios`.
-
 ## Base de données (Prisma + PostgreSQL)
 
 Schéma dans `prisma/schema.prisma` — **données tournoi** (équipes, matchs, stats). Pas de comptes visiteurs.
 
-**Admin `/manager`** : login par mot de passe (`MANAGER_SECRET` dans `.env`) — gestion des résultats, pas stocké en BDD.
+**Admin `/dashboard`** : login par mot de passe (`MANAGER_SECRET` dans `.env`) — gestion des résultats, pas stocké en BDD.
 
 | Modèle | Rôle |
 |--------|------|

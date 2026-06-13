@@ -33,17 +33,17 @@ export default function AnalytiquePage() {
     .sort((a, b) => b.value - a.value);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 lg:px-8">
-      <div className="mb-8 flex items-start gap-3">
+    <div className="page-container">
+      <div className="mb-8 flex items-start gap-4">
         <TeamFlag
           code={selectedTeam.code}
           teamName={selectedTeam.name}
           size="md"
-          className="h-12 w-16 rounded-lg shrink-0 hidden sm:block"
+          className="h-14 w-20 rounded-xl shrink-0 hidden sm:block ring-1 ring-border"
         />
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">{t("analytique.title")}</h1>
-          <p className="text-muted-foreground mt-2">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">{t("analytique.title")}</h1>
+          <p className="text-text-secondary mt-2">
             {t("analytique.subtitle", { team: selectedTeam.name, group: groupLabel })}
           </p>
         </div>

@@ -13,7 +13,7 @@ export default async function StatisticsPage() {
   const data = await getStatistics();
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-10 lg:px-8">
+    <div className="page-container max-w-5xl">
       <StatisticsPageHeader />
 
       <StatisticsView data={data} />

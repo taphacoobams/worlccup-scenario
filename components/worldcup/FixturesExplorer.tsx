@@ -1,11 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Fixture } from "@/types/worldcup";
+import type { Fixture, GroupStanding } from "@/types/worldcup";
 import { MatchRow } from "@/components/worldcup/MatchRow";
 import { ALL_GROUPS, GROUP_COLORS } from "@/lib/constants";
 import type { Group } from "@/types";
-import { Input } from "@/components/ui/input";
+import { SearchInput } from "@/components/ui/search-input";
+import { FilterBar, FilterField } from "@/components/ui/filter-bar";
 import { Button } from "@/components/ui/button";
 import { GroupBadge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -15,37 +16,18 @@ type PhaseFilter = "all" | "groups" | "knockout";
 type Props = {
   fixtures: Fixture[];
   groupSummaries: Record<Group, string>;
+  groupStandingsByLetter?: Record<string, GroupStanding[]>;
   favoriteGroup?: Group | null;
   favoriteTeamName?: string;
 };
 
 const selectClass =
-  "h-10 w-full rounded-lg border border-white/20 bg-zinc-950 px-3 py-2 text-sm text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-senegal-green/50";
-
-function FilterField({
-  label,
-  htmlFor,
-  children,
-  className,
-}: {
-  label: string;
-  htmlFor: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={cn("flex flex-col gap-1.5 min-w-0", className)}>
-      <label htmlFor={htmlFor} className="text-xs font-semibold text-foreground/80">
-        {label}
-      </label>
-      {children}
-    </div>
-  );
-}
+  "h-11 w-full rounded-xl border border-border bg-surface-light/50 px-3 py-2 text-sm text-text focus:outline-none focus:ring-2 focus:ring-primary/40";
 
 export function FixturesExplorer({
   fixtures,
   groupSummaries,
+  groupStandingsByLetter,
   favoriteGroup,
   favoriteTeamName,
 }: Props) {
@@ -106,6 +88,7 @@ export function FixturesExplorer({
 
   return (
     <div className="space-y-6">
+      <FilterBar sticky>
       <div className="flex flex-wrap gap-2">
         {phaseTabs.map((tab) => (
           <button
@@ -116,10 +99,10 @@ export function FixturesExplorer({
               if (tab.id === "knockout") setGroupFilter("all");
             }}
             className={cn(
-              "inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-colors",
+              "inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium transition-all",
               phaseFilter === tab.id
-                ? "border-senegal-green/50 bg-senegal-green/15 text-foreground"
-                : "border-white/10 bg-white/5 text-muted-foreground hover:border-white/20 hover:text-foreground"
+                ? "border-primary/50 bg-primary/15 text-text shadow-sm shadow-primary/10"
+                : "border-border bg-surface-light/30 text-text-secondary hover:border-primary/25 hover:text-text"
             )}
           >
             {tab.label}
@@ -137,9 +120,8 @@ export function FixturesExplorer({
 
       <div className="grid gap-4 lg:grid-cols-[1fr_minmax(220px,280px)_minmax(180px,220px)]">
         <FilterField label="Recherche" htmlFor="fixture-search">
-          <Input
+          <SearchInput
             id="fixture-search"
-            type="search"
             placeholder="Équipe, stade, tour…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -238,15 +220,23 @@ export function FixturesExplorer({
           </Button>
         )}
       </div>
+      </FilterBar>
 
       {filtered.length === 0 ? (
         <p className="text-center text-muted-foreground py-12">
           Aucun match ne correspond aux filtres.
         </p>
       ) : (
-        <div className="space-y-3">
-          {filtered.map((f) => (
-            <MatchRow key={f.id} fixture={f} />
+        <div className="space-y-4">
+          {filtered.map((f, i) => (
+            <MatchRow
+              key={f.id}
+              fixture={f}
+              index={i}
+              groupStandings={
+                f.group ? groupStandingsByLetter?.[f.group.toUpperCase()] : undefined
+              }
+            />
           ))}
         </div>
       )}

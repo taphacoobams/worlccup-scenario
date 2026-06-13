@@ -6,6 +6,8 @@ import {
 import { getTournamentLocalBundle } from "@/lib/data/worldcup-source";
 import { groupSquadByPosition, toSquadPlayer } from "@/lib/data/squad";
 import { findTeamIdBySlug } from "@/lib/team-slug";
+import { loadStatisticsViewData } from "@/lib/data/statistics-db";
+import { buildStatsEvolution } from "@/lib/statistics/evolution";
 import type {
   LocalBestThird,
   LocalFixture,
@@ -67,15 +69,15 @@ export const getFixtureById = cache(async (id: number): Promise<LocalFixture | n
   return fixtures.find((f) => f.id === id) ?? null;
 });
 
-/** Stats discipline / passes — alimentées plus tard via l’admin */
+/** Stats discipline / passes — PostgreSQL ou recalcul moteur tournoi */
 export const getStatistics = cache(async (): Promise<StatisticsViewData> => {
+  const [base, evolution] = await Promise.all([
+    loadStatisticsViewData(),
+    buildStatsEvolution().catch(() => [] as StatisticsViewData["evolution"]),
+  ]);
   return {
-    topScorers: [],
-    topAssists: [],
-    topYellowCards: [],
-    topRedCards: [],
-    suspended: [],
-    updatedAt: new Date().toISOString(),
+    ...base,
+    evolution: evolution && evolution.length > 0 ? evolution : undefined,
   };
 });
 

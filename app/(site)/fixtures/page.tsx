@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import Link from "next/link";
-
 import { FixturesExplorerClient } from "@/components/worldcup/FixturesExplorerClient";
 import { FixturesSkeleton } from "@/components/worldcup/WorldCupSkeleton";
+import { SitePageHeader } from "@/components/layout/site-page-header";
 import {
   buildGroupSummaries,
   getWorldCupFixtures,
@@ -25,10 +25,13 @@ async function FixturesContent() {
     getWorldCupGroups(),
   ]);
   const groupSummaries = buildGroupSummaries(groups) as Record<Group, string>;
+  const groupStandingsByLetter = Object.fromEntries(
+    groups.map((g) => [g.letter.toUpperCase(), g.standings])
+  );
 
   if (fixtures.length === 0) {
     return (
-      <div className="text-center text-muted-foreground py-12 space-y-4">
+      <div className="text-center text-text-secondary py-12 space-y-4">
         <p>Aucun match enregistré.</p>
         <Button asChild>
           <Link href="/dashboard/matches">Ajouter des matchs dans le Manager</Link>
@@ -38,20 +41,21 @@ async function FixturesContent() {
   }
 
   return (
-    <FixturesExplorerClient fixtures={fixtures} groupSummaries={groupSummaries} />
+    <FixturesExplorerClient
+      fixtures={fixtures}
+      groupSummaries={groupSummaries}
+      groupStandingsByLetter={groupStandingsByLetter}
+    />
   );
 }
 
 export default function FixturesPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 lg:px-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Calendrier & Résultats</h1>
-        <p className="text-muted-foreground mt-2">
-          104 matchs — 72 en phase de groupes et 32 en éliminatoires. Filtrez par
-          groupe, date ou tour ; scores visibles si statut FT / AET / PEN.
-        </p>
-      </div>
+    <div className="page-container">
+      <SitePageHeader
+        title="Calendrier & Résultats"
+        description="104 matchs — phase de groupes et éliminatoires. Filtres par phase, groupe, date et recherche instantanée."
+      />
       <Suspense fallback={<FixturesSkeleton />}>
         <FixturesContent />
       </Suspense>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import Link from "next/link";
+import { SitePageHeader } from "@/components/layout/site-page-header";
 import { KnockoutView } from "@/components/worldcup/KnockoutView";
 import { FixturesSkeleton } from "@/components/worldcup/WorldCupSkeleton";
 import { getKnockoutBracket, getKnockoutTableau } from "@/lib/worldcup-data";
@@ -38,14 +39,11 @@ async function KnockoutContent() {
 
 export default function KnockoutPage() {
   return (
-    <div className="mx-auto max-w-[1600px] px-4 py-10 lg:px-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Phase finale</h1>
-        <p className="text-muted-foreground mt-2">
-          Tableau à élimination directe — seizièmes de finale jusqu&apos;à la
-          finale
-        </p>
-      </div>
+    <div className="page-container max-w-[1600px]">
+      <SitePageHeader
+        title="Phase finale"
+        description="Tableau à élimination directe — seizièmes de finale jusqu'à la finale"
+      />
       <Suspense fallback={<FixturesSkeleton />}>
         <KnockoutContent />
       </Suspense>

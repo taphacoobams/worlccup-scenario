@@ -53,7 +53,7 @@ export function ScenarioFilters({
   const { t } = useLocale();
 
   return (
-    <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-4 space-y-4">
+    <div className="rounded-[20px] border border-border bg-surface/60 backdrop-blur-[20px] p-4 space-y-4">
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <input
@@ -61,7 +61,7 @@ export function ScenarioFilters({
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder={t("scenarios.searchPlaceholder")}
-          className="w-full rounded-lg border border-white/10 bg-background/50 pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-senegal-green/50"
+          className="w-full rounded-xl border border-border bg-surface-light/50 pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
           aria-label={t("common.search")}
         />
       </div>

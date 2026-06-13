@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { GroupsViewClient } from "@/components/worldcup/GroupsViewClient";
 import { GroupsSkeleton } from "@/components/worldcup/WorldCupSkeleton";
+import { SitePageHeader } from "@/components/layout/site-page-header";
 import { enrichGroupsWithQualification } from "@/lib/qualification-server";
 import { getGroupsWithResults } from "@/lib/worldcup-data";
 
@@ -29,13 +30,11 @@ async function GroupsContent() {
 
 export default function GroupsPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 lg:px-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Groupes & Classements</h1>
-        <p className="text-muted-foreground mt-2">
-          Classements et probabilités — équipe active via le sélecteur en haut à droite
-        </p>
-      </div>
+    <div className="page-container">
+      <SitePageHeader
+        title="Groupes & Classements"
+        description="12 poules · probabilités de qualification · meilleurs 3es — équipe active via le sélecteur"
+      />
       <Suspense fallback={<GroupsSkeleton />}>
         <GroupsContent />
       </Suspense>

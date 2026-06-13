@@ -140,6 +140,18 @@ export type StatisticsViewData = {
   topRedCards: StatEntry[];
   suspended: LocalStatistics["suspended"];
   updatedAt: string;
+  evolution?: StatsEvolutionPoint[];
+};
+
+export type StatsEvolutionPoint = {
+  label: string;
+  date: string;
+  matchNumber: number;
+  dateLabel?: string;
+  totalGoals: number;
+  totalYellowCards: number;
+  totalRedCards: number;
+  topScorer?: { name: string; goals: number };
 };
 
 export type PositionGroup =

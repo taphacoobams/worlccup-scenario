@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { TeamsPageSearch } from "@/components/teams/TeamsPageSearch";
 import { GroupsSkeleton } from "@/components/worldcup/WorldCupSkeleton";
+import { SitePageHeader } from "@/components/layout/site-page-header";
 import { getTeamsPageData } from "@/lib/data";
 import { WORLD_CUP_STATS } from "@/lib/constants/worldcup";
 
@@ -17,13 +18,11 @@ async function TeamsContent() {
 
 export default function TeamsPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 lg:px-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Équipes</h1>
-        <p className="text-muted-foreground mt-2">
-          {WORLD_CUP_STATS.teams} nations qualifiées — Coupe du Monde 2026
-        </p>
-      </div>
+    <div className="page-container">
+      <SitePageHeader
+        title="Équipes"
+        description={`${WORLD_CUP_STATS.teams} nations qualifiées — galerie premium avec recherche instantanée`}
+      />
       <Suspense fallback={<GroupsSkeleton />}>
         <TeamsContent />
       </Suspense>

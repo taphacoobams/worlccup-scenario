@@ -31,17 +31,17 @@ export default function ScenariosPage() {
   }, []);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 lg:px-8 space-y-10">
+    <div className="page-container space-y-10">
       <header className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs text-gold mb-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary mb-3 font-semibold">
             <Layers className="h-3.5 w-3.5" />
             {t("scenarios.badge", { total: String(total) })}
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">
             {t("scenarios.title")}
           </h1>
-          <p className="text-muted-foreground mt-2 max-w-2xl">{t("scenarios.description")}</p>
+          <p className="text-text-secondary mt-2 max-w-2xl">{t("scenarios.description")}</p>
         </div>
         <div className="flex gap-2 shrink-0">
           <Button
@@ -76,7 +76,7 @@ export default function ScenariosPage() {
       />
 
       <div className="grid lg:grid-cols-[280px_1fr] gap-6">
-        <aside className="lg:sticky lg:top-20 lg:self-start">
+        <aside className="lg:sticky lg:top-[88px] lg:self-start">
           <ScenarioFilters
             search={search}
             onSearchChange={setSearch}

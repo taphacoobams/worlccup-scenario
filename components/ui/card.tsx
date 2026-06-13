@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { glassPanelStatic, premiumCardHover } from "@/lib/ui-classes";
 
 export function Card({
   className,
@@ -7,10 +8,7 @@ export function Card({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn(
-        "rounded-2xl border border-white/10 bg-card/80 backdrop-blur-xl shadow-xl",
-        className
-      )}
+      className={cn(glassPanelStatic, premiumCardHover, className)}
       {...props}
     >
       {children}
@@ -31,7 +29,7 @@ export function CardTitle({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
-      className={cn("text-lg font-semibold tracking-tight", className)}
+      className={cn("text-lg font-semibold tracking-tight text-text", className)}
       {...props}
     />
   );
@@ -41,9 +39,7 @@ export function CardDescription({
   className,
   ...props
 }: React.HTMLAttributes<HTMLParagraphElement>) {
-  return (
-    <p className={cn("text-sm text-muted-foreground", className)} {...props} />
-  );
+  return <p className={cn("text-sm text-text-secondary", className)} {...props} />;
 }
 
 export function CardContent({

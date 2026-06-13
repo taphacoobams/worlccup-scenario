@@ -51,8 +51,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#00853f" },
-    { media: "(prefers-color-scheme: dark)", color: "#050505" },
+    { media: "(prefers-color-scheme: light)", color: "#18c964" },
+    { media: "(prefers-color-scheme: dark)", color: "#07111f" },
   ],
 };
 
@@ -65,7 +65,7 @@ export default function RootLayout({
     <html
       lang="fr"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full`}
+      className={`dark ${geistSans.variable} ${geistMono.variable} h-full`}
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col antialiased">
         <LocaleProvider messages={messages}>{children}</LocaleProvider>

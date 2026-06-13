@@ -26,7 +26,7 @@ function ScenarioCardInner({ enriched, index = 0 }: { enriched: EnrichedScenario
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: Math.min(index * 0.02, 0.3) }}
-      className="rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-sm overflow-hidden hover:border-senegal-green/30 transition-colors h-full flex flex-col"
+      className="rounded-[20px] border border-border bg-surface/60 backdrop-blur-[20px] overflow-hidden hover:border-primary/25 transition-all duration-300 h-full flex flex-col hover:-translate-y-0.5"
     >
       <div className="p-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-start gap-4 justify-between shrink-0">
         <div>

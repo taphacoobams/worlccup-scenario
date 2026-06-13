@@ -141,10 +141,10 @@ export function ScenariosTable({ data, showFavoriteOnly }: Props) {
         </div>
       </div>
 
-      <div className="rounded-xl border border-white/10 overflow-hidden">
+      <div className="rounded-[20px] border border-border bg-surface/80 overflow-hidden backdrop-blur-xl">
         <div className="overflow-x-auto max-h-[600px] overflow-y-auto">
-          <table className="w-full text-sm">
-            <thead className="sticky top-0 bg-card z-10 border-b border-white/10">
+          <table className="data-table">
+            <thead className="sticky top-0 bg-surface z-10 border-b border-border backdrop-blur-xl">
               {table.getHeaderGroups().map((hg) => (
                 <tr key={hg.id}>
                   {hg.headers.map((h) => (
