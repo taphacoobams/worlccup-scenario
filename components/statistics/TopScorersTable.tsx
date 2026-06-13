@@ -18,8 +18,9 @@ export function TopScorersTable({ title, players, mode }: Props) {
             header: "Joueur",
             render: (p: StatEntry) => (
               <PlayerCell
-                photo={p.photo}
+                playerId={p.playerId}
                 name={p.name}
+                photo={p.photo}
                 teamCode={p.teamCode}
                 flagUrl={p.flag}
                 teamName={p.teamName}
@@ -58,8 +59,9 @@ export function TopScorersTable({ title, players, mode }: Props) {
             header: "Joueur",
             render: (p: StatEntry) => (
               <PlayerCell
-                photo={p.photo}
+                playerId={p.playerId}
                 name={p.name}
+                photo={p.photo}
                 teamCode={p.teamCode}
                 flagUrl={p.flag}
                 teamName={p.teamName}

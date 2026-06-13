@@ -2,18 +2,17 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import type { Fixture, GroupStanding } from "@/types/worldcup";
+import type { Fixture } from "@/types/worldcup";
 import {
   FIXTURE_STATUS_LABELS,
   fixtureStatus,
   shouldShowScore,
 } from "@/types/worldcup";
 import { TeamBadge } from "@/components/worldcup/TeamBadge";
-import { MapPin, Clock, Trophy } from "lucide-react";
+import { MapPin, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { premiumCardHover } from "@/lib/ui-classes";
+import { panelBase, premiumCardHover } from "@/lib/ui-classes";
 import { formatVenueCity } from "@/lib/venue-display";
-import { getTeamStanding, standingRankLabel } from "@/lib/standings-labels";
 
 function formatDate(iso: string) {
   return new Intl.DateTimeFormat("fr-FR", {
@@ -30,7 +29,7 @@ function Score({ fixture }: { fixture: Fixture }) {
   }
   const { home, away } = fixture.goals;
   return (
-    <span className="font-bold tabular-nums text-2xl sm:text-3xl tracking-tight">
+    <span className="font-bold tabular-nums text-xl sm:text-2xl md:text-3xl tracking-tight">
       {home}
       <span className="text-text-secondary mx-1.5 font-normal">–</span>
       {away}
@@ -47,20 +46,12 @@ const STATUS_STYLE: Record<string, string> = {
 export function MatchRow({
   fixture,
   index = 0,
-  groupStandings,
 }: {
   fixture: Fixture;
   index?: number;
-  groupStandings?: GroupStanding[];
 }) {
   const status = fixtureStatus(fixture);
   const statusLabel = FIXTURE_STATUS_LABELS[status] ?? fixture.status.long;
-  const homeStanding = groupStandings
-    ? getTeamStanding(groupStandings, fixture.teams.home.id)
-    : undefined;
-  const awayStanding = groupStandings
-    ? getTeamStanding(groupStandings, fixture.teams.away.id)
-    : undefined;
 
   return (
     <motion.div
@@ -70,10 +61,7 @@ export function MatchRow({
     >
       <Link
         href={`/fixtures/${fixture.id}`}
-        className={cn(
-          "block rounded-[20px] border border-border bg-surface/70 backdrop-blur-[20px] p-5",
-          premiumCardHover
-        )}
+        className={cn("block p-4", panelBase, premiumCardHover)}
       >
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
           <div className="flex flex-wrap gap-2">
@@ -96,60 +84,17 @@ export function MatchRow({
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex-1 flex flex-col items-end gap-1.5 min-w-0">
-            <TeamBadge team={fixture.teams.home} className="justify-end" size="md" />
-            {homeStanding && (
-              <span className="rounded-full border border-primary/25 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary tabular-nums">
-                {standingRankLabel(homeStanding.position)} · {homeStanding.points} pts
-              </span>
-            )}
+        <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4">
+          <div className="flex justify-end min-w-0">
+            <TeamBadge team={fixture.teams.home} className="justify-end max-sm:flex-row-reverse" size="sm" />
           </div>
-          <div className="text-center shrink-0 px-2">
+          <div className="text-center shrink-0 px-1 sm:px-2">
             <Score fixture={fixture} />
           </div>
-          <div className="flex-1 flex flex-col items-start gap-1.5 min-w-0">
-            <TeamBadge team={fixture.teams.away} size="md" />
-            {awayStanding && (
-              <span className="rounded-full border border-secondary/25 bg-secondary/10 px-2 py-0.5 text-[10px] font-semibold text-secondary tabular-nums">
-                {standingRankLabel(awayStanding.position)} · {awayStanding.points} pts
-              </span>
-            )}
+          <div className="flex justify-start min-w-0">
+            <TeamBadge team={fixture.teams.away} size="sm" />
           </div>
         </div>
-
-        {fixture.group && groupStandings && groupStandings.length > 0 && (
-          <div className="mt-4 pt-4 border-t border-border">
-            <p className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wide text-text-secondary mb-2">
-              <Trophy className="h-3 w-3" />
-              Classement groupe {fixture.group}
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-              {[...groupStandings]
-                .sort((a, b) => a.position - b.position)
-                .map((row) => {
-                  const inMatch =
-                    row.team.id === fixture.teams.home.id ||
-                    row.team.id === fixture.teams.away.id;
-                  return (
-                    <div
-                      key={row.team.id}
-                      className={cn(
-                        "rounded-lg px-2 py-1.5 text-[11px] border",
-                        inMatch
-                          ? "border-primary/30 bg-primary/10 font-semibold"
-                          : "border-border bg-white/[0.03] text-text-secondary"
-                      )}
-                    >
-                      <span className="font-mono text-[10px] mr-1">{row.position}.</span>
-                      <span className="truncate">{row.team.code}</span>
-                      <span className="float-right tabular-nums text-primary">{row.points}</span>
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
-        )}
 
         <div className="mt-4 pt-4 border-t border-border flex items-center gap-2 text-xs text-text-secondary">
           <MapPin className="h-3.5 w-3.5 shrink-0 text-primary/70" />

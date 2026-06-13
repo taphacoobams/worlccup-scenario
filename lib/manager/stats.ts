@@ -69,22 +69,38 @@ export async function getManagerDashboardStats(): Promise<ManagerDashboardStats>
   };
 }
 
-export async function getManagerTodayMatches() {
-  const start = new Date();
-  start.setHours(0, 0, 0, 0);
-  const end = new Date(start);
-  end.setDate(end.getDate() + 1);
+export type ManagerMatchdayMatch = {
+  id: number;
+  date: string;
+  group: string | null;
+  status: string;
+  home: string;
+  away: string;
+  homeScore: number | null;
+  awayScore: number | null;
+};
 
-  const rows = await prisma.fixture.findMany({
-    where: { date: { gte: start, lt: end } },
-    include: {
-      homeTeam: true,
-      awayTeam: true,
-      venue: true,
-    },
-    orderBy: { date: "asc" },
-  });
+export type ManagerMatchdaySection = {
+  matches: ManagerMatchdayMatch[];
+  /** Calendrier réel (aujourd'hui) ou dernière journée jouée du tournoi */
+  mode: "today" | "latest" | "empty";
+  /** Présent quand mode === "latest" */
+  matchdayDate?: string;
+};
 
+const fixtureInclude = {
+  homeTeam: true,
+  awayTeam: true,
+  venue: true,
+} as const;
+
+function mapFixtureRows(
+  rows: Awaited<
+    ReturnType<
+      typeof prisma.fixture.findMany<{ include: typeof fixtureInclude }>
+    >
+  >
+): ManagerMatchdayMatch[] {
   return rows.map((f) => ({
     id: f.legacyId,
     date: f.date.toISOString(),
@@ -95,6 +111,52 @@ export async function getManagerTodayMatches() {
     homeScore: f.homeScore,
     awayScore: f.awayScore,
   }));
+}
+
+function dayBounds(date: Date) {
+  const start = new Date(date);
+  start.setHours(0, 0, 0, 0);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 1);
+  return { start, end };
+}
+
+/** Matchs du calendrier réel, ou à défaut la dernière journée terminée du tournoi. */
+export async function getManagerTodayMatches(): Promise<ManagerMatchdaySection> {
+  const { start, end } = dayBounds(new Date());
+
+  const todayRows = await prisma.fixture.findMany({
+    where: { date: { gte: start, lt: end } },
+    include: fixtureInclude,
+    orderBy: { date: "asc" },
+  });
+
+  if (todayRows.length > 0) {
+    return { matches: mapFixtureRows(todayRows), mode: "today" };
+  }
+
+  const latestFinished = await prisma.fixture.findFirst({
+    where: { status: { in: ["FT", "AET", "PEN"] } },
+    orderBy: { date: "desc" },
+    select: { date: true },
+  });
+
+  if (!latestFinished) {
+    return { matches: [], mode: "empty" };
+  }
+
+  const { start: dayStart, end: dayEnd } = dayBounds(latestFinished.date);
+  const matchdayRows = await prisma.fixture.findMany({
+    where: { date: { gte: dayStart, lt: dayEnd } },
+    include: fixtureInclude,
+    orderBy: { date: "asc" },
+  });
+
+  return {
+    matches: mapFixtureRows(matchdayRows),
+    mode: "latest",
+    matchdayDate: dayStart.toISOString(),
+  };
 }
 
 export async function getManagerScenarioInsights() {

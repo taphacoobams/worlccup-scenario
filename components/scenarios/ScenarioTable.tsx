@@ -136,9 +136,9 @@ export function ScenarioTable({ data }: Props) {
   });
 
   return (
-    <div className="rounded-xl border border-white/10 overflow-hidden">
+    <div className="rounded-xl border border-white/10 overflow-hidden min-w-0">
       <div className="overflow-x-auto">
-        <table className="w-full text-sm">
+        <table className="w-full text-sm min-w-[720px]">
           <thead className="bg-card border-b border-white/10">
             {table.getHeaderGroups().map((hg) => (
               <tr key={hg.id}>
@@ -169,7 +169,7 @@ export function ScenarioTable({ data }: Props) {
           </tbody>
         </table>
       </div>
-      <div className="flex items-center justify-between px-4 py-3 text-sm text-muted-foreground border-t border-white/10">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 py-3 text-sm text-muted-foreground border-t border-white/10">
         <span>
           {data.length} · {pagination.pageIndex + 1} / {table.getPageCount()}
         </span>

@@ -9,7 +9,6 @@ type Props = {
   groups: WorldCupGroup[];
   summaries: GroupQualificationSummary[];
   bestThirds: BestThirdEntry[];
-  hasResults?: boolean;
 };
 
 export function GroupsViewClient(props: Props) {

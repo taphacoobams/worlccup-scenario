@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     "Groupes FIFA 2026 — données manuelles, probabilités de qualification et meilleurs 3es.",
 };
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 async function GroupsContent() {
-  const { groups, hasResults } = await getGroupsWithResults();
+  const { groups } = await getGroupsWithResults();
   const { summaries, bestThirds } = await enrichGroupsWithQualification(groups);
 
   return (
@@ -23,7 +23,6 @@ async function GroupsContent() {
       groups={groups}
       summaries={summaries}
       bestThirds={bestThirds}
-      hasResults={hasResults}
     />
   );
 }

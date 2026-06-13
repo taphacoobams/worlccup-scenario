@@ -6,7 +6,7 @@ const messages = getMessages();
 
 export const metadata: Metadata = {
   title: messages.about.title,
-  description: "SenegalScenario2026 — mission, méthodologie et technologies.",
+  description: messages.about.description,
 };
 
 export default function AboutPage() {

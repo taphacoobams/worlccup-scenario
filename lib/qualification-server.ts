@@ -6,6 +6,7 @@ import type { Group } from "@/types";
 import type {
   BestThirdEntry,
   GroupQualificationSummary,
+  TeamQualificationProbs,
 } from "@/types/qualification";
 import type { WorldCupGroup } from "@/types/worldcup";
 import {
@@ -13,6 +14,7 @@ import {
   computeTeamQualificationProbs,
   extractGroupLetter,
   getGroupThirdScenarioRate,
+  sortStandingsByStats,
 } from "@/lib/qualification";
 
 export async function enrichGroupsWithQualification(
@@ -34,17 +36,15 @@ export async function enrichGroupsWithQualification(
   const summaries: GroupQualificationSummary[] = groups.map((group) => {
     const letter = extractGroupLetter(group.name);
     const scenarioRate = getGroupThirdScenarioRate(letter, groupFrequencies);
-    const teamProbs = new Map();
+    const sortedStandings = sortStandingsByStats(group.standings);
+    const teamProbs: Record<number, TeamQualificationProbs> = {};
 
-    for (const row of group.standings) {
-      teamProbs.set(
-        row.team.id,
-        computeTeamQualificationProbs(
-          row,
-          group.standings,
-          thirdRankByTeamId.get(row.team.id) ?? null,
-          scenarioRate
-        )
+    for (const row of sortedStandings) {
+      teamProbs[row.team.id] = computeTeamQualificationProbs(
+        row,
+        sortedStandings,
+        thirdRankByTeamId.get(row.team.id) ?? null,
+        scenarioRate
       );
     }
 

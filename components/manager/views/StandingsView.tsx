@@ -14,7 +14,7 @@ function GroupTable({
   return (
     <Card className="border-white/10">
       <CardHeader className="pb-2">
-        <CardTitle className="text-base">Group {group.letter}</CardTitle>
+        <CardTitle className="text-base">Groupe {group.letter}</CardTitle>
       </CardHeader>
       <CardContent className="overflow-x-auto">
         <table className="w-full text-xs">
@@ -73,9 +73,9 @@ export function StandingsView() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold">Standings</h1>
+        <h1 className="text-2xl font-bold">Groupes</h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Recalculés automatiquement depuis les matchs de poule terminés.
+          Classements recalculés automatiquement depuis les matchs de poule terminés.
         </p>
       </div>
       <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-4">

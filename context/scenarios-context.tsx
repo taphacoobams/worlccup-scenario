@@ -10,7 +10,7 @@ import {
   computeScenarioStats,
   filterScenarios,
 } from "@/lib/scenarios";
-import type { ScenarioEngineData } from "@/lib/scenarios/engine-data";
+import type { ScenarioEngineData } from "@/types/scenario-engine";
 import type { Group, Scenario, ScenarioStats } from "@/types";
 
 type ScenariosContextValue = {

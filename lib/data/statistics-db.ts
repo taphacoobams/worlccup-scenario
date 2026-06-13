@@ -5,6 +5,7 @@ import { getFlag } from "@/lib/flags";
 import { isDatabaseEnabled } from "@/lib/database";
 import { loadWorldCupFromFiles } from "@/lib/worldcup-persistence";
 import { recalculateStatistics, statsToJson } from "@/lib/tournament-engine/statistics";
+import { buildSuspendedPlayerRows } from "@/lib/statistics/suspensions";
 import type { StatEntry, StatisticsViewData } from "@/types/data";
 
 type PlayerRow = {
@@ -28,6 +29,15 @@ function toStatEntry(
     photo: player.image ?? undefined,
     ...stats,
   };
+}
+
+async function buildSuspendedFromTournament(): Promise<StatisticsViewData["suspended"]> {
+  try {
+    const data = await loadWorldCupFromFiles();
+    return buildSuspendedPlayerRows(data);
+  } catch {
+    return [];
+  }
 }
 
 async function loadFromPrisma(): Promise<StatisticsViewData | null> {
@@ -105,22 +115,7 @@ async function loadFromPrisma(): Promise<StatisticsViewData | null> {
     })
     .filter((x): x is StatEntry => x != null);
 
-  const suspended = cards
-    .filter((c) => c.suspended)
-    .map((c) => {
-      const p = resolvePlayer(c.player.legacyId);
-      if (!p) return null;
-      return {
-        playerId: p.legacyId,
-        name: p.name,
-        teamId: p.team.legacyId,
-        teamName: p.team.name,
-        teamCode: p.team.code,
-        flag: getFlag(p.team.code, null, p.team.name),
-        reason: "Suspension disciplinaire",
-      };
-    })
-    .filter((x) => x != null) as StatisticsViewData["suspended"];
+  const suspended = await buildSuspendedFromTournament();
 
   const updatedAt =
     [
@@ -181,23 +176,7 @@ async function loadFromEngine(): Promise<StatisticsViewData> {
       json.cards.filter((c) => c.redCards > 0),
       "redCards"
     ),
-    suspended: json.cards
-      .filter((c) => c.suspended)
-      .map((c) => {
-        const player = playerMap.get(c.playerId);
-        const team = player ? teamMap.get(player.teamId) : null;
-        if (!player || !team) return null;
-        return {
-          playerId: player.id,
-          name: player.name,
-          teamId: team.id,
-          teamName: team.name,
-          teamCode: team.code,
-          flag: getFlag(team.code, null, team.name),
-          reason: "Suspension disciplinaire",
-        };
-      })
-      .filter((x) => x != null) as StatisticsViewData["suspended"],
+    suspended: buildSuspendedPlayerRows(data),
     updatedAt: new Date().toISOString(),
   };
 }

@@ -131,6 +131,14 @@ export type LocalStatistics = {
     reason: string;
     flag?: string;
     teamLogo?: string;
+    photo?: string;
+    suspendedSince?: string;
+    suspendedSinceMatch?: string;
+    missesMatch?: string;
+    missesMatchDate?: string;
+    returnsMatch?: string;
+    returnsMatchDate?: string;
+    active?: boolean;
   }[];
 };
 

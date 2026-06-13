@@ -10,12 +10,7 @@ type Props = {
 export function FilterBar({ children, className, sticky = false }: Props) {
   return (
     <div
-      className={cn(
-        glassPanelStatic,
-        "p-4 flex flex-col gap-4",
-        sticky && "sticky top-[72px] z-30 backdrop-blur-xl",
-        className
-      )}
+      className={cn(glassPanelStatic, "p-4 flex flex-col gap-4 min-w-0 max-w-full", sticky && "sticky top-14 sm:top-16 z-30 bg-background", className)}
     >
       {children}
     </div>
@@ -40,8 +35,8 @@ export function FilterField({
   className?: string;
 }) {
   return (
-    <div className={cn("flex flex-col gap-1.5 min-w-[140px] flex-1", className)}>
-      <label htmlFor={htmlFor} className="text-xs font-semibold text-text-secondary uppercase tracking-wide">
+    <div className={cn("flex flex-col gap-1.5 min-w-0 sm:min-w-[140px] flex-1", className)}>
+      <label htmlFor={htmlFor} className="text-xs text-muted-foreground">
         {label}
       </label>
       {children}

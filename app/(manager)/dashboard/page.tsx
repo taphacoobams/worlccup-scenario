@@ -14,7 +14,7 @@ import { DEFAULT_FAVORITE_TEAM_ID } from "@/lib/teams-selection";
 export const dynamic = "force-dynamic";
 
 export default async function ManagerDashboardPage() {
-  const [stats, todayMatches, matchAlerts, teams, teamAnalysis] =
+  const [stats, matchdaySection, matchAlerts, teams, teamAnalysis] =
     await Promise.all([
       getManagerDashboardStats(),
       getManagerTodayMatches(),
@@ -41,7 +41,7 @@ export default async function ManagerDashboardPage() {
       <ManagerMatchAlerts alerts={matchAlerts} />
       <ManagerKpiGrid stats={stats} />
       <ManagerTeamAnalysis teams={teams} initial={teamAnalysis} />
-      <ManagerTodayMatches matches={todayMatches} />
+      <ManagerTodayMatches section={matchdaySection} />
     </div>
   );
 }

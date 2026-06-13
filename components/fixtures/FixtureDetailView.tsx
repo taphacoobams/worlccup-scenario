@@ -6,13 +6,11 @@ import { ArrowLeft } from "lucide-react";
 import { GroupStandingsSection } from "@/components/fixtures/GroupStandingsSection";
 import { MatchKitsShowcase } from "@/components/fixtures/MatchKitsShowcase";
 import { MatchEventsTimeline } from "@/components/fixtures/MatchEventsTimeline";
-import { BracketSlotLabel } from "@/components/worldcup/BracketSlotLabel";
-import { TeamFlag } from "@/components/ui/team-flag";
+import { FixtureTeamColumn } from "@/components/fixtures/FixtureTeamColumn";
 import { VenueCard } from "@/components/worldcup/VenueCard";
 import { Button } from "@/components/ui/button";
 import { GlassPanel } from "@/components/ui/glass-panel";
-import { isBracketSlot } from "@/lib/bracket-slots";
-import type { FixtureDetail, GroupStanding, Team } from "@/types/worldcup";
+import type { FixtureDetail, GroupStanding } from "@/types/worldcup";
 import type { TeamKitImage } from "@/types/match-kits";
 import {
   FIXTURE_STATUS_LABELS,
@@ -25,33 +23,6 @@ type Props = {
   kits: { home: TeamKitImage; away: TeamKitImage } | null;
   groupStandings?: GroupStanding[];
 };
-
-function FixtureTeamColumn({ team }: { team: Team }) {
-  if (isBracketSlot(team.name)) {
-    return (
-      <div className="flex flex-1 justify-center min-w-0">
-        <BracketSlotLabel label={team.name} />
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex flex-1 flex-col items-center gap-2 min-w-0 text-center">
-      <TeamFlag
-        code={team.code}
-        teamName={team.name}
-        size="md"
-        className="h-10 w-14 rounded-lg shadow-md"
-      />
-      <span className="text-base font-semibold leading-tight">{team.name}</span>
-      {team.fifaRanking != null && (
-        <span className="text-xs font-medium text-text-secondary tabular-nums">
-          FIFA #{team.fifaRanking}
-        </span>
-      )}
-    </div>
-  );
-}
 
 export function FixtureDetailView({ fixture, kits, groupStandings }: Props) {
   const hasScore = shouldShowScore(fixture);
@@ -66,7 +37,7 @@ export function FixtureDetailView({ fixture, kits, groupStandings }: Props) {
       </Button>
 
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-        <GlassPanel className="p-6 sm:p-10 mb-6 text-center">
+        <GlassPanel className="p-5 sm:p-6 mb-6 text-center">
           <div className="flex flex-wrap justify-center gap-2 mb-6">
             {fixture.group && (
               <span className="rounded-lg bg-primary/15 px-3 py-1 text-xs font-bold text-primary">
@@ -83,11 +54,11 @@ export function FixtureDetailView({ fixture, kits, groupStandings }: Props) {
             </span>
           </div>
 
-          <div className="flex items-center justify-between gap-4 max-w-lg mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-6 sm:gap-4 max-w-lg mx-auto w-full">
             <FixtureTeamColumn team={fixture.teams.home} />
-            <div className="shrink-0 px-2">
+            <div className="shrink-0 px-2 order-first sm:order-none">
               {hasScore ? (
-                <p className="text-5xl sm:text-6xl font-bold tabular-nums tracking-tight">
+                <p className="text-4xl sm:text-5xl lg:text-6xl font-bold tabular-nums tracking-tight">
                   {fixture.goals.home}
                   <span className="text-text-secondary mx-2 font-light">–</span>
                   {fixture.goals.away}

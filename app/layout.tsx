@@ -16,23 +16,23 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "SenegalScenario2026 — FIFA World Cup Analytics",
-    template: "%s | SenegalScenario2026",
+    default: "WorldCupScenario2026 — FIFA World Cup Analytics",
+    template: "%s | WorldCupScenario2026",
   },
   description:
-    "Plateforme d'analyse des 495 scénarios des meilleurs troisièmes — Coupe du Monde FIFA 2026, au cœur du Sénégal.",
-  keywords: ["FIFA 2026", "Sénégal", "Senegal", "World Cup", "scenarios", "best thirds"],
-  authors: [{ name: "SenegalScenario2026" }],
+    "Plateforme d'analyse des 495 scénarios des meilleurs troisièmes — Coupe du Monde FIFA 2026.",
+  keywords: ["FIFA 2026", "World Cup", "Coupe du Monde", "scenarios", "best thirds", "football"],
+  authors: [{ name: "WorldCupScenario2026" }],
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
   },
   openGraph: {
-    title: "SenegalScenario2026",
-    description: "495 scénarios FIFA 2026 — Lions & meilleurs 3es",
+    title: "WorldCupScenario2026",
+    description: "495 scénarios FIFA 2026 — analyse & simulation",
     type: "website",
     locale: "fr_FR",
-    siteName: "SenegalScenario2026",
+    siteName: "WorldCupScenario2026",
     images: [
       {
         url: "/logo.png",
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SenegalScenario2026",
-    description: "FIFA 2026 scenario analytics — Senegal-first",
+    title: "WorldCupScenario2026",
+    description: "FIFA 2026 scenario analytics — World Cup",
     images: ["/logo.png"],
   },
   robots: { index: true, follow: true },

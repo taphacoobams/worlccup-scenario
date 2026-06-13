@@ -2,17 +2,27 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Loader2 } from "lucide-react";
+import { ArrowLeft, Loader2 } from "lucide-react";
 import { useManagerData } from "@/context/manager-data-context";
 import { MatchEventsEditor } from "@/components/manager/MatchEventsEditor";
+import { GroupStandingsSection } from "@/components/fixtures/GroupStandingsSection";
+import { MatchEventsTimeline } from "@/components/fixtures/MatchEventsTimeline";
+import { FixtureTeamColumn } from "@/components/fixtures/FixtureTeamColumn";
+import { FixtureVenueSummary } from "@/components/fixtures/FixtureVenueSummary";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { GlassPanel } from "@/components/ui/glass-panel";
+import { SectionCard } from "@/components/ui/section-card";
 import { countGoalsFromEvents } from "@/lib/manager-standings";
+import {
+  MANUAL_STATUS_LABELS,
+  managerEventsToFixtureEvents,
+  managerGroupToStandings,
+  resolveManagerParticipant,
+} from "@/lib/manager/fixture-display";
 import { normalizeMatchEvents } from "@/lib/tournament-engine/events";
 
 export function MatchEditorView({ matchId }: { matchId: number }) {
-  const { data, loading, saving, updateFixture, teamName, reload } =
-    useManagerData();
+  const { data, loading, saving, updateFixture, reload } = useManagerData();
   const [localSaving, setLocalSaving] = useState(false);
   const [localMessage, setLocalMessage] = useState<string | null>(null);
 
@@ -30,6 +40,45 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
     if (!fixture || !data) return { home: 0, away: 0 };
     return countGoalsFromEvents(fixture, data.teams);
   }, [fixture, data]);
+
+  const homeTeam = useMemo(() => {
+    if (!fixture || !data) return null;
+    return resolveManagerParticipant(
+      fixture.homeTeamId,
+      fixture.homeTeam,
+      data.teams
+    );
+  }, [fixture, data]);
+
+  const awayTeam = useMemo(() => {
+    if (!fixture || !data) return null;
+    return resolveManagerParticipant(
+      fixture.awayTeamId,
+      fixture.awayTeam,
+      data.teams
+    );
+  }, [fixture, data]);
+
+  const displayEvents = useMemo(() => {
+    if (!fixture || !data) return [];
+    return managerEventsToFixtureEvents(fixture, data.teams, data.players);
+  }, [fixture, data]);
+
+  const groupStandings = useMemo(() => {
+    if (!fixture?.group || !data) return undefined;
+    const group = data.groups.find(
+      (g) => g.letter.toUpperCase() === fixture.group!.toUpperCase()
+    );
+    if (!group) return undefined;
+    return managerGroupToStandings(group, data.teams);
+  }, [fixture, data]);
+
+  const hasScore =
+    fixture != null &&
+    (fixture.status === "FT" ||
+      fixture.status === "AET" ||
+      fixture.status === "PEN" ||
+      (fixture.events?.length ?? 0) > 0);
 
   async function saveMatch() {
     if (!fixture || !data) return;
@@ -70,36 +119,28 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
     return <p className="text-muted-foreground">Chargement…</p>;
   }
 
-  if (!fixture) {
+  if (!fixture || !homeTeam || !awayTeam) {
     return (
-      <div className="space-y-4">
+      <div className="space-y-4 max-w-4xl">
         <p className="text-destructive">Match #{matchId} introuvable.</p>
-        <Button asChild variant="outline">
-          <Link href="/dashboard/matches">Retour</Link>
+        <Button asChild variant="outline" size="sm">
+          <Link href="/dashboard/matches">Retour au calendrier</Link>
         </Button>
       </div>
     );
   }
 
-  const home = teamName(fixture.homeTeamId) || fixture.homeTeam || "—";
-  const away = teamName(fixture.awayTeamId) || fixture.awayTeam || "—";
-  const d = new Date(fixture.date);
+  const statusLabel = MANUAL_STATUS_LABELS[fixture.status] ?? fixture.status;
 
   return (
-    <div className="space-y-6 max-w-3xl">
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <Button asChild variant="ghost" size="sm" className="mb-2 -ml-2">
-            <Link href="/dashboard/matches">← Matchs</Link>
-          </Button>
-          <h1 className="text-2xl font-bold">
-            {home} {score.home} - {score.away} {away}
-          </h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            Score calculé automatiquement à partir des buts enregistrés.
-          </p>
-        </div>
-        <Button onClick={() => void saveMatch()} disabled={localSaving || saving}>
+    <div className="max-w-4xl space-y-6">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <Button variant="ghost" size="sm" asChild>
+          <Link href="/dashboard/matches">
+            <ArrowLeft className="h-4 w-4" /> Retour au calendrier
+          </Link>
+        </Button>
+        <Button onClick={() => void saveMatch()} disabled={localSaving || saving} size="sm">
           {(localSaving || saving) && <Loader2 className="h-4 w-4 animate-spin" />}
           Enregistrer
         </Button>
@@ -109,51 +150,76 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
         <p className="text-sm text-senegal-green">{localMessage}</p>
       )}
 
-      <Card className="border-white/10">
-        <CardContent className="pt-6 grid sm:grid-cols-2 gap-4 text-sm">
-          <div>
-            <p className="text-muted-foreground">Date</p>
-            <p className="font-medium">{d.toLocaleDateString("fr-FR")}</p>
-          </div>
-          <div>
-            <p className="text-muted-foreground">Heure</p>
-            <p className="font-medium">
-              {d.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}
-            </p>
-          </div>
-          <div>
-            <p className="text-muted-foreground">Groupe</p>
-            <p className="font-medium font-mono text-gold">{fixture.group ?? "—"}</p>
-          </div>
-          <div>
-            <p className="text-muted-foreground">Tour</p>
-            <p className="font-medium">{fixture.round || "—"}</p>
-          </div>
-          <div>
-            <p className="text-muted-foreground">Stade</p>
-            <p className="font-medium">{fixture.venue?.name || "—"}</p>
-          </div>
-          <div>
-            <p className="text-muted-foreground">Ville</p>
-            <p className="font-medium">{fixture.venue?.city || "—"}</p>
-          </div>
-          <div>
-            <p className="text-muted-foreground">Équipe domicile</p>
-            <p className="font-medium">{home}</p>
-          </div>
-          <div className="sm:col-span-2">
-            <p className="text-muted-foreground">Équipe extérieur</p>
-            <p className="font-medium">{away}</p>
-          </div>
-        </CardContent>
-      </Card>
+      <GlassPanel className="p-5 sm:p-6 text-center">
+        <div className="flex flex-wrap justify-center gap-2 mb-6">
+          {fixture.group && (
+            <span className="rounded-lg bg-senegal-green/20 px-3 py-1 text-xs font-bold text-senegal-green">
+              Groupe {fixture.group}
+            </span>
+          )}
+          {fixture.round && (
+            <span className="rounded-lg bg-white/5 px-3 py-1 text-xs text-muted-foreground">
+              {fixture.round}
+            </span>
+          )}
+          <span className="rounded-lg bg-white/5 px-3 py-1 text-xs text-muted-foreground">
+            {statusLabel}
+          </span>
+        </div>
 
-      <MatchEventsEditor
-        fixture={fixture}
-        teams={data.teams}
-        players={data.players}
-        onChange={(events) => updateFixture(matchId, { events })}
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-6 sm:gap-4 max-w-lg mx-auto w-full">
+          <FixtureTeamColumn team={homeTeam} />
+          <div className="shrink-0 px-2 order-first sm:order-none">
+            {hasScore ? (
+              <p className="text-4xl sm:text-5xl font-bold tabular-nums tracking-tight">
+                {score.home}
+                <span className="text-muted-foreground mx-2 font-light">–</span>
+                {score.away}
+              </p>
+            ) : (
+              <p className="text-3xl text-muted-foreground font-light">vs</p>
+            )}
+          </div>
+          <FixtureTeamColumn team={awayTeam} />
+        </div>
+
+        <p className="text-xs text-muted-foreground mt-6">
+          Score calculé automatiquement à partir des buts enregistrés.
+        </p>
+      </GlassPanel>
+
+      {displayEvents.length > 0 && (
+        <MatchEventsTimeline
+          events={displayEvents}
+          homeTeam={homeTeam}
+          awayTeam={awayTeam}
+        />
+      )}
+
+      <SectionCard title="Modifier les événements" description="Buts, passes décisives et cartons">
+        <MatchEventsEditor
+          fixture={fixture}
+          teams={data.teams}
+          players={data.players}
+          onChange={(events) => updateFixture(matchId, { events })}
+          hideTimeline
+        />
+      </SectionCard>
+
+      <FixtureVenueSummary
+        venueName={fixture.venue?.name || "—"}
+        city={fixture.venue?.city || ""}
+        dateIso={fixture.date}
+        timezone={fixture.timezone}
       />
+
+      {fixture.group && groupStandings && groupStandings.length > 0 && (
+        <GroupStandingsSection
+          groupLetter={fixture.group}
+          standings={groupStandings}
+          highlightTeamIds={[homeTeam.id, awayTeam.id]}
+        />
+      )}
     </div>
   );
 }

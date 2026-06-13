@@ -29,10 +29,10 @@ export default async function TeamDetailPage({ params }: Props) {
   const players = await getPlayersByTeam(data.team.id);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-10 lg:px-8">
+    <div className="page-container max-w-4xl min-w-0">
       <Button variant="ghost" size="sm" className="mb-6" asChild>
-        <Link href="/teams">
-          <ArrowLeft className="h-4 w-4" /> Toutes les équipes
+        <Link href="/">
+          <ArrowLeft className="h-4 w-4" /> Accueil
         </Link>
       </Button>
 

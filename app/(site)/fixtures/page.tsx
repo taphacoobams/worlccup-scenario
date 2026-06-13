@@ -5,11 +5,9 @@ import { FixturesExplorerClient } from "@/components/worldcup/FixturesExplorerCl
 import { FixturesSkeleton } from "@/components/worldcup/WorldCupSkeleton";
 import { SitePageHeader } from "@/components/layout/site-page-header";
 import {
-  buildGroupSummaries,
   getWorldCupFixtures,
   getWorldCupGroups,
 } from "@/lib/worldcup-data";
-import type { Group } from "@/types";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -17,16 +15,18 @@ export const metadata: Metadata = {
   description: "Calendrier Coupe du Monde 2026 — saisie manuelle des matchs et résultats.",
 };
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 async function FixturesContent() {
   const [fixtures, groups] = await Promise.all([
     getWorldCupFixtures(),
     getWorldCupGroups(),
   ]);
-  const groupSummaries = buildGroupSummaries(groups) as Record<Group, string>;
-  const groupStandingsByLetter = Object.fromEntries(
-    groups.map((g) => [g.letter.toUpperCase(), g.standings])
+  const groupTeamsByLetter = Object.fromEntries(
+    groups.map((g) => [
+      g.letter.toUpperCase(),
+      g.standings.map((s) => ({ code: s.team.code, name: s.team.name })),
+    ])
   );
 
   if (fixtures.length === 0) {
@@ -43,8 +43,7 @@ async function FixturesContent() {
   return (
     <FixturesExplorerClient
       fixtures={fixtures}
-      groupSummaries={groupSummaries}
-      groupStandingsByLetter={groupStandingsByLetter}
+      groupTeamsByLetter={groupTeamsByLetter}
     />
   );
 }

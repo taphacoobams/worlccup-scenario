@@ -2,14 +2,11 @@ import "server-only";
 
 import { cache } from "react";
 import { loadWorldCupFromFiles } from "@/lib/worldcup-persistence";
-import type { LocalFixture, LocalStanding, LocalTeam } from "@/types/data";
 import type { WorldCupManualData } from "@/types/worldcup-manual";
+import type { LocalFixture, LocalStanding, LocalTeam } from "@/types/data";
+import type { ScenarioEngineData } from "@/types/scenario-engine";
 
-export type ScenarioEngineData = {
-  teams: LocalTeam[];
-  standings: LocalStanding[];
-  fixtures: LocalFixture[];
-};
+export type { ScenarioEngineData } from "@/types/scenario-engine";
 
 export function mapWorldCupToScenarioEngineData(
   data: WorldCupManualData

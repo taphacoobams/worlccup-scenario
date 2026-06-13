@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     "Coupe du Monde 2026 — meilleurs buteurs, passeurs et discipline (données locales).",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function StatisticsPage() {
   const data = await getStatistics();
 

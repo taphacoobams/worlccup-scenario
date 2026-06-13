@@ -24,5 +24,13 @@ export function findTeamIdBySlug(
 ): number | null {
   const normalized = slug.toLowerCase();
   const match = teams.find((t) => teamSlug(t.name, t.code) === normalized);
-  return match?.id ?? null;
+  if (match) return match.id;
+
+  const numeric = Number(slug);
+  if (Number.isFinite(numeric)) {
+    const byId = teams.find((t) => t.id === numeric);
+    if (byId) return byId.id;
+  }
+
+  return null;
 }

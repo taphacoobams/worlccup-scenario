@@ -5,15 +5,16 @@ const routes = [
   "/groups",
   "/fixtures",
   "/statistics",
-  "/teams",
   "/players",
   "/knockout",
   "/scenarios",
   "/explorer",
   "/analytique",
   "/monte-carlo",
-  "/export",
   "/about",
+  "/mentions-legales",
+  "/confidentialite",
+  "/dmca",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

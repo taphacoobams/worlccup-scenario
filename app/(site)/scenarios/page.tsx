@@ -12,6 +12,8 @@ import { useLocale } from "@/context/locale-context";
 import type { ScenarioFilterMode, ScenarioSortMode } from "@/lib/scenario-engine/types";
 import type { Group } from "@/types";
 import { Button } from "@/components/ui/button";
+import { pageDescription, pageTitle, worldCupBadge } from "@/lib/ui-classes";
+import { cn } from "@/lib/utils";
 
 export default function ScenariosPage() {
   const { t } = useLocale();
@@ -31,21 +33,20 @@ export default function ScenariosPage() {
   }, []);
 
   return (
-    <div className="page-container space-y-10">
+    <div className="page-container space-y-6">
       <header className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary mb-3 font-semibold">
-            <Layers className="h-3.5 w-3.5" />
+          <div className={cn(worldCupBadge, "mb-2 inline-flex gap-2")}>
+            <Layers className="h-3 w-3" />
             {t("scenarios.badge", { total: String(total) })}
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">
-            {t("scenarios.title")}
-          </h1>
-          <p className="text-text-secondary mt-2 max-w-2xl">{t("scenarios.description")}</p>
+          <h1 className={pageTitle}>{t("scenarios.title")}</h1>
+          <p className={cn(pageDescription, "max-w-2xl")}>{t("scenarios.description")}</p>
         </div>
-        <div className="flex gap-2 shrink-0">
+        <div className="flex flex-wrap gap-2 w-full sm:w-auto">
           <Button
             size="sm"
+            className="flex-1 sm:flex-none"
             variant={view === "cards" ? "default" : "secondary"}
             onClick={() => setView("cards")}
             aria-pressed={view === "cards"}
@@ -54,6 +55,7 @@ export default function ScenariosPage() {
           </Button>
           <Button
             size="sm"
+            className="flex-1 sm:flex-none"
             variant={view === "table" ? "default" : "secondary"}
             onClick={() => setView("table")}
             aria-pressed={view === "table"}
@@ -75,8 +77,8 @@ export default function ScenariosPage() {
         teamName={selectedTeam.name}
       />
 
-      <div className="grid lg:grid-cols-[280px_1fr] gap-6">
-        <aside className="lg:sticky lg:top-[88px] lg:self-start">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)]">
+        <aside className="min-w-0 lg:sticky lg:top-[88px] lg:self-start">
           <ScenarioFilters
             search={search}
             onSearchChange={setSearch}
@@ -91,7 +93,7 @@ export default function ScenariosPage() {
           />
         </aside>
 
-        <main>
+        <main className="min-w-0">
           {view === "cards" ? (
             <ScenarioVirtualList items={scenarios} />
           ) : (

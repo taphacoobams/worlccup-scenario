@@ -45,7 +45,20 @@ const PEDIGREE: Record<string, number> = {
   CV: 43,
   CZ: 72,
   BA: 55,
+  CW: 38,
+  CI: 68,
 };
+
+/** Force relative (0–100) — classement FIFA prioritaire, sinon pedigree. */
+export function resolveTeamStrengthScore(team: {
+  code: string;
+  fifaRanking?: number | null;
+}): number {
+  if (team.fifaRanking != null && team.fifaRanking > 0) {
+    return clamp(108 - team.fifaRanking * 0.95, 22, 96);
+  }
+  return PEDIGREE[team.code.toUpperCase()] ?? 52;
+}
 
 function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));

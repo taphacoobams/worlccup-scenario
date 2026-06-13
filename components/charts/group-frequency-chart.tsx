@@ -26,7 +26,7 @@ export function GroupFrequencyChart({ data, title }: Props) {
   }));
 
   return (
-    <div className="h-80 w-full" role="img" aria-label={title ?? "Fréquence des groupes"}>
+    <div className="h-64 sm:h-80 w-full min-w-0" role="img" aria-label={title ?? "Fréquence des groupes"}>
       {title && <h4 className="text-sm font-medium mb-4 text-muted-foreground">{title}</h4>}
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={chartData} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>

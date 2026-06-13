@@ -1,8 +1,8 @@
 {
   "meta": {
-    "siteName": "SenegalScenario2026",
-    "tagline": "Coupe du Monde 2026 — au cœur du Sénégal",
-    "defaultDescription": "495 scénarios des meilleurs troisièmes — focus Sénégal, ouvert à tous les fans."
+    "siteName": "WorldCupScenario2026",
+    "tagline": "Coupe du Monde 2026 — scénarios & analytics",
+    "defaultDescription": "495 scénarios des meilleurs troisièmes — explorez toutes les combinaisons FIFA."
   },
   "navigation": {
     "home": "Accueil",
@@ -20,18 +20,20 @@
     "export": "Export"
   },
   "header": {
-    "homeAria": "SenegalScenario2026 — Accueil",
+    "homeAria": "WorldCupScenario2026 — Accueil",
     "mainNav": "Navigation principale",
     "mobileNav": "Navigation mobile",
     "menu": "Menu",
     "scenariosFor": "Scénarios {team}",
-    "senegalFocus": "La voix des Lions — CM 2026",
+    "defaultFocus": "Coupe du Monde 2026 — scénarios & analytics",
     "yourTeam": "Votre équipe"
   },
   "footer": {
-    "copyright": "© 2026 SenegalScenario2026 — Analyse FIFA Coupe du Monde",
+    "copyright": "© 2026 WorldCupScenario2026 — Analyse FIFA Coupe du Monde",
     "about": "À propos",
-    "senegalFirst": "Projet fan-first · Sénégal · Mondial 2026"
+    "legal": "Mentions légales",
+    "privacy": "Confidentialité",
+    "dmca": "DMCA"
   },
   "common": {
     "loading": "Chargement…",
@@ -54,7 +56,7 @@
   },
   "home": {
     "badge": "FIFA World Cup 2026 — 48 équipes, 12 groupes",
-    "titleSenegal": "Senegal",
+    "titleWorldCup": "World Cup",
     "titleScenario": "Scenario",
     "titleYear": "2026",
     "subtitle": "Plateforme d'analyse des {formula} scénarios des meilleurs troisièmes — mapping FIFA officiel.",
@@ -122,15 +124,121 @@
   },
   "about": {
     "title": "À propos",
-    "name": "SenegalScenario2026",
-    "p1": "Plateforme d'analyse des scénarios de qualification des meilleurs troisièmes — Coupe du Monde FIFA 2026 (48 équipes).",
-    "p2": "Focus Sénégal (groupe I) et les 495 combinaisons officielles (Annexe C FIFA), données en base PostgreSQL.",
-    "p3": "Changez d'équipe via le sélecteur en haut à droite pour personnaliser scénarios, graphiques et simulations."
+    "description": "Mission, méthodologie et technologies de WorldCupScenario2026.",
+    "name": "WorldCupScenario2026",
+    "p1": "WorldCupScenario2026 est une plateforme fan analytics dédiée à la Coupe du Monde FIFA 2026. Elle permet d'explorer les 495 scénarios officiels de qualification des meilleurs troisièmes (Annexe C FIFA), de simuler le déroulement du tournoi et d'analyser les probabilités par équipe.",
+    "p2": "Choisissez votre équipe favorite via le sélecteur en en-tête pour personnaliser les scénarios et statistiques affichés. Les données tournoi (équipes, matchs, classements, statistiques) sont stockées en PostgreSQL et mises à jour via l'espace Manager.",
+    "p3": "Les modules publics couvrent les poules, le calendrier, les scénarios, l'analytique, la phase finale, les statistiques et les fiches équipes/joueurs. Les probabilités affichées sont indicatives et ne remplacent pas les communications officielles de la FIFA."
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "description": "Informations légales relatives à l'édition et à l'utilisation du site WorldCupScenario2026.",
+    "updatedAt": "juin 2026",
+    "sections": [
+      {
+        "title": "Éditeur du site",
+        "body": "WorldCupScenario2026 est un projet fan analytics publié à titre informatif et éducatif. Il n'est pas affilié, associé, autorisé, approuvé ou sponsorisé par la FIFA ou tout autre organisme officiel du football."
+      },
+      {
+        "title": "Hébergement",
+        "body": "Le site est hébergé par un prestataire cloud (Vercel) et s'appuie sur une base de données PostgreSQL pour les données tournoi. Les performances et la disponibilité peuvent varier selon la maintenance technique et les contraintes du réseau."
+      },
+      {
+        "title": "Propriété intellectuelle",
+        "body": "Les marques FIFA, World Cup, noms d'équipes nationales, logos de compétition et contenus visuels tiers restent la propriété de leurs détenteurs respectifs. Les textes éditoriaux, structures de données, interfaces et code source développés pour WorldCupScenario2026 sont protégés par le droit d'auteur."
+      },
+      {
+        "title": "Utilisation du service",
+        "body": "L'accès au site est gratuit pour la consultation publique. L'espace Manager est réservé aux personnes disposant des identifiants appropriés. Toute utilisation abusive (tentatives d'intrusion, surcharge volontaire, extraction automatisée non autorisée) peut entraîner une restriction d'accès."
+      },
+      {
+        "title": "Données et responsabilité",
+        "body": "Les classements, probabilités, scénarios et simulations sont fournis sans garantie d'exactitude, d'exhaustivité ou d'actualisation en temps réel. En cas de divergence, les résultats sportifs officiels et les publications de la FIFA prévalent toujours."
+      },
+      {
+        "title": "Liens externes",
+        "body": "Le site peut contenir des liens vers des services tiers (cartographie, sources d'images, documentation). WorldCupScenario2026 n'exerce aucun contrôle sur ces ressources externes et décline toute responsabilité quant à leur contenu."
+      },
+      {
+        "title": "Contact",
+        "body": "Pour toute question juridique ou signalement relatif au site, contactez l'équipe du projet WorldCupScenario2026 via les canaux de communication officiels du projet."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "description": "Comment WorldCupScenario2026 traite les données lors de votre visite.",
+    "updatedAt": "juin 2026",
+    "sections": [
+      {
+        "title": "Principe général",
+        "body": "WorldCupScenario2026 est conçu comme un site de consultation analytique. Nous ne demandons pas la création de compte visiteur et ne collectons pas de profils utilisateurs nominatifs pour la navigation publique."
+      },
+      {
+        "title": "Données techniques",
+        "body": "Comme la plupart des sites web, des journaux techniques peuvent être générés par l'hébergeur (adresse IP, type de navigateur, pages consultées, horodatage, codes d'erreur). Ces données servent à la sécurité, au diagnostic et à l'amélioration du service."
+      },
+      {
+        "title": "Cookies et stockage local",
+        "body": "Le site peut utiliser le stockage local du navigateur pour mémoriser des préférences d'interface (équipe favorite, thème, filtres). Ces informations restent sur votre appareil et ne constituent pas un dossier personnel centralisé côté serveur."
+      },
+      {
+        "title": "Espace Manager",
+        "body": "L'accès au Manager repose sur un secret d'authentification (MANAGER_SECRET) et non sur des comptes multi-utilisateurs. Les actions effectuées dans le Manager peuvent être journalisées à des fins d'audit technique (horodatage, type d'opération)."
+      },
+      {
+        "title": "Données sportives",
+        "body": "Les données affichées (équipes, joueurs, matchs, statistiques) proviennent de jeux de données structurés et de mises à jour manuelles/automatisées. Elles ne constituent pas des données personnelles au sens RGPD, sauf lorsqu'un nom de joueur public est affiché dans un contexte sportif."
+      },
+      {
+        "title": "Durée de conservation",
+        "body": "Les journaux techniques sont conservés pour une durée limitée, conformément aux pratiques de l'hébergeur. Les données tournoi en base sont conservées pour la durée de vie du projet et de ses sauvegardes."
+      },
+      {
+        "title": "Vos droits",
+        "body": "Si vous estimez qu'une information vous concernant est traitée de manière inappropriée, vous pouvez demander sa rectification ou sa suppression en contactant l'équipe du projet. Pour les données purement locales (préférences navigateur), vous pouvez les effacer via les paramètres de votre navigateur."
+      }
+    ]
+  },
+  "dmca": {
+    "title": "DMCA / Droits d'auteur",
+    "description": "Procédure de notification pour contenus protégés signalés sur WorldCupScenario2026.",
+    "updatedAt": "juin 2026",
+    "sections": [
+      {
+        "title": "Politique de respect des droits",
+        "body": "WorldCupScenario2026 respecte les droits de propriété intellectuelle de tiers. Si vous pensez qu'un contenu accessible via le site porte atteinte à vos droits d'auteur, vous pouvez nous adresser une notification conforme aux bonnes pratiques DMCA / droit d'auteur."
+      },
+      {
+        "title": "Contenus concernés",
+        "body": "Peuvent être visés : images de joueurs, visuels de stades, textes, captures, assets graphiques ou tout autre élément pour lequel vous détenez un droit exclusif ou une autorisation de distribution."
+      },
+      {
+        "title": "Informations à fournir",
+        "body": "Votre notification devrait inclure : (1) l'identification de l'œuvre protégée ; (2) l'URL ou la description précise du contenu litigieux sur le site ; (3) vos coordonnées ; (4) une déclaration de bonne foi ; (5) une déclaration d'exactitude sous peine de parjure ; (6) votre signature électronique ou manuscrite."
+      },
+      {
+        "title": "Traitement de la demande",
+        "body": "Après réception d'une notification complète et recevable, nous examinerons le signalement et pourrons retirer ou restreindre l'accès au contenu concerné dans un délai raisonnable, sous réserve de vérification technique."
+      },
+      {
+        "title": "Contre-notification",
+        "body": "Si vous estimez qu'un retrait a été effectué par erreur, vous pouvez soumettre une contre-notification détaillant les motifs pour lesquels le contenu devrait être rétabli, sous réserve des obligations légales applicables."
+      },
+      {
+        "title": "Répétition des infractions",
+        "body": "Les utilisateurs ou contributeurs qui enfreignent de manière répétée les droits de propriété intellectuelle peuvent voir leur accès au Manager ou à certaines fonctions restreint, sans préjudice d'autres recours."
+      },
+      {
+        "title": "Contact DMCA",
+        "body": "Adressez votre demande à l'équipe WorldCupScenario2026 en indiquant clairement « DMCA » ou « Droits d'auteur » dans l'objet, avec toutes les pièces nécessaires à l'instruction du dossier."
+      }
+    ]
   },
   "scenarios": {
     "title": "Scénarios World Cup 2026",
     "badge": "{total} scénarios · C(12,8)",
-    "description": "Les 495 combinaisons officielles des meilleurs troisièmes, enrichies par un moteur de probabilités. Changez d'équipe via le sélecteur — le Sénégal reste au cœur du projet.",
+    "description": "Les 495 combinaisons officielles des meilleurs troisièmes, enrichies par un moteur de probabilités. Changez d'équipe via le sélecteur pour adapter l'analyse à votre sélection.",
     "cardsView": "Cartes",
     "tableView": "Tableau",
     "bestFor": "Meilleurs scénarios pour {team}",
@@ -211,6 +319,11 @@
   "statistics": {
     "title": "Statistiques",
     "subtitle": "Coupe du Monde 2026 — données locales",
+    "tabScorers": "Buteurs",
+    "tabAssists": "Passes décisives",
+    "tabYellowCards": "Cartons jaunes",
+    "tabRedCards": "Cartons rouges",
+    "tabSuspended": "Suspendus",
     "topScorers": "Meilleurs buteurs",
     "topAssists": "Meilleures passes",
     "yellowCards": "Cartons jaunes",
@@ -220,6 +333,7 @@
   },
   "teamSelector": {
     "label": "Équipe sélectionnée : {team}",
+    "chooseTeam": "Choisir une équipe",
     "search": "Tapez un pays (ex. Sénégal, France…)…",
     "empty": "Aucune équipe trouvée",
     "hint": "{count} équipes affichées",

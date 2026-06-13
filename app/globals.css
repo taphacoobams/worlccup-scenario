@@ -19,12 +19,12 @@
 }
 
 .dark {
-  --background: #020617;
+  --background: #050807;
   --foreground: #ffffff;
-  --surface: #0f172a;
-  --surface-light: #111827;
-  --card: #0f172a;
-  --popover: #111827;
+  --surface: #0a0f0c;
+  --surface-light: #0f1512;
+  --card: #0a0f0c;
+  --popover: #0f1512;
   --muted-foreground: #94a3b8;
   --primary: #22c55e;
   --primary-hover: #16a34a;
@@ -57,74 +57,53 @@
   --radius-xl: 20px;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 .dark body {
-  background:
-    radial-gradient(ellipse 120% 80% at 50% -30%, rgba(34, 197, 94, 0.1), transparent 50%),
-    radial-gradient(ellipse 80% 50% at 100% 0%, rgba(59, 130, 246, 0.06), transparent 45%),
-    radial-gradient(ellipse 60% 40% at 0% 100%, rgba(34, 197, 94, 0.05), transparent 40%),
-    linear-gradient(180deg, #061326 0%, #020617 40%, #081a33 100%);
-  background-attachment: fixed;
+  background: #050807;
 }
 
 .glass {
-  background: rgba(15, 23, 42, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
+  background: rgba(10, 15, 12, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-panel {
-  border-radius: 20px;
-  background: linear-gradient(145deg, rgba(17, 24, 39, 0.9) 0%, rgba(15, 23, 42, 0.75) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.glass-panel:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(34, 197, 94, 0.1);
-  border-color: rgba(34, 197, 94, 0.18);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-gradient {
-  background:
-    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(34, 197, 94, 0.16), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 90% 10%, rgba(59, 130, 246, 0.08), transparent 50%),
-    radial-gradient(ellipse 50% 40% at 10% 20%, rgba(245, 197, 66, 0.05), transparent 45%);
+  background: transparent;
 }
 
 .stadium-hero {
   position: relative;
-  overflow: hidden;
 }
 
-.stadium-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(2, 6, 23, 0.3) 0%, rgba(2, 6, 23, 0.92) 72%, var(--background) 100%),
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(34, 197, 94, 0.12), transparent 60%);
-  pointer-events: none;
-}
-
+.stadium-hero::before,
 .stadium-lights {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(34, 197, 94, 0.08) 0%, transparent 25%),
-    radial-gradient(circle at 80% 15%, rgba(59, 130, 246, 0.06) 0%, transparent 22%),
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.04) 0%, transparent 30%);
+  display: none;
+}
+
+.nav-scroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.nav-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-link {
@@ -138,22 +117,30 @@ body {
 }
 
 .nav-link-active {
-  color: var(--primary);
+  color: var(--senegal-green);
+  background: rgba(34, 197, 94, 0.2);
 }
 
 .nav-link-active::after {
-  content: "";
-  position: absolute;
-  left: 0.75rem;
-  right: 0.75rem;
-  bottom: 0.25rem;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  display: none;
 }
 
 .page-container {
-  @apply mx-auto max-w-7xl px-4 py-10 lg:px-8;
+  @apply mx-auto w-full min-w-0 max-w-7xl px-4 py-6 sm:py-8 lg:px-8;
+}
+
+.table-scroll {
+  @apply -mx-1 overflow-x-auto px-1;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.table-scroll > table {
+  @apply min-w-[560px];
+}
+
+.table-scroll--wide > table {
+  @apply min-w-[680px];
 }
 
 .data-table {
@@ -161,17 +148,19 @@ body {
 }
 
 .data-table thead tr {
-  @apply border-b text-left text-xs uppercase tracking-wider;
-  border-color: var(--border);
-  color: var(--text-secondary);
+  @apply border-b border-white/10 text-left text-xs text-muted-foreground;
 }
 
 .data-table th {
-  @apply py-3 px-3 font-semibold;
+  @apply py-2.5 px-2 sm:py-3 sm:px-3 font-medium;
+}
+
+.data-table td {
+  @apply px-2 sm:px-3;
 }
 
 .data-table tbody tr {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: background 0.15s ease;
 }
 
@@ -184,10 +173,7 @@ body {
 }
 
 .premium-shadow {
-  box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: none;
 }
 
 ::-webkit-scrollbar {

@@ -7,6 +7,7 @@ import { useLocale } from "@/context/locale-context";
 import type { EnrichedScenario } from "@/lib/scenario-engine/types";
 import type { StandingOutcome } from "@/lib/scenario-engine/types";
 import { cn } from "@/lib/utils";
+import { panelBase, premiumCardHover } from "@/lib/ui-classes";
 import { GroupBadge } from "@/components/ui/badge";
 import { TeamFlag } from "@/components/ui/team-flag";
 
@@ -26,7 +27,7 @@ function ScenarioCardInner({ enriched, index = 0 }: { enriched: EnrichedScenario
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: Math.min(index * 0.02, 0.3) }}
-      className="rounded-[20px] border border-border bg-surface/60 backdrop-blur-[20px] overflow-hidden hover:border-primary/25 transition-all duration-300 h-full flex flex-col hover:-translate-y-0.5"
+      className={cn(panelBase, premiumCardHover, "overflow-hidden h-full flex flex-col")}
     >
       <div className="p-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-start gap-4 justify-between shrink-0">
         <div>

@@ -35,9 +35,9 @@ export function MatchKitsShowcase({ homeName, awayName, homeKit, awayKit }: Prop
       <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary text-center mb-5">
         Tenues officielles
       </p>
-      <div className="flex items-end justify-center gap-4 sm:gap-10">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
         <KitFigure name={homeName} kit={homeKit} />
-        <span className="pb-16 text-sm text-text-secondary shrink-0">vs</span>
+        <span className="text-sm text-text-secondary shrink-0 sm:pb-16">vs</span>
         <KitFigure name={awayName} kit={awayKit} />
       </div>
     </div>

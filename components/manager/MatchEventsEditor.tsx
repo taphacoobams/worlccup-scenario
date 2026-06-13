@@ -21,6 +21,7 @@ type Props = {
   teams: WorldCupManualData["teams"];
   players?: ManualPlayer[];
   onChange: (events: MatchEvent[]) => void;
+  hideTimeline?: boolean;
 };
 
 type MatchTime = { minute: number; addedTime?: number };
@@ -122,7 +123,13 @@ function PlayerSelect({
   );
 }
 
-export function MatchEventsEditor({ fixture, teams, players = [], onChange }: Props) {
+export function MatchEventsEditor({
+  fixture,
+  teams,
+  players = [],
+  onChange,
+  hideTimeline = false,
+}: Props) {
   const events = normalizeMatchEvents(fixture.events, teams, players);
   const home = teams.find((t) => t.id === fixture.homeTeamId);
   const away = teams.find((t) => t.id === fixture.awayTeamId);
@@ -224,6 +231,7 @@ export function MatchEventsEditor({ fixture, teams, players = [], onChange }: Pr
 
   return (
     <div className="space-y-6">
+      {!hideTimeline && (
       <section className="rounded-xl border border-white/10 p-4 space-y-2">
         <h3 className="text-sm font-semibold text-gold">Timeline</h3>
         {sorted.length === 0 ? (
@@ -247,6 +255,26 @@ export function MatchEventsEditor({ fixture, teams, players = [], onChange }: Pr
           </ul>
         )}
       </section>
+      )}
+
+      {hideTimeline && sorted.length > 0 && (
+        <ul className="space-y-1 text-sm border-b border-white/10 pb-4">
+          {sorted.map((e) => (
+            <li key={e.id} className="flex items-center justify-between gap-2">
+              <span className="font-mono text-muted-foreground">{formatEventTimelineLine(e)}</span>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="h-7 text-xs shrink-0"
+                onClick={() => commitEvents(removeEventById(events, e.id))}
+              >
+                Supprimer
+              </Button>
+            </li>
+          ))}
+        </ul>
+      )}
 
       <section className="space-y-3">
         <h3 className="text-sm font-semibold">Ajouter un événement</h3>

@@ -8,6 +8,7 @@ import { useTeamContext } from "@/context/team-context";
 import { useLocale } from "@/context/locale-context";
 import { NAV_ROUTES } from "@/lib/constants";
 import { filterTeams } from "@/lib/teams-selection";
+import { teamHref } from "@/lib/team-slug";
 import { TeamFlag } from "@/components/ui/team-flag";
 import { cn } from "@/lib/utils";
 
@@ -46,7 +47,7 @@ export function GlobalSearch() {
         id: `team-${team.id}`,
         label: team.name,
         sub: team.group ? `${t("common.group")} ${team.group}` : team.code,
-        href: href(`/teams/${team.id}`),
+        href: href(teamHref({ name: team.name, code: team.code })),
         code: team.code,
       })),
     [query, selectableTeams, t, href]

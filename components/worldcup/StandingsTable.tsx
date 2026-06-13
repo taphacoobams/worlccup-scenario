@@ -1,21 +1,36 @@
 import type { GroupStanding } from "@/types/worldcup";
 import type { TeamQualificationProbs } from "@/types/qualification";
+import { sortStandingsByStats } from "@/lib/standings-utils";
 import { TeamBadge } from "@/components/worldcup/TeamBadge";
 import { QualificationBadge } from "@/components/worldcup/QualificationBadge";
 import { cn } from "@/lib/utils";
 
+type TeamProbsInput =
+  | Map<number, TeamQualificationProbs>
+  | Record<number, TeamQualificationProbs>;
+
+function getTeamProb(
+  teamProbs: TeamProbsInput | undefined,
+  teamId: number
+): TeamQualificationProbs | undefined {
+  if (!teamProbs) return undefined;
+  if (teamProbs instanceof Map) return teamProbs.get(teamId);
+  return teamProbs[teamId];
+}
+
 type Props = {
   standings: GroupStanding[];
-  teamProbs?: Map<number, TeamQualificationProbs>;
+  teamProbs?: TeamProbsInput;
   highlightCode?: string;
   highlightTeamIds?: number[];
 };
 
+/** 1er-2e : qualifiés directs · 3e : course au meilleur 3e · 4e : éliminé */
 const ROW_RANK: Record<number, string> = {
-  1: "border-l-[3px] border-l-primary bg-primary/5",
-  2: "border-l-[3px] border-l-secondary bg-secondary/5",
-  3: "border-l-[3px] border-l-gold bg-gold/5",
-  4: "border-l-[3px] border-l-red-500/70 bg-red-500/5",
+  1: "border-l-4 border-l-emerald-500 bg-emerald-500/[0.12]",
+  2: "border-l-4 border-l-emerald-500 bg-emerald-500/[0.08]",
+  3: "border-l-4 border-l-amber-400 bg-amber-400/[0.12]",
+  4: "border-l-4 border-l-red-500/60 bg-red-500/[0.06]",
 };
 
 export function StandingsTable({
@@ -24,83 +39,91 @@ export function StandingsTable({
   highlightCode,
   highlightTeamIds,
 }: Props) {
-  const sorted = [...standings].sort((a, b) => a.position - b.position);
+  const sorted = sortStandingsByStats(standings);
+  const scrollClass = teamProbs ? "table-scroll table-scroll--wide" : "table-scroll";
 
   return (
-    <div className="overflow-x-auto -mx-1 px-1">
-      <table className="data-table min-w-[340px]" aria-label="Classement">
-        <thead>
-          <tr>
-            <th className="w-8">#</th>
-            <th>Équipe</th>
-            <th className="text-center">P</th>
-            <th className="text-center hidden sm:table-cell">V</th>
-            <th className="text-center hidden md:table-cell">N</th>
-            <th className="text-center hidden md:table-cell">D</th>
-            <th className="text-center hidden lg:table-cell">Buts</th>
-            <th className="text-center">+/-</th>
-            <th className="text-center font-bold">Pts</th>
-            {teamProbs && <th className="text-right min-w-[100px]">Qualif.</th>}
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((row) => {
-            const probs = teamProbs?.get(row.team.id);
-            const isHighlight =
-              (highlightTeamIds?.includes(row.team.id) ?? false) ||
-              (highlightCode &&
-                row.team.code.toUpperCase() === highlightCode.toUpperCase());
+    <div className={scrollClass}>
+    <table className="data-table w-full" aria-label="Classement">
+      <thead>
+        <tr>
+          <th className="w-9 text-center">#</th>
+          <th>Équipe</th>
+          <th className="text-center w-10">P</th>
+          <th className="text-center w-9">V</th>
+          <th className="text-center w-9">N</th>
+          <th className="text-center w-9">D</th>
+          <th className="text-center w-14">Buts</th>
+          <th className="text-center w-11">+/-</th>
+          <th className="text-center w-11 font-bold">Pts</th>
+          {teamProbs && <th className="text-right w-24">Qualif.</th>}
+        </tr>
+      </thead>
+      <tbody>
+        {sorted.map((row) => {
+          const probs = getTeamProb(teamProbs, row.team.id);
+          const isHighlight =
+            (highlightTeamIds?.includes(row.team.id) ?? false) ||
+            (highlightCode &&
+              row.team.code.toUpperCase() === highlightCode.toUpperCase());
 
-            return (
-              <tr
-                key={row.team.id}
-                className={cn(
-                  ROW_RANK[row.position] ?? "",
-                  isHighlight && "ring-1 ring-inset ring-primary/30"
-                )}
-              >
-                <td className="py-3 px-2 font-mono font-bold text-text-secondary tabular-nums">
-                  {row.position}
-                </td>
-                <td className="py-3 px-2">
-                  <TeamBadge team={row.team} size="sm" />
-                </td>
-                <td className="py-3 px-2 text-center tabular-nums">{row.played}</td>
-                <td className="py-3 px-2 text-center tabular-nums hidden sm:table-cell">{row.won}</td>
-                <td className="py-3 px-2 text-center tabular-nums hidden md:table-cell">{row.draw}</td>
-                <td className="py-3 px-2 text-center tabular-nums hidden md:table-cell">{row.lost}</td>
-                <td className="py-3 px-2 text-center tabular-nums hidden lg:table-cell text-text-secondary">
-                  {row.goalsFor}:{row.goalsAgainst}
-                </td>
-                <td className="py-3 px-2 text-center tabular-nums font-medium">
-                  {row.goalDifference > 0 ? "+" : ""}
-                  {row.goalDifference}
-                </td>
-                <td className="py-3 px-2 text-center font-bold tabular-nums text-base text-primary">
-                  {row.points}
-                </td>
-                {teamProbs && (
-                  <td className="py-3 px-2">
-                    {probs ? (
-                      <div className="space-y-1.5">
-                        <QualificationBadge probs={probs} compact />
-                        <div className="h-1 rounded-full bg-white/5 overflow-hidden">
-                          <div
-                            className="h-full rounded-full bg-gradient-to-r from-primary to-secondary"
-                            style={{ width: `${Math.min(100, probs.total)}%` }}
-                          />
-                        </div>
+          return (
+            <tr
+              key={row.team.id}
+              className={cn(
+                ROW_RANK[row.position] ?? "",
+                isHighlight && "ring-1 ring-inset ring-primary/35"
+              )}
+            >
+              <td className="py-3.5 px-2 font-mono font-bold text-text-secondary tabular-nums text-center">
+                {row.position}
+              </td>
+              <td className="py-3.5 px-2 min-w-[140px]">
+                <TeamBadge team={row.team} size="sm" />
+              </td>
+              <td className="py-3.5 px-2 text-center tabular-nums">{row.played}</td>
+              <td className="py-3.5 px-2 text-center tabular-nums">{row.won}</td>
+              <td className="py-3.5 px-2 text-center tabular-nums">{row.draw}</td>
+              <td className="py-3.5 px-2 text-center tabular-nums">{row.lost}</td>
+              <td className="py-3.5 px-2 text-center tabular-nums text-text-secondary">
+                {row.goalsFor}:{row.goalsAgainst}
+              </td>
+              <td className="py-3.5 px-2 text-center tabular-nums font-medium">
+                {row.goalDifference > 0 ? "+" : ""}
+                {row.goalDifference}
+              </td>
+              <td className="py-3.5 px-2 text-center font-bold tabular-nums text-base text-primary">
+                {row.points}
+              </td>
+              {teamProbs && (
+                <td className="py-3.5 px-2">
+                  {probs ? (
+                    <div className="space-y-1.5">
+                      <QualificationBadge probs={probs} compact />
+                      <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                        <div
+                          className={cn(
+                            "h-full rounded-full",
+                            row.position <= 2
+                              ? "bg-emerald-500"
+                              : row.position === 3
+                                ? "bg-amber-400"
+                                : "bg-red-500/70"
+                          )}
+                          style={{ width: `${Math.min(100, probs.total)}%` }}
+                        />
                       </div>
-                    ) : (
-                      "—"
-                    )}
-                  </td>
-                )}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+                    </div>
+                  ) : (
+                    "—"
+                  )}
+                </td>
+              )}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
     </div>
   );
 }

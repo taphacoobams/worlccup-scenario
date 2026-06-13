@@ -75,9 +75,9 @@ export function StatsEvolutionChart({ points, className }: Props) {
         </div>
       }
     >
-      <div className="h-72">
+      <div className="h-56 sm:h-72 min-w-0">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={chartData} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
+          <AreaChart data={chartData} margin={{ top: 8, right: 8, left: -16, bottom: 4 }}>
             <defs>
               <linearGradient id="goalsGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#18c964" stopOpacity={0.35} />
@@ -98,6 +98,9 @@ export function StatsEvolutionChart({ points, className }: Props) {
               fontSize={10}
               tick={{ fill: "rgba(255,255,255,0.45)" }}
               interval="preserveStartEnd"
+              angle={chartData.length > 6 ? -30 : 0}
+              textAnchor={chartData.length > 6 ? "end" : "middle"}
+              height={chartData.length > 6 ? 48 : 30}
             />
             <YAxis fontSize={10} tick={{ fill: "rgba(255,255,255,0.45)" }} allowDecimals={false} />
             <Tooltip

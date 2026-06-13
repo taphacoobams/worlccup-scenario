@@ -1,8 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Fixture, GroupStanding } from "@/types/worldcup";
+import type { Fixture } from "@/types/worldcup";
 import { MatchRow } from "@/components/worldcup/MatchRow";
+import { GroupFilterSelect, type GroupTeamFlag } from "@/components/worldcup/GroupFilterSelect";
+import { DateFilterSelect, fixtureDateKey } from "@/components/worldcup/DateFilterSelect";
 import { ALL_GROUPS, GROUP_COLORS } from "@/lib/constants";
 import type { Group } from "@/types";
 import { SearchInput } from "@/components/ui/search-input";
@@ -15,19 +17,14 @@ type PhaseFilter = "all" | "groups" | "knockout";
 
 type Props = {
   fixtures: Fixture[];
-  groupSummaries: Record<Group, string>;
-  groupStandingsByLetter?: Record<string, GroupStanding[]>;
+  groupTeamsByLetter: Record<string, GroupTeamFlag[]>;
   favoriteGroup?: Group | null;
   favoriteTeamName?: string;
 };
 
-const selectClass =
-  "h-11 w-full rounded-xl border border-border bg-surface-light/50 px-3 py-2 text-sm text-text focus:outline-none focus:ring-2 focus:ring-primary/40";
-
 export function FixturesExplorer({
   fixtures,
-  groupSummaries,
-  groupStandingsByLetter,
+  groupTeamsByLetter,
   favoriteGroup,
   favoriteTeamName,
 }: Props) {
@@ -42,9 +39,7 @@ export function FixturesExplorer({
   }, [fixtures]);
 
   const dates = useMemo(() => {
-    const set = new Set(
-      fixtures.map((f) => new Date(f.date).toISOString().slice(0, 10))
-    );
+    const set = new Set(fixtures.map((f) => fixtureDateKey(f.date)));
     return [...set].sort();
   }, [fixtures]);
 
@@ -54,7 +49,7 @@ export function FixturesExplorer({
       if (phaseFilter === "knockout" && f.group) return false;
       if (groupFilter !== "all" && f.group !== groupFilter) return false;
       if (dateFilter !== "all") {
-        const d = new Date(f.date).toISOString().slice(0, 10);
+        const d = fixtureDateKey(f.date);
         if (d !== dateFilter) return false;
       }
       if (search) {
@@ -88,8 +83,8 @@ export function FixturesExplorer({
 
   return (
     <div className="space-y-6">
-      <FilterBar sticky>
-      <div className="flex flex-wrap gap-2">
+      <FilterBar sticky className="min-w-0">
+      <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1 flex-nowrap sm:flex-wrap sm:overflow-visible">
         {phaseTabs.map((tab) => (
           <button
             key={tab.id}
@@ -99,10 +94,10 @@ export function FixturesExplorer({
               if (tab.id === "knockout") setGroupFilter("all");
             }}
             className={cn(
-              "inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium transition-all",
+              "inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-colors shrink-0",
               phaseFilter === tab.id
-                ? "border-primary/50 bg-primary/15 text-text shadow-sm shadow-primary/10"
-                : "border-border bg-surface-light/30 text-text-secondary hover:border-primary/25 hover:text-text"
+                ? "border-senegal-green/40 bg-senegal-green/20 text-senegal-green"
+                : "border-white/10 bg-white/[0.02] text-muted-foreground hover:bg-white/[0.04] hover:text-foreground"
             )}
           >
             {tab.label}
@@ -134,42 +129,21 @@ export function FixturesExplorer({
           htmlFor="fixture-group"
           className={phaseFilter === "knockout" ? "opacity-50" : undefined}
         >
-          <select
-            id="fixture-group"
+          <GroupFilterSelect
             value={groupFilter}
-            onChange={(e) => setGroupFilter(e.target.value)}
+            onChange={setGroupFilter}
             disabled={phaseFilter === "knockout"}
-            className={selectClass}
-            aria-label="Filtrer par groupe"
-          >
-            <option value="all">Tous les groupes ({counts.groups} matchs)</option>
-            {ALL_GROUPS.map((g) => (
-              <option key={g} value={g}>
-                Groupe {g} — {groupSummaries[g]}
-              </option>
-            ))}
-          </select>
+            groupTeamsByLetter={groupTeamsByLetter}
+            groupMatchCount={counts.groups}
+          />
         </FilterField>
 
-        <FilterField label="Date" htmlFor="fixture-date">
-          <select
-            id="fixture-date"
+        <FilterField label="Date">
+          <DateFilterSelect
             value={dateFilter}
-            onChange={(e) => setDateFilter(e.target.value)}
-            className={selectClass}
-            aria-label="Filtrer par date"
-          >
-            <option value="all">Toutes les dates</option>
-            {dates.map((d) => (
-              <option key={d} value={d}>
-                {new Intl.DateTimeFormat("fr-FR", {
-                  weekday: "short",
-                  day: "numeric",
-                  month: "long",
-                }).format(new Date(d))}
-              </option>
-            ))}
-          </select>
+            onChange={setDateFilter}
+            dates={dates}
+          />
         </FilterField>
       </div>
 
@@ -229,14 +203,7 @@ export function FixturesExplorer({
       ) : (
         <div className="space-y-4">
           {filtered.map((f, i) => (
-            <MatchRow
-              key={f.id}
-              fixture={f}
-              index={i}
-              groupStandings={
-                f.group ? groupStandingsByLetter?.[f.group.toUpperCase()] : undefined
-              }
-            />
+            <MatchRow key={f.id} fixture={f} index={i} />
           ))}
         </div>
       )}

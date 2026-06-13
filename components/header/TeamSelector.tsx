@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ChevronDown, Search, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -260,7 +253,9 @@ export function TeamSelector() {
             )}
           >
             <div className="flex items-center justify-between gap-2 p-3 border-b border-white/10 shrink-0">
-              <p className="text-xs font-semibold text-gold">{t("header.yourTeam")}</p>
+              <p className="text-xs font-semibold text-gold">
+                {t("teamSelector.chooseTeam")}
+              </p>
               <button
                 type="button"
                 onClick={close}

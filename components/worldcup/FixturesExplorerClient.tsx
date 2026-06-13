@@ -2,29 +2,24 @@
 
 import { FixturesExplorer } from "@/components/worldcup/FixturesExplorer";
 import { useTeamContext } from "@/context/team-context";
-import type { Group } from "@/types";
 import type { Fixture } from "@/types/worldcup";
-
-import type { GroupStanding } from "@/types/worldcup";
+import type { GroupTeamFlag } from "@/components/worldcup/GroupFilterSelect";
 
 type Props = {
   fixtures: Fixture[];
-  groupSummaries: Record<Group, string>;
-  groupStandingsByLetter?: Record<string, GroupStanding[]>;
+  groupTeamsByLetter: Record<string, GroupTeamFlag[]>;
 };
 
 export function FixturesExplorerClient({
   fixtures,
-  groupSummaries,
-  groupStandingsByLetter,
+  groupTeamsByLetter,
 }: Props) {
   const { favoriteGroup, selectedTeam } = useTeamContext();
 
   return (
     <FixturesExplorer
       fixtures={fixtures}
-      groupSummaries={groupSummaries}
-      groupStandingsByLetter={groupStandingsByLetter}
+      groupTeamsByLetter={groupTeamsByLetter}
       favoriteGroup={favoriteGroup}
       favoriteTeamName={selectedTeam.name}
     />

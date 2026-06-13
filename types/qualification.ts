@@ -32,6 +32,6 @@ export type BestThirdEntry = {
 export type GroupQualificationSummary = {
   group: Group;
   groupName: string;
-  teamProbs: Map<number, TeamQualificationProbs>;
+  teamProbs: Record<number, TeamQualificationProbs>;
   thirdPlaceScenarioRate: number;
 };

@@ -24,13 +24,12 @@ export const NAV_ROUTES = [
   { href: "/", key: "home", icon: "Home" },
   { href: "/groups", key: "groups", icon: "Users" },
   { href: "/fixtures", key: "fixtures", icon: "Calendar" },
-  { href: "/teams", key: "teams", icon: "Shield" },
   { href: "/scenarios", key: "scenarios", icon: "Flag" },
   { href: "/explorer", key: "explorer", icon: "Table" },
   { href: "/analytique", key: "analytique", icon: "BarChart3" },
   { href: "/statistics", key: "statistics", icon: "BarChart2" },
   { href: "/monte-carlo", key: "monteCarlo", icon: "Dices" },
-  { href: "/export", key: "export", icon: "Download" },
+  { href: "/knockout", key: "knockout", icon: "Trophy" },
   { href: "/login", key: "manager", icon: "Settings" },
 ] as const;
 

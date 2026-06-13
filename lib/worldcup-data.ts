@@ -13,6 +13,7 @@ import {
   teamFromSlotOrId,
 } from "@/lib/resolve-bracket-slot";
 import { loadGroupScenarioFrequencies } from "@/lib/qualification-server";
+import { sortStandingsByStats } from "@/lib/qualification";
 import type {
   Coach,
   Fixture,
@@ -255,9 +256,8 @@ export const getWorldCupGroups = cache(async (): Promise<WorldCupGroup[]> => {
     .map((g) => ({
       name: `Groupe ${g.letter}`,
       letter: g.letter.toUpperCase(),
-      standings: [...g.standings]
-        .sort((a, b) => a.position - b.position)
-        .map(
+      standings: sortStandingsByStats(
+        g.standings.map(
           (row): GroupStanding => ({
             position: row.position,
             team: teams.get(row.teamId)!,
@@ -270,7 +270,8 @@ export const getWorldCupGroups = cache(async (): Promise<WorldCupGroup[]> => {
             goalDifference: row.goalDifference,
             points: row.points,
           })
-        ),
+        )
+      ),
     }))
     .sort((a, b) => a.letter.localeCompare(b.letter));
 });
@@ -279,11 +280,9 @@ export type GroupsStandingsSource = "manual";
 
 export const getGroupsWithResults = cache(async () => {
   const groups = await getWorldCupGroups();
-  const hasResults = groups.some((g) => g.standings.some((s) => s.played > 0));
   return {
     groups,
     standingsSource: "manual" as GroupsStandingsSource,
-    hasResults,
   };
 });
 
@@ -296,6 +295,17 @@ export const getWorldCupFixtures = cache(async (): Promise<Fixture[]> => {
     .map((f) => toFixture(f, teams, resolver))
     .sort((a, b) => a.timestamp - b.timestamp);
 });
+
+export const getRecentFinishedFixtures = cache(
+  async (limit = 6): Promise<Fixture[]> => {
+    const fixtures = await getWorldCupFixtures();
+    return fixtures
+      .filter((f) => f.status.short === "FT" || f.status.short === "AET" || f.status.short === "PEN")
+      .filter((f) => f.goals.home !== null && f.goals.away !== null)
+      .sort((a, b) => b.timestamp - a.timestamp)
+      .slice(0, limit);
+  }
+);
 
 export const getFixtureById = cache(
   async (id: number): Promise<FixtureDetail | null> => {

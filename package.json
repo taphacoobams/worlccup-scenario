@@ -27,6 +27,7 @@
     "kits:extract": "node scripts/extract-kits.mjs",
     "kits:generate": "node scripts/generate-kit-presentations.mjs",
     "matchkits:generate": "node scripts/generate-final-matchkits.mjs",
+    "kits:fix-background": "node scripts/fix-team-kits-background.mjs",
     "import-stadium-images": "tsx scripts/import-stadium-images.ts",
     "sort-fixtures": "node scripts/sort-fixtures-json.mjs",
     "parse-effectifs": "node scripts/parse-effectifs.mjs",
@@ -37,14 +38,11 @@
     "db:create": "tsx scripts/create-database.ts",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
-    "db:seed": "tsx prisma/seed.ts",
+    "db:seed": "prisma db seed",
     "db:verify": "tsx scripts/db-verify.ts",
-    "db:setup": "tsx scripts/create-database.ts && prisma db push && tsx prisma/seed.ts && tsx scripts/db-verify.ts",
+    "db:setup": "tsx scripts/create-database.ts && prisma db push && prisma db seed && tsx scripts/db-verify.ts",
     "db:studio": "prisma studio",
-    "db:reset": "prisma db push --force-reset && tsx prisma/seed.ts && tsx scripts/db-verify.ts"
-  },
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
+    "db:reset": "prisma db push --force-reset && prisma db seed && tsx scripts/db-verify.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.0",

@@ -7,7 +7,6 @@ import { getTournamentLocalBundle } from "@/lib/data/worldcup-source";
 import { groupSquadByPosition, toSquadPlayer } from "@/lib/data/squad";
 import { findTeamIdBySlug } from "@/lib/team-slug";
 import { loadStatisticsViewData } from "@/lib/data/statistics-db";
-import { buildStatsEvolution } from "@/lib/statistics/evolution";
 import type {
   LocalBestThird,
   LocalFixture,
@@ -29,6 +28,11 @@ export const getTeams = cache(async (): Promise<LocalTeam[]> => {
 export const getTeamById = cache(async (id: number): Promise<LocalTeam | null> => {
   const teams = await getTeams();
   return teams.find((t) => t.id === id) ?? null;
+});
+
+export const getPlayerById = cache(async (id: number): Promise<LocalPlayer | null> => {
+  const players = await getPlayers();
+  return players.find((p) => p.id === id) ?? null;
 });
 
 export const getPlayers = cache(async (): Promise<LocalPlayer[]> => {
@@ -71,14 +75,7 @@ export const getFixtureById = cache(async (id: number): Promise<LocalFixture | n
 
 /** Stats discipline / passes — PostgreSQL ou recalcul moteur tournoi */
 export const getStatistics = cache(async (): Promise<StatisticsViewData> => {
-  const [base, evolution] = await Promise.all([
-    loadStatisticsViewData(),
-    buildStatsEvolution().catch(() => [] as StatisticsViewData["evolution"]),
-  ]);
-  return {
-    ...base,
-    evolution: evolution && evolution.length > 0 ? evolution : undefined,
-  };
+  return loadStatisticsViewData();
 });
 
 export type TeamCardData = {

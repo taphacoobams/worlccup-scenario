@@ -1,25 +1,36 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import type { ManagerMatchdaySection } from "@/lib/manager/stats";
 
-type Match = {
-  id: number;
-  date: string;
-  group: string | null;
-  status: string;
-  home: string;
-  away: string;
-  homeScore: number | null;
-  awayScore: number | null;
-};
+function formatMatchdayTitle(section: ManagerMatchdaySection): string {
+  if (section.mode === "today") return "Matchs du jour";
+  if (section.mode === "latest" && section.matchdayDate) {
+    const label = new Date(section.matchdayDate).toLocaleDateString("fr-FR", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+    });
+    return `Dernière journée jouée — ${label}`;
+  }
+  return "Matchs du jour";
+}
 
-export function ManagerTodayMatches({ matches }: { matches: Match[] }) {
+export function ManagerTodayMatches({ section }: { section: ManagerMatchdaySection }) {
+  const { matches } = section;
+  const title = formatMatchdayTitle(section);
+
   return (
     <section className="rounded-xl border border-white/10 bg-white/[0.02] overflow-hidden">
       <div className="border-b border-white/10 px-4 py-3">
-        <h2 className="font-semibold">Matchs du jour</h2>
+        <h2 className="font-semibold">{title}</h2>
+        {section.mode === "latest" && (
+          <p className="text-xs text-muted-foreground mt-0.5">
+            Aucun match au calendrier d&apos;aujourd&apos;hui — affichage de la dernière journée du tournoi.
+          </p>
+        )}
       </div>
       {matches.length === 0 ? (
-        <p className="p-4 text-sm text-muted-foreground">Aucun match prévu aujourd&apos;hui.</p>
+        <p className="p-4 text-sm text-muted-foreground">Aucun match enregistré pour le moment.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full text-sm">

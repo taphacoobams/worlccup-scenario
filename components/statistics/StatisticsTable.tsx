@@ -1,9 +1,11 @@
 "use client";
 
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Flag } from "@/components/worldcup/Flag";
 import { PlayerAvatar } from "@/components/ui/player-avatar";
+import { playerHref } from "@/lib/player-href";
 
 export type StatColumn<T> = {
   key: string;
@@ -90,38 +92,55 @@ export function StatisticsTable<T>({
 }
 
 export function PlayerCell({
-  photo,
+  playerId,
   name,
+  photo,
   flagUrl,
   teamName,
   teamLogo,
   teamCode,
 }: {
-  photo?: string | null;
+  playerId?: number;
   name: string;
+  photo?: string;
   flagUrl?: string;
   teamName: string;
   teamLogo?: string;
   teamCode?: string;
 }) {
+  const nameEl =
+    playerId != null ? (
+      <Link
+        href={playerHref(playerId)}
+        className="font-medium truncate hover:text-senegal-green transition-colors"
+      >
+        {name}
+      </Link>
+    ) : (
+      <p className="font-medium truncate">{name}</p>
+    );
+
   return (
     <div className="flex items-center gap-3 min-w-[200px]">
-      <PlayerAvatar photo={photo} className="relative h-10 w-10 rounded-full" />
+      <PlayerAvatar
+        photo={photo}
+        className="h-10 w-10 rounded-full ring-1 ring-white/10 shrink-0"
+      />
+      {teamCode || flagUrl || teamLogo ? (
+        <Flag
+          teamCode={teamCode}
+          teamName={teamName}
+          src={flagUrl ?? teamLogo}
+          alt=""
+          size="sm"
+          className="shrink-0 hidden sm:block"
+        />
+      ) : null}
       <div className="min-w-0">
-        <p className="font-medium truncate">{name}</p>
-        <div className="flex items-center gap-1.5 mt-0.5">
-          {teamCode || flagUrl || teamLogo ? (
-            <Flag
-              teamCode={teamCode}
-              teamName={teamName}
-              src={flagUrl ?? teamLogo}
-              alt=""
-              size="sm"
-              className="shrink-0"
-            />
-          ) : null}
-          <span className="text-xs text-muted-foreground truncate">{teamName}</span>
-        </div>
+        {nameEl}
+        <span className="text-xs text-muted-foreground truncate block mt-0.5">
+          {teamName}
+        </span>
       </div>
     </div>
   );

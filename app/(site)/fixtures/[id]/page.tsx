@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export default async function FixtureDetailPage({ params }: Props) {
   const { id } = await params;

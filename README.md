@@ -1,4 +1,4 @@
-# SenegalScenario2026
+# WorldCupScenario2026
 
 Plateforme web d'analyse des scénarios de qualification des **meilleurs troisièmes** — Coupe du Monde FIFA 2026 (48 équipes), avec focus **Sénégal (groupe I)**.
 
@@ -7,7 +7,7 @@ Plateforme web d'analyse des scénarios de qualification des **meilleurs troisi�
 ## Fonctionnalités
 
 - **495 scénarios** — C(12,8), mapping FIFA officiel
-- **Analytique** — KPIs, Recharts, Monte Carlo
+- **Scénarios** — 495 combinaisons des meilleurs 3es, filtres par équipe
 - **Manager** (`/dashboard`) — login admin, saisie résultats / événements / classements
 - **`/statistics`** — buteurs, passeurs, cartons, suspendus
 - **`/teams`** — 48 équipes + effectifs par poste

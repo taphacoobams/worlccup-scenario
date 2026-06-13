@@ -81,13 +81,15 @@ export function PlayersGrid({ players, teams }: Props) {
           placeholder={t("search")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="sm:max-w-xs"
+          className={cn(
+            "h-10 rounded-lg border border-white/10 bg-white/5 px-3 text-sm sm:max-w-xs w-full"
+          )}
         />
         <select
           value={teamFilter}
           onChange={(e) => setTeamFilter(e.target.value)}
           className={cn(
-            "h-10 rounded-md border border-input bg-background px-3 text-sm sm:w-48"
+            "h-10 rounded-lg border border-white/10 bg-white/5 px-3 text-sm sm:w-48"
           )}
           aria-label={t("filterTeam")}
         >
@@ -102,7 +104,7 @@ export function PlayersGrid({ players, teams }: Props) {
           value={positionFilter}
           onChange={(e) => setPositionFilter(e.target.value)}
           className={cn(
-            "h-10 rounded-md border border-input bg-background px-3 text-sm sm:w-40"
+            "h-10 rounded-lg border border-white/10 bg-white/5 px-3 text-sm sm:w-40"
           )}
           aria-label={t("filterPosition")}
         >
@@ -128,7 +130,7 @@ export function PlayersGrid({ players, teams }: Props) {
         ))}
       </div>
 
-      <GuardianCredit label="Photos et bios" className="text-center pt-2" />
+      <GuardianCredit label="Biographies" className="text-center pt-2" />
     </div>
   );
 }

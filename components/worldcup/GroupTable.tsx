@@ -17,7 +17,7 @@ export function GroupTable({ group, summary, highlightCode }: Props) {
 
   return (
     <DataCard
-      className="overflow-hidden hover:-translate-y-1 transition-transform duration-300"
+      className="overflow-hidden h-full min-w-0"
       style={{ borderTopColor: `${color}50`, borderTopWidth: 2 }}
     >
       <DataCardHeader className="pb-4">
@@ -37,7 +37,7 @@ export function GroupTable({ group, summary, highlightCode }: Props) {
           </DataCardDescription>
         )}
       </DataCardHeader>
-      <DataCardContent className="pt-4">
+      <DataCardContent className="pt-4 px-2 sm:px-5 pb-5 min-w-0">
         <StandingsTable
           standings={group.standings}
           teamProbs={summary?.teamProbs}

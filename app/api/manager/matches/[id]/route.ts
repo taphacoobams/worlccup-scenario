@@ -55,10 +55,17 @@ export async function PATCH(req: NextRequest, context: RouteContext) {
       await logActivity("card_added", `Match #${fixtureId}`);
     }
 
+    revalidatePath("/groups");
+    revalidatePath("/fixtures");
+    revalidatePath(`/fixtures/${fixtureId}`);
+    revalidatePath("/statistics");
+    revalidatePath("/teams", "layout");
+    revalidatePath("/scenarios");
+    revalidatePath("/explorer");
+    revalidatePath("/analytique");
+    revalidatePath("/dashboard");
     revalidatePath("/dashboard/matches");
     revalidatePath(`/dashboard/matches/${fixtureId}`);
-    revalidatePath("/dashboard");
-    revalidatePath("/fixtures");
 
     const saved = result.data.fixtures.find((f) => f.id === fixtureId);
     return NextResponse.json({ ok: true, fixture: saved });

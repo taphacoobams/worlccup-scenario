@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { BestThirdsRankingTable } from "@/components/worldcup/BestThirdsRankingTable";
 import { GroupTable } from "@/components/worldcup/GroupTable";
+import { StandingsLegend } from "@/components/worldcup/StandingsLegend";
 import { SectionCard } from "@/components/ui/section-card";
-import { GlassPanel } from "@/components/ui/glass-panel";
 import type { BestThirdEntry, GroupQualificationSummary } from "@/types/qualification";
 import type { WorldCupGroup } from "@/types/worldcup";
 
@@ -10,7 +9,6 @@ type Props = {
   groups: WorldCupGroup[];
   summaries: GroupQualificationSummary[];
   bestThirds: BestThirdEntry[];
-  hasResults?: boolean;
   highlightCode?: string;
   favoriteTeamName?: string;
   favoriteGroup?: string | null;
@@ -20,7 +18,6 @@ export function GroupsView({
   groups,
   summaries,
   bestThirds,
-  hasResults,
   highlightCode = "SN",
   favoriteTeamName = "Sénégal",
   favoriteGroup = "I",
@@ -28,19 +25,8 @@ export function GroupsView({
   const summaryByName = new Map(summaries.map((s) => [s.groupName, s]));
 
   return (
-    <div className="space-y-10">
-      <GlassPanel className="px-5 py-4 text-sm text-text-secondary">
-        {hasResults
-          ? "Classements saisis manuellement (Manager). "
-          : "Classements au tirage officiel (0 pt) — mettez à jour via "}
-        <Link href="/login" className="text-primary hover:underline font-medium">
-          Dashboard
-        </Link>
-        . Probabilités : moteur 495 scénarios ·{" "}
-        <Link href="/fixtures" className="text-primary hover:underline font-medium">
-          Calendrier
-        </Link>
-      </GlassPanel>
+    <div className="space-y-10 min-w-0">
+      <StandingsLegend />
 
       <div>
         <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
@@ -51,7 +37,7 @@ export function GroupsView({
             </span>
           )}
         </h2>
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xl:gap-8 min-w-0">
           {groups.map((group) => (
             <GroupTable
               key={group.name}

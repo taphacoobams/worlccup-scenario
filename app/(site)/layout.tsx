@@ -13,7 +13,7 @@ export default function PublicSiteLayout({ children }: { children: ReactNode }) 
     <ScenariosProviderWrapper>
       <AppProvidersWrapper>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 min-w-0 w-full overflow-x-hidden">{children}</main>
         <Footer />
       </AppProvidersWrapper>
     </ScenariosProviderWrapper>

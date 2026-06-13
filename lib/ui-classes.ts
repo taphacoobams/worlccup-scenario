@@ -1,15 +1,22 @@
-/** Classes partagées — design system premium FIFA/UEFA */
-export const glassPanel =
-  "rounded-[20px] border border-border bg-surface/85 backdrop-blur-[20px] premium-shadow transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(0,0,0,0.45)] hover:border-primary/20";
+/** Classes partagées — site public minimaliste (aligné dashboard manager) */
+export const panelBase = "rounded-xl border border-white/10 bg-white/[0.02]";
 
-export const glassPanelStatic =
-  "rounded-[20px] border border-border bg-surface/85 backdrop-blur-[20px] premium-shadow";
+/** @deprecated Alias — préférer panelBase */
+export const glassPanelStatic = panelBase;
+
+export const glassPanel =
+  `${panelBase} transition-colors hover:border-white/15 hover:bg-white/[0.03]`;
 
 export const premiumCardHover =
-  "transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[0_16px_48px_rgba(34,197,94,0.1)]";
+  "transition-colors hover:border-white/15 hover:bg-white/[0.03]";
 
-export const gradientCard =
-  "rounded-[20px] border border-border bg-gradient-to-br from-surface via-surface-light/50 to-surface premium-shadow";
+export const gradientCard = `${panelBase} bg-white/[0.03]`;
 
 export const worldCupBadge =
-  "inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary";
+  "inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-gold";
+
+export const pageTitle = "text-2xl font-bold";
+export const pageDescription = "text-sm text-muted-foreground mt-1";
+export const tableShell = "overflow-x-auto rounded-xl border border-white/10";
+export const inputMinimal =
+  "rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-senegal-green/40";

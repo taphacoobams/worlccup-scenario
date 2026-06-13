@@ -5,7 +5,7 @@ import {
   verifyManagerSessionToken,
 } from "@/lib/manager/auth";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const isLogin = pathname === "/login";

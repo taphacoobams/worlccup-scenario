@@ -1,31 +1,13 @@
-import type { Metadata } from "next";
-import { Suspense } from "react";
-import { TeamsPageSearch } from "@/components/teams/TeamsPageSearch";
-import { GroupsSkeleton } from "@/components/worldcup/WorldCupSkeleton";
-import { SitePageHeader } from "@/components/layout/site-page-header";
-import { getTeamsPageData } from "@/lib/data";
-import { WORLD_CUP_STATS } from "@/lib/constants/worldcup";
+import { redirect } from "next/navigation";
+import { getTeams } from "@/lib/data";
+import { teamHref } from "@/lib/team-slug";
+import { DEFAULT_FAVORITE_TEAM_ID } from "@/lib/teams-selection";
 
-export const metadata: Metadata = {
-  title: "Équipes",
-  description: `Les ${WORLD_CUP_STATS.teams} nations qualifiées — Coupe du Monde FIFA 2026.`,
-};
-
-async function TeamsContent() {
-  const teams = await getTeamsPageData();
-  return <TeamsPageSearch teams={teams} />;
-}
-
-export default function TeamsPage() {
-  return (
-    <div className="page-container">
-      <SitePageHeader
-        title="Équipes"
-        description={`${WORLD_CUP_STATS.teams} nations qualifiées — galerie premium avec recherche instantanée`}
-      />
-      <Suspense fallback={<GroupsSkeleton />}>
-        <TeamsContent />
-      </Suspense>
-    </div>
-  );
+/** Ancienne page liste — redirige vers la fiche de l'équipe par défaut */
+export default async function TeamsPage() {
+  const teams = await getTeams();
+  const defaultTeam =
+    teams.find((t) => t.id === DEFAULT_FAVORITE_TEAM_ID) ?? teams[0];
+  if (!defaultTeam) redirect("/");
+  redirect(teamHref(defaultTeam));
 }

@@ -15,10 +15,10 @@ export function ScenarioRanking({ title, scenarios, teamName }: Props) {
 
   return (
     <section className="space-y-4">
-      <div className="flex items-center gap-2">
-        <Trophy className="h-5 w-5 text-gold" />
-        <h2 className="text-xl font-bold">{title}</h2>
-        <span className="text-sm text-muted-foreground">— {teamName}</span>
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+        <Trophy className="h-5 w-5 text-gold shrink-0" />
+        <h2 className="text-lg sm:text-xl font-bold">{title}</h2>
+        <span className="text-sm text-muted-foreground w-full sm:w-auto">— {teamName}</span>
       </div>
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
         {scenarios.map((item, i) => (

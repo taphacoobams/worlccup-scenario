@@ -4,7 +4,7 @@ import { ScenariosSetupBanner } from "@/components/providers/scenarios-setup-ban
 import { getScenarioEngineData } from "@/lib/scenarios/engine-data";
 import { getAllScenarios } from "@/lib/scenarios/server";
 import type { Scenario } from "@/types";
-import type { ScenarioEngineData } from "@/lib/scenarios/engine-data";
+import type { ScenarioEngineData } from "@/types/scenario-engine";
 
 const EMPTY_ENGINE: ScenarioEngineData = {
   teams: [],

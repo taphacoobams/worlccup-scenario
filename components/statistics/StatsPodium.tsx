@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import type { StatEntry } from "@/types/data";
 import { PlayerAvatar } from "@/components/ui/player-avatar";
 import { TeamFlag } from "@/components/ui/team-flag";
+import { playerHref } from "@/lib/player-href";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -51,14 +53,22 @@ export function StatsPodium({ players, mode, className }: Props) {
                   rank === 0 && "from-primary/20 to-surface border-primary/30"
                 )}
               >
-                <PlayerAvatar photo={p.photo} className="h-10 w-10 rounded-full" />
-                <p className="text-xs font-semibold text-center truncate w-full mt-2">{p.name}</p>
+                <PlayerAvatar
+                  photo={p.photo}
+                  className="h-14 w-14 rounded-full ring-2 ring-white/15"
+                />
                 <TeamFlag
                   code={p.teamCode ?? "xx"}
                   teamName={p.teamName}
                   size="sm"
-                  className="h-4 w-6 mt-1 rounded-sm"
+                  className="h-4 w-6 rounded-sm mt-2 opacity-80"
                 />
+                <Link
+                  href={playerHref(p.playerId)}
+                  className="text-xs font-semibold text-center truncate w-full mt-2 hover:text-senegal-green transition-colors"
+                >
+                  {p.name}
+                </Link>
               </div>
               <p className="text-lg font-bold text-gold tabular-nums mt-2">
                 {stat(p)} <span className="text-xs text-text-secondary font-normal">{label}</span>
