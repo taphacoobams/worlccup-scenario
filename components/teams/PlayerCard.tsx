@@ -4,7 +4,6 @@ import type { LocalTeam } from "@/types/data";
 import { PlayerAvatar } from "@/components/ui/player-avatar";
 import { TeamFlag } from "@/components/ui/team-flag";
 import { playerHref } from "@/lib/player-href";
-import { playerFullName } from "@/lib/player-display";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -14,8 +13,6 @@ type Props = {
 };
 
 export function PlayerCard({ player, team, className }: Props) {
-  const displayName = playerFullName(player);
-
   return (
     <Link
       href={playerHref({ id: player.id, name: player.name })}
@@ -35,7 +32,7 @@ export function PlayerCard({ player, team, className }: Props) {
           {player.number != null && (
             <span className="font-bold tabular-nums text-gold mr-2">#{player.number}</span>
           )}
-          <span className="font-medium">{displayName}</span>
+          <span className="font-medium">{player.name}</span>
         </p>
         {team && (
           <p className="text-[11px] text-muted-foreground truncate mt-0.5">{team.name}</p>

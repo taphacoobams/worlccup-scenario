@@ -54,7 +54,7 @@ export function PlayersGrid({ players, teams }: Props) {
       })
       .map(toSquadPlayer)
       .sort((a, b) =>
-        playerFullName(a).localeCompare(playerFullName(b), "fr", { sensitivity: "base" })
+        a.name.localeCompare(b.name, "fr", { sensitivity: "base" })
       );
   }, [players, search, teamFilter, positionFilter, teamById]);
 
