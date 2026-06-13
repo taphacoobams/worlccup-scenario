@@ -4,7 +4,7 @@ import { GroupsViewClient } from "@/components/worldcup/GroupsViewClient";
 import { GroupsSkeleton } from "@/components/worldcup/WorldCupSkeleton";
 import { SitePageHeader } from "@/components/layout/site-page-header";
 import { enrichGroupsWithQualification } from "@/lib/qualification-server";
-import { getGroupsWithResults } from "@/lib/worldcup-data";
+import { getGroupsWithResults } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: "Groupes & Classements",

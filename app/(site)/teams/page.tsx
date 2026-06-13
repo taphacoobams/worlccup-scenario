@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getTeams } from "@/lib/data";
+import { getTeams } from "@/lib/api";
 import { teamHref } from "@/lib/team-slug";
 import { DEFAULT_FAVORITE_TEAM_ID } from "@/lib/teams-selection";
 

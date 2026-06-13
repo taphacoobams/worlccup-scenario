@@ -1,14 +1,17 @@
-import { isDatabaseEnabled } from "@/lib/database";
+import { isDatabaseEnabled, getTournamentUpdatedAt } from "@/lib/database";
 import { isManagerConfigured, MANAGER_SESSION_MAX_AGE } from "@/lib/manager/auth";
 import { getManagerDashboardStats } from "@/lib/manager/stats";
-import { prisma } from "@/lib/prisma";
+import { getDatabaseDiagnostic } from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const dynamic = "force-dynamic";
 
 export default async function ManagerSettingsPage() {
-  const stats = await getManagerDashboardStats();
-  const meta = await prisma.tournamentMeta.findUnique({ where: { key: "main" } });
+  const [stats, updatedAt, dbDiag] = await Promise.all([
+    getManagerDashboardStats(),
+    getTournamentUpdatedAt(),
+    Promise.resolve(getDatabaseDiagnostic()),
+  ]);
 
   const sections = [
     {
@@ -25,14 +28,21 @@ export default async function ManagerSettingsPage() {
       rows: [
         {
           label: "PostgreSQL",
-          value: isDatabaseEnabled() ? "Connecté" : "Non configuré",
+          value: isDatabaseEnabled() ? "Configuré" : "Repli JSON",
         },
-        { label: "Status", value: isDatabaseEnabled() ? "OK" : "—" },
+        {
+          label: "Hôte",
+          value: dbDiag.host ?? "—",
+        },
+        {
+          label: "Status",
+          value: dbDiag.isLocalhost && process.env.VERCEL ? "Inaccessible (localhost)" : "OK / fallback",
+        },
         { label: "Tables", value: "12" },
         {
-          label: "Dernier seed",
-          value: meta?.updatedAt
-            ? new Date(meta.updatedAt).toLocaleString("fr-FR")
+          label: "Dernière mise à jour",
+          value: updatedAt
+            ? new Date(updatedAt).toLocaleString("fr-FR")
             : "—",
         },
       ],
@@ -68,6 +78,13 @@ export default async function ManagerSettingsPage() {
         <p className="text-sm text-muted-foreground mt-1">
           {stats.teams} équipes · {stats.players} joueurs · {stats.fixtures} matchs
         </p>
+        {dbDiag.issues.length > 0 ? (
+          <ul className="mt-3 text-sm text-amber-400/90 list-disc pl-5 space-y-1">
+            {dbDiag.issues.map((issue) => (
+              <li key={issue}>{issue}</li>
+            ))}
+          </ul>
+        ) : null}
       </div>
 
       {sections.map((section) => (

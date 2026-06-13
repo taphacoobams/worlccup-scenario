@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FixtureDetailView } from "@/components/fixtures/FixtureDetailView";
 import { getFixtureTeamKitImages } from "@/lib/match-kits";
-import { getFixtureById, getWorldCupGroups } from "@/lib/worldcup-data";
+import { getFixtureById, getWorldCupGroups } from "@/lib/api";
 
 type Props = { params: Promise<{ id: string }> };
 

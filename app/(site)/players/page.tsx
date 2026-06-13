@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { PlayersGrid } from "@/components/players/PlayersGrid";
 import { SitePageHeader } from "@/components/layout/site-page-header";
 import { GroupsSkeleton } from "@/components/worldcup/WorldCupSkeleton";
-import { getPlayers, getTeams } from "@/lib/data";
+import { getPlayers, getTeams } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: "Joueurs",

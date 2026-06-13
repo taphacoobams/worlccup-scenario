@@ -6,7 +6,7 @@ import { TeamHeader } from "@/components/teams/TeamHeader";
 import { TeamProfile } from "@/components/teams/TeamProfile";
 import { TeamSquad } from "@/components/teams/TeamSquad";
 import { Button } from "@/components/ui/button";
-import { getTeamDetailBySlug, getPlayersByTeam } from "@/lib/data";
+import { getTeamDetailBySlug, getPlayersByTeam } from "@/lib/api";
 
 type Props = { params: Promise<{ team: string }> };
 

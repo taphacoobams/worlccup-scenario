@@ -1,1 +1,1 @@
-export { getStatistics } from "@/lib/data";
+export { getStatistics } from "@/lib/api";

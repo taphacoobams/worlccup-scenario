@@ -7,7 +7,7 @@ import { SitePageHeader } from "@/components/layout/site-page-header";
 import {
   getWorldCupFixtures,
   getWorldCupGroups,
-} from "@/lib/worldcup-data";
+} from "@/lib/api";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {

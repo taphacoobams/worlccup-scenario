@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PlayerProfileView } from "@/components/players/PlayerProfileView";
-import { getPlayerById, getTeamById } from "@/lib/data";
+import { getPlayerById, getTeamById } from "@/lib/api";
 
 type Props = { params: Promise<{ id: string }> };
 

@@ -1,12 +1,11 @@
+import "server-only";
+
 import { cache } from "react";
-import {
-  loadPlayerCountsByTeamLegacyId,
-  loadPlayersFromDb,
-} from "@/lib/data/players-db";
-import { getTournamentLocalBundle } from "@/lib/data/worldcup-source";
+import { listPlayers, listPlayerCountsByTeam } from "@/lib/services/players";
+import { getTournamentBundle } from "@/lib/services/tournament";
 import { groupSquadByPosition, toSquadPlayer } from "@/lib/data/squad";
 import { findTeamIdBySlug } from "@/lib/team-slug";
-import { loadStatisticsViewData } from "@/lib/data/statistics-db";
+import { loadStatistics } from "@/lib/services/statistics";
 import type {
   LocalBestThird,
   LocalFixture,
@@ -21,7 +20,7 @@ import type {
 export type { StatisticsViewData };
 
 export const getTeams = cache(async (): Promise<LocalTeam[]> => {
-  const { teams } = await getTournamentLocalBundle();
+  const { teams } = await getTournamentBundle();
   return teams;
 });
 
@@ -36,11 +35,11 @@ export const getPlayerById = cache(async (id: number): Promise<LocalPlayer | nul
 });
 
 export const getPlayers = cache(async (): Promise<LocalPlayer[]> => {
-  return loadPlayersFromDb();
+  return listPlayers();
 });
 
 export const getPlayersByTeam = cache(async (teamId: number): Promise<SquadPlayer[]> => {
-  const players = await loadPlayersFromDb();
+  const players = await listPlayers();
   return players.filter((p) => p.teamId === teamId).map(toSquadPlayer);
 });
 
@@ -50,12 +49,12 @@ export const getTeamSquad = cache(async (teamId: number) => {
 });
 
 export const getStandings = cache(async (): Promise<LocalStanding[]> => {
-  const { standings } = await getTournamentLocalBundle();
+  const { standings } = await getTournamentBundle();
   return standings;
 });
 
 export const getGroups = cache(async (): Promise<LocalGroup[]> => {
-  const { groups } = await getTournamentLocalBundle();
+  const { groups } = await getTournamentBundle();
   return groups;
 });
 
@@ -64,7 +63,7 @@ export const getBestThirds = cache(async (): Promise<LocalBestThird[]> => {
 });
 
 export const getFixtures = cache(async (): Promise<LocalFixture[]> => {
-  const { fixtures } = await getTournamentLocalBundle();
+  const { fixtures } = await getTournamentBundle();
   return fixtures;
 });
 
@@ -73,9 +72,8 @@ export const getFixtureById = cache(async (id: number): Promise<LocalFixture | n
   return fixtures.find((f) => f.id === id) ?? null;
 });
 
-/** Stats discipline / passes — PostgreSQL ou recalcul moteur tournoi */
 export const getStatistics = cache(async (): Promise<StatisticsViewData> => {
-  return loadStatisticsViewData();
+  return loadStatistics();
 });
 
 export type TeamCardData = {
@@ -86,7 +84,7 @@ export type TeamCardData = {
 export const getTeamsPageData = cache(async (): Promise<TeamCardData[]> => {
   const [teams, counts] = await Promise.all([
     getTeams(),
-    loadPlayerCountsByTeamLegacyId(),
+    listPlayerCountsByTeam(),
   ]);
 
   return teams.map((team) => ({

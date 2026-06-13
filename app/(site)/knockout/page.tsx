@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SitePageHeader } from "@/components/layout/site-page-header";
 import { KnockoutView } from "@/components/worldcup/KnockoutView";
 import { FixturesSkeleton } from "@/components/worldcup/WorldCupSkeleton";
-import { getKnockoutBracket, getKnockoutTableau } from "@/lib/worldcup-data";
+import { getKnockoutBracket, getKnockoutTableau } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {

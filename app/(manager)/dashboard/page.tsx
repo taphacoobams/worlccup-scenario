@@ -8,7 +8,7 @@ import {
   getTeamQualificationAnalysis,
 } from "@/lib/manager/stats";
 import { getManagerMatchAlerts } from "@/lib/manager/match-alerts";
-import { getSelectableTeamsFromDb } from "@/lib/teams-selection-server";
+import { getSelectableTeams } from "@/lib/api";
 import { DEFAULT_FAVORITE_TEAM_ID } from "@/lib/teams-selection";
 
 export const dynamic = "force-dynamic";
@@ -19,7 +19,7 @@ export default async function ManagerDashboardPage() {
       getManagerDashboardStats(),
       getManagerTodayMatches(),
       getManagerMatchAlerts(),
-      getSelectableTeamsFromDb(),
+      getSelectableTeams(),
       getTeamQualificationAnalysis(DEFAULT_FAVORITE_TEAM_ID),
     ]);
 

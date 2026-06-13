@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { StatisticsPageHeader } from "@/components/statistics/StatisticsPageHeader";
 import { StatisticsView } from "@/components/statistics/StatisticsView";
-import { getStatistics } from "@/lib/data";
+import { getStatistics } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: "Statistiques",

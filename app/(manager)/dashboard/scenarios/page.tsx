@@ -7,7 +7,7 @@ import {
 import { getBestScenariosForTeam, computeTeamScenarioSummary } from "@/lib/scenario-engine";
 import { getAllScenarios } from "@/lib/scenarios/server";
 import { getScenarioEngineData } from "@/lib/scenarios/engine-data";
-import { prisma } from "@/lib/prisma";
+import { findSenegalTeam } from "@/lib/services/teams";
 import type { Group } from "@/types";
 
 export const dynamic = "force-dynamic";
@@ -16,9 +16,7 @@ export default async function ManagerScenariosPage() {
   const { total, mostLikely, leastLikely } = await getManagerScenarioInsights();
   const senegal = await getSenegalAnalysis();
 
-  const senegalTeam = await prisma.team.findFirst({
-    where: { OR: [{ code: "SEN" }, { name: { contains: "Sénégal", mode: "insensitive" } }] },
-  });
+  const senegalTeam = await findSenegalTeam();
 
   let bestSenegal = "—";
   let worstSenegal = "—";
@@ -27,7 +25,7 @@ export default async function ManagerScenariosPage() {
     const base = await getAllScenarios();
     const { generateScenarios } = await import("@/lib/scenario-engine");
     const favoriteTeam =
-      engineData.teams.find((t) => t.id === senegalTeam.legacyId) ?? null;
+      engineData.teams.find((t) => t.id === senegalTeam.id) ?? null;
     const group = (senegalTeam.group?.toUpperCase() ?? null) as Group | null;
     const enriched = generateScenarios(
       base,
@@ -40,7 +38,7 @@ export default async function ManagerScenariosPage() {
     const best = getBestScenariosForTeam(enriched, 1)[0];
     const summary = computeTeamScenarioSummary(
       enriched,
-      senegalTeam.legacyId,
+      senegalTeam.id,
       senegalTeam.name,
       group
     );

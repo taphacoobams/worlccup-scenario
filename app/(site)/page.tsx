@@ -1,5 +1,5 @@
 import { HomePageClient } from "@/app/(site)/HomePageClient";
-import { getRecentFinishedFixtures } from "@/lib/worldcup-data";
+import { getRecentFinishedFixtures } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
 
