@@ -161,6 +161,7 @@ export async function loadWorldCupFromDb(): Promise<WorldCupManualData> {
     return {
       id: p.legacyId,
       name: p.name,
+      nameOnShirt: p.nameOnShirt ?? undefined,
       teamId: team?.legacyId ?? 0,
       number: p.number,
       position: p.position ?? undefined,

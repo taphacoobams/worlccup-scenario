@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ManagerGroupLayout({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-[#050807] text-foreground">{children}</div>
+      <div className="min-h-screen bg-background text-foreground">{children}</div>
     </ThemeProvider>
   );
 }

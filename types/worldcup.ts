@@ -37,6 +37,8 @@ export type FixtureStatusDetail = {
 
 export type Fixture = {
   id: number;
+  matchNumber?: number;
+  matchday?: number;
   date: string;
   timestamp: number;
   timezone: string;

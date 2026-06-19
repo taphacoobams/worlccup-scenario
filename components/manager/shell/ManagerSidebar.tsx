@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { MANAGER_LOGOUT, MANAGER_NAV } from "@/lib/manager/nav";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -23,11 +24,11 @@ export function ManagerSidebar({ onNavigate, className }: Props) {
   return (
     <aside
       className={cn(
-        "flex h-full flex-col border-r border-white/10 bg-[#0a0f0c]",
+        "flex h-full flex-col border-r border-border bg-surface",
         className
       )}
     >
-      <div className="border-b border-white/10 px-5 py-6">
+      <div className="border-b border-border px-5 py-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-gold">
           World Cup 2026
         </p>
@@ -59,7 +60,8 @@ export function ManagerSidebar({ onNavigate, className }: Props) {
         })}
       </nav>
 
-      <div className="border-t border-white/10 p-3">
+      <div className="border-t border-border p-3 space-y-1">
+        <ThemeToggle />
         <button
           type="button"
           onClick={() => void logout()}

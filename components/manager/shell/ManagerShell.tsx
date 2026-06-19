@@ -12,7 +12,7 @@ export function ManagerShell({ children }: { children: ReactNode }) {
 
   return (
     <ManagerDataProvider>
-      <div className="min-h-screen flex bg-[#050807] text-foreground">
+      <div className="min-h-screen flex bg-background text-foreground">
         <div className="hidden lg:flex lg:w-64 lg:shrink-0 lg:fixed lg:inset-y-0 lg:left-0 lg:z-40">
           <ManagerSidebar className="w-full" />
         </div>
@@ -36,7 +36,7 @@ export function ManagerShell({ children }: { children: ReactNode }) {
         </div>
 
         <div className="flex min-h-screen flex-1 flex-col lg:pl-64">
-          <header className="sticky top-0 z-30 flex h-14 items-center gap-3 border-b border-white/10 bg-[#050807]/90 px-4 backdrop-blur-xl lg:hidden">
+          <header className="sticky top-0 z-30 flex h-14 items-center gap-3 border-b border-border bg-background/90 px-4 backdrop-blur-xl lg:hidden">
             <Button
               variant="ghost"
               size="icon"

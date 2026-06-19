@@ -10,9 +10,13 @@ type Props = {
   team: Team;
   /** Lien vers la fiche équipe (/teams/[slug]) */
   linkToTeam?: boolean;
+  /** Layout horizontal avec nom à côté du drapeau (home: gauche, away: droite) */
+  horizontal?: boolean;
+  /** Position du nom par rapport au drapeau (horizontal uniquement) */
+  side?: "home" | "away";
 };
 
-export function FixtureTeamColumn({ team, linkToTeam = false }: Props) {
+export function FixtureTeamColumn({ team, linkToTeam = false, horizontal = false, side }: Props) {
   if (isBracketSlot(team.name)) {
     return (
       <div className="flex flex-1 justify-center min-w-0">
@@ -21,7 +25,27 @@ export function FixtureTeamColumn({ team, linkToTeam = false }: Props) {
     );
   }
 
-  const inner = (
+  const inner = horizontal ? (
+    <>
+      {side === "home" && (
+        <span className="text-base font-semibold leading-tight">{team.name}</span>
+      )}
+      <TeamFlag
+        code={team.code}
+        teamName={team.name}
+        size="md"
+        className="h-10 w-14 rounded-lg"
+      />
+      {side === "away" && (
+        <span className="text-base font-semibold leading-tight">{team.name}</span>
+      )}
+      {team.fifaRanking != null && (
+        <span className="text-xs font-medium text-muted-foreground tabular-nums">
+          FIFA #{team.fifaRanking}
+        </span>
+      )}
+    </>
+  ) : (
     <>
       <TeamFlag
         code={team.code}
@@ -38,8 +62,9 @@ export function FixtureTeamColumn({ team, linkToTeam = false }: Props) {
     </>
   );
 
-  const className =
-    "flex flex-1 flex-col items-center gap-2 min-w-0 text-center";
+  const className = horizontal
+    ? "flex flex-1 items-center gap-3 min-w-0"
+    : "flex flex-1 flex-col items-center gap-2 min-w-0 text-center";
 
   if (linkToTeam && team.id > 0) {
     return (

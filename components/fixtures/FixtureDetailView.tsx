@@ -6,7 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { GroupStandingsSection } from "@/components/fixtures/GroupStandingsSection";
 import { MatchKitsShowcase } from "@/components/fixtures/MatchKitsShowcase";
 import { MatchEventsTimeline } from "@/components/fixtures/MatchEventsTimeline";
-import { FixtureTeamColumn } from "@/components/fixtures/FixtureTeamColumn";
+import { MatchHeader } from "@/components/fixtures/MatchHeader";
 import { VenueCard } from "@/components/worldcup/VenueCard";
 import { Button } from "@/components/ui/button";
 import { GlassPanel } from "@/components/ui/glass-panel";
@@ -14,11 +14,6 @@ import { PATHS } from "@/lib/i18n/paths";
 import { useLocale } from "@/context/locale-context";
 import type { FixtureDetail, GroupStanding } from "@/types/worldcup";
 import type { TeamKitImage } from "@/types/match-kits";
-import {
-  FIXTURE_STATUS_LABELS,
-  fixtureStatus,
-  shouldShowScore,
-} from "@/types/worldcup";
 
 type Props = {
   fixture: FixtureDetail;
@@ -28,8 +23,6 @@ type Props = {
 
 export function FixtureDetailView({ fixture, kits, groupStandings }: Props) {
   const { href } = useLocale();
-  const hasScore = shouldShowScore(fixture);
-  const status = fixtureStatus(fixture);
 
   return (
     <div className="page-container max-w-4xl">
@@ -41,37 +34,7 @@ export function FixtureDetailView({ fixture, kits, groupStandings }: Props) {
 
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
         <GlassPanel className="p-5 sm:p-6 mb-6 text-center">
-          <div className="flex flex-wrap justify-center gap-2 mb-6">
-            {fixture.group && (
-              <span className="rounded-lg bg-primary/15 px-3 py-1 text-xs font-bold text-primary">
-                Groupe {fixture.group}
-              </span>
-            )}
-            {fixture.round && (
-              <span className="rounded-lg bg-surface-light px-3 py-1 text-xs text-text-secondary">
-                {fixture.round}
-              </span>
-            )}
-            <span className="rounded-lg bg-white/5 px-3 py-1 text-xs text-text-secondary">
-              {FIXTURE_STATUS_LABELS[status] ?? fixture.status.long}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-6 sm:gap-4 max-w-lg mx-auto w-full">
-            <FixtureTeamColumn team={fixture.teams.home} linkToTeam />
-            <div className="shrink-0 px-2 order-first sm:order-none">
-              {hasScore ? (
-                <p className="text-4xl sm:text-5xl lg:text-6xl font-bold tabular-nums tracking-tight">
-                  {fixture.goals.home}
-                  <span className="text-text-secondary mx-2 font-light">–</span>
-                  {fixture.goals.away}
-                </p>
-              ) : (
-                <p className="text-3xl text-text-secondary font-light">vs</p>
-              )}
-            </div>
-            <FixtureTeamColumn team={fixture.teams.away} linkToTeam />
-          </div>
+          <MatchHeader fixture={fixture} />
 
           {kits && (
             <div className="mt-8 pt-8 border-t border-border">

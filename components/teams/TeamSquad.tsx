@@ -28,7 +28,7 @@ export function TeamSquad({ players, team }: Props) {
               ({g.players.length})
             </span>
           </h2>
-          <div className="grid sm:grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {g.players.map((p) => (
               <PlayerCard key={p.id} player={p} team={team} />
             ))}

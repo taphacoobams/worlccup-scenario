@@ -39,6 +39,8 @@ export type ManualFixtureStatus = "NS" | "FT" | "HT" | "PST" | "CANC" | "AET" | 
 
 export type ManualFixture = {
   id: number;
+  matchNumber?: number;
+  matchday?: number;
   date: string;
   timezone?: string;
   venue: { name: string; city: string; image?: string | null };
@@ -59,6 +61,7 @@ export type ManualFixture = {
 export type ManualPlayer = {
   id: number;
   name: string;
+  nameOnShirt?: string;
   teamId: number;
   number?: number | null;
   position?: string;

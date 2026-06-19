@@ -53,6 +53,7 @@ model Player {
   position     String?
   positionCode String?   @map("position_code")
   name         String
+  nameOnShirt  String?   @map("name_on_shirt")
   dateOfBirth  DateTime? @map("date_of_birth")
   club         String?
   heightCm     Int?      @map("height_cm")

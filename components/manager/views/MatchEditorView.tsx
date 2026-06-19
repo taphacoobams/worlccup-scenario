@@ -5,9 +5,10 @@ import Link from "next/link";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import { useManagerData } from "@/context/manager-data-context";
 import { MatchEventsEditor } from "@/components/manager/MatchEventsEditor";
+import { WikipediaImportCard } from "@/components/manager/WikipediaImportCard";
+import { ManagerMatchHeader } from "@/components/manager/ManagerMatchHeader";
 import { GroupStandingsSection } from "@/components/fixtures/GroupStandingsSection";
 import { MatchEventsTimeline } from "@/components/fixtures/MatchEventsTimeline";
-import { FixtureTeamColumn } from "@/components/fixtures/FixtureTeamColumn";
 import { FixtureVenueSummary } from "@/components/fixtures/FixtureVenueSummary";
 import { Button } from "@/components/ui/button";
 import { GlassPanel } from "@/components/ui/glass-panel";
@@ -21,10 +22,12 @@ import {
 } from "@/lib/manager/fixture-display";
 import { normalizeMatchEvents } from "@/lib/tournament-engine/events";
 import type { ManualFixture } from "@/types/worldcup-manual";
+import type { MatchEvent } from "@/types/match-events";
 
 export function MatchEditorView({ matchId }: { matchId: number }) {
   const { data, loading, saving, updateFixture, reload } = useManagerData();
   const [localSaving, setLocalSaving] = useState(false);
+  const [importing, setImporting] = useState(false);
   const [localMessage, setLocalMessage] = useState<string | null>(null);
   const [resultsLoaded, setResultsLoaded] = useState(false);
   const [localFixture, setLocalFixture] = useState<ManualFixture | null>(null);
@@ -197,6 +200,25 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
 
   const statusLabel = MANUAL_STATUS_LABELS[fixture.status] ?? fixture.status;
   const isSaving = localSaving || saving;
+  const isImporting = importing || saving;
+
+  async function handleWikipediaImport(events: MatchEvent[]) {
+    if (!fixture || !data) return;
+    setImporting(true);
+    setLocalMessage(null);
+
+    try {
+      const next = { ...fixture, events: normalizeMatchEvents(events, data.teams, data.players) };
+      setLocalFixture(next);
+      updateFixture(matchId, { events: next.events });
+      setDirty(true);
+      setLocalMessage("Événements importés — cliquez sur Enregistrer pour persister.");
+    } catch (e) {
+      setLocalMessage(e instanceof Error ? e.message : "Erreur d'import");
+    } finally {
+      setImporting(false);
+    }
+  }
 
   return (
     <div className="max-w-4xl space-y-6">
@@ -231,41 +253,13 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
       </p>
 
       <GlassPanel className="p-5 sm:p-6 text-center">
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
-          {fixture.group && (
-            <span className="rounded-lg bg-senegal-green/20 px-3 py-1 text-xs font-bold text-senegal-green">
-              Groupe {fixture.group}
-            </span>
-          )}
-          {fixture.round && (
-            <span className="rounded-lg bg-white/5 px-3 py-1 text-xs text-muted-foreground">
-              {fixture.round}
-            </span>
-          )}
-          <span className="rounded-lg bg-white/5 px-3 py-1 text-xs text-muted-foreground">
-            {statusLabel}
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-6 sm:gap-4 max-w-lg mx-auto w-full">
-          <FixtureTeamColumn team={homeTeam} />
-          <div className="shrink-0 px-2 order-first sm:order-none">
-            {hasScore ? (
-              <p className="text-4xl sm:text-5xl font-bold tabular-nums tracking-tight">
-                {score.home}
-                <span className="text-muted-foreground mx-2 font-light">–</span>
-                {score.away}
-              </p>
-            ) : (
-              <p className="text-3xl text-muted-foreground font-light">vs</p>
-            )}
-          </div>
-          <FixtureTeamColumn team={awayTeam} />
-        </div>
-
-        <p className="text-xs text-muted-foreground mt-6">
-          Score calculé automatiquement à partir des buts enregistrés.
-        </p>
+        <ManagerMatchHeader
+          fixture={fixture}
+          homeTeam={homeTeam}
+          awayTeam={awayTeam}
+          score={score}
+          hasScore={hasScore}
+        />
       </GlassPanel>
 
       {displayEvents.length > 0 && (
@@ -288,9 +282,16 @@ export function MatchEditorView({ matchId }: { matchId: number }) {
             setDirty(true);
             setLocalMessage(null);
           }}
-          hideTimeline
         />
       </SectionCard>
+
+      <WikipediaImportCard
+        homeTeam={homeTeam}
+        awayTeam={awayTeam}
+        players={data.players}
+        onImport={handleWikipediaImport}
+        importing={isImporting}
+      />
 
       <FixtureVenueSummary
         venueName={fixture.venue?.name || "—"}

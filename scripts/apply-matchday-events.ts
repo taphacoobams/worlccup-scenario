@@ -37,18 +37,13 @@ function stripEmbeddedResults(data: WorldCupManualData): WorldCupManualData {
 
 async function main() {
   const { syncFixturesFromResults } = await import("@/lib/results/sync-fixtures");
-  const { withDbFallback } = await import("@/lib/services/with-fallback");
-  const { loadWorldCupFromDb } = await import("@/lib/worldcup-db");
   const { loadWorldCupFromJson } = await import("@/lib/services/worldcup-json");
 
-  const schedule = await withDbFallback(
-    () => loadWorldCupFromDb().then(stripEmbeddedResults),
-    () => loadWorldCupFromJson(),
-    "apply-results"
-  );
+  // Force load from JSON to ensure results.json is applied correctly
+  const schedule = await loadWorldCupFromJson();
 
   await syncFixturesFromResults(schedule);
-  console.log("OK — results.json synchronisé vers PostgreSQL (matchs 3 et 4 si présents).");
+  console.log("OK — results.json synchronisé vers PostgreSQL (tous les matchs).");
 }
 
 main().catch((e) => {

@@ -87,6 +87,7 @@ export function loadWorldCupFromJson(): WorldCupManualData {
   const players: ManualPlayer[] = playersRaw.map((p) => ({
     id: p.id,
     name: p.name,
+    nameOnShirt: (p as any).nameOnShirt ?? undefined,
     teamId: p.teamId,
     number: p.number,
     position: p.position,

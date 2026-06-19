@@ -14,7 +14,8 @@ export type ActivityAction =
   | "data_imported"
   | "data_exported"
   | "backup_created"
-  | "login";
+  | "login"
+  | "wikipedia_import";
 
 const ACTION_LABELS: Record<ActivityAction, string> = {
   match_updated: "Match modifié",
@@ -29,6 +30,7 @@ const ACTION_LABELS: Record<ActivityAction, string> = {
   data_exported: "Données exportées",
   backup_created: "Sauvegarde créée",
   login: "Connexion",
+  wikipedia_import: "Import Wikipédia",
 };
 
 export function activityLabel(action: ActivityAction): string {

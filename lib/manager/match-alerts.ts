@@ -11,6 +11,9 @@ export type ManagerMatchAlert = {
   status: string;
   home: string;
   away: string;
+  homeCode: string;
+  awayCode: string;
+  matchNumber: number;
   homeScore: number | null;
   awayScore: number | null;
   kind: "overdue" | "played";
@@ -37,6 +40,9 @@ export async function getManagerMatchAlerts(): Promise<ManagerMatchAlert[]> {
   for (const f of rows) {
     const home = f.homeTeam?.name ?? "—";
     const away = f.awayTeam?.name ?? "—";
+    const homeCode = f.homeTeam?.code ?? "??";
+    const awayCode = f.awayTeam?.code ?? "??";
+    const matchNumber = f.matchNumber ?? f.legacyId;
     const base = {
       id: f.legacyId,
       date: f.date.toISOString(),
@@ -44,6 +50,9 @@ export async function getManagerMatchAlerts(): Promise<ManagerMatchAlert[]> {
       status: f.status,
       home,
       away,
+      homeCode,
+      awayCode,
+      matchNumber,
       homeScore: f.homeScore,
       awayScore: f.awayScore,
     };
@@ -72,7 +81,5 @@ export async function getManagerMatchAlerts(): Promise<ManagerMatchAlert[]> {
     }
   }
 
-  return alerts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  return alerts.sort((a, b) => a.matchNumber - b.matchNumber);
 }

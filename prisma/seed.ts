@@ -4,6 +4,7 @@
  */
 import { existsSync, readFileSync } from "fs";
 import path from "path";
+import { config as loadEnv } from "dotenv";
 import { PrismaClient } from "@prisma/client";
 import {
   guardianBioCredit,
@@ -17,6 +18,10 @@ import {
   type FifaThirdTable,
 } from "../lib/fifa-third-table";
 import { getStadiumPublicPath } from "../lib/stadium-images";
+
+// Load environment variables
+loadEnv({ path: path.join(process.cwd(), ".env") });
+loadEnv({ path: path.join(process.cwd(), ".env.local"), override: true });
 
 const prisma = new PrismaClient();
 const dataDir = path.join(process.cwd(), "data");
@@ -66,6 +71,7 @@ type JsonPlayer = {
   id: number;
   teamId: number;
   name: string;
+  nameOnShirt?: string;
   number: number | null;
   position: string;
   positionCode?: string;
@@ -207,6 +213,7 @@ async function main() {
         legacyId: p.id,
         teamId: teamDbId,
         name: p.name,
+        nameOnShirt: p.nameOnShirt ?? null,
         number: p.number,
         position: p.position,
         positionCode: p.positionCode ?? null,

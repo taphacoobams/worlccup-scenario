@@ -71,15 +71,16 @@ export function syncFixtureScoreFromEvents(
   teams: ManualTeam[] = []
 ): ManualFixture {
   const events = normalizeMatchEvents(fixture.events, teams);
-  const goalEvents = events.filter((e) => e.type === "goal");
-  if (goalEvents.length === 0) return fixture;
+  
+  // Only update score if there are events (match has been played)
+  if (events.length === 0) return fixture;
 
   const { home, away } = countGoalsFromEvents(fixture, teams);
   return {
     ...fixture,
     events,
     goals: { home, away },
-    status: fixture.status === "NS" ? "FT" : fixture.status,
+    status: fixture.status,
   };
 }
 

@@ -23,6 +23,7 @@ type ManagerDataContextValue = {
   patchData: (next: WorldCupManualData) => void;
   updateFixture: (id: number, patch: Partial<WorldCupManualData["fixtures"][0]>) => void;
   teamName: (id: number) => string;
+  teamCode: (id: number) => string;
 };
 
 const ManagerDataContext = createContext<ManagerDataContextValue | null>(null);
@@ -99,6 +100,11 @@ export function ManagerDataProvider({ children }: { children: ReactNode }) {
     [data]
   );
 
+  const teamCode = useCallback(
+    (id: number) => data?.teams.find((t) => t.id === id)?.code ?? "",
+    [data]
+  );
+
   const value = useMemo(
     () => ({
       data,
@@ -111,8 +117,9 @@ export function ManagerDataProvider({ children }: { children: ReactNode }) {
       patchData,
       updateFixture,
       teamName,
+      teamCode,
     }),
-    [data, loading, saving, message, reload, save, patchData, updateFixture, teamName]
+    [data, loading, saving, message, reload, save, patchData, updateFixture, teamName, teamCode]
   );
 
   return (

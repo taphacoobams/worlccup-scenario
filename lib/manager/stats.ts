@@ -15,6 +15,7 @@ export type ManagerDashboardStats = {
   finishedMatches: number;
   remainingMatches: number;
   goals: number;
+  goalsPerMatch: number;
   assists: number;
   yellowCards: number;
   redCards: number;
@@ -50,6 +51,8 @@ export async function getManagerDashboardStats(): Promise<ManagerDashboardStats>
   ]);
 
   const metaValue = meta?.value as { updatedAt?: string } | undefined;
+  const totalGoals = goalSum._sum.goals ?? 0;
+  const goalsPerMatch = finishedMatches > 0 ? totalGoals / finishedMatches : 0;
 
   return {
     teams,
@@ -59,7 +62,8 @@ export async function getManagerDashboardStats(): Promise<ManagerDashboardStats>
     scenarios: TOTAL_SCENARIOS,
     finishedMatches,
     remainingMatches: fixtures - finishedMatches,
-    goals: goalSum._sum.goals ?? 0,
+    goals: totalGoals,
+    goalsPerMatch: Math.round(goalsPerMatch * 100) / 100,
     assists: assistSum._sum.assists ?? 0,
     yellowCards: yellowSum._sum.yellowCards ?? 0,
     redCards: redSum._sum.redCards ?? 0,
@@ -76,6 +80,8 @@ export type ManagerMatchdayMatch = {
   status: string;
   home: string;
   away: string;
+  homeCode: string;
+  awayCode: string;
   homeScore: number | null;
   awayScore: number | null;
 };
@@ -108,25 +114,36 @@ function mapFixtureRows(
     status: f.status,
     home: f.homeTeam?.name ?? f.homeSlotLabel ?? "—",
     away: f.awayTeam?.name ?? f.awaySlotLabel ?? "—",
+    homeCode: f.homeTeam?.code ?? "",
+    awayCode: f.awayTeam?.code ?? "",
     homeScore: f.homeScore,
     awayScore: f.awayScore,
   }));
 }
 
 function dayBounds(date: Date) {
-  const start = new Date(date);
+  // Use America/New_York timezone for World Cup 2026 (USA East Coast)
+  const timeZone = "America/New_York";
+  const nowInET = new Date(date.toLocaleString("en-US", { timeZone }));
+  const start = new Date(nowInET);
   start.setHours(0, 0, 0, 0);
   const end = new Date(start);
   end.setDate(end.getDate() + 1);
-  return { start, end };
+  const nowInETForComparison = new Date(new Date().toLocaleString("en-US", { timeZone }));
+  return { start, end, timeZone, nowInETForComparison };
 }
 
-/** Matchs du calendrier réel, ou à défaut la dernière journée terminée du tournoi. */
+/** Matchs du calendrier réel dans le fuseau horaire du pays organisateur (uniquement matchs à venir). */
 export async function getManagerTodayMatches(): Promise<ManagerMatchdaySection> {
-  const { start, end } = dayBounds(new Date());
+  const { start, end, nowInETForComparison } = dayBounds(new Date());
 
   const todayRows = await prisma.fixture.findMany({
-    where: { date: { gte: start, lt: end } },
+    where: {
+      AND: [
+        { date: { gte: start, lt: end } },
+        { date: { gte: nowInETForComparison } },
+      ],
+    },
     include: fixtureInclude,
     orderBy: { date: "asc" },
   });
@@ -135,28 +152,7 @@ export async function getManagerTodayMatches(): Promise<ManagerMatchdaySection> 
     return { matches: mapFixtureRows(todayRows), mode: "today" };
   }
 
-  const latestFinished = await prisma.fixture.findFirst({
-    where: { status: { in: ["FT", "AET", "PEN"] } },
-    orderBy: { date: "desc" },
-    select: { date: true },
-  });
-
-  if (!latestFinished) {
-    return { matches: [], mode: "empty" };
-  }
-
-  const { start: dayStart, end: dayEnd } = dayBounds(latestFinished.date);
-  const matchdayRows = await prisma.fixture.findMany({
-    where: { date: { gte: dayStart, lt: dayEnd } },
-    include: fixtureInclude,
-    orderBy: { date: "asc" },
-  });
-
-  return {
-    matches: mapFixtureRows(matchdayRows),
-    mode: "latest",
-    matchdayDate: dayStart.toISOString(),
-  };
+  return { matches: [], mode: "empty" };
 }
 
 export async function getManagerScenarioInsights() {

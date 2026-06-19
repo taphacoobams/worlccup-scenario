@@ -14,6 +14,9 @@ import { GroupBadge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 type PhaseFilter = "all" | "groups" | "knockout";
+type StatusFilter = "all" | "NS" | "IN_PROGRESS" | "FT";
+type RoundFilter = "all" | "matchday1" | "matchday2" | "matchday3" | "r16" | "qf" | "sf" | "third" | "final";
+type SortMode = "date" | "group";
 
 type Props = {
   fixtures: Fixture[];
@@ -31,7 +34,10 @@ export function FixturesExplorer({
   const [phaseFilter, setPhaseFilter] = useState<PhaseFilter>("all");
   const [groupFilter, setGroupFilter] = useState<string>("all");
   const [dateFilter, setDateFilter] = useState<string>("all");
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [roundFilter, setRoundFilter] = useState<RoundFilter>("all");
   const [search, setSearch] = useState("");
+  const [sortMode, setSortMode] = useState<SortMode>("date");
 
   const counts = useMemo(() => {
     const groups = fixtures.filter((f) => f.group).length;
@@ -52,6 +58,16 @@ export function FixturesExplorer({
         const d = fixtureDateKey(f.date);
         if (d !== dateFilter) return false;
       }
+      if (statusFilter !== "all") {
+        const status = f.status.short === "FT" || f.status.short === "AET" || f.status.short === "PEN" ? "FT" 
+          : f.status.short === "1H" || f.status.short === "2H" || f.status.short === "HT" ? "IN_PROGRESS"
+          : "NS";
+        if (status !== statusFilter) return false;
+      }
+      if (roundFilter !== "all") {
+        const round = getRoundFilterValue(f.round, f.matchday);
+        if (round !== roundFilter) return false;
+      }
       if (search) {
         const q = search.toLowerCase();
         const hay =
@@ -60,19 +76,55 @@ export function FixturesExplorer({
       }
       return true;
     });
-  }, [fixtures, phaseFilter, groupFilter, dateFilter, search]);
+  }, [fixtures, phaseFilter, groupFilter, dateFilter, statusFilter, roundFilter, search]);
+
+  const sorted = useMemo(() => {
+    const sortedFixtures = [...filtered];
+    switch (sortMode) {
+      case "date":
+        return sortedFixtures.sort((a, b) => a.timestamp - b.timestamp);
+      case "group":
+        return sortedFixtures.sort((a, b) => {
+          const groupA = a.group ?? "ZZ";
+          const groupB = b.group ?? "ZZ";
+          if (groupA !== groupB) return groupA.localeCompare(groupB);
+          return a.timestamp - b.timestamp;
+        });
+      default:
+        return sortedFixtures.sort((a, b) => a.timestamp - b.timestamp);
+    }
+  }, [filtered, sortMode]);
 
   const hasActiveFilters =
     phaseFilter !== "all" ||
     groupFilter !== "all" ||
     dateFilter !== "all" ||
+    statusFilter !== "all" ||
+    roundFilter !== "all" ||
     search.length > 0;
 
   function resetFilters() {
     setPhaseFilter("all");
     setGroupFilter("all");
     setDateFilter("all");
+    setStatusFilter("all");
+    setRoundFilter("all");
     setSearch("");
+  }
+
+  function getRoundFilterValue(round: string, matchday?: number): RoundFilter {
+    const roundLower = round.toLowerCase();
+    if (roundLower.includes("group") || roundLower.includes("groupe")) {
+      if (matchday === 1) return "matchday1";
+      if (matchday === 2) return "matchday2";
+      if (matchday === 3) return "matchday3";
+    }
+    if (roundLower.includes("round of 16") || roundLower.includes("huitièmes")) return "r16";
+    if (roundLower.includes("quarter") || roundLower.includes("quarts")) return "qf";
+    if (roundLower.includes("semi") || roundLower.includes("demi")) return "sf";
+    if (roundLower.includes("third") || roundLower.includes("3e") || roundLower.includes("3ème")) return "third";
+    if (roundLower.includes("final")) return "final";
+    return "all";
   }
 
   const phaseTabs: { id: PhaseFilter; label: string; count: number }[] = [
@@ -97,7 +149,7 @@ export function FixturesExplorer({
               "inline-flex w-full sm:w-auto items-center justify-between sm:justify-start gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-colors",
               phaseFilter === tab.id
                 ? "border-senegal-green/40 bg-senegal-green/20 text-senegal-green"
-                : "border-white/10 bg-white/[0.02] text-muted-foreground hover:bg-white/[0.04] hover:text-foreground"
+                : "border-white/10 bg-white/2 text-muted-foreground hover:bg-white/4 hover:text-foreground"
             )}
           >
             {tab.label}
@@ -113,7 +165,7 @@ export function FixturesExplorer({
         ))}
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[1fr_minmax(220px,280px)_minmax(180px,220px)]">
+      <div className="grid gap-4 lg:grid-cols-[1fr_minmax(180px,220px)_minmax(180px,220px)_minmax(180px,220px)_minmax(180px,220px)_minmax(140px,180px)]">
         <FilterField label="Recherche" htmlFor="fixture-search">
           <SearchInput
             id="fixture-search"
@@ -138,6 +190,37 @@ export function FixturesExplorer({
           />
         </FilterField>
 
+        <FilterField label="Journée">
+          <select
+            value={roundFilter}
+            onChange={(e) => setRoundFilter(e.target.value as RoundFilter)}
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-senegal-green/50"
+          >
+            <option value="all">Toutes</option>
+            <option value="matchday1">1ère journée</option>
+            <option value="matchday2">2ème journée</option>
+            <option value="matchday3">3ème journée</option>
+            <option value="r16">Huitièmes</option>
+            <option value="qf">Quarts</option>
+            <option value="sf">Demi-finales</option>
+            <option value="third">3e place</option>
+            <option value="final">Finale</option>
+          </select>
+        </FilterField>
+
+        <FilterField label="Statut">
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value as StatusFilter)}
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-senegal-green/50"
+          >
+            <option value="all">Tous</option>
+            <option value="NS">À venir</option>
+            <option value="IN_PROGRESS">En cours</option>
+            <option value="FT">Terminé</option>
+          </select>
+        </FilterField>
+
         <FilterField label="Date">
           <DateFilterSelect
             value={dateFilter}
@@ -145,13 +228,24 @@ export function FixturesExplorer({
             dates={dates}
           />
         </FilterField>
+
+        <FilterField label="Trier par">
+          <select
+            value={sortMode}
+            onChange={(e) => setSortMode(e.target.value as SortMode)}
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-senegal-green/50"
+          >
+            <option value="date">Date</option>
+            <option value="group">Groupe</option>
+          </select>
+        </FilterField>
       </div>
 
       <div className="flex flex-wrap items-center gap-2 text-sm">
         <span className="text-muted-foreground">
-          {filtered.length} match{filtered.length !== 1 ? "s" : ""} affiché
-          {filtered.length !== 1 ? "s" : ""}
-          {filtered.length < counts.all && (
+          {sorted.length} match{sorted.length !== 1 ? "s" : ""} affiché
+          {sorted.length !== 1 ? "s" : ""}
+          {sorted.length < counts.all && (
             <span> sur {counts.all}</span>
           )}
         </span>
@@ -196,13 +290,13 @@ export function FixturesExplorer({
       </div>
       </FilterBar>
 
-      {filtered.length === 0 ? (
+      {sorted.length === 0 ? (
         <p className="text-center text-muted-foreground py-12">
           Aucun match ne correspond aux filtres.
         </p>
       ) : (
         <div className="space-y-4">
-          {filtered.map((f, i) => (
+          {sorted.map((f, i) => (
             <MatchRow key={f.id} fixture={f} index={i} allFixtures={fixtures} />
           ))}
         </div>

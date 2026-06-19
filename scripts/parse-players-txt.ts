@@ -10,6 +10,9 @@ interface ParsedPlayer {
   number: number;
   positionCode: string;
   playerName: string;
+  firstName: string;
+  lastName: string;
+  nameOnShirt: string;
   dob: string;
   club: string;
   heightCm: number;
@@ -33,6 +36,7 @@ interface LocalPlayer {
   id: number;
   teamId: number;
   name: string;
+  nameOnShirt: string;
   number: number | null;
   position: string;
   positionCode: string;
@@ -119,22 +123,64 @@ function findSurnameBoundary(
   nameParts: string[]
 ): { surnameLen: number; repeatIdx: number } | null {
   const n = nameParts.length;
-  const maxLen = Math.min(3, Math.floor((n - 1) / 2));
-  let fallback: { surnameLen: number; repeatIdx: number } | null = null;
+  const firstLowerIdx = nameParts.findIndex((t) => hasLowercase(t));
+  
+  if (firstLowerIdx <= 0) return null;
 
-  for (let surnameLen = 1; surnameLen <= maxLen; surnameLen++) {
-    const key = nameParts.slice(0, surnameLen).map(normToken).join("|");
-    for (let i = surnameLen; i <= n - surnameLen; i++) {
+  const maxLen = Math.min(3, Math.floor((n - firstLowerIdx - 1) / 2));
+  let bestHit: { surnameLen: number; repeatIdx: number } | null = null;
+
+  // Try all possible surname lengths, prefer the longest valid match
+  // Only look for repeats AFTER the first names (after firstLowerIdx)
+  for (let surnameLen = maxLen; surnameLen >= 1; surnameLen--) {
+    // Start looking from after the first names
+    for (let i = firstLowerIdx + 1; i <= n - surnameLen; i++) {
       const candidate = nameParts.slice(i, i + surnameLen).map(normToken).join("|");
-      if (candidate !== key || i - surnameLen < 1) continue;
-
-      const hit = { surnameLen, repeatIdx: i };
-      if (nameParts.slice(i + surnameLen).length > 0) return hit;
-      fallback = hit;
+      
+      // Look for this sequence repeating later
+      for (let j = i + surnameLen; j <= n - surnameLen; j++) {
+        const repeat = nameParts.slice(j, j + surnameLen).map(normToken).join("|");
+        if (candidate === repeat) {
+          return { surnameLen, repeatIdx: j };
+        }
+      }
     }
   }
 
-  return fallback;
+  return bestHit;
+}
+
+function findShirtNameBoundary(
+  nameParts: string[]
+): { shirtNameLen: number; repeatIdx: number } | null {
+  const n = nameParts.length;
+  // The shirt name is at the beginning (caps), look for it repeating at the end
+  // Find the first caps segment (shirt name)
+  let shirtNameEndIdx = 0;
+  for (let i = 0; i < n; i++) {
+    if (isAllCapsToken(nameParts[i]) && !hasLowercase(nameParts[i])) {
+      shirtNameEndIdx = i + 1;
+    } else {
+      break;
+    }
+  }
+
+  if (shirtNameEndIdx === 0) return null;
+
+  const shirtName = nameParts.slice(0, shirtNameEndIdx).map(normToken).join("|");
+  
+  // Look for this shirt name repeating at the end
+  for (let repeatLen = shirtNameEndIdx; repeatLen >= 1; repeatLen--) {
+    const shirtNamePrefix = nameParts.slice(0, repeatLen).map(normToken).join("|");
+    for (let i = n - repeatLen; i >= shirtNameEndIdx; i--) {
+      const candidate = nameParts.slice(i, i + repeatLen).map(normToken).join("|");
+      if (candidate === shirtNamePrefix) {
+        return { shirtNameLen: repeatLen, repeatIdx: i };
+      }
+    }
+  }
+
+  return null;
 }
 
 /** Cas FIFA non couverts par l'algorithme standard (ex. RODRI, ABDULAZIZ HATEM). */
@@ -144,6 +190,11 @@ function parseManualPlayerName(nameParts: string[]): string | null {
   return null;
 }
 
+/** Préfixes de noms courants (particules) qui font partie du nom de famille */
+const SURNAME_PREFIXES = new Set([
+  "VAN", "DE", "DER", "DEN", "VON", "DI", "DA", "DEL", "DELA", "AL", "EL", "BIN", "IBN"
+]);
+
 /** Colonne PLAYER NAME — bloc en tête de ligne avant prénoms/nom en minuscules. */
 function extractPlayerName(nameParts: string[]): string {
   const manual = parseManualPlayerName(nameParts);
@@ -151,12 +202,28 @@ function extractPlayerName(nameParts: string[]): string {
 
   const boundary = findSurnameBoundary(nameParts);
   if (boundary) {
+    // If the boundary is just a surname prefix (Van, De, etc.), extend it to include the next token
+    if (boundary.surnameLen === 1 && SURNAME_PREFIXES.has(nameParts[0].toUpperCase())) {
+      const extendedName = nameParts.slice(0, Math.min(2, nameParts.length)).map(toTitleCase).join(" ");
+      return extendedName;
+    }
     return nameParts.slice(0, boundary.surnameLen).map(toTitleCase).join(" ");
   }
 
   const firstLowerIdx = nameParts.findIndex((t) => hasLowercase(t));
   if (firstLowerIdx > 0) {
-    return nameParts.slice(0, firstLowerIdx).map(toTitleCase).join(" ");
+    // Include surname prefixes (Van, De, etc.) with the surname
+    let endIdx = firstLowerIdx;
+    // If the token before the first lowercase is a surname prefix, include the next uppercase token too
+    if (endIdx > 1 && SURNAME_PREFIXES.has(nameParts[endIdx - 1].toUpperCase())) {
+      // Look ahead to see if there's another uppercase token after the prefix
+      let i = endIdx;
+      while (i < nameParts.length && isAllCapsToken(nameParts[i]) && !hasLowercase(nameParts[i])) {
+        endIdx = i + 1;
+        i++;
+      }
+    }
+    return nameParts.slice(0, endIdx).map(toTitleCase).join(" ");
   }
 
   const caps: string[] = [];
@@ -190,13 +257,102 @@ function parsePlayerLine(line: string): ParsedPlayer | null {
   const nameParts = nameSection.split(/\s+/).filter(Boolean);
   if (nameParts.length < 2) return null;
 
-  const playerName = extractPlayerName(nameParts);
+  // Extract shirt name (first caps segment at the beginning)
+  let nameOnShirt = "";
+  let shirtNameEndIdx = 0;
+  for (let i = 0; i < nameParts.length; i++) {
+    if (isAllCapsToken(nameParts[i]) && !hasLowercase(nameParts[i])) {
+      shirtNameEndIdx = i + 1;
+    } else {
+      break;
+    }
+  }
+  nameOnShirt = nameParts.slice(0, shirtNameEndIdx).map(toTitleCase).join(" ");
+
+  // Extract first name(s) and last name(s) from the FIFA format
+  // Format: SHIRT_NAME (caps) FIRST_NAME(S) (mixed case) LAST_NAME(S) (caps) SHIRT_NAME (repeat)
+  // We need FIRST_NAME(S) + LAST_NAME(S), skipping the initial SHIRT_NAME and final repeat
+  const shirtBoundary = findShirtNameBoundary(nameParts);
+  const surnameBoundary = findSurnameBoundary(nameParts);
+  const firstLowerIdx = nameParts.findIndex((t) => hasLowercase(t));
+  let firstName = "";
+  let lastName = "";
+
+  if (firstLowerIdx > 0) {
+    // First names are from firstLowerIdx to the next all-caps section
+    let firstNameEndIdx = firstLowerIdx;
+    for (let i = firstLowerIdx; i < nameParts.length; i++) {
+      if (hasLowercase(nameParts[i])) {
+        firstNameEndIdx = i + 1;
+      } else {
+        break;
+      }
+    }
+
+    const firstNameParts = nameParts.slice(firstLowerIdx, firstNameEndIdx);
+    // Remove duplicates from first names (e.g., "Virgil Virgil" -> "Virgil", "Jan Paul Jan-Paul" -> "Jan Paul")
+    const dedupedFirstNameParts: string[] = [];
+    for (let i = 0; i < firstNameParts.length; i++) {
+      const current = firstNameParts[i].toLowerCase().replace(/-/g, '');
+      let isDuplicate = false;
+      for (const existing of dedupedFirstNameParts) {
+        const existingNorm = existing.toLowerCase().replace(/-/g, '');
+        // Check if exact match or if one is substring of the other
+        if (existingNorm === current || existingNorm.includes(current) || current.includes(existingNorm)) {
+          isDuplicate = true;
+          break;
+        }
+      }
+      if (!isDuplicate) {
+        dedupedFirstNameParts.push(firstNameParts[i]);
+      }
+    }
+    firstName = dedupedFirstNameParts.map(toTitleCase).join(" ");
+
+    // Last name is the caps segment after first names
+    // Use shirt boundary or surname boundary to determine where the last name ends
+    let lastNameStartIdx = firstNameEndIdx;
+    let lastNameEndIdx = firstNameEndIdx;
+
+    // Find the first caps segment after first names
+    for (let i = lastNameStartIdx; i < nameParts.length; i++) {
+      if (isAllCapsToken(nameParts[i]) && !hasLowercase(nameParts[i])) {
+        lastNameStartIdx = i;
+        break;
+      }
+    }
+
+    // Try surname boundary first (for cases like Netherlands where surname repeats)
+    if (surnameBoundary && surnameBoundary.repeatIdx > lastNameStartIdx) {
+      lastNameEndIdx = surnameBoundary.repeatIdx;
+    }
+    // Try shirt boundary (for cases like Belgium where shirt name repeats)
+    else if (shirtBoundary && shirtBoundary.repeatIdx > lastNameStartIdx) {
+      lastNameEndIdx = shirtBoundary.repeatIdx;
+    }
+    // No boundary, take only the FIRST caps token (the last name)
+    else {
+      lastNameEndIdx = lastNameStartIdx + 1;
+    }
+
+    lastName = nameParts.slice(lastNameStartIdx, lastNameEndIdx).map(toTitleCase).join(" ");
+  } else {
+    // No lowercase found, use the old logic (single name or all caps)
+    lastName = extractPlayerName(nameParts) || "";
+  }
+
+  // Full name is first name + last name
+  const playerName = firstName && lastName ? `${firstName} ${lastName}` : (lastName || firstName);
+
   if (!playerName) return null;
 
   return {
     number: 0,
     positionCode,
     playerName,
+    firstName,
+    lastName,
+    nameOnShirt,
     dob,
     club,
     heightCm,
@@ -315,6 +471,7 @@ function buildExports(
         id: globalId++,
         teamId: team.id,
         name: p.playerName,
+        nameOnShirt: p.nameOnShirt,
         number: p.number,
         position: POSITION_FR[p.positionCode] ?? p.positionCode,
         positionCode: p.positionCode,
