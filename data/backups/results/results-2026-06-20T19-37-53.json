@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-20T19:37:53.822Z",
+  "updatedAt": "2026-06-20T19:37:25.801Z",
   "matches": [
     {
       "matchId": 1,
@@ -1009,71 +1009,6 @@
         }
       ],
       "updatedAt": "2026-06-20T19:37:25.794Z"
-    },
-    {
-      "matchId": 26,
-      "status": "FT",
-      "events": [
-        {
-          "type": "yellow_card",
-          "team": "Bosnie-Herzégovine",
-          "player": "Amar Dedić",
-          "minute": 59
-        },
-        {
-          "type": "yellow_card",
-          "team": "Bosnie-Herzégovine",
-          "player": "Edin Džeko",
-          "minute": 61
-        },
-        {
-          "type": "yellow_card",
-          "team": "Suisse",
-          "player": "Nico Elvedi",
-          "minute": 65
-        },
-        {
-          "type": "goal",
-          "team": "Suisse",
-          "player": "Johan Kula Manzambi",
-          "minute": 74
-        },
-        {
-          "type": "red_card",
-          "team": "Bosnie-Herzégovine",
-          "player": "Tarik Muharemović",
-          "minute": 80
-        },
-        {
-          "type": "goal",
-          "team": "Suisse",
-          "player": "Ruben Estephan Vargas Martinez",
-          "minute": 84,
-          "assist": "Breel Donald Embolo"
-        },
-        {
-          "type": "goal",
-          "team": "Suisse",
-          "player": "Johan Kula Manzambi",
-          "minute": 90,
-          "assist": "Ruben Estephan Vargas Martinez"
-        },
-        {
-          "type": "goal",
-          "team": "Bosnie-Herzégovine",
-          "player": "Ermin Mahmić",
-          "minute": 90,
-          "addedTime": 3
-        },
-        {
-          "type": "goal",
-          "team": "Suisse",
-          "player": "Granit Xhaka",
-          "minute": 90,
-          "addedTime": 7
-        }
-      ],
-      "updatedAt": "2026-06-20T19:37:53.813Z"
     }
   ]
 }
