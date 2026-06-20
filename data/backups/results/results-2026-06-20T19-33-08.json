@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-20T19:33:08.502Z",
+  "updatedAt": "2026-06-17T19:42:21.884Z",
   "matches": [
     {
       "matchId": 1,
@@ -843,40 +843,6 @@
         }
       ],
       "updatedAt": "2026-06-17T19:27:25.209Z"
-    },
-    {
-      "matchId": 21,
-      "status": "FT",
-      "events": [
-        {
-          "type": "yellow_card",
-          "team": "Ghana",
-          "player": "Caleb Marfo Yirenkyi",
-          "minute": 16
-        },
-        {
-          "type": "yellow_card",
-          "team": "Panama",
-          "player": "Cesar César Rodolfo Blackman Camarena",
-          "minute": 72
-        },
-        {
-          "type": "goal",
-          "team": "Ghana",
-          "player": "Caleb Marfo Yirenkyi",
-          "minute": 90,
-          "addedTime": 5,
-          "assist": "Brandon Solomon Michael Clarke Thomas-Asante"
-        },
-        {
-          "type": "yellow_card",
-          "team": "Panama",
-          "player": "Carlos Miguel Harvey Cesneros",
-          "minute": 90,
-          "addedTime": 9
-        }
-      ],
-      "updatedAt": "2026-06-20T19:33:08.496Z"
     },
     {
       "matchId": 23,
