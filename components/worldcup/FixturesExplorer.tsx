@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Fixture } from "@/types/worldcup";
 import { MatchRow } from "@/components/worldcup/MatchRow";
 import { GroupFilterSelect, type GroupTeamFlag } from "@/components/worldcup/GroupFilterSelect";
@@ -12,11 +12,180 @@ import { FilterBar, FilterField } from "@/components/ui/filter-bar";
 import { Button } from "@/components/ui/button";
 import { GroupBadge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { ChevronDown, ListFilter, ArrowUpDown } from "lucide-react";
 
 type PhaseFilter = "all" | "groups" | "knockout";
-type StatusFilter = "all" | "NS" | "IN_PROGRESS" | "FT";
 type RoundFilter = "all" | "matchday1" | "matchday2" | "matchday3" | "r16" | "qf" | "sf" | "third" | "final";
 type SortMode = "date" | "group";
+
+const ROUND_OPTIONS: { value: RoundFilter; label: string }[] = [
+  { value: "all", label: "Toutes" },
+  { value: "matchday1", label: "1ère journée" },
+  { value: "matchday2", label: "2ème journée" },
+  { value: "matchday3", label: "3ème journée" },
+  { value: "r16", label: "Huitièmes" },
+  { value: "qf", label: "Quarts" },
+  { value: "sf", label: "Demi-finales" },
+  { value: "third", label: "3e place" },
+  { value: "final", label: "Finale" },
+];
+
+const SORT_OPTIONS: { value: SortMode; label: string }[] = [
+  { value: "date", label: "Date" },
+  { value: "group", label: "Groupe" },
+];
+
+function RoundFilterSelect({
+  value,
+  onChange,
+}: {
+  value: RoundFilter;
+  onChange: (v: RoundFilter) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function onPointerDown(e: MouseEvent) {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", onPointerDown);
+    return () => document.removeEventListener("mousedown", onPointerDown);
+  }, [open]);
+
+  const label = ROUND_OPTIONS.find((o) => o.value === value)?.label ?? "Toutes";
+
+  return (
+    <div ref={rootRef} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className={cn(
+          "flex h-10 w-full items-center justify-between gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-text",
+          "focus:outline-none focus:ring-2 focus:ring-senegal-green/40"
+        )}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        <span className="flex min-w-0 items-center gap-2 truncate">
+          <ListFilter className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
+          <span className="truncate">{label}</span>
+        </span>
+        <ChevronDown
+          className={cn(
+            "h-4 w-4 shrink-0 text-muted-foreground transition-transform",
+            open && "rotate-180"
+          )}
+          aria-hidden
+        />
+      </button>
+
+      {open && (
+        <ul
+          role="listbox"
+          className="absolute z-[60] mt-1 max-h-64 w-full min-w-[180px] overflow-auto rounded-lg border border-white/10 bg-background py-1 shadow-xl"
+        >
+          {ROUND_OPTIONS.map((opt) => (
+            <li key={opt.value}>
+              <button
+                type="button"
+                role="option"
+                aria-selected={value === opt.value}
+                onClick={() => {
+                  onChange(opt.value);
+                  setOpen(false);
+                }}
+                className={cn(
+                  "flex w-full items-center px-3 py-2.5 text-left text-sm hover:bg-white/5",
+                  value === opt.value && "bg-senegal-green/15 text-senegal-green"
+                )}
+              >
+                {opt.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+function SortModeSelect({
+  value,
+  onChange,
+}: {
+  value: SortMode;
+  onChange: (v: SortMode) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function onPointerDown(e: MouseEvent) {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", onPointerDown);
+    return () => document.removeEventListener("mousedown", onPointerDown);
+  }, [open]);
+
+  const label = SORT_OPTIONS.find((o) => o.value === value)?.label ?? "Date";
+
+  return (
+    <div ref={rootRef} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className={cn(
+          "flex h-10 w-full items-center justify-between gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-text",
+          "focus:outline-none focus:ring-2 focus:ring-senegal-green/40"
+        )}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        <span className="flex min-w-0 items-center gap-2 truncate">
+          <ArrowUpDown className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
+          <span className="truncate">{label}</span>
+        </span>
+        <ChevronDown
+          className={cn(
+            "h-4 w-4 shrink-0 text-muted-foreground transition-transform",
+            open && "rotate-180"
+          )}
+          aria-hidden
+        />
+      </button>
+
+      {open && (
+        <ul
+          role="listbox"
+          className="absolute z-[60] mt-1 w-full min-w-[140px] overflow-auto rounded-lg border border-white/10 bg-background py-1 shadow-xl"
+        >
+          {SORT_OPTIONS.map((opt) => (
+            <li key={opt.value}>
+              <button
+                type="button"
+                role="option"
+                aria-selected={value === opt.value}
+                onClick={() => {
+                  onChange(opt.value);
+                  setOpen(false);
+                }}
+                className={cn(
+                  "flex w-full items-center px-3 py-2.5 text-left text-sm hover:bg-white/5",
+                  value === opt.value && "bg-senegal-green/15 text-senegal-green"
+                )}
+              >
+                {opt.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
 
 type Props = {
   fixtures: Fixture[];
@@ -34,7 +203,6 @@ export function FixturesExplorer({
   const [phaseFilter, setPhaseFilter] = useState<PhaseFilter>("all");
   const [groupFilter, setGroupFilter] = useState<string>("all");
   const [dateFilter, setDateFilter] = useState<string>("all");
-  const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [roundFilter, setRoundFilter] = useState<RoundFilter>("all");
   const [search, setSearch] = useState("");
   const [sortMode, setSortMode] = useState<SortMode>("date");
@@ -58,12 +226,6 @@ export function FixturesExplorer({
         const d = fixtureDateKey(f.date);
         if (d !== dateFilter) return false;
       }
-      if (statusFilter !== "all") {
-        const status = f.status.short === "FT" || f.status.short === "AET" || f.status.short === "PEN" ? "FT" 
-          : f.status.short === "1H" || f.status.short === "2H" || f.status.short === "HT" ? "IN_PROGRESS"
-          : "NS";
-        if (status !== statusFilter) return false;
-      }
       if (roundFilter !== "all") {
         const round = getRoundFilterValue(f.round, f.matchday);
         if (round !== roundFilter) return false;
@@ -76,7 +238,7 @@ export function FixturesExplorer({
       }
       return true;
     });
-  }, [fixtures, phaseFilter, groupFilter, dateFilter, statusFilter, roundFilter, search]);
+  }, [fixtures, phaseFilter, groupFilter, dateFilter, roundFilter, search]);
 
   const sorted = useMemo(() => {
     const sortedFixtures = [...filtered];
@@ -99,7 +261,6 @@ export function FixturesExplorer({
     phaseFilter !== "all" ||
     groupFilter !== "all" ||
     dateFilter !== "all" ||
-    statusFilter !== "all" ||
     roundFilter !== "all" ||
     search.length > 0;
 
@@ -107,7 +268,6 @@ export function FixturesExplorer({
     setPhaseFilter("all");
     setGroupFilter("all");
     setDateFilter("all");
-    setStatusFilter("all");
     setRoundFilter("all");
     setSearch("");
   }
@@ -165,7 +325,7 @@ export function FixturesExplorer({
         ))}
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[1fr_minmax(180px,220px)_minmax(180px,220px)_minmax(180px,220px)_minmax(180px,220px)_minmax(140px,180px)]">
+      <div className="grid gap-4 lg:grid-cols-[1fr_minmax(180px,220px)_minmax(180px,220px)_minmax(180px,220px)_minmax(140px,180px)]">
         <FilterField label="Recherche" htmlFor="fixture-search">
           <SearchInput
             id="fixture-search"
@@ -191,34 +351,7 @@ export function FixturesExplorer({
         </FilterField>
 
         <FilterField label="Journée">
-          <select
-            value={roundFilter}
-            onChange={(e) => setRoundFilter(e.target.value as RoundFilter)}
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-senegal-green/50"
-          >
-            <option value="all">Toutes</option>
-            <option value="matchday1">1ère journée</option>
-            <option value="matchday2">2ème journée</option>
-            <option value="matchday3">3ème journée</option>
-            <option value="r16">Huitièmes</option>
-            <option value="qf">Quarts</option>
-            <option value="sf">Demi-finales</option>
-            <option value="third">3e place</option>
-            <option value="final">Finale</option>
-          </select>
-        </FilterField>
-
-        <FilterField label="Statut">
-          <select
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value as StatusFilter)}
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-senegal-green/50"
-          >
-            <option value="all">Tous</option>
-            <option value="NS">À venir</option>
-            <option value="IN_PROGRESS">En cours</option>
-            <option value="FT">Terminé</option>
-          </select>
+          <RoundFilterSelect value={roundFilter} onChange={setRoundFilter} />
         </FilterField>
 
         <FilterField label="Date">
@@ -230,14 +363,7 @@ export function FixturesExplorer({
         </FilterField>
 
         <FilterField label="Trier par">
-          <select
-            value={sortMode}
-            onChange={(e) => setSortMode(e.target.value as SortMode)}
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-senegal-green/50"
-          >
-            <option value="date">Date</option>
-            <option value="group">Groupe</option>
-          </select>
+          <SortModeSelect value={sortMode} onChange={setSortMode} />
         </FilterField>
       </div>
 
