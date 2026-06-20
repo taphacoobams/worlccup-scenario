@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-20T19:49:37.570Z",
+  "updatedAt": "2026-06-20T19:48:26.650Z",
   "matches": [
     {
       "matchId": 1,
@@ -1123,77 +1123,6 @@
         }
       ],
       "updatedAt": "2026-06-20T19:37:53.813Z"
-    },
-    {
-      "matchId": 27,
-      "status": "FT",
-      "events": [
-        {
-          "type": "yellow_card",
-          "team": "Canada",
-          "player": "Derek Austin Cornelius",
-          "minute": 9
-        },
-        {
-          "type": "goal",
-          "team": "Canada",
-          "player": "Cyle Christopher Larin",
-          "minute": 16
-        },
-        {
-          "type": "goal",
-          "team": "Canada",
-          "player": "Jonathan Christian David J.",
-          "minute": 29
-        },
-        {
-          "type": "red_card",
-          "team": "UNKNOWN",
-          "player": "El Amin",
-          "minute": 33
-        },
-        {
-          "type": "goal",
-          "team": "Canada",
-          "player": "Jonathan Christian David J.",
-          "minute": 45,
-          "addedTime": 3
-        },
-        {
-          "type": "red_card",
-          "team": "Qatar",
-          "player": "Assim Omer A Madibo",
-          "minute": 53
-        },
-        {
-          "type": "yellow_card",
-          "team": "Qatar",
-          "player": "Ahmed Fathy M Abdoulla A.",
-          "minute": 62
-        },
-        {
-          "type": "goal",
-          "team": "Canada",
-          "player": "Nathan Saliba",
-          "minute": 64
-        },
-        {
-          "type": "goal",
-          "team": "Qatar",
-          "player": "Mohamed Naceur Manai",
-          "minute": 75,
-          "isOwnGoal": true
-        },
-        {
-          "type": "goal",
-          "team": "Canada",
-          "player": "Jonathan Christian David J.",
-          "minute": 90,
-          "addedTime": 2,
-          "assist": "Nathan Saliba"
-        }
-      ],
-      "updatedAt": "2026-06-20T19:49:37.546Z"
     },
     {
       "matchId": 28,

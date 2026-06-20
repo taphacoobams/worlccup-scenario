@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-20T19:49:37.570Z",
+  "updatedAt": "2026-06-20T19:46:51.364Z",
   "matches": [
     {
       "matchId": 1,
@@ -879,55 +879,6 @@
       "updatedAt": "2026-06-20T19:33:08.496Z"
     },
     {
-      "matchId": 22,
-      "status": "FT",
-      "events": [
-        {
-          "type": "goal",
-          "team": "Angleterre",
-          "player": "Harry Edward Kane",
-          "minute": 12
-        },
-        {
-          "type": "goal",
-          "team": "Croatie",
-          "player": "Martin Baturina",
-          "minute": 36,
-          "assist": "Luka Sučić"
-        },
-        {
-          "type": "goal",
-          "team": "Angleterre",
-          "player": "Harry Edward Kane",
-          "minute": 42,
-          "assist": "Declan Rice"
-        },
-        {
-          "type": "goal",
-          "team": "Croatie",
-          "player": "Petar Musa",
-          "minute": 45,
-          "addedTime": 5,
-          "assist": "Ivan Perišić"
-        },
-        {
-          "type": "goal",
-          "team": "Angleterre",
-          "player": "Jude Victor William Bellingham",
-          "minute": 47,
-          "assist": "Elliot Junior Anderson"
-        },
-        {
-          "type": "goal",
-          "team": "Angleterre",
-          "player": "Marcus Rashford",
-          "minute": 85,
-          "assist": "Bukayo Ayoyinka Saka"
-        }
-      ],
-      "updatedAt": "2026-06-20T19:48:26.630Z"
-    },
-    {
       "matchId": 23,
       "status": "FT",
       "events": [
@@ -1125,77 +1076,6 @@
       "updatedAt": "2026-06-20T19:37:53.813Z"
     },
     {
-      "matchId": 27,
-      "status": "FT",
-      "events": [
-        {
-          "type": "yellow_card",
-          "team": "Canada",
-          "player": "Derek Austin Cornelius",
-          "minute": 9
-        },
-        {
-          "type": "goal",
-          "team": "Canada",
-          "player": "Cyle Christopher Larin",
-          "minute": 16
-        },
-        {
-          "type": "goal",
-          "team": "Canada",
-          "player": "Jonathan Christian David J.",
-          "minute": 29
-        },
-        {
-          "type": "red_card",
-          "team": "UNKNOWN",
-          "player": "El Amin",
-          "minute": 33
-        },
-        {
-          "type": "goal",
-          "team": "Canada",
-          "player": "Jonathan Christian David J.",
-          "minute": 45,
-          "addedTime": 3
-        },
-        {
-          "type": "red_card",
-          "team": "Qatar",
-          "player": "Assim Omer A Madibo",
-          "minute": 53
-        },
-        {
-          "type": "yellow_card",
-          "team": "Qatar",
-          "player": "Ahmed Fathy M Abdoulla A.",
-          "minute": 62
-        },
-        {
-          "type": "goal",
-          "team": "Canada",
-          "player": "Nathan Saliba",
-          "minute": 64
-        },
-        {
-          "type": "goal",
-          "team": "Qatar",
-          "player": "Mohamed Naceur Manai",
-          "minute": 75,
-          "isOwnGoal": true
-        },
-        {
-          "type": "goal",
-          "team": "Canada",
-          "player": "Jonathan Christian David J.",
-          "minute": 90,
-          "addedTime": 2,
-          "assist": "Nathan Saliba"
-        }
-      ],
-      "updatedAt": "2026-06-20T19:49:37.546Z"
-    },
-    {
       "matchId": 28,
       "status": "FT",
       "events": [
@@ -1386,73 +1266,6 @@
         }
       ],
       "updatedAt": "2026-06-20T19:46:51.336Z"
-    },
-    {
-      "matchId": 35,
-      "status": "FT",
-      "events": [
-        {
-          "type": "goal",
-          "team": "Pays-Bas",
-          "player": "Brian Ebenezer Adjei Brobbey",
-          "minute": 5,
-          "assist": "Cody Mathès Gakpo"
-        },
-        {
-          "type": "goal",
-          "team": "Pays-Bas",
-          "player": "Brian Ebenezer Adjei Brobbey",
-          "minute": 17,
-          "assist": "Denzel Justus Morris Dumfries"
-        },
-        {
-          "type": "goal",
-          "team": "Pays-Bas",
-          "player": "Cody Mathès Gakpo",
-          "minute": 47,
-          "assist": "Denzel Justus Morris Dumfries"
-        },
-        {
-          "type": "yellow_card",
-          "team": "Suède",
-          "player": "Gabriel Johan Gudmundsson",
-          "minute": 53
-        },
-        {
-          "type": "goal",
-          "team": "Pays-Bas",
-          "player": "Cody Mathès Gakpo",
-          "minute": 54,
-          "assist": "Crysencio Jilbert Sylverio Cir Summerville"
-        },
-        {
-          "type": "goal",
-          "team": "Suède",
-          "player": "Anthony David Junior Elanga",
-          "minute": 59,
-          "assist": "Alexander Isak"
-        },
-        {
-          "type": "yellow_card",
-          "team": "Suède",
-          "player": "Yasin Ayari",
-          "minute": 75
-        },
-        {
-          "type": "yellow_card",
-          "team": "Suède",
-          "player": "Lucas Erik Holger Bergvall",
-          "minute": 80
-        },
-        {
-          "type": "goal",
-          "team": "Pays-Bas",
-          "player": "Crysencio Jilbert Sylverio Cir Summerville",
-          "minute": 89,
-          "assist": "Memphis Depay"
-        }
-      ],
-      "updatedAt": "2026-06-20T19:47:16.196Z"
     }
   ]
 }

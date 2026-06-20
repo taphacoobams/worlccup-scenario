@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-17T18:05:56.000Z",
+  "updatedAt": "2026-06-20T19:37:53.822Z",
   "matches": [
     {
       "matchId": 1,
@@ -288,6 +288,39 @@
       "updatedAt": "2026-06-17T16:24:55.266Z"
     },
     {
+      "matchId": 7,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Maroc",
+          "player": "Ismael Saibari",
+          "minute": 21,
+          "assist": "Brahim Abdelkader Diaz"
+        },
+        {
+          "type": "goal",
+          "team": "Brésil",
+          "player": "Vinicius José Paixão",
+          "minute": 32,
+          "assist": "Bruno Guimarães"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Brésil",
+          "player": "Carlos Henrique Casimiro",
+          "minute": 37
+        },
+        {
+          "type": "yellow_card",
+          "team": "Brésil",
+          "player": "Roger Ibañez Da Silva",
+          "minute": 43
+        }
+      ],
+      "updatedAt": "2026-06-17T19:33:52.910Z"
+    },
+    {
       "matchId": 8,
       "status": "FT",
       "events": [
@@ -566,18 +599,481 @@
         {
           "type": "yellow_card",
           "team": "Cap-Vert",
-          "player": "Sidny Sidny Lopes Cabral",
+          "player": "Jovane Eduardo Borges Cabral",
           "minute": 16
         },
         {
           "type": "yellow_card",
           "team": "Espagne",
-          "player": "Pedro Pedri",
+          "player": "Pedri",
           "minute": 90,
           "addedTime": 3
         }
       ],
-      "updatedAt": "2026-06-17T18:05:55.996Z"
+      "updatedAt": "2026-06-17T19:42:21.845Z"
+    },
+    {
+      "matchId": 15,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Nouvelle-Zélande",
+          "player": "Elijah Henry Just",
+          "minute": 7,
+          "assist": "Chris Grant Wood"
+        },
+        {
+          "type": "goal",
+          "team": "Iran",
+          "player": "Ramin Rezaeiansemeskandi",
+          "minute": 32
+        },
+        {
+          "type": "goal",
+          "team": "Nouvelle-Zélande",
+          "player": "Elijah Henry Just",
+          "minute": 55,
+          "assist": "Chris Grant Wood"
+        },
+        {
+          "type": "goal",
+          "team": "Iran",
+          "player": "Mohammad Mohebbi M.",
+          "minute": 64,
+          "assist": "Ramin Rezaeiansemeskandi"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Iran",
+          "player": "Ehsan Haji Safi E.",
+          "minute": 89
+        }
+      ],
+      "updatedAt": "2026-06-17T18:23:32.992Z"
+    },
+    {
+      "matchId": 16,
+      "status": "FT",
+      "events": [
+        {
+          "type": "yellow_card",
+          "team": "Égypte",
+          "player": "Marawan Attia Fahim Ghallab M.",
+          "minute": 13
+        },
+        {
+          "type": "yellow_card",
+          "team": "Belgique",
+          "player": "Timothy Castagne",
+          "minute": 14
+        },
+        {
+          "type": "goal",
+          "team": "Égypte",
+          "player": "Emam Ashour Metwaly Abdelghany E.",
+          "minute": 19,
+          "assist": "Mohamed Salah Mahrous Ghaly M."
+        },
+        {
+          "type": "yellow_card",
+          "team": "Égypte",
+          "player": "Ahmed Mohamed Aboelfetouh Mohamed",
+          "minute": 34
+        },
+        {
+          "type": "goal",
+          "team": "Égypte",
+          "player": "Mohamed Hany Gamal Eldemerdash M.",
+          "minute": 66,
+          "isOwnGoal": true
+        },
+        {
+          "type": "yellow_card",
+          "team": "Belgique",
+          "player": "Maxim Peter M De Cuyper",
+          "minute": 75
+        }
+      ],
+      "updatedAt": "2026-06-17T18:35:57.705Z"
+    },
+    {
+      "matchId": 17,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "France",
+          "player": "Kylian Mbappe Lottin",
+          "minute": 66,
+          "assist": "Michael Akpovie Olise"
+        },
+        {
+          "type": "goal",
+          "team": "France",
+          "player": "Bradley Jean-Manuel Essolisa A Barcola",
+          "minute": 82,
+          "assist": "Adrien Thibault Marie Rabiot"
+        },
+        {
+          "type": "goal",
+          "team": "Sénégal",
+          "player": "Ibrahim Mbaye",
+          "minute": 90,
+          "addedTime": 5,
+          "assist": "Iliman Cheikh Baroy Ndiaye"
+        },
+        {
+          "type": "goal",
+          "team": "France",
+          "player": "Kylian Mbappe Lottin",
+          "minute": 90,
+          "addedTime": 6
+        }
+      ],
+      "updatedAt": "2026-06-17T18:49:22.044Z"
+    },
+    {
+      "matchId": 18,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Norvège",
+          "player": "Erling Braut Haaland",
+          "minute": 29,
+          "assist": "David Møller Wolfe"
+        },
+        {
+          "type": "goal",
+          "team": "Irak",
+          "player": "Marko Jabbar Hussein Hussein",
+          "minute": 39,
+          "assist": "Amir Fouad Aboud Al-Ammari"
+        },
+        {
+          "type": "goal",
+          "team": "Norvège",
+          "player": "Erling Braut Haaland",
+          "minute": 43
+        },
+        {
+          "type": "goal",
+          "team": "Norvège",
+          "player": "Leo Skiri Østigård",
+          "minute": 76,
+          "assist": "Martin Martín Ødegaard"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Irak",
+          "player": "Zaid Tahseen Abd Hantoosh",
+          "minute": 86
+        },
+        {
+          "type": "goal",
+          "team": "Irak",
+          "player": "Marko Jabbar Hussein Hussein",
+          "minute": 90,
+          "addedTime": 6,
+          "isOwnGoal": true
+        }
+      ],
+      "updatedAt": "2026-06-17T18:51:14.567Z"
+    },
+    {
+      "matchId": 19,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Argentine",
+          "player": "Lionel Andrés Messi",
+          "minute": 17,
+          "assist": "Rodrigo Javier De Paul"
+        },
+        {
+          "type": "goal",
+          "team": "Argentine",
+          "player": "Lionel Andrés Messi",
+          "minute": 60
+        },
+        {
+          "type": "goal",
+          "team": "Argentine",
+          "player": "Lionel Andrés Messi",
+          "minute": 76,
+          "assist": "Nico Ivan Gonzalez N."
+        }
+      ],
+      "updatedAt": "2026-06-17T18:56:03.017Z"
+    },
+    {
+      "matchId": 20,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Autriche",
+          "player": "Romano Schmid",
+          "minute": 21,
+          "assist": "Alexander Schlager"
+        },
+        {
+          "type": "goal",
+          "team": "Jordanie",
+          "player": "Ali Iyad Olwan",
+          "minute": 50,
+          "assist": "Noor Al-Deen Mahmoud Ali Al"
+        },
+        {
+          "type": "goal",
+          "team": "Jordanie",
+          "player": "Yazan Al-Arab",
+          "minute": 76,
+          "isOwnGoal": true
+        },
+        {
+          "type": "goal",
+          "team": "Autriche",
+          "player": "Marko Arnautovic",
+          "minute": 90,
+          "addedTime": 12,
+          "isPenalty": true
+        }
+      ],
+      "updatedAt": "2026-06-17T19:27:25.209Z"
+    },
+    {
+      "matchId": 21,
+      "status": "FT",
+      "events": [
+        {
+          "type": "yellow_card",
+          "team": "Ghana",
+          "player": "Caleb Marfo Yirenkyi",
+          "minute": 16
+        },
+        {
+          "type": "yellow_card",
+          "team": "Panama",
+          "player": "Cesar César Rodolfo Blackman Camarena",
+          "minute": 72
+        },
+        {
+          "type": "goal",
+          "team": "Ghana",
+          "player": "Caleb Marfo Yirenkyi",
+          "minute": 90,
+          "addedTime": 5,
+          "assist": "Brandon Solomon Michael Clarke Thomas-Asante"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Panama",
+          "player": "Carlos Miguel Harvey Cesneros",
+          "minute": 90,
+          "addedTime": 9
+        }
+      ],
+      "updatedAt": "2026-06-20T19:33:08.496Z"
+    },
+    {
+      "matchId": 23,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Portugal",
+          "player": "João Pedro Gonçalves Neves João",
+          "minute": 6,
+          "assist": "Pedro Lomba Neto"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Portugal",
+          "player": "Bernardo Mota Veiga De Carvalho E Silva",
+          "minute": 13
+        },
+        {
+          "type": "yellow_card",
+          "team": "RD Congo",
+          "player": "Chancel Mangulu Mbemba",
+          "minute": 32
+        },
+        {
+          "type": "goal",
+          "team": "RD Congo",
+          "player": "Yoane Wissa",
+          "minute": 45,
+          "addedTime": 5,
+          "assist": "Arthur Fuka Masuaku Kawela"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Portugal",
+          "player": "Nélson Cabral Semedo N.",
+          "minute": 88
+        },
+        {
+          "type": "yellow_card",
+          "team": "Portugal",
+          "player": "Tomás Lemos Araújo",
+          "minute": 90,
+          "addedTime": 2
+        }
+      ],
+      "updatedAt": "2026-06-17T19:38:46.813Z"
+    },
+    {
+      "matchId": 24,
+      "status": "FT",
+      "events": [
+        {
+          "type": "yellow_card",
+          "team": "Colombie",
+          "player": "Johan Andrés Mojica Palacio J.",
+          "minute": 7
+        },
+        {
+          "type": "yellow_card",
+          "team": "Ouzbékistan",
+          "player": "Abdukodir Khusanov",
+          "minute": 34
+        },
+        {
+          "type": "goal",
+          "team": "Colombie",
+          "player": "Daniel Muñoz Mejia D.",
+          "minute": 40,
+          "assist": "Luis Fernando Díaz Marulanda"
+        },
+        {
+          "type": "goal",
+          "team": "Ouzbékistan",
+          "player": "Abbosbek Fayzullaev",
+          "minute": 60
+        },
+        {
+          "type": "goal",
+          "team": "Colombie",
+          "player": "Luis Fernando Díaz Marulanda",
+          "minute": 65,
+          "assist": "Gustavo Adolfo Puerta Molano"
+        },
+        {
+          "type": "goal",
+          "team": "Colombie",
+          "player": "Jaminton Leandro Campaz",
+          "minute": 90,
+          "addedTime": 9,
+          "assist": "Cucho Juan Camilo Hernandez Suarez C."
+        }
+      ],
+      "updatedAt": "2026-06-20T19:36:33.760Z"
+    },
+    {
+      "matchId": 25,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Tchéquie",
+          "player": "Michal Sadílek",
+          "minute": 6,
+          "assist": "Alexandr Sojka"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Afrique du Sud",
+          "player": "Teboho Mokoena",
+          "minute": 33
+        },
+        {
+          "type": "yellow_card",
+          "team": "Afrique du Sud",
+          "player": "Thalente Wandile Mbatha",
+          "minute": 40
+        },
+        {
+          "type": "yellow_card",
+          "team": "Tchéquie",
+          "player": "Ladislav Krejčí",
+          "minute": 75
+        },
+        {
+          "type": "goal",
+          "team": "Afrique du Sud",
+          "player": "Teboho Mokoena",
+          "minute": 83
+        }
+      ],
+      "updatedAt": "2026-06-20T19:37:25.794Z"
+    },
+    {
+      "matchId": 26,
+      "status": "FT",
+      "events": [
+        {
+          "type": "yellow_card",
+          "team": "Bosnie-Herzégovine",
+          "player": "Amar Dedić",
+          "minute": 59
+        },
+        {
+          "type": "yellow_card",
+          "team": "Bosnie-Herzégovine",
+          "player": "Edin Džeko",
+          "minute": 61
+        },
+        {
+          "type": "yellow_card",
+          "team": "Suisse",
+          "player": "Nico Elvedi",
+          "minute": 65
+        },
+        {
+          "type": "goal",
+          "team": "Suisse",
+          "player": "Johan Kula Manzambi",
+          "minute": 74
+        },
+        {
+          "type": "red_card",
+          "team": "Bosnie-Herzégovine",
+          "player": "Tarik Muharemović",
+          "minute": 80
+        },
+        {
+          "type": "goal",
+          "team": "Suisse",
+          "player": "Ruben Estephan Vargas Martinez",
+          "minute": 84,
+          "assist": "Breel Donald Embolo"
+        },
+        {
+          "type": "goal",
+          "team": "Suisse",
+          "player": "Johan Kula Manzambi",
+          "minute": 90,
+          "assist": "Ruben Estephan Vargas Martinez"
+        },
+        {
+          "type": "goal",
+          "team": "Bosnie-Herzégovine",
+          "player": "Ermin Mahmić",
+          "minute": 90,
+          "addedTime": 3
+        },
+        {
+          "type": "goal",
+          "team": "Suisse",
+          "player": "Granit Xhaka",
+          "minute": 90,
+          "addedTime": 7
+        }
+      ],
+      "updatedAt": "2026-06-20T19:37:53.813Z"
     }
   ]
 }
