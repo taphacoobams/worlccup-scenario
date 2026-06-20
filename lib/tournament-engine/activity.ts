@@ -55,10 +55,9 @@ export async function logActivity(
       data: { action, detail: detail ?? null },
     });
   } catch (error) {
-    if (!isMissingActivityTable(error)) throw error;
-    console.warn(
-      "[manager] Table manager_activities absente — lancez: npm run db:push"
-    );
+    // Silently ignore database errors in activity logging
+    // This prevents login failures when DB is unavailable or table is missing
+    console.warn("[manager] Activity logging failed:", error);
   }
 }
 

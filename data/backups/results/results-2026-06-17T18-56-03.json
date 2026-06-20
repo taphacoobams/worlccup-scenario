@@ -1,0 +1,752 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-17T18:51:14.573Z",
+  "matches": [
+    {
+      "matchId": 1,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Mexique",
+          "player": "Quinones",
+          "assist": "Lira",
+          "minute": 9
+        },
+        {
+          "type": "yellow_card",
+          "team": "Afrique du Sud",
+          "player": "Mokoena",
+          "minute": 17
+        },
+        {
+          "type": "yellow_card",
+          "team": "Mexique",
+          "player": "Gutierrez",
+          "minute": 23
+        },
+        {
+          "type": "red_card",
+          "team": "Afrique du Sud",
+          "player": "Sithole",
+          "minute": 49
+        },
+        {
+          "type": "goal",
+          "team": "Mexique",
+          "player": "Jimenez",
+          "assist": "Alvarado",
+          "minute": 67
+        },
+        {
+          "type": "yellow_card",
+          "team": "Afrique du Sud",
+          "player": "Sibisi",
+          "minute": 74
+        },
+        {
+          "type": "red_card",
+          "team": "Afrique du Sud",
+          "player": "Zwane",
+          "minute": 84
+        },
+        {
+          "type": "red_card",
+          "team": "Mexique",
+          "player": "Montes",
+          "minute": 90,
+          "addedTime": 2
+        }
+      ],
+      "updatedAt": "2026-06-11T21:00:00.000Z"
+    },
+    {
+      "matchId": 2,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Tchéquie",
+          "player": "Krejci",
+          "assist": "Coufal",
+          "minute": 59
+        },
+        {
+          "type": "goal",
+          "team": "Corée du Sud",
+          "player": "Hwang",
+          "assist": "Lee",
+          "minute": 67
+        },
+        {
+          "type": "goal",
+          "team": "Corée du Sud",
+          "player": "Oh",
+          "assist": "Hwang",
+          "minute": 80
+        },
+        {
+          "type": "yellow_card",
+          "team": "Corée du Sud",
+          "player": "Lee",
+          "minute": 90,
+          "addedTime": 6
+        }
+      ],
+      "updatedAt": "2026-06-12T04:00:00.000Z"
+    },
+    {
+      "matchId": 3,
+      "status": "FT",
+      "events": [
+        {
+          "type": "yellow_card",
+          "team": "Canada",
+          "player": "Johnston",
+          "minute": 11
+        },
+        {
+          "type": "goal",
+          "team": "Bosnie-Herzégovine",
+          "player": "Lukic",
+          "assist": "Kolasinac",
+          "minute": 21
+        },
+        {
+          "type": "yellow_card",
+          "team": "Bosnie-Herzégovine",
+          "player": "Demirovic",
+          "minute": 45
+        },
+        {
+          "type": "yellow_card",
+          "team": "Bosnie-Herzégovine",
+          "player": "Lukic",
+          "minute": 45,
+          "addedTime": 1
+        },
+        {
+          "type": "yellow_card",
+          "team": "Canada",
+          "player": "De",
+          "minute": 53
+        },
+        {
+          "type": "goal",
+          "team": "Canada",
+          "player": "Larin",
+          "assist": "David",
+          "minute": 78
+        }
+      ],
+      "updatedAt": "2026-06-12T21:00:00.000Z"
+    },
+    {
+      "matchId": 4,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Paraguay",
+          "player": "Bobadilla",
+          "minute": 7,
+          "isOwnGoal": true
+        },
+        {
+          "type": "yellow_card",
+          "team": "Paraguay",
+          "player": "Caceres",
+          "minute": 10
+        },
+        {
+          "type": "goal",
+          "team": "États-Unis",
+          "player": "Balogun",
+          "assist": "Pulisic",
+          "minute": 31
+        },
+        {
+          "type": "goal",
+          "team": "États-Unis",
+          "player": "Balogun",
+          "assist": "Tillman",
+          "minute": 45,
+          "addedTime": 5
+        },
+        {
+          "type": "yellow_card",
+          "team": "Paraguay",
+          "player": "Almiron",
+          "minute": 53
+        },
+        {
+          "type": "yellow_card",
+          "team": "États-Unis",
+          "player": "Adams",
+          "minute": 59
+        },
+        {
+          "type": "goal",
+          "team": "Paraguay",
+          "player": "Mauricio",
+          "assist": "Enciso",
+          "minute": 73
+        },
+        {
+          "type": "yellow_card",
+          "team": "Paraguay",
+          "player": "Gomez",
+          "minute": 79
+        },
+        {
+          "type": "yellow_card",
+          "team": "Paraguay",
+          "player": "Arce",
+          "minute": 88
+        },
+        {
+          "type": "yellow_card",
+          "team": "Paraguay",
+          "player": "Alonso",
+          "minute": 90,
+          "addedTime": 3
+        },
+        {
+          "type": "goal",
+          "team": "États-Unis",
+          "player": "Reyna",
+          "assist": "Freeman",
+          "minute": 90,
+          "addedTime": 8
+        }
+      ],
+      "updatedAt": "2026-06-13T01:30:00.000Z"
+    },
+    {
+      "matchId": 5,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Écosse",
+          "player": "Mcginn",
+          "minute": 28
+        },
+        {
+          "type": "yellow_card",
+          "team": "Haïti",
+          "player": "Bellegarde",
+          "minute": 39
+        },
+        {
+          "type": "yellow_card",
+          "team": "Écosse",
+          "player": "Hickey",
+          "minute": 47
+        },
+        {
+          "type": "yellow_card",
+          "team": "Écosse",
+          "player": "Curtis",
+          "minute": 90,
+          "addedTime": 1
+        },
+        {
+          "type": "yellow_card",
+          "team": "Écosse",
+          "player": "Mclean",
+          "minute": 90,
+          "addedTime": 5
+        }
+      ],
+      "updatedAt": "2026-06-17T16:23:35.169Z"
+    },
+    {
+      "matchId": 6,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Australie",
+          "player": "Irankunda",
+          "minute": 27,
+          "assist": "Okon-Engstler"
+        },
+        {
+          "type": "goal",
+          "team": "Australie",
+          "player": "Metcalfe",
+          "minute": 75
+        },
+        {
+          "type": "yellow_card",
+          "team": "Turquie",
+          "player": "Akgun",
+          "minute": 86
+        }
+      ],
+      "updatedAt": "2026-06-17T16:24:55.266Z"
+    },
+    {
+      "matchId": 8,
+      "status": "FT",
+      "events": [
+        {
+          "type": "yellow_card",
+          "team": "Qatar",
+          "player": "Mahmoud Mahmoud Abunada",
+          "minute": 16
+        },
+        {
+          "type": "goal",
+          "team": "Suisse",
+          "player": "Breel Embolo",
+          "minute": 17
+        },
+        {
+          "type": "yellow_card",
+          "team": "Qatar",
+          "player": "Jassem Jassem Gaber",
+          "minute": 23
+        },
+        {
+          "type": "yellow_card",
+          "team": "Suisse",
+          "player": "Denis Zakaria",
+          "minute": 42
+        },
+        {
+          "type": "goal",
+          "team": "Suisse",
+          "player": "Miro Muheim",
+          "minute": 90,
+          "addedTime": 4,
+          "isOwnGoal": true
+        }
+      ],
+      "updatedAt": "2026-06-17T16:57:33.662Z"
+    },
+    {
+      "matchId": 9,
+      "status": "FT",
+      "events": [
+        {
+          "type": "yellow_card",
+          "team": "Côte d'Ivoire",
+          "player": "Fofana",
+          "minute": 28
+        },
+        {
+          "type": "yellow_card",
+          "team": "Côte d'Ivoire",
+          "player": "Kessie",
+          "minute": 38
+        },
+        {
+          "type": "yellow_card",
+          "team": "Côte d'Ivoire",
+          "player": "Doue",
+          "minute": 40
+        },
+        {
+          "type": "yellow_card",
+          "team": "Équateur",
+          "player": "Porozo",
+          "minute": 73
+        },
+        {
+          "type": "goal",
+          "team": "Côte d'Ivoire",
+          "player": "Diallo",
+          "minute": 90,
+          "assist": "Singo"
+        }
+      ],
+      "updatedAt": "2026-06-17T16:27:54.805Z"
+    },
+    {
+      "matchId": 10,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Allemagne",
+          "player": "Nmecha",
+          "minute": 6,
+          "assist": "Wirtz"
+        },
+        {
+          "type": "goal",
+          "team": "Curaçao",
+          "player": "Comenencia",
+          "minute": 21
+        },
+        {
+          "type": "goal",
+          "team": "Allemagne",
+          "player": "Schlotterbeck",
+          "minute": 38,
+          "assist": "Brown"
+        },
+        {
+          "type": "goal",
+          "team": "Allemagne",
+          "player": "Havertz",
+          "minute": 45,
+          "addedTime": 5
+        },
+        {
+          "type": "goal",
+          "team": "Allemagne",
+          "player": "Musiala",
+          "minute": 47,
+          "assist": "Kimmich"
+        },
+        {
+          "type": "goal",
+          "team": "Allemagne",
+          "player": "Brown",
+          "minute": 68,
+          "assist": "Undav"
+        },
+        {
+          "type": "goal",
+          "team": "Allemagne",
+          "player": "Undav",
+          "minute": 78,
+          "assist": "Kimmich"
+        },
+        {
+          "type": "goal",
+          "team": "Allemagne",
+          "player": "Havertz",
+          "minute": 88,
+          "assist": "Undav"
+        }
+      ],
+      "updatedAt": "2026-06-17T16:28:25.498Z"
+    },
+    {
+      "matchId": 11,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Pays-Bas",
+          "player": "Virgil Van Dijk",
+          "minute": 51,
+          "assist": "Ryan Jiro Gravenberch"
+        },
+        {
+          "type": "goal",
+          "team": "Japon",
+          "player": "Keito Nakamura",
+          "minute": 57,
+          "assist": "Takefusa Kubo"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Pays-Bas",
+          "player": "Crysencio Jilbert Sylverio Cir Summerville",
+          "minute": 61
+        },
+        {
+          "type": "goal",
+          "team": "Pays-Bas",
+          "player": "Crysencio Jilbert Sylverio Cir Summerville",
+          "minute": 64,
+          "assist": "Ryan Jiro Gravenberch"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Pays-Bas",
+          "player": "Memphis Depay",
+          "minute": 83
+        },
+        {
+          "type": "goal",
+          "team": "Japon",
+          "player": "Daichi Kamada",
+          "minute": 88,
+          "assist": "Koki Ogawa"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Pays-Bas",
+          "player": "Micky Van De Ven",
+          "minute": 90,
+          "addedTime": 1
+        }
+      ],
+      "updatedAt": "2026-06-17T17:49:09.805Z"
+    },
+    {
+      "matchId": 12,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Suède",
+          "player": "Yasin Ayari",
+          "minute": 7,
+          "assist": "Viktor Einar Gyökeres"
+        },
+        {
+          "type": "goal",
+          "team": "Suède",
+          "player": "Alexander Isak",
+          "minute": 30
+        },
+        {
+          "type": "goal",
+          "team": "Tunisie",
+          "player": "Omar Rekik",
+          "minute": 43,
+          "assist": "Hannibal Mejbri"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Tunisie",
+          "player": "Rani Khedira",
+          "minute": 54
+        },
+        {
+          "type": "goal",
+          "team": "Suède",
+          "player": "Viktor Einar Gyökeres",
+          "minute": 59,
+          "assist": "Alexander Isak"
+        },
+        {
+          "type": "goal",
+          "team": "Suède",
+          "player": "Mattias Olof Svanberg",
+          "minute": 84,
+          "assist": "Lucas Erik Holger Bergvall"
+        },
+        {
+          "type": "goal",
+          "team": "Suède",
+          "player": "Yasin Ayari",
+          "minute": 90,
+          "addedTime": 6
+        }
+      ],
+      "updatedAt": "2026-06-17T17:59:24.747Z"
+    },
+    {
+      "matchId": 13,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Arabie saoudite",
+          "player": "Abdulelah Ali A Alamri",
+          "minute": 41
+        },
+        {
+          "type": "yellow_card",
+          "team": "Arabie saoudite",
+          "player": "Abdulelah Ali A Alamri",
+          "minute": 44
+        },
+        {
+          "type": "goal",
+          "team": "Uruguay",
+          "player": "Maxi Javier Araújo Vilches M.",
+          "minute": 80
+        }
+      ],
+      "updatedAt": "2026-06-17T18:05:18.991Z"
+    },
+    {
+      "matchId": 14,
+      "status": "FT",
+      "events": [
+        {
+          "type": "yellow_card",
+          "team": "Cap-Vert",
+          "player": "Sidny Sidny Lopes Cabral",
+          "minute": 16
+        },
+        {
+          "type": "yellow_card",
+          "team": "Espagne",
+          "player": "Pedro Pedri",
+          "minute": 90,
+          "addedTime": 3
+        }
+      ],
+      "updatedAt": "2026-06-17T18:05:55.996Z"
+    },
+    {
+      "matchId": 15,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Nouvelle-Zélande",
+          "player": "Elijah Henry Just",
+          "minute": 7,
+          "assist": "Chris Grant Wood"
+        },
+        {
+          "type": "goal",
+          "team": "Iran",
+          "player": "Ramin Rezaeiansemeskandi",
+          "minute": 32
+        },
+        {
+          "type": "goal",
+          "team": "Nouvelle-Zélande",
+          "player": "Elijah Henry Just",
+          "minute": 55,
+          "assist": "Chris Grant Wood"
+        },
+        {
+          "type": "goal",
+          "team": "Iran",
+          "player": "Mohammad Mohebbi M.",
+          "minute": 64,
+          "assist": "Ramin Rezaeiansemeskandi"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Iran",
+          "player": "Ehsan Haji Safi E.",
+          "minute": 89
+        }
+      ],
+      "updatedAt": "2026-06-17T18:23:32.992Z"
+    },
+    {
+      "matchId": 16,
+      "status": "FT",
+      "events": [
+        {
+          "type": "yellow_card",
+          "team": "Égypte",
+          "player": "Marawan Attia Fahim Ghallab M.",
+          "minute": 13
+        },
+        {
+          "type": "yellow_card",
+          "team": "Belgique",
+          "player": "Timothy Castagne",
+          "minute": 14
+        },
+        {
+          "type": "goal",
+          "team": "Égypte",
+          "player": "Emam Ashour Metwaly Abdelghany E.",
+          "minute": 19,
+          "assist": "Mohamed Salah Mahrous Ghaly M."
+        },
+        {
+          "type": "yellow_card",
+          "team": "Égypte",
+          "player": "Ahmed Mohamed Aboelfetouh Mohamed",
+          "minute": 34
+        },
+        {
+          "type": "goal",
+          "team": "Égypte",
+          "player": "Mohamed Hany Gamal Eldemerdash M.",
+          "minute": 66,
+          "isOwnGoal": true
+        },
+        {
+          "type": "yellow_card",
+          "team": "Belgique",
+          "player": "Maxim Peter M De Cuyper",
+          "minute": 75
+        }
+      ],
+      "updatedAt": "2026-06-17T18:35:57.705Z"
+    },
+    {
+      "matchId": 17,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "France",
+          "player": "Kylian Mbappe Lottin",
+          "minute": 66,
+          "assist": "Michael Akpovie Olise"
+        },
+        {
+          "type": "goal",
+          "team": "France",
+          "player": "Bradley Jean-Manuel Essolisa A Barcola",
+          "minute": 82,
+          "assist": "Adrien Thibault Marie Rabiot"
+        },
+        {
+          "type": "goal",
+          "team": "Sénégal",
+          "player": "Ibrahim Mbaye",
+          "minute": 90,
+          "addedTime": 5,
+          "assist": "Iliman Cheikh Baroy Ndiaye"
+        },
+        {
+          "type": "goal",
+          "team": "France",
+          "player": "Kylian Mbappe Lottin",
+          "minute": 90,
+          "addedTime": 6
+        }
+      ],
+      "updatedAt": "2026-06-17T18:49:22.044Z"
+    },
+    {
+      "matchId": 18,
+      "status": "FT",
+      "events": [
+        {
+          "type": "goal",
+          "team": "Norvège",
+          "player": "Erling Braut Haaland",
+          "minute": 29,
+          "assist": "David Møller Wolfe"
+        },
+        {
+          "type": "goal",
+          "team": "Irak",
+          "player": "Marko Jabbar Hussein Hussein",
+          "minute": 39,
+          "assist": "Amir Fouad Aboud Al-Ammari"
+        },
+        {
+          "type": "goal",
+          "team": "Norvège",
+          "player": "Erling Braut Haaland",
+          "minute": 43
+        },
+        {
+          "type": "goal",
+          "team": "Norvège",
+          "player": "Leo Skiri Østigård",
+          "minute": 76,
+          "assist": "Martin Martín Ødegaard"
+        },
+        {
+          "type": "yellow_card",
+          "team": "Irak",
+          "player": "Zaid Tahseen Abd Hantoosh",
+          "minute": 86
+        },
+        {
+          "type": "goal",
+          "team": "Irak",
+          "player": "Marko Jabbar Hussein Hussein",
+          "minute": 90,
+          "addedTime": 6,
+          "isOwnGoal": true
+        }
+      ],
+      "updatedAt": "2026-06-17T18:51:14.567Z"
+    }
+  ]
+}
